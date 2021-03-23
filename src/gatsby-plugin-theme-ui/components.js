@@ -28,13 +28,6 @@ import { Aligner, Video, Indent } from "@modules/utility/";
 import { AuthorRenderer } from "@modules/authors";
 
 import { Heading } from "../modules/ui/heading";
-import {
-  TDRegion,
-  TDStat,
-  TDDonut,
-  TDPie,
-  TDRadial,
-} from "@modules/transparency_dash";
 
 import {
   BlogHome
@@ -99,11 +92,6 @@ const Custom_Components = {
   Tout,
   Column,
   Video,
-  TDRegion,
-  TDStat,
-  TDDonut,
-  TDPie,
-  TDRadial,
   Authors: AuthorRenderer,
   motionDiv: motion.div,
   motionUL: motion.ul,

@@ -1,0 +1,253 @@
+---
+title: Unbounded Search
+order: 3
+hideLanguageSelector: true
+description: This brief describes Amazon - and Walmart - as specific kind of algorithms. In particular, it models Amazon as an unbounded search across the internet for the best sellers to fill its virtual, and therefore infinite, shelf space.
+featuredImage: ../images/shares/value.png
+---
+
+# 🌲 What is Amazon?
+
+Designing algorithms is nothing new. So, before we get all New Age crypto-economic, let's turn 
+to two of the most successful mechanisms designed in modern history: one business from just 
+before the internet, and one which was birthed as a result of it. This week, we're traveling 
+deep into the [fractal forests](/learn/module-4/consensus/#how-does-this-fit-into-kernel), and 
+there are miles to go before we sleep.
+
+<Column sx={{ gap:"10%"}}>
+
+<Box>
+
+**Unbounded Search**
+
+![Unbounded Search](/images/mod5-img/amazon.jpg)
+
+<Button to="https://zackkanter.com/2019/03/13/what-is-amazon/" >Read</Button>
+
+</Box>
+
+</Column>
+
+
+### How does the fit into Kernel?
+
+This essay has been selected to show how critical incentives are, especially in the age of 
+internet businesses and the unbounded search spaces over which they operate. Before writing 
+effective economic code owned by no-one which benefits everyone, we have to understand the most 
+successful mechanisms designed so far so that we can mimic their best parts and understand where 
+they can actually be improved. Seeing how algorithms, platforms and incentives operate together 
+will allow us to think more carefully about how to program our societies sustainably.
+
+## Brief
+
+Zack Kanter explores what Amazon *actually* is by beginning with the business it first modeled 
+itself on: Walmart. In order to understand the most successful commercial mechanism produced on 
+and by the internet, we need to understand its retail analogue.
+
+### Algorithms to sell by
+
+> "Few people outside of Walmart realize Walmart’s historical scope of innovation. It built the 
+largest private satellite communications network, enabling unprecedented coordination at 
+enormous scale. Computerized point of sale systems, a massive trucking fleet to enable 
+best-in-class logistics, innovations in EDI, the Sam’s Club format."
+
+That is, **Walmart can be thought of as a very simple formula** which optimizes for the 
+selection, pricing, and inventory of goods in a local store of some limited square footage.
+
+> "Sam Walton designed the Walmart algorithm: that is, a) “a wide assortment of good quality 
+merchandise”, b) offered “at the lowest possible prices,” c) backed by “guaranteed satisfaction” 
+and “friendly, knowledgeable service,” d) available during “convenient hours” with “free parking” 
+and “a pleasant shopping experience,” e) all within the largest, most convenient possible store 
+size and location permitted by local economics."
+
+Walmart became the best in the world at using retail square footage as effectively as possible, 
+stocking it with good quality merchandise at the lowest possible prices, and maintaining 
+sufficient inventory to satisfy the resulting customer demand.
+
+> "Walmart can be thought of as a **bounded search for the optimal selection**, inventory, and 
+pricing of SKUs that a **local market** could support. It was bound, or constrained, by the 
+characteristics of the local economy, and so each Walmart location was a direct reflection of 
+the local market dynamics [...] Higher-level managers were responsible for estimating the 
+optimal size and location of the building itself, and for choosing the best associates to manage 
+it. Each level of management had to manage their own level of the algorithm [...] This worked 
+incredibly well until 1994 when – almost overnight – the algorithm that Walmart had methodically 
+honed over the past three decades started to quietly work against it."
+
+### Fractal forests
+
+> "Jeff Bezos had a big realization in 1994: the world of retail had, up until then, been a 
+world where the most important thing was optimizing limited shelf space in service of satisfying 
+the customer – but that world was about to change drastically. The advent of the internet – of 
+online shopping – meant that an **online retailer had infinite shelf space**."
+
+This is the reason we go back and look at our roots - it leads to fascinating questions about 
+what fundamental shifts in media environments are *actually* all about. It's often non-intuitive: 
+who really cares about shelf space? Well, Bezos did and he's done fairly well as a result. Can 
+we find the next ordinary parameter which has been blown away by flat protocols for value and 
+write algorithms which not just enrich ourselves, but the entire community of people who use them?
+
+> 💡 Bezos built an unbounded Walmart. What does an unbounded state look like?
+
+> "In this world of infinite shelf space, it wasn’t the quality of the selection that mattered – 
+it was pure quantity [...] Amazon's algorithm – borrowed and modified from Walmart – was simple: 
+a) a vast selection, b) delivered fast, c) at the lowest possible prices, d) backed by guaranteed 
+satisfaction [...] They correctly hypothesized that because vendor selection was not important 
+in the world of infinite shelf space, Amazon itself – or, more accurately, its vendor onboarding 
+process – would be the bottleneck to growth [...] In its effort to remove this bottleneck, 
+Amazon opened its website to third party sellers."
+
+### Open the gates!
+
+Amazon has never got as good as Walmart at negotiating prices, but they don't *need to*, because 
+even if they 'lose' the price negotiation to a third party, they still gain a data point; the 
+customer stays on their site; and they charge a 12-15% commission. All they did at first was 
+systematically remove friction for sellers, doing small things like eliminating the UPC code 
+requirement that would serve as a barrier for newer, less established sellers.
+
+> "To make sense of what started to happen after Amazon rolled out Marketplace, you have to 
+understand that [things get really weird](/learn/module-1/promise-blockchains/#the-2010s-satoshis-vision) 
+when you run an unbounded search at internet-scale. When you remove “normal” constraints imposed 
+by the physical world, the scale can get so massive that all of the normal approaches start to 
+break down."
+
+Walmart had solved these almost-impossible problems for a business of its scale, and engineered 
+a genuine marvel of the modern world focused on thinking small to stamp out any possible 
+ineficiency and optimize its shelf space. **Amazon had to find a way of abdicating responsibility 
+for solving these problems altogether**.
+
+After solving the vendor bottleneck problem, the next issue raised by unbounded search and 
+infinite shelf space was computing power and data storage. Engineers had to wait weeks to get 
+servers provisioned etc. So, Amazon began to build a platform that would allow its software 
+engineers to provision on-demand resources immediately. Moreover, they couldn't develop features 
+on the website fast enough to take advantage of all the merchandising opportunities.
+
+> In a radical move, the platform – Amazon’s own technological infrastructure – would be made 
+available to external developers, too. It would be called Amazon Web Services [...] In a similarly 
+radical move, Bezos decided to expose Amazon’s entire product catalog via an API so that any 
+software developer, internal or external, could access Amazon’s catalog and use the SKU data, 
+within reason, in any way they saw fit.
+
+This should remind you of Andreas Antonopoulos' point about 
+how [we're in the midst of a move from closed organizations, to platforms accessible through APIs, to open protocols](/learn/module-0/money-language/#open-protocols-and-a-network-of-value). 
+Platforms spring up as a necessity borne from unbound searches running at internet scale.
+
+> "Circa 2002, we start to see the emergence of a pattern: 1) Amazon had encountered a 
+bottleneck to growth, 2) it had determined that some internal process or resource was the 
+bottleneck, 3) it had realized that it could not possibly develop and deploy enough resources 
+internally to remove that bottleneck, so 4) it instead removed the bottleneck by building an 
+interface to allow the broader market to solve it en masse. This exact pattern was repeated with 
+vendor selection (Amazon Marketplace), technology infrastructure (Amazon Web Services, or AWS), 
+and merchandising (Amazon’s Catalog API).
+
+### Platforms are the algorithm
+
+Walmart built Retail Link to share its inventory levels and internal projections with vendors. 
+However, there is a crucial difference: lock-in. Because the suppliers who want to sell through 
+Walmart must use Retail Link, there's no external pressure to keep improving the service. 
+
+> "When a service has captive customers, it will degrade compared to market alternatives."
+
+Amazon faced this problem with AWS, but solved it by opening up the platform to all customers 
+and *itself becoming a customer of AWS*. It thus solved its own technological bottleneck without 
+falling into the trap of vertical integration. 
+
+> "In 2002, Jeff Bezos had the most important insight he would ever have: in the world of infinite 
+shelf space – and platforms to fill them – the limiting reagent for Amazon’s growth would not be 
+its website traffic, or its ability to fulfill orders, or the number of SKUs available to sell; 
+**it would be its own bureaucracy.**
+
+> "Bezos issued an edict: *1) All teams will henceforth expose their data and functionality 
+through interfaces, 2) teams must communicate with each other through these interfaces, 3) all 
+interfaces, without exception, must be designed from the ground up to be exposed to developers 
+in the outside world, and 4) anyone who doesn’t do this will be fired.*"
+
+> 💡 Platforms became Amazon’s answer to every growth obstacle it encountered. Platforms became 
+part of the algorithm.
+
+> "Bezos designed Amazon’s algorithm. His first stroke of genius was in making it unbounded; his 
+second – the masterstroke – was devising a solution to the bureaucratic complexity that would 
+have otherwise caused it to implode. Instead of being a bureaucratic liability, Amazon’s sprawl 
+would become a massive surface area of customer contact from which Amazon could spawn dozens of 
+revenue streams."
+
+### Unsolved: advertising
+
+With infinite shelf space, the next big problem is *discoverability*. Typically, this was 
+answered with a platform: Amazon Advertising. "Sponsored Products" go at the top of search, 
+help sellers get in front of customers, help customers find the latest and greatest goods, and 
+generate pure revenue for Amazon - $8bn of it.
+
+However, this is not actually good for customers - it's only good for sellers who are good at 
+advertising, favoring products with the highest gross margin, not those which are necessarily 
+best for the customer. People can't readily distinguish between organic search and sponsored 
+products and so are unlikely to be buying the optimal product. Large, sponsored listings drag 
+the average quality of products sold closer to mediocrity, and further from greatness.
+
+Zack suggests a lifespan on product reviews as a possible solution, though this seems like a 
+temporary patch on a systemic issue. Moreover, he highlights how Amazon is likely addicted to 
+that $8bn in revenue, which sponsors over 1/3 of its R&D budget.
+
+> "This is an absolutely devastating misstep for Amazon’s retail business. This isn’t “just” 
+search results; search results are the entire driver of Amazon’s retail engine. Remember that 
+in the world of infinite shelf space, the ranking algorithm is practically the entire 
+merchandising strategy. Organic, customer-centric product rankings – the strategy that brought 
+Amazon to $250 billion in retail revenue – has been permanently distorted [...]
+
+> This misstep is symptomatic of the weirdness that eventually happens when an unbound search 
+runs across such a massive problem space [...] As soon as a system’s rules are understood, it 
+will be gamed according to the rules that have been created."
+
+While Amazon's catalog continues to grow day by day, the number of top slots does not. Growing 
+competition puts enormous pressure on the whole system and incentivizes bad-actor tactics. 
+
+### The opportunity
+
+> "Amazon has not yet figured out how to extend its internal incentive structure – the incentive 
+structure that has been so successful in keeping the company customer-obsessed – to its external 
+platform participants: the sellers [...] The point is that two years ago, it was hard to think 
+of even theoretical ways that Amazon could have been caught; today, there is an opening – a real 
+one, of meaningful size."
+
+Of course, it seems unlikely that anyone other than Amazon will disrupt Amazon given the open, 
+platform-driven algorithm Bezos stumbled upon and formalized around 2002. However, it's critical 
+to note how powerful incentives really are - indeed, so powerful that they present the only 
+meaningful means of competing with a business the size of Amazon. 
+
+> "So, what is Amazon? It started as an unbound Walmart, an algorithm for running an unbound 
+search for global optima in the world of physical products. It became a platform for adapting 
+that algorithm to any opportunity for customer-centric value creation that it encountered. If it 
+devises a way to keep its incentive structures intact as it exposes itself through its 
+ever-expanding external interfaces, it – or its various split-off subsidiaries – will dominate 
+the economy for a generation. And if not, it’ll be just another company that seemed unstoppable 
+until it wasn’t."
+
+### Further references
+
+The first section's title is a riff on a great book which you should read if you're interested 
+in algorithms. If specifically internet age algorithms are more your thing, take a look over the 
+latest TikTok controversy from a slightly different perspective.
+
+<Column sx={{ gap:"10%"}}>
+
+<Box>
+
+**Algorithms to Live By**
+
+![Algorithms to Live By](/images/mod5-img/algo-live.jpg)
+
+
+<Button to="https://www.goodreads.com/book/show/25666050-algorithms-to-live-by" >Read</Button>
+
+</Box>
+
+<Box>
+
+**TikTok**
+
+![TikTok](/images/mod5-img/tiktok.png)
+
+<Button to="https://stratechery.com/2020/the-tiktok-war/" >Ruminate</Button>
+
+</Box>
+
+</Column>

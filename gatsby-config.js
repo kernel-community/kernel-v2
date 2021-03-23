@@ -11,11 +11,11 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: `MakerDAO Community Portal`,
-    description: `A Community of developers, designers, innovators, and just about everything cool under the sun. Come join our team!`,
-    author: `MakerDAO Commuminty Development Team`,
+    title: `Kernel`,
+    description: `A curated community of brilliance in web3.`,
+    author: `Kernel Community Team`,
     copyright: "",
-    siteUrl: "https://community-development.makerdao.com/",
+    siteUrl: "https://kernel.community/",
   },
   plugins: [
     "gatsby-plugin-theme-ui",
@@ -249,8 +249,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `MakerDAO Community Portal`,
-        short_name: `MKD Comm Portal`,
+        name: `Kernel Community`,
+        short_name: `Kernel`,
         start_url: `/`,
         background_color: "#291a42",
         theme_color: "#5AE2CA",

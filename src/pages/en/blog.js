@@ -161,7 +161,7 @@ const BlogHome = ({data}) => {
 				mb: ['66px', '50px', '50px'],
 				textAlign: 'center'
 			}}>
-			{t('Maker_Community_Blog')}
+			{t('Community_Blog')}
 			</h1>
 			
 			<Flex sx={{

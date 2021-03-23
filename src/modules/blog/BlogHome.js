@@ -9,7 +9,7 @@ const BlogHome = () => {
 	return (
 		<div>
 			
-			<h3>Maker Community Blog</h3>
+			<h3>Kernel Community Blog</h3>
 			
 			<ul>
 				<li>Home</li>
