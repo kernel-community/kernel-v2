@@ -24,7 +24,7 @@ Ikkyu explain best:
 *Only one koan matters*  
 *You*  
 
-<Column sx={{ gap:"10%"}}>
+<InfoBlock>
 
 <Box>
 
@@ -32,21 +32,32 @@ Ikkyu explain best:
 
 ![Tell Me Who You Are!](/images/mod4-img/who-are-you.png)
 
-<Button to="https://medium.com/humanizing-the-singularity/part-i-are-you-sure-you-exist-we-are-5cfe13ab488c">Read</Button>
+<Aligner center>
+<Button to="https://medium.com/humanizing-the-singularity/part-i-are-you-sure-you-exist-we-are-5cfe13ab488c">
+    Read
+</Button>
+</Aligner>
 
 </Box>
 
-</Column>
+</InfoBlock>
 
 ## How does this fit into Kernel?
 
 This essay has been chosen because it identifies a critical practice of the internet age: 
 personal identity. In particular, it will help you deepen your own approach to 
 
-1. Asking informed questions
-3. Censorship resistant and future-proof thinking
-4. Incentives and seeing how they effect literally everything
-5. Understanding the underrated importance of accountability
+<Process>
+
+Asking informed questions
+
+Censorship resistant and future-proof thinking
+
+Incentives and seeing how they effect literally everything
+
+Understanding the underrated importance of accountability
+
+</Process>
 
 ## Brief
 
@@ -86,39 +97,52 @@ on this course?!
 psychological models of our identity. What are the areas where software is doing a good job of 
 describing identity? Let's look at four cases:"
 
-1. **Credit Ratings** - sum up huge amounts of information about your financial (and perhaps 
+<Process>
+
+**Credit Ratings** - sum up huge amounts of information about your financial (and perhaps 
 social) behavior, and reduce it to a number which estimates risk of default. The problem is that 
 in any model of “people like you,” every data point is a cultural decision about whether, for 
 this person, the value is True or False. So we must ask: is information about “people like you” 
 also information about you, or is it simply an accumulated stereotype?
-2. **Social Networks** - i.e. the maps of who we read, write messages to, and consider ourselves 
+
+**Social Networks** - i.e. the maps of who we read, write messages to, and consider ourselves 
 kin to. The ghostly spirits of these micro-societies inform important parts of our identity and 
 allow us to have conversations not otherwise possible: "there are things I will simply never 
 hear myself say except as part of a discussion with those little square faces." Which is strange, 
 because this "intersubjectivity exists inside of a platform where I have very little control. 
 It feels like a piece of my identity which is held hostage and at risk: if Twitter goes away, a 
 piece of my political voice ceases to exist."
-3. **Names** - "[Documentally](http://documentally.com/) is a good example, in that people use 
+
+**Names** - "[Documentally](http://documentally.com/) is a good example, in that people use 
 his given name with a certain strangeness, a sense of referring to something not quite for 
 public use. The man and the brand are interpenetrated." Vinay goes on to talk about the brand of 
 *Linus says...* and the effect it's had on software development. "A collection of identities 
 more or less like Linus more or less run the internet — systems like the IETF probably could not 
 function without the tools that support these blended representations of identity and authority."
-4. **Surveillance Databases** - "What’s interesting about this version of our identity, apart 
+
+**Surveillance Databases** - "What’s interesting about this version of our identity, apart 
 from its completeness, is that we — the subject — cannot see it. We can infer from the Snowden 
 revelations that the national security databases have access to most or all of our social media, 
 web surfing habits, financial and health records and more [...] This is an identity not made of 
 what we know, but of what others know about us."  
 
+</Process>
+
 These all frame deep questions about how, when and why identity and software intersect.
 
-1. Is information about you, which you have no access or control over, part of your identity? 
+<Process>
+
+Is information about you, which you have no access or control over, part of your identity? 
 Or is that information somebody else’s story?
-2. How does unconscious knowledge about us and our behavior factor into our identity? There are 
+
+How does unconscious knowledge about us and our behavior factor into our identity? There are 
 lots of things that we do not know about ourselves, but that others know about us, that are 
 clearly parts of our identity from their perspective, but outside of our awareness.
-3. The algorithms used to cluster people by modern institutions **actually create** large parts 
+
+The algorithms used to cluster people by modern institutions **actually create** large parts 
 of the “identity” which is being stored about us.
+
+</Process>
 
 ### The art of the possible
 
@@ -193,6 +217,10 @@ just does not seem to have the kinds of properties we want our societies to have
 
 So, what are our options for future-proof identity which works for, rather than against, us?
 
+<Process>
+
+<Box>
+
 #### 1. **Total transparency** 
 
 Which will lead us into Genetic
@@ -210,6 +238,10 @@ technology comes with a set of decisions about how we will integrate it into our
 societies, and culture [...] We must negotiate with each incoming possible future, and 
 individually or collectively adopt or ignore the offers that these futures make us."
 
+</Box>
+
+<Box>
+
 #### 2. **Blockchains, biometrics, encryption**
 
 Apple Touch ID meets Bitcoin may seem convenient now, but when each technology independently 
@@ -220,6 +252,10 @@ and understanding of computing power - will be obsolete sooner than we think. Th
 put sensitive information on a blockchain and encrypt it, it is unlikely we can encrypt it well 
 enough to keep it safe for even the next 30 to 50 years.
 
+</Box>
+
+<Box>
+
 #### 3. **Wise as serpents**
 
 We have arrived at the crux of the whole essay, which boils down to these three questions for 
@@ -228,6 +264,10 @@ future-proofing our systems:
 1. What does the world really need to know about us?
 2. What do specific agencies really need to know about us?
 3. Can we get through life revealing less about ourselves, using these technologies?
+
+</Box>
+
+</Process>
 
 If we consider these closely and agree that putting identifying information on chain - even if 
 its encrypted - it's not such a hot idea, then we can get to what Vinay calls
@@ -255,19 +295,32 @@ change will not break your model.
 
 > "I believe in a simple division of the identity space into two parts.
 
-> 1. Profiles
-> 2. Actions
+<Process>
 
-> **Profiles** are a set of stories that somebody has about me. These might include things like 
+<Box>
+
+**Profiles**
+
+> are a set of stories that somebody has about me. These might include things like 
 medical records. I’m describing these as stories because I, as an individual, have no idea what 
 is in your profile of me. I cannot validate it. I might not even know it exists, and it might be 
 filled with utter nonsense. Your profile is your business, even if its about me.
 
-> **Actions** are a log of the places where I have made choices. These would typically be key 
+</Box>
+
+<Box>
+
+**Actions**
+
+> are a log of the places where I have made choices. These would typically be key 
 life decisions, like signing an employment contract or mortgage, where the evidence that the 
 signature was valid and accepted is a visible flow of money, ideally across the blockchain 
 itself. In all cases actions ideally lead to a stream of payments into or (better still) out of 
 an account, something which shows that the contract was actually performed."
+
+</Box>
+
+</Process>
 
 This is a simple, but profound way to consider a very complex problem. Currently, profiles and 
 actions are inextricably mixed up, because someone else needs to verify your actions.
@@ -298,8 +351,13 @@ is one of the most unholy pacts made in our time."
 
 To get out of this hole we have to find:
 
-1. New way of paying for services, and
-2. New ways of identifying ourselves
+<Process>
+
+New way of paying for services, and
+
+New ways of identifying ourselves
+
+</Process>
 
 > "I’ve made the case that **action-based** rather than profile-based identities are possible 
 for a large subset of adults [...] The result of this 'wise as a serpent' approach might be a 

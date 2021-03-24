@@ -1,5 +1,5 @@
 ---
-title: Serenity
+title: Serenely
 order: 3
 hideLanguageSelector: true
 description: A summary of the Ethereum 2.0 Design Rationale as ideological heir to the cypherpunk spirit of defender's advantage and a discussion of why Proof of Stake eliminates various critical conflicts of interests, allowing us to build and maintain a planetary-scale incentive machine anyone can use and no-one owns.
@@ -12,7 +12,7 @@ You've finally reached the tranquil waters of Eth2 - congratulations! Like the n
 describes, this post will be completed in some indefinite series of stages over the next 
 "little while". Please check back here periodically for at least a few years.
 
-<Column sx={{ gap:"10%"}}>
+<InfoBlock>
 
 <Box>
 
@@ -20,11 +20,15 @@ describes, this post will be completed in some indefinite series of stages over 
 
 ![Design Rationale](/images/ethereum.png)
 
-<Button to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view">Read</Button>
+<Aligner center>
+<Button to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view">
+    Read
+</Button>
+</Aligner>
 
 </Box>
 
-</Column>
+</InfoBlock>
 
 ### How does this fit into Kernel?
 
@@ -56,21 +60,29 @@ of economic penalties.
 Just as [we did for Kernel](/learn/getting-started/#kernel-principles), Vitalik begins Eth2's 
 design rational with a series of core principles:
 
-- **Simplicity**: given the inherent complexity of such networks, this (i) minimizes 
+<Process>
+
+**Simplicity**: given the inherent complexity of such networks, this (i) minimizes 
 development costs, (ii) reduces the risk of unforeseen security issues, and (iii) helps 
 protocol designers to more easily convince users that parameter choices are legitimate. 
 When complexity is unavoidable to achieve a given level of functionality, the preference order 
 for where the complexity goes is: layer 2 protocols → client implementations → protocol spec.
-- **Long-term stability**: the low levels of the protocol should ideally be built so that there 
+
+**Long-term stability**: the low levels of the protocol should ideally be built so that there 
 is no need to change them for a decade or longer.
-- **Sufficiency**: it should be possible to build *any class* of applications on top of the 
+
+**Sufficiency**: it should be possible to build *any class* of applications on top of the 
 protocol.
-- **Defense in depth**: the protocol should continue to work as well as possible under a 
+
+**Defense in depth**: the protocol should continue to work as well as possible under a 
 variety of possible security assumptions (network latency, fault count, the motivations of 
 users etc.)
-- **Full light-client verifiability**: given some assumptions, a client verifying `O(c)` 
+
+**Full light-client verifiability**: given some assumptions, a client verifying `O(c)` 
 data should be able to gain indirect assurance that all of the data in the full system is 
 available and valid, even under a 51% attack.
+
+</Process>
 
 In our [very first note](/learn/module-0/play-of-pattern), we made the point that our way of 
 thinking and solving problems _always_ has to do with trade-offs. The trade-off between 
@@ -224,28 +236,42 @@ Vitalik then discusses some of the technical choices favored in the design, like
 (which are easy to aggregate) and SSZ (a simpler serialization suite which aligns with the 
 principle of **simplicity**). We'll summarize very briefly here.
 
-1. **32 ETH** minimum deposits <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Why-32-ETH-validator-sizes" >strike a good balance</Link> 
+<Process>
+
+**32 ETH** minimum deposits <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Why-32-ETH-validator-sizes" >strike a good balance</Link> 
 between decentralization / finality time / message overhead. This is a trade-off because the 
 size of deposits defines the total possible number of validators (smaller deposits = more 
 validators), which increases decentralization at the cost of message overhead, and potentially 
 finality time.
-2. Various techniques around **random sampling** for different committees are discussed, 
+
+Various techniques around **random sampling** for different committees are discussed, 
 including Verifiable Delay Functions and the 
 current <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Shuffling" >swap-or-not</Link> 
 algorithm used to shuffle the validator set and assign responsibilities every epoch.
-3. The **LMD GHOST fork choice rule**, which incorporates information from all validators, 
+
+The **LMD GHOST fork choice rule**, which incorporates information from all validators, 
 hundreds in each slot, making it extremely unlikely in the normal case that even a single 
 block will be reverted.
-4. The **beacon chain and shard structure** is described, along with reasons for not going with a different design, such as 
-    1. Having distinct shard chains and linking them into the beacon chain more rarely. This was rejected to allow for fast (single-slot) base-layer cross-shard communication capability. See <Link to="https://notes.ethereum.org/@vbuterin/HkiULaluS" >here</Link> for more.
-    2. Not having a beacon chain, and connecting shard chains to each other in some other structure. This was rejected to maintain **simplicity**. The hub-and-spoke beacon chain structure with a hierarchical fork choice is simpler to implement and reason about.
-5. The **proof of custody game**, which revolves around validators needing to produce "period sub-keys" 
+
+<Box>
+
+The **beacon chain and shard structure** is described, along with reasons for not going with a different design, such as 
+1. Having distinct shard chains and linking them into the beacon chain more rarely. This was rejected to allow for fast (single-slot) base-layer cross-shard communication capability. See <Link to="https://notes.ethereum.org/@vbuterin/HkiULaluS" >here</Link> for more.
+2. Not having a beacon chain, and connecting shard chains to each other in some other structure. This was rejected to maintain **simplicity**. The hub-and-spoke beacon chain structure with a hierarchical fork choice is simpler to implement and reason about.
+
+</Box>
+
+The **proof of custody game**, which revolves around validators needing to produce "period sub-keys" 
 such that they can prove they were not lazily verifying data. This creates a disincentive so 
 as to overcome the validator's dilemma mentioned above.
-6. The **validator lifecycle**, which involves depositing, activating, exiting, withdrawing 
+
+The **validator lifecycle**, which involves depositing, activating, exiting, withdrawing 
 and the reason for using a more convenient construction of "effective balance" for validators.
-7. Finally, Vitalik describes **fork choice rule** - because the ability to exit the network 
+
+Finally, Vitalik describes **fork choice rule** - because the ability to exit the network 
 at any stage is critical to the system's game theoretic equilibria.
+
+</Process>
 
 ### The Positive Sum
 
