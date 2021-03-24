@@ -5,7 +5,7 @@ import { Box, jsx } from "theme-ui";
 //This video component is a basic recreation of what the remark-gatsby-video plugin creates.
 //We inline the allowances and styles as needed, but this can be used for anything that can be embed into an iframe.
 const Video = ({ src, title }) => (
-  <Box sx={{ pb: "50%", position: "relative", height: 0, overflow: "hidden" }}>
+  <Box sx={{ pb: "50%", position: "relative", height: 0, overflow: "hidden", marginBottom: 4 }}>
     <Box>
       <iframe
         src={src}
@@ -17,7 +17,7 @@ const Video = ({ src, title }) => (
           position: "absolute",
           top: 0,
           left: 0,
-          width: "100%",
+          width: "90%",
           height: "100%",
         }}
       ></iframe>

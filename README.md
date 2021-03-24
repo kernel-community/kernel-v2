@@ -21,7 +21,7 @@ yarn start
 
 ## Roadmap
 
-This is a **rough outline** of the next steps to meet the vision above. Many of these steps can/may happen in parallel. All of them will be detailed in epics.
+This is a **rough outline** of the next steps to meet the vision above. Many of these steps can/may happen in parallel. All of them will be detailed in our project board.
 
 - [ ] Fix all current styling issues to make this new site match closely the old one.
 - [ ] Model smart contracts fully and write a formal spec. Figure out checkpoint verification mechanism.
@@ -33,4 +33,4 @@ This is a **rough outline** of the next steps to meet the vision above. Many of 
 - [ ] Build `redeem` React component and do all the testing on Kovan/Ropsten/whatever test net.
 - [ ] **Much wow!**
 
-While we may or may not stick to the plan above, you can be sure that our intention is to launch Kernel V2 is _Soon™️_.
+While we may or may not stick to the plan above, you can be sure that our intention is to launch Kernel V2 _Soon™️_.

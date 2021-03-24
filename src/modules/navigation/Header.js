@@ -151,17 +151,7 @@ const HeaderNav = ({ headerLinks, hideMenu }) => {
           {t("Blog")}
         </Link>
         <Link
-          to={"https://forum.makerdao.com/"}
-          hideExternalIcon
-          sx={{
-            fontWeight: "normal",
-            flexShrink: 0,
-          }}
-        >
-          {t("Forum")}
-        </Link>
-        <Link
-          to={"https://chat.makerdao.com/"}
+          to={"https://kernel-community.slack.com/"}
           hideExternalIcon
           sx={{
             fontWeight: "normal",
