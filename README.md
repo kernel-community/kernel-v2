@@ -19,6 +19,8 @@ yarn
 yarn start
 ```
 
+Check out the `fork-me` directory under `content/en` for everything you could possibly need to know about how to work with this site, from a cheatsheet and component palette, to detail about how translations, search, and navigation are handled.
+
 ## Roadmap
 
 This is a **rough outline** of the next steps to meet the vision above. Many of these steps can/may happen in parallel. All of them will be detailed in our project board.
