@@ -6,7 +6,7 @@ const Table = ({ children }) => (
     sx={{
       borderCollapse: "collapse",
       fontSize: 3,
-      textAlign: "center",
+      textAlign: "left",
       "& td": {
         color: "textMuted",
         border: "1px solid",

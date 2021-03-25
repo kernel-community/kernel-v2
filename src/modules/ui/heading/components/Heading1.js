@@ -13,7 +13,7 @@ export default function Heading1(props) {
         fontWeight: "500",
         fontFamily: "heading",
         color: "text",
-        marginTop: "48px",
+        marginTop: "18px",
         marginBottom: "32px",
       }}
       {...props}

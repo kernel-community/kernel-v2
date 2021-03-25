@@ -316,15 +316,6 @@ export default {
 
     codeBG: "#4D4968",
     codeText: "#FFFFFF",
-
-    transDash_bodyColor: "#333",
-    transDash_headlineColor: "#291A42",
-    transDash_makerOrange: "#F5B13D",
-    transDash_pieBG: "hsl(152, 45%, 94%)",
-    transDash_radialOrangeBG: "rgba(245, 177, 61, 0.3)",
-    transDash_radialTealBG: "rgba(28, 172, 156, 0.6)",
-    transDash_regionBG:
-      "linear-gradient(rgb(248, 237, 216), rgb(244, 227, 194))",
   },
   text: {
     text: {
