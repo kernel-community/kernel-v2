@@ -37,9 +37,9 @@ demonstration of the power of generality...
 just create a **general-purpose operating system** and you let people build whatever they want 
 as applications on top of it."
 
-Ethereum is a blockchain, with a few additions:
+Ethereum is a blockchain with a few unique features:
 
-- Built-in Turing-complete scripting language - essentially hybrid between standard VM 
+- Built-in Turing-complete scripting language - essentially a hybrid between standard VM 
 architectures, Bitcoin script and a "few other things".
 - People can write programs in this script, or high level languages that compile down to this 
 script, take these compiled scripts, put them into transactions and send them to the blockchain. 
@@ -59,9 +59,25 @@ sitting on one computer, **except the computer is massively globally distributed
 a highly secure network backed by tens of thousands computers around the world.** It's bold 
 because it's important."
 
-However, this raises the spectre of "The Halting Problem", which Vitalik explains as being 
-solved by gas: a fee for every computational step the computer must take, where there is a 
-limit to computational steps possible per block.
+However, this raises the spectre of "The Halting Problem". If you have a general scripting language, then what is to stop someone writing a program which does not terminate (or halt), taking up all the computer's resources and preventing anyone else from using it? Vitalik explains how this is solved by "gas": a fee charged for every computational step the computer must take, where there is a limit to computational steps possible per block.
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: Ethereum's state is defined as a...?
+
+A: key value mapping addresses to account objects.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
 
 ### Virtual Economy
 
@@ -78,6 +94,24 @@ further information on receipts and logs and why logs are cheaper and allow for 
 light-client access. Although it may sound boring, this is the heart of how we build 
 censorship-resistant tools.
 
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: How do we prevent a blockchain with a Turing-complete script from halting?
+
+A: By charging "gas" for every computational step and limiting the amount of gas consumed per block, preventing infinite loops and other attacks.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
 This is followed by a description of the **Ethereum Virtual Machine**:
 
 - Stack - up to 1024 32-byte fields.
@@ -90,16 +124,12 @@ hash etc.
 - Logs - append-only storage in a specific block, not in state.
 - Sub-calling - opcode by which VM can itself call other contracts.
 
-Vitalik then discusses ABI and RLP (recursive length prefix) encoding "for people who are set 
+Vitalik then discusses ABI (application binary interface) and RLP (recursive length prefix) encoding "for people who are set 
 theory geeks". It may seem boring, but it is a demonstration of the early culture and how the 
 people who built all this stuff really think. He follows this with an explanation of memory-hard 
-algorithms for mining and why they were an innovation. Again, worth listening to for cultural 
-context, but 23:50 - 28:57 is now a bit outdated.
+algorithms for mining and why they were an innovation; emphasises the fast block time (17s); and discusses "uncles", which solve the stale rates of blocks that arise due to network latency.. It's worth listening to for cultural context, but 23:50 - 28:57 is now a bit outdated.
 
-Vitalik also emphasises the fast block time (17s) and discusses uncles - which solve the "stale 
-rates" of blocks that arise due to network latency.
-
-He makes the critical point that merkle tries are "a construction that allows for compact, 
+Vitalik makes the critical point that merkle tries are "a construction that allows for compact, 
 efficiently-verifiable proofs that a particular transaction was included in a particular block." 
 It's not just transactions in the Merkle trie though; it's the state too: i.e. that storage 
 trie root we talked about in the account object earlier.
@@ -109,17 +139,35 @@ shared state reveals why intimacy with low-level technical details allows one to
 comprehensive conceptual picture of how it all ties together, and what meanings any technology 
 can be used to build.
 
+What kinds of meaning exactly? Well, [language itself is composed out of tree-like deep structures](https://www.goodreads.com/book/show/5755.The_Language_Instinct). It is these basic, but extraordinarily powerful, combinatorial patterns which allow very young human beings to learn and use an almost infinitely complex phenomenon with such ease, even as their brains are still developing. More prosaically, every word is a tree, with its roots tracing through endless other words and languages and people, and its branches reaching into any number of unique interpretations in times and contexts yet to be discovered. Language is the only [logically decentralized](https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274) system we have, so it makes sense that the data structures which inform the next logically decentralized systems we co-create mirror that at the heart of how we currently communicate value.
+
 ### Generalised Compute
 
 So, you're less technical then Vitalik (i.e. all of us) and are wondering what this all really 
 means? Well, the critical point is this notion of a **general purpose operating system** - one, 
 monolithic virtual machine distributed across the world which is shared by everyone, owned by 
-no-one and which can't be turned off without also turning off the internet. Even with Bitcoin, 
-we got this feature that you could carry 12 magical words in your head across any border in the 
+no-one and which can't be turned off without also turning off the internet. With Bitcoin, 
+you can carry 12 magical words in your head across any border in the 
 world, incant them into an internet-connected machine and have immediate access to value. 
 
 Now, there is the possibility that you could pull down not just monetary value, but 
 _generalised compute_. That is, your 12 or 24-word mnemonic could be your entire personal OS, 
-which would be accessible from anywhere, if we can genuinely create a general-purpose shared 
-history machine which is capable of scaling across the globe. This is Vinay's unimaginable 
-strangeness scaled up another order of magnitude.
+which would be accessible from anywhere. Stop thinking of computers as a screen into which you type things from a keyboard. Start seeing the world itself as an infinitely programmable playground, access to which only requires a few magical words anyone, anywhere can create when they learn the basics of a new order of language.
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: The 12 or 24 words used to generate your private key and grant you access to a blockchain is called a \_\_\_\_\_\_\_\_?
+
+A: Mnemonic.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
