@@ -39,7 +39,7 @@ which anyone can use and no-one owns.
 
 What this [*means*](/learn/module-1/meaning/) for our networked species remains an 
 open [question](/learn/module-2/better-questions/). One thing seems clear: it is an upgrade 
-the likes of which is only seen once in a generation at most. You'll need to recall the 
+the likes of which is only seen once in an [age](/learn/module-2/debt/#virtual-money-coins-and-an-ancient-global-system). You'll need to recall the 
 arguments made in [value](/learn/module-1/value/) and [incentives](/learn/module-5/incentives) 
 to understand the design rationale for these next few scenes of 
 the [human](/learn/module-0/conversation/) [story](/learn/module-5/listening-stories/).
@@ -57,7 +57,7 @@ of economic penalties.
 
 ### Principled Layers
 
-Just as [we did for Kernel](/learn/getting-started/#kernel-principles), Vitalik begins Eth2's 
+Just as [we did for Kernel](/start/principled-people), Vitalik begins Eth2's 
 design rational with a series of core principles:
 
 <Process>
@@ -68,17 +68,17 @@ protocol designers to more easily convince users that parameter choices are legi
 When complexity is unavoidable to achieve a given level of functionality, the preference order 
 for where the complexity goes is: layer 2 protocols → client implementations → protocol spec.
 
-**Long-term stability**: the low levels of the protocol should ideally be built so that there 
+Long-term **stability**: the low levels of the protocol should ideally be built so that there 
 is no need to change them for a decade or longer.
 
 **Sufficiency**: it should be possible to build *any class* of applications on top of the 
 protocol.
 
-**Defense in depth**: the protocol should continue to work as well as possible under a 
+**Defense** in depth: the protocol should continue to work as well as possible under a 
 variety of possible security assumptions (network latency, fault count, the motivations of 
 users etc.)
 
-**Full light-client verifiability**: given some assumptions, a client verifying `O(c)` 
+Full light-client **verifiability**: given some assumptions, a client verifying `O(c)` 
 data should be able to gain indirect assurance that all of the data in the full system is 
 available and valid, even under a 51% attack.
 
@@ -107,6 +107,24 @@ are all areas of rapid innovation, which tilts the trade-off towards ensuring we
 some solution in the stone of our protocol spec for an area likely to develop extensively 
 over the next 10 years.
 
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: What are the five principles of the Eth2 Design Rationale?
+
+A: Simplicity, stability, sufficiency, defense, verifiability.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
 ### A Defender's Game
 
 Bitcoin was a major innovation - it's almost like time-travelers came back to 2009 and dropped 
@@ -130,6 +148,24 @@ inefficient. The cost of attack and cost of defense are at a 1:1 ratio, so there
 penalties [...] The “one-sentence philosophy” of proof of stake is thus not “security comes 
 from burning energy”, but rather “security comes from putting up economic value-at-loss”.
 
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: What kind of actor does cryptography favour fundamentally?
+
+A: (individual) defenders.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
 Consider Amazon's algorithm and how they solved unbounded search by turning everything into a 
 platform, only to find that [advertising is intractable to platform solutions](/learn/module-5/amazon-unbounded-search/#unsolved-advertising). 
 This is because the limited number of top spots on infinite-length shelves, and the crazy 
@@ -147,6 +183,26 @@ which define and encode what it means to cheat do no need to be [trusted](/learn
 protocols which define and encode penalties are **more likely to benefit all their users**. 
 This is because encoding rewards creates inevitably skewed incentives that only accrue to the 
 subset of network participants who are best placed to game the system required to earn them.
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: The cost of attacking or defending Proof of Work consensus is 1:1. Proof of Stake breaks this symmetry by relying on what, instead of rewards? This solves the conflict of interest between miners and users, because Eth2 validators and Eth2 users are more likely to be what?
+
+A: Penalties.
+
+The same people. 
+
+</Flex>
+
+</Chocolate>
+
+</Box>
 
 ### Proving Stake
 
@@ -175,29 +231,88 @@ validator failure - most of which are benign (like simply being offline) - and o
 which are genuinely malicious. Critically, **it is the trade-off between different penalties** 
 which informs how we structure rewards.
 
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: What kind of mechanism is used to ensure that attackers still pay a very high cost to break the chain's guarantees, assuming the worst-case model?
+
+A: Slashing (extra points if you said Casper the Friendly Finality Gadget).
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
 #### Aligning Incentives
 
 Validators must attest to what they believe to be the head of the chain in each epoch. If they 
-do so, they earn a **base reward**, which is split into 5 parts 
-described <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Base-rewards" >here</Link>. 
-There are two features to understand about this reward: how it prevents 
-"<Link to="https://raw.githubusercontent.com/ethereum/research/master/papers/discouragement/discouragement.pdf" >griefing</Link>", 
-and how it is calculated. 
+do so, they earn a **base reward**, which is split into 5 parts described <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Base-rewards">here</Link>. There are two features to understand about this reward: how it prevents "<Link to="https://raw.githubusercontent.com/ethereum/research/master/papers/discouragement/discouragement.pdf">griefing</Link>", and how it is calculated. 
 
-1. Griefing occurs when an attacker seeks to reduce other validators’ revenue, even at some 
+<Process>
+
+<Box>
+
+Griefing occurs when an attacker seeks to reduce other validators’ revenue, even at some 
 cost to themselves, in order to encourage the victims to drop out of the mechanism (either 
-so the attacker can get more revenue, or as part of a longer-term 51% attack). By multiplying 
-the **base fee *B*** with ***P***, the portion of validators that agree - and penalizing any 
-validator who doesn't with **−B** - we implement a *collective rewards scheme* where “if anyone 
-performs better, everyone performs better”. This bounds the griefing factors in an optimal way 
-and is the best example of [explicitly prosocial mechanism design](/learn/module-5/prosocial-value) 
-we know of in any blockchain.
+so the attacker can get more revenue, or as part of a longer-term 51% attack). 
 
-2. The **base fee** is proportional to the inverse square root of all deposits. This strikes a 
+> By multiplying the base reward **B** with **P** the portion of validators that agree, and penalizing any validator who doesn't with **−B**, we implement a **collective rewards scheme** where “if anyone performs better, everyone performs better”. This bounds the griefing factors in an optimal way and is the best example of [explicitly prosocial mechanism design](/learn/module-5/prosocial-value) we know of in any blockchain.
+
+</Box>
+
+The **base reward** is proportional to the inverse square root of all deposits. This strikes a 
 compromise between a *fixed reward rate* and a *fixed total reward*. The first creates too much 
 uncertainty about both issuance and the total level of deposits; the second potentially 
 incentivizes griefing more than can be disincentivzed by the collective scheme above. Again, 
 mechanism design is *all about balancing trade-offs*.
+
+</Process>
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: Multiplying the base reward **B** with the portion of validators who agree, while only penalizing those who disagree with **-B** is what kind explicitly prosocial scheme?
+
+A: Collective rewards.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: Making the base reward proportional to the inverse square root of all deposits strikes a balance between what two fixed quantities? If the reward rate were fixed, it would create too much uncertainty about what two things? If the total rewards were fixed, it would incentivize what kind of malicious behaviour?
+
+A: Reward rate and total rewards.
+
+Total issuance and total deposits (i.e. how much ETH is created over time, and how much we can reasonably expect to be staked).
+
+Griefing.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
 
 Rewards are designed this way *only as a result* of the thinking about how to penalize 
 different kinds of undesirable validator behaviour. Now that we understand this premise, we 
@@ -215,6 +330,26 @@ preventing blocks from being finalized and
 - Ensures that if more than 1/3 do go offline, eventually the portion online goes back up to 
 2/3 because of the declining deposits of the offline validators.
 
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: If everyone else is online, what percentage of time must I be online for to break even as a validator? If others start to go offline, does this increase or decrease?
+
+A: ~44.4%. 
+
+Increase (as there is a higher penalty if my being offline impacts the chain's ability to reach finality).
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
 So, we can handle elegantly the penalties for common and benign kinds of validator failures, 
 but what about actual attacks and/or malicious behaviour? If a validator is caught violating 
 the Casper FFG slashing condition
@@ -229,6 +364,24 @@ failures that are likely to be honest mistakes.
 - It ensures that smaller validators take on less risk than larger validators (in the normal 
 case, a large validator would be the only one failing at the same time as themselves).
 - It creates a disincentive against everyone joining the largest pool.
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: True or false: the collective reward scheme of **B * P** incentivises validators to pool their resources?
+
+A: False! We can now program collective rewards without sacrificing decentralization.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
 
 ### Technicalities
 
@@ -272,6 +425,28 @@ Finally, Vitalik describes **fork choice rule** - because the ability to exit th
 at any stage is critical to the system's game theoretic equilibria.
 
 </Process>
+
+<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Flashcard**
+
+Q: What three features does the 32 ETH validator deposit make a trade-off between?  
+
+What principle of the Design Rationale dictated the choice of a beacon chain, rather than distinct shards connected in some other manner?
+
+A: Decentralization, finality time, and message overhead.
+
+Simplicity.
+
+</Flex>
+
+</Chocolate>
+
+</Box>
 
 ### The Positive Sum
 
