@@ -1,8 +1,8 @@
 /** @jsx jsx */
+
 import { Fragment, useEffect, useRef } from "react";
 import { jsx, Box, Flex, useColorMode } from "theme-ui";
 import { Icon } from "@makerdao/dai-ui-icons";
-
 import { Link } from "@modules/navigation";
 import { useNavigation } from "@modules/navigation/context";
 import { useTranslation } from "@modules/localization";
@@ -143,7 +143,7 @@ const HeaderNav = ({ headerLinks, hideMenu }) => {
           </Link>
         ))}
         <Link 
-          to={'/blog'} 
+          to={"/blog"} 
           sx={{
             fontWeight: "normal",
             flexShrink: 0,
@@ -158,7 +158,7 @@ const HeaderNav = ({ headerLinks, hideMenu }) => {
             flexShrink: 0,
           }}
         >
-          {t("Chat")}
+          {t("Slack")}
         </Link>
       </Flex>
     </Fragment>
@@ -182,12 +182,14 @@ const Header = () => {
     } else {
       showMobileMenu();
     }
-
+    
+    // eslint-disable-next-line
     isShowingMenu = !mobileNavOpen;
   };
 
   const hideMenu = () => {
     if (mobileNavOpen) {
+      // eslint-disable-next-line
       isShowingMenu = false;
       hideMobileMenu();
     }
