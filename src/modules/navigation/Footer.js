@@ -115,9 +115,9 @@ const Footer = () => {
                   <li>
                     <Link
                       hideExternalIcon
-                      to={"https://docs.google.com/document/d/1jzC80rezK0bC75qVoEsg4Pn0Pw8XX0YO_4H6iw03bJ0/edit?usp=sharing"}
+                      to={"/blog/community/free-learn"}
                     >
-                      {t("Whitepaper", "Footer")}
+                      {t("FreeLearn", "Footer")}
                     </Link>
                   </li>
                   <li>
@@ -143,11 +143,6 @@ const Footer = () => {
               <li>
                 <span>{t("Community", "Footer")}</span>
                 <ul>
-                  <li>
-                    <Link hideExternalIcon to={"/team/"}>
-                      {t("Team", "Footer")}
-                    </Link>
-                  </li>
                   <li>
                     <Link hideExternalIcon to={"https://github.com/kernel-community/kernel-v2"}>
                       {t("Contribute", "Footer")}
