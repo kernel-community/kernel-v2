@@ -6,6 +6,8 @@
   "Search": "Search (Press \"/\" to focus)",
   "No_Results": "No results for '{{query}}'",
   "Home": "Home",
+  "Previous": "Previous",
+  "Next": "Next",
   "Page_Language_Selector": "Page Language Selector",
   "Available_Languages": "Available Languages",
   "LANGUAGES": "LANGUAGES",

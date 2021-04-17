@@ -13,6 +13,7 @@ import { StatusBanner } from "@modules/ui";
 import calculateTreeData from "@modules/navigation/calculateTreeData";
 import { SEO } from "@modules/utility";
 import { UrlConverter, getLocaleFromPath } from "@utils";
+import { Pager } from "../navigation/Pager";
 
 export default (props) => {
   const { locale, t, DEFAULT_LOCALE } = useTranslation();
@@ -231,6 +232,7 @@ export default (props) => {
         )}
       </Box>
       <MobileNav sidenavData={sidenavData} />
+      <Pager />
     </Fragment>
   );
 };
