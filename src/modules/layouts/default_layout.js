@@ -162,6 +162,7 @@ export default (props) => {
     contentWidthSubtract += 256;
   }
 
+
   return (
     <Fragment>
       {renderSidenav && (
@@ -219,6 +220,9 @@ export default (props) => {
           )}
         </Box>
         <Box>{children}</Box>
+
+        <Pager sidenavData={sidenavData} pagePath={pagePath} />
+
       </Box>
 
       <Box sx={{ position: "relative" }}>
@@ -232,7 +236,6 @@ export default (props) => {
         )}
       </Box>
       <MobileNav sidenavData={sidenavData} />
-      <Pager />
     </Fragment>
   );
 };
