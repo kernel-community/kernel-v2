@@ -146,6 +146,7 @@ export const Pager = (props) => {
         sx={{
           justifyContent: "space-between",
           py: ["20px", "20px", "14px"],
+          px: ["10px"],
           maxWidth: "1364px",
           margin: "0 auto",
           width: "100%",
