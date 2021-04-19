@@ -9,34 +9,38 @@ export function findPreviousAndNextSections(page, pagePath) {
   const formattedPagePath = dropRight(pagePath, 1).join("");
   let currentSection, nextSection, previousSection;
 
-  console.log({page, pagePath})
-
-  const handleNestedSectionItem = (nestedSectionItem, nestedIndex) => {
-    if (nestedSectionItem.url === formattedPagePath) {
-      currentSection = nestedSectionItem;
-      const previousNestedModule = nestedItems[nestedIndex - 1];
-
-      if (previousNestedModule) {
-        previousSection = previousNestedModule;
-      } else if (currentModule) {
-        previousSection = currentModule;
-      }
-
-      // if there's a next section in the nested data use that
-      const nextNestedModule = nestedItems[nestedIndex + 1];
-      if (nextNestedModule) {
-        nextSection = nextNestedModule;
-        // otherwise, use the next top-level module
-      } else {
-        nextSection = nextModule;
-      }
-    }
-  };
+  if (page.url === formattedPagePath) {
+    currentSection = page;
+    nextSection = sectionItems[0];
+  }
 
   const handleTopLevelSectionItem = (sectionItem, index) => {
     const previousModule = sectionItems[index - 1];
     const nextModule = sectionItems[index + 1];
     const currentModule = sectionItems[index];
+    const nestedItems = sectionItem.items;
+
+    const handleNestedSectionItem = (nestedSectionItem, nestedIndex) => {
+      if (nestedSectionItem.url === formattedPagePath) {
+        currentSection = nestedSectionItem;
+        const previousNestedModule = nestedItems[nestedIndex - 1];
+
+        if (previousNestedModule) {
+          previousSection = previousNestedModule;
+        } else if (currentModule) {
+          previousSection = currentModule;
+        }
+
+        // if there's a next section in the nested data use that
+        const nextNestedModule = nestedItems[nestedIndex + 1];
+        if (nextNestedModule) {
+          nextSection = nextNestedModule;
+          // otherwise, use the next top-level module
+        } else {
+          nextSection = nextModule;
+        }
+      }
+    };
 
     const getPreviousModule = () => {
       const previousModuleItemsLen = previousModule?.items?.length;
@@ -67,7 +71,6 @@ export function findPreviousAndNextSections(page, pagePath) {
     }
 
     if (sectionItem.items) {
-      const nestedItems = sectionItem.items;
       nestedItems.forEach(handleNestedSectionItem);
     }
   };

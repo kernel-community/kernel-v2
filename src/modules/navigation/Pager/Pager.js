@@ -4,6 +4,8 @@ import { Link } from "@modules/navigation";
 import styled from "@emotion/styled";
 import { Icon } from "@makerdao/dai-ui-icons";
 import { motion } from "framer-motion";
+import theme from "@src/gatsby-plugin-theme-ui/";
+import { Text } from "theme-ui";
 
 import { useTranslation } from "../../localization";
 import { useMemo } from "react";
@@ -17,12 +19,13 @@ const Wrapper = styled(Box)`
 
 const PagerButton = styled(Link)``;
 
-const PagerDirectionText = styled.p`
+const PagerDirectionText = styled(Text)`
   margin: 0;
   display: flex;
   align-items: center;
 `;
-const PagerModuleTitle = styled.h2`
+
+const PagerModuleTitle = styled(Text)`
   margin: 0;
 `;
 
@@ -82,7 +85,7 @@ export const Pager = (props) => {
     }
     return {};
   }, [currentSection, pagePath]);
-
+  console.log({ breaks: theme.breakpoints });
   return (
     <Wrapper>
       <Flex
@@ -103,7 +106,14 @@ export const Pager = (props) => {
                 color: "text",
               }}
             >
-              <PagerDirectionText>
+              <PagerDirectionText
+                sx={{
+                  fontSize: "1rem",
+                  "@media screen and (min-width: 640px)": {
+                    fontSize: "1rem",
+                  },
+                }}
+              >
                 <AnimatedIconWrapper variants={arrowLeftMotion}>
                   <Icon
                     sx={{
@@ -116,7 +126,16 @@ export const Pager = (props) => {
                 </AnimatedIconWrapper>
                 {t("Previous")}
               </PagerDirectionText>
-              <PagerModuleTitle>{previousSection.title}</PagerModuleTitle>
+              <PagerModuleTitle
+                sx={{
+                  fontSize: "1.3rem",
+                  "@media screen and (min-width: 640px)": {
+                    fontSize: "1.5rem",
+                  },
+                }}
+              >
+                {previousSection.title}
+              </PagerModuleTitle>
             </PagerButton>
           </motion.div>
         ) : (
@@ -131,7 +150,14 @@ export const Pager = (props) => {
                 color: "text",
               }}
             >
-              <PagerDirectionText>
+              <PagerDirectionText
+                sx={{
+                  fontSize: "0.9rem",
+                  "@media screen and (min-width: 640px)": {
+                    fontSize: "1rem",
+                  },
+                }}
+              >
                 {t("Next")}
                 <AnimatedIconWrapper variants={arrowRightMotion}>
                   <Icon
@@ -143,7 +169,16 @@ export const Pager = (props) => {
                   />
                 </AnimatedIconWrapper>
               </PagerDirectionText>
-              <PagerModuleTitle>{nextSection.title}</PagerModuleTitle>
+              <PagerModuleTitle
+                sx={{
+                  fontSize: "1.3rem",
+                  "@media screen and (min-width: 640px)": {
+                    fontSize: "1.5rem",
+                  },
+                }}
+              >
+                {nextSection.title}
+              </PagerModuleTitle>
             </PagerButton>
           </motion.div>
         ) : (
