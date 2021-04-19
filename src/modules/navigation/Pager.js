@@ -133,11 +133,13 @@ export const Pager = (props) => {
     pagePath,
   } = props;
   const [currentSection] = items;
-
   const { t } = useTranslation();
 
   const { nextSection, previousSection } = useMemo(() => {
-    return findPreviousAndNextSections(currentSection.items, pagePath);
+    if (!!currentSection) {
+      return findPreviousAndNextSections(currentSection.items, pagePath);
+    }
+    return {};
   }, [currentSection, pagePath]);
 
   return (
