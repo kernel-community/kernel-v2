@@ -85,7 +85,7 @@ export const Pager = (props) => {
     }
     return {};
   }, [currentSection, pagePath]);
-  console.log({ breaks: theme.breakpoints });
+
   return (
     <Wrapper>
       <Flex
