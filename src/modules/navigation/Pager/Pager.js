@@ -5,10 +5,10 @@ import styled from "@emotion/styled";
 import { Icon } from "@makerdao/dai-ui-icons";
 import { motion } from "framer-motion";
 
-import { useTranslation } from "../localization";
+import { useTranslation } from "../../localization";
 import { useMemo } from "react";
-import { Boolean, Error } from "window-or-global";
-import { dropRight } from "lodash";
+import { Boolean, console, Error } from "window-or-global";
+import { findPreviousAndNextSections } from "./pager-utils";
 
 const Wrapper = styled(Box)`
   position: relative;
@@ -68,65 +68,6 @@ const arrowLeftMotion = {
   },
 };
 
-function findPreviousAndNextSections(sectionItems, pagePath) {
-  if (!pagePath) throw new Error("must provide pagePath");
-
-  // we want to get rid of that '/' at the end since
-  // that extra '/' does not exist in sideNavData.
-  const formattedPagePath = dropRight(pagePath, 1).join("");
-  let currentSection, nextSection, previousSection;
-
-  sectionItems.forEach((sectionItem, index) => {
-    const previousModule = sectionItems[index - 1];
-    const nextModule = sectionItems[index + 1];
-    const currentModule = sectionItems[index];
-
-    const getPreviousModule = () => {
-      const previousModuleItemsLen = previousModule.items.length;
-      return previousModule.items[previousModuleItemsLen - 1];
-    };
-
-    if (sectionItem.url === formattedPagePath) {
-      currentSection = sectionItem;
-
-      // previous top level section
-      if (previousModule) {
-        previousSection = getPreviousModule();
-      }
-
-      // next top level seciton
-      nextSection = currentSection.items[0];
-    }
-
-    if (sectionItem.items) {
-      const nestedItems = sectionItem.items;
-      nestedItems.forEach((nestedSectionItem, nestedIndex) => {
-        if (nestedSectionItem.url === formattedPagePath) {
-          currentSection = nestedSectionItem;
-          const previousNestedModule = nestedItems[nestedIndex - 1];
-
-          if (previousNestedModule) {
-            previousSection = previousNestedModule;
-          } else if (currentModule) {
-            previousSection = currentModule;
-          }
-
-          // if there's a next section in the nested data use that
-          const nextNestedModule = nestedItems[nestedIndex + 1];
-          if (nextNestedModule) {
-            nextSection = nextNestedModule;
-            // otherwise, use the next top-level module
-          } else {
-            nextSection = nextModule;
-          }
-        }
-      });
-    }
-  });
-
-  return { currentSection, nextSection, previousSection };
-}
-
 export const Pager = (props) => {
   const {
     sidenavData: { items },
@@ -137,7 +78,7 @@ export const Pager = (props) => {
 
   const { nextSection, previousSection } = useMemo(() => {
     if (!!currentSection) {
-      return findPreviousAndNextSections(currentSection.items, pagePath);
+      return findPreviousAndNextSections(currentSection, pagePath);
     }
     return {};
   }, [currentSection, pagePath]);
