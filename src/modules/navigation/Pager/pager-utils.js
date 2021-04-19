@@ -77,6 +77,5 @@ export function findPreviousAndNextSections(page, pagePath) {
 
   sectionItems.forEach(handleTopLevelSectionItem);
 
-  console.log({ currentSection, nextSection, previousSection });
   return { currentSection, nextSection, previousSection };
 }
