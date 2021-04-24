@@ -7,3 +7,4 @@ node_modules
 *.swp
 yarn-error.log
 package-lock.json
+.vscode

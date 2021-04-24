@@ -1,8 +1,11 @@
 /* Font Loading */
 body {
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {

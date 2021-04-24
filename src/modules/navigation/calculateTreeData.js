@@ -127,6 +127,7 @@ export default (
             slugPart: part,
             title: titleCase(part.replace(/-|_|\./g, " ")),
             items: [],
+            url: `/${currentLocale}/${currentTopSection}`,
           };
           prevItems.push(tmp);
         }
