@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from "react";
 
 import {Box, Flex, Text, jsx} from "theme-ui";
 import LUNR from "lunr";
-import {useNavigate} from "@reach/router";
+import {navigate} from "gatsby";
 import {trackCustomEvent} from "gatsby-plugin-google-analytics";
 import {motion} from "framer-motion";
 
@@ -77,8 +77,6 @@ export default function Search({onClick, ...otherProps}) {
     const upPress = useKeyPress("ArrowUp");
     const enterPress = useKeyPress("Enter");
     const [cursor, setCursor] = useState(0);
-
-    const navigate = useNavigate();
     const {locale, t, DEFAULT_LOCALE} = useTranslation();
 
     useClickOutside(ref, () => setFocus(false));
