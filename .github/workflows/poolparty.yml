@@ -6,7 +6,7 @@ on:
     
 jobs:
   lifeguard:
-    if: github.base_ref == 'r2d' || github.base_ref == 'master' || github.base_ref == 'production'
+    if: github.base_ref == 'r2d' || github.base_ref == 'main' || github.base_ref == 'production'
     runs-on: ubuntu-16.04
     
     steps:
