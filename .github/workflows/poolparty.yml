@@ -6,44 +6,14 @@ on:
     
 jobs:
   lifeguard:
-    if: github.base_ref == 'r2d' || github.base_ref == 'master' || github.base_ref == 'production'
+    if: github.base_ref == 'r2d' || github.base_ref == 'main' || github.base_ref == 'production'
     runs-on: ubuntu-16.04
     
     steps:
     - uses: actions/checkout@v2
       with:
         ref: r2d
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-    
-    - name: install yarn
-      run: npm install -g yarn
-
-    - name: yarn install, build, and test
-      run: |
-        yarn install
-        yarn build
-        yarn test
-      env: 
-        GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
-        GOOGLE_ANALYTICS_OPTIMIZE_ID: ${{ secrets.GOOGLE_ANALYTICS_OPTIMIZE_ID }}
-    
-    - name: Run ESLint 
-      run: | 
-        yarn lint
-    
-    # Uncomment when 1049 is merged
-    # - name: Check types
-    #   run: |
-    #     yarn flow check
-        
-    - name: Making your code pretty. 
-      run: | 
-        yarn format
-        
-    - name: Label this PR with automerge
+    - name: Label this PR with automerge #NOTE(Rejon): This will fail if the PR is from a fork.
       uses: TimonVS/pr-labeler-action@v3.1.0
       with:
         configuration-path: .github/pr-labeler.yml # optional, .github/pr-labeler.yml is the default value
