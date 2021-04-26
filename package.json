@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Andy Tudhope",
   "dependencies": {
-    "@makerdao/dai-ui-icons": "^0.0.62",
+    "@makerdao/dai-ui-icons": "^0.0.66",
     "@makerdao/dai-ui-icons-branding": "^0.0.62",
     "@makerdao/dai-ui-theme-maker": "^0.0.66",
     "@mdx-js/mdx": "^1.6.19",
