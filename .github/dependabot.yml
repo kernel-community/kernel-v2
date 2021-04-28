@@ -9,7 +9,4 @@ updates:
     directory: "/" # Location of package manifests
     target-branch: "r2d"
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "08:00"
-      timezone: "America/New_York"
+      interval: "monthly"
