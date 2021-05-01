@@ -1995,10 +1995,10 @@
     "@emotion/styled" "^10.0.0"
     "@mdx-js/react" "^1.0.0"
 
-"@theme-ui/prism@^0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.7.3.tgz#83b58d2039c9b7ed2d6e63b1a5c1d2187ff8537b"
-  integrity sha512-o81MpFaV5oTWXDOX7GtMrVNX3y2/u+WJnYgieDV6t/FUVeg1+wO4FsaBoRlzth+gXab0oG2YhyQDUZamnMmfHw==
+"@theme-ui/prism@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.7.5.tgz#2a5ceb5c280a5e8b002e64263e6065894e7e4f61"
+  integrity sha512-OrQMb/tf5lp58+kd79lQRptieF11UOn/xbyccA6fkiwydaj5T7ZR6+wfQKaRGQnmxYp9g48WqxPyTCDELlgpNQ==
   dependencies:
     prism-react-renderer "^1.1.1"
 
