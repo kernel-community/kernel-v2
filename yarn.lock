@@ -6873,10 +6873,10 @@ gatsby-plugin-client-side-redirect@^1.1.0:
   dependencies:
     fs-extra "^7.0.0"
 
-gatsby-plugin-flow@^1.8.0:
-  version "1.8.0"
-  resolved "https://registry.npmjs.org/gatsby-plugin-flow/-/gatsby-plugin-flow-1.8.0.tgz#512ce5fa9cd05086928d8082985b21048ca3cdb7"
-  integrity sha512-VIaQfAuOkMYSxlwYg3iMpcJbeAr/VRcd++T0WoVGWIqIBIU4F+HDanO3U7ISk04YqB84YZ52wTJ1R7WcguX0iA==
+gatsby-plugin-flow@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-flow/-/gatsby-plugin-flow-1.10.0.tgz#b23d2d754178e771fec10b56f1b033d27fb3cf9d"
+  integrity sha512-U+p9Z4KOCRefL9SMK+9Fsx2ThdRN/DD/sDHQIid7tYTxCeuXVQspSjVX+FNSc2p7s3Z13Vu5S7k14ubjgZBT0g==
   dependencies:
     "@babel/preset-flow" "^7.12.1"
     "@babel/runtime" "^7.12.5"
