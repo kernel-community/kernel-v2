@@ -1,10 +1,13 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    node: true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
-  parser: '@babel/eslint-parser',
+  globals: {
+    __PATH_PREFIX__: true
+  },
+  extends: ['react-app', 'eslint:recommended'],
   parserOptions: {
     requireConfigFile: false,
     ecmaFeatures: {
@@ -45,7 +48,7 @@ module.exports = {
       {name: 'Link', linkAttribute: 'to'}
     ]
   },
-  plugins: ['react'],
+  plugins: ['@babel', 'react'],
   rules: {
     'react/prop-types': 'off',
     'react/display-name': 'off',
