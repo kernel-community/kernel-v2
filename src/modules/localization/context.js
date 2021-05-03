@@ -1,47 +1,50 @@
-import React, { createContext } from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import React, {createContext} from "react";
+import {useStaticQuery, graphql} from "gatsby";
+import {console} from "window-or-global";
 
 export const TranslationContext = createContext();
 
-const TranslationProvider = ({ children }) => {
-  const { allDirectory } = useStaticQuery(graphql`
-    query getDefaultLocale {
-      allDirectory(
-        filter: { absolutePath: { regex: "//content/([\\\\w{2}])[^/]$/" } }
-      ) {
-        nodes {
-          absolutePath
+const TranslationProvider = ({children}) => {
+    const {allDirectory} = useStaticQuery(graphql`
+        query getDefaultLocale {
+            allDirectory(
+                filter: {absolutePath: {regex: "//content/([\\w{2}])[^/]$/"}}
+            ) {
+                nodes {
+                    absolutePath
+                }
+            }
         }
-      }
-    }
-  `);
+    `);
 
-  const localeStrings = {};
+    const localeStrings = {};
 
-  const allLocales = allDirectory.nodes.map((n) => {
-    const loc = n.absolutePath.split("/").pop();
+    console.log(allDirectory);
 
-    // eslint-disable-next-line
-    const uiData = require(`@content/${loc}/UI.json`);
+    const allLocales = allDirectory.nodes.map((n) => {
+        const loc = n.absolutePath.split("/").pop() || "en";
+        console.log(loc);
 
-    if (uiData) {
-      localeStrings[loc] = { ...uiData };
-    }
+        // eslint-disable-next-line
+        const uiData = require(`@content/${loc}/UI.json`);
 
-    return loc;
-  });
+        if (uiData) {
+            localeStrings[loc] = {...uiData};
+        }
 
-  return (
-    <TranslationContext.Provider
-      value={{
-        allLocales,
-        localeStrings,
-      }}
-    >
-      {children}
-    </TranslationContext.Provider>
-  );
+        return loc;
+    });
+
+    return (
+        <TranslationContext.Provider
+            value={{
+                allLocales,
+                localeStrings
+            }}>
+            {children}
+        </TranslationContext.Provider>
+    );
 };
 
 export default TranslationContext;
-export { TranslationProvider };
+export {TranslationProvider};

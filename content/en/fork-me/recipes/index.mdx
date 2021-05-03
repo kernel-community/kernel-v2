@@ -16,37 +16,37 @@ If you want to know where we started and **why** components exist see [this](htt
 
 #### Definitions
 
-- **WYSIWYG**: What you see is what you get.
+-   **WYSIWYG**: What you see is what you get.
 
-- **Component**: A lego block like code element you can use for more advanced content like buttons.
+-   **Component**: A lego block like code element you can use for more advanced content like buttons.
 
-- **MD**: Shorthand for Markdown
+-   **MD**: Shorthand for Markdown
 
-- **MDX**: Shorthand for MarkdownExtended (ie. MDX is the name of the rendering engine we use.)
+-   **MDX**: Shorthand for MarkdownExtended (ie. MDX is the name of the rendering engine we use.)
 
-- **Child/Children**: Content that is wrapped by a Component. New lines between content will be recognized as a new child.
+-   **Child/Children**: Content that is wrapped by a Component. New lines between content will be recognized as a new child.
 
-- **Child Rule**: A pattern introduced for more complex components that recognized each individual child as a repeatable element of a component. (ie. List, InfoBlock, ect.)
+-   **Child Rule**: A pattern introduced for more complex components that recognized each individual child as a repeatable element of a component. (ie. List, InfoBlock, ect.)
 
 ---
 
 #### Disclaimers
 
-- To see dark/light mode variants click the moon/sun in the header
+-   To see dark/light mode variants click the moon/sun in the header
 
-- This palette is primarily to showcase component usage in a vacuum.
+-   This palette is primarily to showcase component usage in a vacuum.
 
-- For an in-depth chart on props available for these components please see the [Cheatsheet](/resources/technical-content/cheatsheet)
+-   For an in-depth chart on props available for these components please see the [Cheatsheet](/resources/technical-content/cheatsheet)
 
-- Any component that's not listed here, but exists in the project
+-   Any component that's not listed here, but exists in the project
 
-- Always remember. What you see is what you get. (WYSIWYG). We follow the markdown spec and will **NOT** deviate from it.
+-   Always remember. What you see is what you get. (WYSIWYG). We follow the markdown spec and will **NOT** deviate from it.
 
 ---
 
 ### Table of Contents
 
-- [Accordion](#accordion)
+-   [Accordion](#accordion)
 
 ---
 
@@ -64,13 +64,11 @@ The first element is always the header. Every other element will be hidden away.
 
 <Accordion>
 
-
 Hello World
 
 This is hidden inside the Accordion.
 
 </Accordion>
-
 
 ---
 
@@ -98,19 +96,15 @@ This is a utility component built to work with the `Image` component.
 
 <Aligner center sx={{height: '400px', width: '100%'}}>
 
-
-<Image src="/images/starfox.png" />
+<Image src='/images/starfox.png' />
 
 </Aligner>
 
-
 <Aligner bottom right sx={{height: '400px', width: '100%'}}>
-
 
 ![starfox](/images/starfox.png)
 
 </Aligner>
-
 
 ---
 
@@ -118,11 +112,9 @@ This is a utility component built to work with the `Image` component.
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 This is a utility component originally built to display the AllContributors grid.
 Yet, it also serves as good way for folks to set an author at the end of a page.
@@ -137,7 +129,7 @@ Yet, it also serves as good way for folks to set an author at the end of a page.
 
 <Authors all />
 
-<Authors list author="@MaximumCrash" />
+<Authors list author='@MaximumCrash' />
 
 ---
 
@@ -147,33 +139,25 @@ It's also possible to render a custom author by filling out the correct informat
 
 ```js
 <Authors list>
-  <Box>
-    ![Réjon](/images/starfox.png) 
-    
-    [Réjon Taylor-Foster](https://rejontaylor.com)
-    [Another Test](https://github.com) 
-    [Twitter](https://twitter.com)
-    [Medium](https://medium.com) 
-    
-    # Réjon Taylor-Foster 
-    
-    ## Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pharetra quam augue. Nulla
-    facilisi. Ut sed volutpat nisl. Cras eget nunc sed erat malesuada faucibus.
-    Donec non vehicula elit. Interdum et malesuada fames ac ante ipsum primis in
-    faucibus. Sed blandit imperdiet maximus. In hac habitasse platea dictumst.
-    Sed id luctus justo. Morbi in tortor et quam lacinia finibus ac in quam.
-    Suspendisse mollis efficitur dui eu laoreet. 
-    
-    ### MaximumCrash - ideas - audio - doc - 👀 - 💦
-  </Box>
+    <Box>
+        ![Réjon](/images/starfox.png) [Réjon
+        Taylor-Foster](https://rejontaylor.com) [Another
+        Test](https://github.com) [Twitter](https://twitter.com)
+        [Medium](https://medium.com) # Réjon Taylor-Foster ## Lorem ipsum dolor
+        sit amet, consectetur adipiscing elit. Donec pharetra quam augue. Nulla
+        facilisi. Ut sed volutpat nisl. Cras eget nunc sed erat malesuada
+        faucibus. Donec non vehicula elit. Interdum et malesuada fames ac ante
+        ipsum primis in faucibus. Sed blandit imperdiet maximus. In hac
+        habitasse platea dictumst. Sed id luctus justo. Morbi in tortor et quam
+        lacinia finibus ac in quam. Suspendisse mollis efficitur dui eu laoreet.
+        ### MaximumCrash - ideas - audio - doc - 👀 - 💦
+    </Box>
 </Authors>
 ```
 
 <Authors list>
 
-
 <Box>
-
 
 ![Réjon](/images/starfox.png)
 
@@ -191,17 +175,15 @@ It's also possible to render a custom author by filling out the correct informat
 
 ### MaximumCrash
 
-- ideas
-- audio
-- doc
-- 👀
-- 💦
+-   ideas
+-   audio
+-   doc
+-   👀
+-   💦
 
 </Box>
 
-
 </Authors>
-
 
 ---
 
@@ -220,43 +202,37 @@ It's a button. Not much more to it.
 
 <Button small to="/resources/recipes/palette"> Small Button </Button>
 
-<Button to="https://makerdao.com"> External Link Button </Button>
+<Button to="https://rejontaylor.com"> External Link Button </Button>
 ```
 
 ---
 
-<Button to="/"> ET phone Home </Button>
+<Button to='/'> ET phone Home </Button>
 
-<Button disabled inline to="/resources/recipes/palette">
-  
-  Disabled Inline
+<Button disabled inline to='/resources/recipes/palette'>
+    Disabled Inline
 </Button>
 
-<Button secondary inline to="/resources/recipes/palette">
-  
-  Inlined Secondary
+<Button secondary inline to='/resources/recipes/palette'>
+    Inlined Secondary
 </Button>
 
-<Button outline to="/resources/recipes/palette">
-  
-  Click Here
+<Button outline to='/resources/recipes/palette'>
+    Click Here
 </Button>
 
-<Button small to="/resources/recipes/palette">
-  
-  Small Button
+<Button small to='/resources/recipes/palette'>
+    Small Button
 </Button>
 
-<Button to="https://makerdao.com"> External Link Button </Button>
+<Button to='https://makerdao.com'> External Link Button </Button>
 
-<Button text to="/">
-  
-  Text Button
+<Button text to='/'>
+    Text Button
 </Button>
 
-<Button text disabled to="/">
-  
-  Disabled Text Button
+<Button text disabled to='/'>
+    Disabled Text Button
 </Button>
 
 ---
@@ -287,19 +263,15 @@ Maker dao callout
 
 <Callout>
 
-
 Howdy
 
 </Callout>
 
-
 <Callout icon="lightbulb">
-
 
 Maker dao callout
 
 </Callout>
-
 
 > blockquote Callout Markdown Style
 
@@ -309,20 +281,18 @@ Maker dao callout
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 This is a non-functioning checklist component. It is simply styled to look like one.
 
 ```js
 <Checklist>
-  Child A Child B
-  <Box>
-    Child C<Checklist>Child C - A Child C - B</Checklist>
-  </Box>
+    Child A Child B
+    <Box>
+        Child C<Checklist>Child C - A Child C - B</Checklist>
+    </Box>
 </Checklist>
 ```
 
@@ -330,18 +300,15 @@ This is a non-functioning checklist component. It is simply styled to look like 
 
 <Checklist>
 
-
 Child A
 
 Child B
 
 <Box>
 
-
 Child C
 
 <Checklist>
-
 
 Child C - A
 
@@ -349,12 +316,9 @@ Child C - B
 
 </Checklist>
 
-
 </Box>
 
-
 </Checklist>
-
 
 ---
 
@@ -362,11 +326,9 @@ Child C - B
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 Originally named "Chocolate Box" components, this component takes into consideration the child rule.
 Each child is recognized as a new element. Thus it's recommended for more diverse content to be contained
@@ -374,20 +336,20 @@ by a `Box` component.
 
 ```js
 <Chocolate>
-  <Box>
-    <Icon size={"40px"} name="maker" />
-    Child A Some content about something
-  </Box>
+    <Box>
+        <Icon size={"40px"} name='maker' />
+        Child A Some content about something
+    </Box>
 
-  <Box>
-    <Icon size={"40px"} name="globe" />
-    Child B Some content about something
-  </Box>
+    <Box>
+        <Icon size={"40px"} name='globe' />
+        Child B Some content about something
+    </Box>
 
-  <Box>
-    <Icon size={"40px"} name="wrench" />
-    Child C Some content about something
-  </Box>
+    <Box>
+        <Icon size={"40px"} name='wrench' />
+        Child C Some content about something
+    </Box>
 </Chocolate>
 ```
 
@@ -395,11 +357,9 @@ by a `Box` component.
 
 <Chocolate>
 
-
 <Box>
 
-
-<Icon size={"40px"} name="maker" />
+<Icon size={"40px"} name='maker' />
 
 Child A
 
@@ -407,11 +367,9 @@ Some content about something
 
 </Box>
 
-
 <Box>
 
-
-<Icon size={"40px"} name="globe" />
+<Icon size={"40px"} name='globe' />
 
 Child B
 
@@ -419,11 +377,9 @@ Some content about something
 
 </Box>
 
-
 <Box>
 
-
-<Icon size={"40px"} name="wrench" />
+<Icon size={"40px"} name='wrench' />
 
 Child C
 
@@ -431,9 +387,7 @@ Some content about something
 
 </Box>
 
-
 </Chocolate>
-
 
 ---
 
@@ -480,11 +434,9 @@ const example = "This is an example with a title tab";
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 This component follows a similar pattern to that of the `Chocolate Box` component.
 To get a header though, there needs to be a child that has children. It is recommended
@@ -545,16 +497,13 @@ With a sibling and a Header
 
 <Column>
 
-
 Child A - Full Width
 
 </Column>
 
-
 ---
 
 <Column>
-
 
 Child A - with Sibling
 
@@ -562,14 +511,11 @@ Child B - with Sibling
 
 </Column>
 
-
 ---
 
 <Column>
 
-
 <Box>
-
 
 #### Child A
 
@@ -577,17 +523,13 @@ Full Width with a Header
 
 </Box>
 
-
 </Column>
-
 
 ---
 
 <Column>
 
-
 <Box>
-
 
 #### Child A
 
@@ -595,9 +537,7 @@ With a sibling and a Header
 
 </Box>
 
-
 <Box>
-
 
 #### Child B
 
@@ -605,9 +545,7 @@ With a sibling and a Header
 
 </Box>
 
-
 </Column>
-
 
 ---
 
@@ -615,11 +553,9 @@ With a sibling and a Header
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 This component is similar to that of a Hero image content section.
 Depending on when you put the image is the side it will show up on. If there's no image first or last in content, the content will be centered.
@@ -674,11 +610,21 @@ Some more content
 
 <InfoBlock>
 
-
 ![starfox](/images/starfox.png)
 
 <Box>
 
+### Hello World
+
+Some more content
+
+</Box>
+
+</InfoBlock>
+
+<InfoBlock>
+
+<Box>
 
 ### Hello World
 
@@ -686,45 +632,23 @@ Some more content
 
 </Box>
 
+<Image src='/images/starfox.png' />
 
 </InfoBlock>
 
-
 <InfoBlock>
 
-
 <Box>
-
-
-### Hello World
-
-Some more content
-
-</Box>
-
-
-<Image src="/images/starfox.png" />
-
-</InfoBlock>
-
-
-<InfoBlock>
-
-
-<Box>
-
 
 ### I am centered
 
-<Image src="/images/starfox.png" />
+<Image src='/images/starfox.png' />
 
 Some more content
 
 </Box>
 
-
 </InfoBlock>
-
 
 ---
 
@@ -734,11 +658,9 @@ The List component is great if you want to display content...in the form of....a
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 **To get the most out of lists (ie. headers, subcontent, links) you MUST use a `Box` or `Link` component
 based on your specific needs.**
@@ -801,21 +723,17 @@ Some content below the header
 
 <List>
 
-
 Element A
 
 Element B
 
 </List>
 
-
 ---
 
 <List>
 
-
 <Box>
-
 
 Element A Header
 
@@ -823,11 +741,9 @@ Some content below the header
 
 </Box>
 
-
 Element B with no subcontent
 
 <Box>
-
 
 Element C Header
 
@@ -835,17 +751,13 @@ Some content below the header
 
 </Box>
 
-
 </List>
-
 
 ---
 
 <List>
 
-
 <Link to="/">
-
 
 Link Element A Header
 
@@ -853,9 +765,7 @@ Some content below the header
 
 </Link>
 
-
 <Link to="https://makerdao.com/">
-
 
 External Link Element B Header
 
@@ -863,9 +773,7 @@ Some content below the header
 
 </Link>
 
-
 </List>
-
 
 ---
 
@@ -875,11 +783,9 @@ This components great for stepping folks through a numbered process.
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 **Dev Note(Réjon): In design specs this in named "Process Stepper"**
 
@@ -887,11 +793,11 @@ This components great for stepping folks through a numbered process.
 
 ```js
 <Process>
-  ### Process Information 1 ### Process Information 2
-  <Box>
-    ### Process Information 3 Some more content here. The usual suspects and
-    whatever you'd want to put.
-  </Box>
+    ### Process Information 1 ### Process Information 2
+    <Box>
+        ### Process Information 3 Some more content here. The usual suspects and
+        whatever you'd want to put.
+    </Box>
 </Process>
 ```
 
@@ -899,13 +805,11 @@ This components great for stepping folks through a numbered process.
 
 <Process>
 
-
 ### Process Information 1
 
 ### Process Information 2
 
 <Box>
-
 
 ### Process Information 3
 
@@ -913,9 +817,7 @@ Some more content here. The usual suspects and whatever you'd want to put.
 
 </Box>
 
-
 </Process>
-
 
 ---
 
@@ -949,31 +851,25 @@ I will stick to the top of the screen.
 
 <StatusBanner>
 
-
 Regular old status banner
 
 </StatusBanner>
-
 
 ---
 
 <StatusBanner warning>
 
-
 Warning status!
 
 </StatusBanner>
-
 
 ---
 
 <StatusBanner sticky>
 
-
 I will stick to the top of the screen.
 
 </StatusBanner>
-
 
 ---
 
@@ -999,11 +895,9 @@ We support the lowest spec for tables in MD. None of that Github alignment stuff
 
 <Callout variant="warning" icon="warning">
 
-
 #### Child Rule in Effect
 
 </Callout>
-
 
 Tout components are meant to be like ultra fancy links, but you can put anything inside of them.
 **If there's only one child it will be full width.**
@@ -1029,23 +923,19 @@ Element A - Full Width
 
 <Tout>
 
-
 Element A - Full Width
 
 </Tout>
 
-
 ---
 
 <Tout>
-
 
 ### Element A
 
 ### Element B
 
 </Tout>
-
 
 ---
 
@@ -1067,7 +957,7 @@ It's possible to show videos here. They'll always be full width with no styles.
 
 ---
 
-<Video src="https://www.youtube-nocookie.com/embed/kpk2tdsPh0A" />
+<Video src='https://www.youtube-nocookie.com/embed/kpk2tdsPh0A' />
 
 ---
 
@@ -1087,16 +977,16 @@ Large Text
 
 Regular text
 
-<Text variant="smallText"> Small text </Text>
+<Text variant='smallText'> Small text </Text>
 
-<Text variant="microText"> Micro text </Text>
+<Text variant='microText'> Micro text </Text>
 
-<Text variant="caps">Caps</Text>
+<Text variant='caps'>Caps</Text>
 
-<Link to="/">Link </Link>
+<Link to='/'>Link </Link>
 
 ---
 
 ### This is a living document. Add or remove components as you change things. And always remember to have fun.
 
-<Authors author="@MaximumCrash" list />
+<Authors author='@MaximumCrash' list />

@@ -1,15 +1,16 @@
 /** @jsx jsx */
-import { useState, useEffect, useRef } from "react";
+import {useState, useEffect, useRef} from 'react';
 
-import { Box, Flex, Text, jsx } from "theme-ui";
-import LUNR from "lunr";
-import { useNavigate } from "@reach/router";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
-import { motion } from "framer-motion";
+import {Box, Flex, Text, jsx} from 'theme-ui';
+import LUNR from 'lunr';
+import {navigate} from 'gatsby';
+import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
+import {motion} from 'framer-motion';
 
-import { useTranslation } from "@modules/localization";
-import SearchInput from "./SearchInput";
-import SearchHit from "./SearchHit";
+import {useTranslation} from '@modules/localization';
+import SearchInput from './SearchInput';
+import SearchHit from './SearchHit';
+import {document} from 'window-or-global';
 
 //Hook mostly to detect if there's a click outside of the results element.
 //If a click is detected we hide the results.
@@ -40,55 +41,52 @@ const useClickOutside = (ref, handler, events) => {
 const useKeyPress = function (targetKey) {
   const [keyPressed, setKeyPressed] = useState(false);
 
-  function downHandler({ key }) {
+  function downHandler({key}) {
     if (key === targetKey) {
       setKeyPressed(true);
     }
   }
 
-  const upHandler = ({ key }) => {
+  const upHandler = ({key}) => {
     if (key === targetKey) {
       setKeyPressed(false);
     }
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", downHandler);
-    window.addEventListener("keyup", upHandler);
+    window.addEventListener('keydown', downHandler);
+    window.addEventListener('keyup', upHandler);
 
     return () => {
-      window.removeEventListener("keydown", downHandler);
-      window.removeEventListener("keyup", upHandler);
+      window.removeEventListener('keydown', downHandler);
+      window.removeEventListener('keyup', upHandler);
     };
   });
 
   return keyPressed;
 };
 
-export default function Search({ onClick, ...otherProps }) {
-  const MAX_RESULT_COUNT = 5; //<- Return 5 results maximum.
+export default function Search({onClick, ...otherProps}) {
   const ref = useRef();
   const resultList = useRef();
   const [query, setQuery] = useState(``);
   const [focus, setFocus] = useState(false);
   const [results, setResults] = useState([]);
   const [lunr, setLunr] = useState(null);
-  const downPress = useKeyPress("ArrowDown");
-  const upPress = useKeyPress("ArrowUp");
-  const enterPress = useKeyPress("Enter");
+  const downPress = useKeyPress('ArrowDown');
+  const upPress = useKeyPress('ArrowUp');
+  const enterPress = useKeyPress('Enter');
   const [cursor, setCursor] = useState(0);
-
-  const navigate = useNavigate();
-  const { locale, t, DEFAULT_LOCALE } = useTranslation();
+  const {locale, t, DEFAULT_LOCALE} = useTranslation();
 
   useClickOutside(ref, () => setFocus(false));
 
   //On input change, run the search query and update our results state.
   const onChange = (val) => {
-    if (lunr && val !== "") {
+    if (lunr && val !== '') {
       const query = val
         .trim() // remove trailing and leading spaces
-        .replace(/\s/g, "*") // remove user's wildcards
+        .replace(/\s/g, '*') // remove user's wildcards
         .toLowerCase();
 
       const lunrLocalized = lunr[locale] || lunr[DEFAULT_LOCALE];
@@ -98,30 +96,38 @@ export default function Search({ onClick, ...otherProps }) {
           LUNR.tokenizer(query).forEach(function (token) {
             //Fuzzy Match
             q.term(token.toString(), {
-              editDistance: query.length >= 3 ? 2 : 0,
+              editDistance: query.length >= 3 ? 2 : 0
             }); //<- If our token is longer than 5 characters, let the accidental distance be 2 letters (ie. "A" <- Z,Y,B,C are 2 distances away from A in both directions.)
             //Wild card
             q.term(token.toString(), {
               //<- Wildcard treatment for our token specifically.
               wildcard:
-                LUNR.Query.wildcard.LEADING | LUNR.Query.wildcard.TRAILING,
+                LUNR.Query.wildcard.LEADING | LUNR.Query.wildcard.TRAILING
             });
 
             //Field boosts
-            q.term(token.toString(), { fields: ["title"], boost: 20 }); //<- Boost the value of our query for a specific field.
-            q.term(token.toString(), { fields: ["keywords"], boost: 15 });
-            q.term(token.toString(), { fields: ["excerpt"], boost: 5 });
+            q.term(token.toString(), {
+              fields: ['title'],
+              boost: 20
+            }); //<- Boost the value of our query for a specific field.
+            q.term(token.toString(), {
+              fields: ['keywords'],
+              boost: 15
+            });
+            q.term(token.toString(), {
+              fields: ['excerpt'],
+              boost: 5
+            });
           });
         })
-        .slice(0, MAX_RESULT_COUNT)
-        .map(({ ref }) => {
+        .map(({ref}) => {
           return lunr[locale].store[ref];
         });
 
       setResults(results);
     }
 
-    if (val === "") {
+    if (val === '') {
       setResults([]);
     }
 
@@ -141,14 +147,14 @@ export default function Search({ onClick, ...otherProps }) {
   const resultsVariant = {
     visible: {
       opacity: 1,
-      top: "64px",
-      transition: { ease: "easeOut" },
+      top: '64px',
+      transition: {ease: 'easeOut'}
     },
     hidden: {
       opacity: 0,
-      top: "86px",
-      transition: { ease: "easeOut" },
-    },
+      top: '86px',
+      transition: {ease: 'easeOut'}
+    }
   };
 
   //LUNR becomes available only via the window.
@@ -162,21 +168,34 @@ export default function Search({ onClick, ...otherProps }) {
   }, []);
 
   useEffect(() => {
-    if (results.length > 0 && downPress) {
-      setCursor((prevState) =>
-        prevState < results.length - 1 ? prevState + 1 : prevState
-      );
+    if (results.length > 0 && downPress && focus) {
+      setCursor((prevState) => {
+        const _newResult =
+          prevState < results.length - 1 ? prevState + 1 : prevState;
+        //Scroll the new search element into view, align to the bottom.
+        document
+          .getElementById(`search-hit-${_newResult}`)
+          .scrollIntoView(false);
+        return _newResult;
+      });
     }
   }, [downPress, results.length]);
 
   useEffect(() => {
-    if (results.length > 0 && upPress) {
-      setCursor((prevState) => (prevState > 0 ? prevState - 1 : prevState));
+    if (results.length > 0 && upPress && focus) {
+      setCursor((prevState) => {
+        const _newResult = prevState > 0 ? prevState - 1 : prevState;
+        //Scroll the new search element into view, align to the bottom.
+        document
+          .getElementById(`search-hit-${_newResult}`)
+          .scrollIntoView(false);
+        return _newResult;
+      });
     }
   }, [upPress, results.length]);
 
   useEffect(() => {
-    if (results.length > 0 && enterPress) {
+    if (results.length > 0 && enterPress && focus) {
       navigate(results[cursor].url);
       setFocus(false);
     }
@@ -187,90 +206,100 @@ export default function Search({ onClick, ...otherProps }) {
       ref={ref}
       {...otherProps}
       sx={{
-        borderRadius: "round",
-        border: "1px solid",
-        borderColor: "primary",
-        backgroundColor: "surfaceDark",
-        position: "relative",
-        alignItems: "center",
-      }}
-    >
+        borderRadius: 'round',
+        border: '1px solid',
+        borderColor: 'primary',
+        backgroundColor: 'background',
+        position: 'relative',
+        alignItems: 'center'
+      }}>
       <SearchInput
         onFocus={() => setFocus(true)}
         onChange={onChange}
-        {...{ focus }}
+        {...{focus}}
       />
       <motion.div
         initial="hidden"
         variants={resultsVariant}
-        animate={query.length > 0 && focus ? "visible" : "hidden"}
+        animate={query.length > 0 && focus ? 'visible' : 'hidden'}
         sx={{
-          position: ["fixed", "fixed", "absolute"],
-          boxShadow: "high",
-          zIndex: ["1000000", "1000000", null],
-          left: "50%",
-          transform: "translateX(-50%)",
-          top: ["5rem", "5rem", "3.5rem"],
-          width: ["90vw", "90vw", "100%"],
+          position: ['fixed', 'fixed', 'absolute'],
+          boxShadow: 'high',
+          zIndex: ['1000000', '1000000', null],
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: ['5rem', '5rem', '3.5rem'],
+          width: ['90vw', '90vw', '100%'],
           mt: [4, 4, 0],
           minHeight: 4,
-          borderRadius: "roundish",
-          overflow: "hidden",
+          borderRadius: 'roundish',
+          overflow: 'hidden',
           pointerEvents: query.length > 0 && focus ? 'all' : 'none'
-        }}
-      >
+        }}>
         <Box
           aria-label="Search results for the entire site"
           as="section"
           sx={{
-            display: "grid",
-            backgroundColor: "surfaceDark",
-          }}
-        >
+            display: 'grid',
+            backgroundColor: 'surfaceDark'
+          }}>
           {results.length === 0 && query.length > 0 && (
-            <Text sx={{ p: 3, textAlign: "center", color: "muted" }}>
-              {t("No_Results", null, {
-                query: `${query.slice(0, 30)}${query.length > 30 ? "..." : ""}`,
+            <Text sx={{p: 3, textAlign: 'center', color: 'muted'}}>
+              {t('No_Results', null, {
+                query: `${query.slice(0, 30)}${query.length > 30 ? '...' : ''}`
               })}
+            </Text>
+          )}
+          {results.length > 0 && query.length > 0 && (
+            <Text
+              sx={{
+                px: 3,
+                pt: 2,
+                pb: 1,
+                bg: 'surface',
+                textAlign: 'left',
+                color: 'textMuted',
+                fontSize: '17px'
+              }}>
+              {results.length} matching documents
             </Text>
           )}
           <ul
             ref={resultList}
             sx={{
               m: 0,
-              listStyleType: "none",
+              listStyleType: 'none',
               p: results.length === 0 && query.length > 0 ? 0 : 2,
-              overflow: "auto",
+              overflow: 'auto',
               maxHeight: [
-                "calc(80vh - 90px - 2rem)",
-                "calc(80vh - 90px - 2rem)",
-                "464px",
+                'calc(80vh - 90px - 2rem)',
+                'calc(80vh - 90px - 2rem)',
+                '464px'
               ],
-              "& > li": {
-                borderRadius: "roundish",
-                backgroundColor: "transparent",
-                transition: "all .1s ease",
-                cursor: "pointer",
-                color: "muted",
+              '& > li': {
+                borderRadius: 'roundish',
+                backgroundColor: 'transparent',
+                transition: 'all .1s ease',
+                cursor: 'pointer',
+                color: 'muted'
               },
-              "& > li > a": {
+              '& > li > a': {
                 p: 2,
-                color: "muted",
-                display: "block",
-                borderRadius: "roundish",
-                fontSize: [3, 5, 3],
+                color: 'muted',
+                display: 'block',
+                borderRadius: 'roundish',
+                fontSize: [3, 5, 3]
               },
-              "& li:hover > a, & li.active > a": {
-                backgroundColor: "primaryMuted",
-                color: "textMuted",
-              },
-            }}
-          >
+              '& li:hover > a, & li.active > a': {
+                backgroundColor: 'primary',
+                color: 'onPrimary'
+              }
+            }}>
             {results.map((result, index) => (
               <li
                 key={`search-hit-${index}`}
-                className={index === cursor ? "active" : ""}
-              >
+                id={`search-hit-${index}`}
+                className={index === cursor ? 'active' : ''}>
                 <SearchHit
                   {...result}
                   query={query}
@@ -279,9 +308,9 @@ export default function Search({ onClick, ...otherProps }) {
                     onClick();
                     //Google Analytics Tracking
                     trackCustomEvent({
-                      category: "Internal Search",
+                      category: 'Internal Search',
                       action: `Click Result`,
-                      label: `Query: ${query} | To Page: ${result.url}`,
+                      label: `Query: ${query} | To Page: ${result.url}`
                     });
                   }}
                 />

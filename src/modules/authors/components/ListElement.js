@@ -1,13 +1,13 @@
-import allContributors from "@content/all-contributors.json";
-import { Icon } from "@makerdao/dai-ui-icons";
-import { getLinkIcon, Link } from "@modules/navigation";
+import allContributors from '@content/all-contributors.json';
+import {Icon} from '@makerdao/dai-ui-icons';
+import {getLinkIcon, Link} from '@modules/navigation';
 /** @jsx jsx */
-import { Fragment } from "react";
-import { Box, Flex, Image, jsx, Text } from "theme-ui";
+import {Fragment} from 'react';
+import {Box, Flex, Image, jsx, Text} from 'theme-ui';
 
-import allContributorKeys from "../data/allContributorKeys";
+import allContributorKeys from '../data/allContributorKeys';
 
-const { emojis } = allContributorKeys;
+const {emojis} = allContributorKeys;
 
 const repoUrl = `${allContributors.repoHost}/${allContributors.projectOwner}/${allContributors.projectName}`;
 
@@ -20,36 +20,35 @@ export default function AuthorListElement({
   hideContributions,
   description,
   noUsername,
-  noLinks,
+  noLinks
 }) {
   return (
     <Flex>
-      <Box sx={{ minWidth: "75px", maxWidth: "75px", flex: "auto" }}>
-        {avatar_url && avatar_url !== "" ? (
+      <Box sx={{minWidth: '75px', maxWidth: '75px', flex: 'auto'}}>
+        {avatar_url && avatar_url !== '' ? (
           <Image
             src={avatar_url}
             sx={{
-              borderRadius: "100%",
-              minWidth: "75px",
-              height: "75px",
-              flex: "auto",
+              borderRadius: '100%',
+              minWidth: '75px',
+              height: '75px',
+              flex: 'auto'
             }}
           />
         ) : (
           <Flex
             sx={{
-              borderRadius: "100%",
-              minWidth: "75px",
-              height: "75px",
-              flex: "auto",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "auto",
-              bg: "primaryMuted",
-              marginBottom: "5px",
-            }}
-          >
-            <Icon name="person" size={"60px"} sx={{ color: "primary" }} />
+              borderRadius: '100%',
+              minWidth: '75px',
+              height: '75px',
+              flex: 'auto',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: 'auto',
+              bg: 'primaryMuted',
+              marginBottom: '5px'
+            }}>
+            <Icon name="person" size={'60px'} sx={{color: 'primary'}} />
           </Flex>
         )}
         {!hideContributions && (
@@ -57,20 +56,18 @@ export default function AuthorListElement({
             as="ul"
             sx={{
               p: 0,
-              textAlign: "center",
-              "& > *": { mr: "5px", display: "inline-block" },
-            }}
-          >
+              textAlign: 'center',
+              '& > *': {mr: '5px', display: 'inline-block'}
+            }}>
             {contributions.map((c, index) => {
-              if (c === "code" && login) {
+              if (c === 'code' && login) {
                 return (
                   <Link
                     key={`${c}-${index}`}
                     to={`${repoUrl}/commits?author=${login}`}
-                    hideExternalIcon
-                  >
-                    {" "}
-                    {emojis[c] || c}{" "}
+                    hideExternalIcon>
+                    {' '}
+                    {emojis[c] || c}{' '}
                   </Link>
                 );
               }
@@ -81,19 +78,18 @@ export default function AuthorListElement({
         )}
       </Box>
 
-      <Box sx={{ marginLeft: "1rem", marginTop: "10px" }}>
-        <Text sx={{ fontWeight: "500", fontSize: "1.32rem" }}>
-          {name || ""}
+      <Box sx={{marginLeft: '1rem', marginTop: '10px'}}>
+        <Text sx={{fontWeight: '500', fontSize: '1.32rem'}}>
+          {name || ''}
           {!noLinks && (
             <Box
               as="ul"
               sx={{
-                display: "inline-block",
-                marginLeft: ".5rem",
+                display: 'inline-block',
+                marginLeft: '.5rem',
                 p: 0,
-                verticalAlign: "middle",
-              }}
-            >
+                verticalAlign: 'middle'
+              }}>
               {Array.isArray(profile) ? (
                 <Fragment>
                   {/* NOTE(Rejon): I'm not fleshing this out on purpose. This doesn't need a robust solution. */}
@@ -109,8 +105,10 @@ export default function AuthorListElement({
             </Box>
           )}
         </Text>
-        {!noUsername && <Text sx={{ fontSize: "15px" }}>{`@${login}`}</Text>}
-        <Text sx={{ marginTop: "5px" }}>{description}</Text>
+        {!noUsername && <Text sx={{fontSize: '15px'}}>{`@${login}`}</Text>}
+        <Text as="p" sx={{marginTop: '5px'}}>
+          {description}
+        </Text>
       </Box>
     </Flex>
   );
