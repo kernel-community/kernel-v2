@@ -42,8 +42,17 @@ const getBlogPostTypeFromPath = (path) => {
   }
 };
 
+const sanitizeAnchorLink = (heading) => {
+  //Remove emojis, replace spaces with dashes, lower case all text.
+  return heading
+    .replace(/[^\u{1F600}-\u{1F6FF}\s]/gm, '')
+    .replace(' ', '-')
+    .toLowerCase();
+};
+
 module.exports = {
   TitleConverter,
   UrlConverter,
-  getBlogPostTypeFromPath
+  getBlogPostTypeFromPath,
+  sanitizeAnchorLink
 };

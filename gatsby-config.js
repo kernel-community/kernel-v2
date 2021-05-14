@@ -6,10 +6,12 @@ const removeFrontmatter = () => (tree) =>
   // eslint-disable-next-line
   filter(tree, (node) => node.type !== 'yaml');
 const visit = require('unist-util-visit');
+const {console} = require('window-or-global');
 const {
   TitleConverter,
   UrlConverter,
-  getBlogPostTypeFromPath
+  getBlogPostTypeFromPath,
+  sanitizeAnchorLink
 } = require('./src/build-utils');
 require('dotenv').config();
 
@@ -142,7 +144,14 @@ module.exports = {
               showInfo: false // Optional: Hides video title and player actions.
             }
           },
-
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              className: 'anchor-link',
+              icon: '<span>¶</span>'
+            }
+          },
           `gatsby-remark-responsive-iframe`,
           {
             resolve: `gatsby-remark-images`,

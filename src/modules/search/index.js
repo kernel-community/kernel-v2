@@ -10,7 +10,7 @@ import {motion} from 'framer-motion';
 import {useTranslation} from '@modules/localization';
 import SearchInput from './SearchInput';
 import SearchHit from './SearchHit';
-import {document} from 'window-or-global';
+import {console, document} from 'window-or-global';
 
 //Hook mostly to detect if there's a click outside of the results element.
 //If a click is detected we hide the results.
@@ -83,6 +83,7 @@ export default function Search({onClick, ...otherProps}) {
 
   //On input change, run the search query and update our results state.
   const onChange = (val) => {
+    console.log(lunr);
     if (lunr && val !== '') {
       const query = val
         .trim() // remove trailing and leading spaces
@@ -123,7 +124,7 @@ export default function Search({onClick, ...otherProps}) {
         .map(({ref}) => {
           return lunr[locale].store[ref];
         });
-
+      console.log(results);
       setResults(results);
     }
 

@@ -19,6 +19,7 @@ import {
   Table,
   Tout
 } from '@modules/ui/';
+import {Card, Flash} from '@modules/flashcard';
 import {Aligner, Indent, Video} from '@modules/utility/';
 import {motion} from 'framer-motion';
 import {Box, Divider, Flex, Image, jsx, Text} from 'theme-ui';
@@ -89,7 +90,9 @@ const Custom_Components = {
   motionDiv: motion.div,
   motionUL: motion.ul,
   motionLI: motion.li,
-  BlogHome
+  BlogHome,
+  Flash,
+  Card
 };
 
 export default {
