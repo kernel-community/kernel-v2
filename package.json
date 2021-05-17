@@ -41,6 +41,7 @@
     "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^3.3.0",
     "html-react-parser": "^1.2.6",
+    "immer": "^9.0.2",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
@@ -56,6 +57,7 @@
     "remark-frontmatter": "^3.0.0",
     "remark-slug": "^6.0.0",
     "theme-ui": "^0.7.3",
+    "use-immer": "^0.5.2",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {

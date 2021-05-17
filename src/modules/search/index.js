@@ -97,7 +97,7 @@ export default function Search({onClick, ...otherProps}) {
           LUNR.tokenizer(query).forEach(function (token) {
             //Fuzzy Match
             q.term(token.toString(), {
-              editDistance: query.length >= 3 ? 2 : 0
+              editDistance: query.length >= 3 ? 4 : 0
             }); //<- If our token is longer than 5 characters, let the accidental distance be 2 letters (ie. "A" <- Z,Y,B,C are 2 distances away from A in both directions.)
             //Wild card
             q.term(token.toString(), {

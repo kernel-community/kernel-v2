@@ -1,10 +1,66 @@
 /** @jsx jsx */
-import {useState} from 'react';
+import {Children, cloneElement} from 'react';
 import {jsx, Flex} from 'theme-ui';
 import {Icon} from '@makerdao/dai-ui-icons';
-import {motion} from 'framer-motion';
+import {motion, AnimatePresence} from 'framer-motion';
+import {useImmer} from 'use-immer';
+import Card from './card';
+import {console} from 'window-or-global';
 
 const Flash = ({children}) => {
+  const _children = Children.toArray(children);
+
+  const [{answers, currentCard, completed, cards}, setState] = useImmer({
+    answers: [],
+    cards: _children,
+    currentCard: 0,
+    completed: false
+  });
+
+  let isCurrentlyRevealed = answers[currentCard]?.revealed;
+
+  const reveal = () => {
+    setState((draft) => {
+      draft.answers[draft.currentCard] = {
+        revealed: true
+      };
+    });
+  };
+
+  const answer = (remembered) => {
+    setState((draft) => {
+      draft.answers[draft.currentCard] = {
+        ...draft.answers[draft.currentCard],
+        remembered
+      };
+
+      const oldCards = [...draft.cards];
+
+      oldCards.splice(draft.currentCard, 1);
+      draft.cards = oldCards;
+
+      //This is the last card to answer, complete the session.
+      if (currentCard === _children.length - 1) {
+        draft.completed = true;
+      } else {
+        //This isn't the last card, increment.
+        draft.currentCard += 1;
+      }
+    });
+  };
+
+  const answerVariants = {
+    inactive: {opacity: 0.5, y: 10},
+    active: {opacity: 1, y: 0, transition: {duration: 0.4}},
+    completed: {opacity: 0, y: 20}
+  };
+
+  const cardHoldVariants = {
+    inactive: {}
+  };
+
+  console.log(cards);
+
   return (
     <Flex
       sx={{
@@ -18,133 +74,104 @@ const Flash = ({children}) => {
         boxShadow:
           'inset 0 0px 30px rgba(0,0,0,0.30), inset 0 0px 4px rgba(0,0,0,0.22)'
       }}>
-      <div>
-        <div sx={{mb: 4, position: 'relative'}}>
-          <Flex
+      <div sx={{position: 'relative'}}>
+        {cards.length > 0 && (
+          <motion.div
             sx={{
               width: '343px',
+              mb: 4,
               height: '439px',
-              borderRadius: 7,
-              bg: 'backgroundAlt',
-              color: 'onBackgroundAlt',
-              flexDirection: 'column',
-              overflow: 'hidden',
-              position: 'relative',
-              zIndex: 1,
-              boxShadow:
-                '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
+              position: 'relative'
             }}>
+            {cards.map(({props}, index) => (
+              <motion.div
+                key={`flash-card-${index}`}
+                sx={{position: 'absolute', zIndex: _children.length - index}}>
+                <Card
+                  index={index}
+                  answerCallback={answer}
+                  revealCallback={reveal}
+                  isActive={currentCard === index}
+                  isRevealed={answers[index]?.revealed}
+                  {...props}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {completed && (
+          <motion.div
+            key={'review_complete'}
+            initial={{opacity: 0, y: 32}}
+            animate={{opacity: 1, y: 0}}
+            exit={{opacity: 0, y: -32}}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              color: 'textMuted'
+            }}>
+            <Icon name="checkmark" size={5} />
+            <h2>Review complete</h2>
+          </motion.div>
+        )}
+        <motion.div
+          variants={answerVariants}
+          initial="inactive"
+          animate={
+            completed
+              ? 'completed'
+              : isCurrentlyRevealed
+              ? 'active'
+              : 'inactive'
+          }
+          sx={{position: completed ? 'absolute' : 'initial'}}>
+          <Flex sx={{color: 'flashText', fontWeight: '600'}}>
             <Flex
+              onClick={() => answer(false)}
               sx={{
-                p: 3,
-                fontSize: 5,
+                flex: 1,
+                borderRadius: 6,
+                p: '8px',
+                bg: 'primary',
+                mr: 3,
+                cursor: isCurrentlyRevealed ? 'pointer' : 'not-allowed',
                 alignItems: 'center',
-                textAlign: 'center',
-                justifyContent: 'center',
-                flex: '1 1 auto'
+                fontSize: '14px',
+                justifyContent: 'space-around',
+                transition: 'all .2s ease',
+                '&:hover': isCurrentlyRevealed
+                  ? {
+                      bg: 'primaryMuted'
+                    }
+                  : {}
               }}>
-              What kinds of conversations do we build together in Kernel?
+              <Icon size={'28px'} name="refresh" /> Didn't remember
             </Flex>
             <Flex
+              onClick={() => answer(true)}
               sx={{
-                height: '32%',
-                bg: 'primaryMuted',
-                borderTop: '1px solid',
-                borderColor: 'background',
-                position: 'relative',
-                color: 'text',
-                overflow: 'hidden',
+                flex: 1,
+                borderRadius: 6,
+                p: '8px',
+                bg: 'primary',
+                cursor: isCurrentlyRevealed ? 'pointer' : 'not-allowed',
                 alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                flexDirection: 'column'
+                fontSize: '14px',
+                justifyContent: 'space-around',
+                transition: 'all .2s ease',
+                '&:hover': isCurrentlyRevealed
+                  ? {
+                      bg: 'primaryMuted'
+                    }
+                  : {}
               }}>
-              <div
-                sx={{
-                  position: 'absolute',
-                  boxShadow: '0px 0 10px rgba(0,0,0,0.3)',
-                  top: '-13px',
-                  height: '13px',
-                  width: '100%',
-                  cursor: 'pointer'
-                }}></div>
-              <div sx={{fontSize: 4, fontWeight: 'bold', mb: 2}}>
-                Reveal the Answer
-              </div>
-              <div sx={{filter: 'blur(5px)'}}>Horizontal</div>
+              <Icon size={'22px'} name="checkmark" />
+              Remembered
             </Flex>
           </Flex>
-          <Flex
-            sx={{
-              width: 'calc(343px - 4%)',
-              height: '439px',
-              borderRadius: 7,
-              bg: 'backgroundAlt',
-              border: '1px solid',
-              borderColor: 'backgroundAlt',
-              color: 'onBackgroundAlt',
-              flexDirection: 'column',
-              overflow: 'hidden',
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              top: '10px',
-              zIndex: 0,
-              opacity: '72%',
-              boxShadow:
-                '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
-            }}></Flex>
-          <Flex
-            sx={{
-              width: 'calc(343px - 8%)',
-              height: '439px',
-              borderRadius: 7,
-              bg: 'backgroundAlt',
-              color: 'onBackgroundAlt',
-              flexDirection: 'column',
-              overflow: 'hidden',
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              top: '20px',
-              zIndex: -1,
-              opacity: '32%',
-
-              boxShadow:
-                '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
-            }}></Flex>
-        </div>
-
-        <Flex sx={{color: 'flashText', fontWeight: '600'}}>
-          <Flex
-            sx={{
-              flex: 1,
-              borderRadius: 6,
-              p: '8px',
-              bg: 'primary',
-              mr: 3,
-              cursor: 'pointer',
-              alignItems: 'center',
-              fontSize: '14px',
-              justifyContent: 'space-around'
-            }}>
-            <Icon size={'28px'} name="refresh" /> Didn't remember
-          </Flex>
-          <Flex
-            sx={{
-              flex: 1,
-              borderRadius: 6,
-              p: '8px',
-              bg: 'primary',
-              cursor: 'pointer',
-              alignItems: 'center',
-              fontSize: '14px',
-              justifyContent: 'space-around'
-            }}>
-            <Icon size={'22px'} name="checkmark" />
-            Remembered
-          </Flex>
-        </Flex>
+        </motion.div>
       </div>
     </Flex>
   );

@@ -226,7 +226,9 @@ export default (props) => {
           {renderLanguageSelector && (
             <LanguageSelector data={languageSelectorData} pagePath={pagePath} />
           )}
-          {renderTableOfContents && <TableOfContents data={tableOfContents} />}
+          {renderTableOfContents && (
+            <TableOfContents isMobile data={tableOfContents} />
+          )}
         </Box>
         <Box>{children}</Box>
 
@@ -242,7 +244,12 @@ export default (props) => {
             pagePath={pagePath}
           />
         )}
-        {renderTableOfContents && <TableOfContents data={tableOfContents} />}
+        {renderTableOfContents && (
+          <TableOfContents
+            styles={{display: ['none', 'none', 'block']}}
+            data={tableOfContents}
+          />
+        )}
       </Box>
       <MobileNav sidenavData={sidenavData} />
     </Fragment>

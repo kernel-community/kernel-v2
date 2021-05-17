@@ -2,22 +2,26 @@
 import {Flex, jsx} from 'theme-ui';
 import {Link} from 'gatsby';
 import Sticky from 'react-sticky-el';
-import {parent} from 'window-or-global';
+import {console, parent} from 'window-or-global';
 
-const TableOfContents = ({data}) => {
+const TableOfContents = ({data, styles, isMobile}) => {
   return (
     <Sticky
       boundaryElement=".content-boundary"
       hideOnBoundaryHit={false}
+      disabled={isMobile}
       dontUpdateHolderHeightWhenSticky={true}
       sx={{
-        width: '258px',
+        width: ['100%', '100%', '258px'],
         '.sticky': {
           width: '258px'
-        }
+        },
+        ...styles
       }}>
-      <Flex sx={{flexDirection: 'column', pl: 4, pt: 5}}>
-        <p sx={{fontWeight: 'bold', m: 0}}>Table of contents</p>
+      <Flex sx={{flexDirection: 'column', pl: [0, 0, 3], pt: [0, 0, 5]}}>
+        <p sx={{fontWeight: 'bold', m: 0, fontSize: ['30px', '30px', '18px']}}>
+          Table of contents
+        </p>
         <ul sx={{m: 0, mt: 3, pl: 0, minWidth: '200px', listStyleType: 'none'}}>
           {data.items.map((node, index) => (
             <ChildNode
@@ -40,7 +44,8 @@ const ChildNode = ({url, items, title, parentDepth}) => {
         sx={{
           variant: 'styles.a',
           lineBreak: 'anywhere',
-          fontWeight: parentDepth > 1 ? 'normal' : 'bold'
+          fontWeight: parentDepth > 1 ? 'normal' : 'bold',
+          fontSize: ['26px', '26px', 4]
         }}>
         {title}
       </Link>
