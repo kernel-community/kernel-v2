@@ -70,8 +70,8 @@ const Card = ({
 
   const question = cloneElement(_children[0], {
     sx: {
-      p: 3,
-      fontSize: [3, 4, 5],
+      p: [1, 2, 3],
+      fontSize: [2, 3, 4],
       alignItems: 'center',
       textAlign: 'center',
       justifyContent: 'center',
