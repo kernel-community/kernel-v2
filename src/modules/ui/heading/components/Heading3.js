@@ -17,7 +17,17 @@ export default function Heading3(props) {
         fontFamily: 'heading',
         color: 'text',
         marginTop: '16px',
-        marginBottom: '16px'
+        marginBottom: '16px',
+        '& > .anchor-link': {
+          opacity: 0,
+          color: 'muted',
+          fontSize: 5,
+          position: 'relative',
+          left: '10px',
+          top: '-3px'
+        },
+        '&:hover > .anchor-link': {opacity: 1},
+        '& > .anchor-link:hover': {opacity: 1, color: 'primary'}
       }}
       {...props}
     />
