@@ -18,7 +18,14 @@ const TableOfContents = ({data, styles, isMobile}) => {
         },
         ...styles
       }}>
-      <Flex sx={{flexDirection: 'column', pl: [0, 0, 3], pt: [0, 0, 5]}}>
+      <Flex
+        sx={{
+          flexDirection: 'column',
+          pl: [0, 0, 3],
+          pt: [0, 0, 5],
+          maxHeight: ['unset', 'unset', '100vh'],
+          overflow: 'auto'
+        }}>
         <p sx={{fontWeight: 'bold', m: 0, fontSize: ['30px', '30px', '18px']}}>
           Table of contents
         </p>

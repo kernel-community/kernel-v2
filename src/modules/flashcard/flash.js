@@ -72,7 +72,7 @@ const Flash = ({children}) => {
         boxShadow:
           'inset 0 0px 30px rgba(0,0,0,0.30), inset 0 0px 4px rgba(0,0,0,0.22)'
       }}>
-      <div sx={{position: 'relative', width: '100%'}}>
+      <div sx={{position: 'relative', width: ['100%', '100%', 'initial']}}>
         {cards.length > 0 && !completed && (
           <motion.div
             sx={{
