@@ -71,7 +71,7 @@ const Card = ({
   const question = cloneElement(_children[0], {
     sx: {
       p: 3,
-      fontSize: 5,
+      fontSize: [3, 4, 5],
       alignItems: 'center',
       textAlign: 'center',
       justifyContent: 'center',
@@ -106,7 +106,7 @@ const Card = ({
             <Flex
               sx={{
                 p: 3,
-                fontSize: 5,
+                fontSize: [3, 4, 5],
                 alignItems: 'center',
                 textAlign: 'center',
                 justifyContent: 'center',
@@ -151,7 +151,7 @@ const Card = ({
                 <span
                   className="reveal-answer"
                   sx={{
-                    fontSize: 4,
+                    fontSize: [3, 4, 4],
                     mb: 2,
                     fontWeight: 'bold',
                     transform: 'scale(1)',
@@ -168,7 +168,7 @@ const Card = ({
                 sx={{
                   overflow: 'auto',
                   '& > *:first-child': {
-                    fontSize: 4,
+                    fontSize: [3, 4, 4],
                     textAlign: 'center',
                     fontWeight: 'bold',
                     opacity: isRevealed ? 0.8 : 1,
