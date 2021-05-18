@@ -10,7 +10,7 @@ import {motion} from 'framer-motion';
 import {useTranslation} from '@modules/localization';
 import SearchInput from './SearchInput';
 import SearchHit from './SearchHit';
-import {document} from 'window-or-global';
+import {console, document} from 'window-or-global';
 
 //Hook mostly to detect if there's a click outside of the results element.
 //If a click is detected we hide the results.
@@ -83,6 +83,7 @@ export default function Search({onClick, ...otherProps}) {
 
   //On input change, run the search query and update our results state.
   const onChange = (val) => {
+    console.log(lunr);
     if (lunr && val !== '') {
       const query = val
         .trim() // remove trailing and leading spaces
@@ -96,7 +97,7 @@ export default function Search({onClick, ...otherProps}) {
           LUNR.tokenizer(query).forEach(function (token) {
             //Fuzzy Match
             q.term(token.toString(), {
-              editDistance: query.length >= 3 ? 2 : 0
+              editDistance: query.length >= 3 ? 4 : 0
             }); //<- If our token is longer than 5 characters, let the accidental distance be 2 letters (ie. "A" <- Z,Y,B,C are 2 distances away from A in both directions.)
             //Wild card
             q.term(token.toString(), {
@@ -123,7 +124,7 @@ export default function Search({onClick, ...otherProps}) {
         .map(({ref}) => {
           return lunr[locale].store[ref];
         });
-
+      console.log(results);
       setResults(results);
     }
 

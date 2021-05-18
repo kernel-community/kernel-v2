@@ -549,6 +549,90 @@ With a sibling and a Header
 
 ---
 
+## Flash Cards
+
+<Callout variant="warning" icon="warning">
+
+#### Child Rule in Effect
+
+</Callout>
+
+These series of components (Flash) and (Card) are the (Hammer) and (Nail) equivalents 
+that come together to establish a Flashcard game session. 
+
+To establish a session you simply place `Flash` component with a `Card` component inside of it. 
+
+Each child of Flash must be a Card component, **all other components will be ignored and not rendered.**
+
+Each Card component recognizes it's children, following the child rule, where the first child is the question, the second child is the answer, and any other children are treated
+as sub answer copy text. If you want a more complex question, or answer, it is recommended you use a Box component, and then render out your structured question to meet your needs. 
+
+Once all the Flash cards have been revealed and answered, the session is marked as complete, and you'll see the "Review completed" dialogue. 
+
+**NOTE:** Flashcard session state is currently tied to the Flash component itself, there is no global state storing answers at the time of this writing. 
+
+**NOTE:** The `Card` component here is not the theme-ui Card component, but a custom one within our own modules. 
+
+```js
+<Flash>
+
+<Card>
+
+What kinds of conversations do we build together in Kernel?
+
+Horizontal
+
+</Card>
+
+<Card>
+
+Who's the coolest?
+
+You're the coolest
+
+</Card>
+
+<Card>
+
+For whom does the Taco Bell toll? 
+
+Us All
+
+</Card>
+
+</Flash>
+```
+
+<Flash>
+
+<Card>
+
+What kinds of conversations do we build together in Kernel?
+
+Horizontal
+
+</Card>
+
+<Card>
+
+Who's the coolest?
+
+You're the coolest
+
+</Card>
+
+<Card>
+
+For whom does the Taco Bell toll? 
+
+Us All
+
+</Card>
+
+</Flash>
+
+--- 
+
 ## Info Block
 
 <Callout variant="warning" icon="warning">

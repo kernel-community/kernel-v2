@@ -336,6 +336,11 @@ export default {
     onPrimary: '#fafafa',
     onSecondary: '#212144',
     lemon: '#F3FF64',
+    flashCard: '#212145',
+    flashText: '#fff',
+    flashCorrectBG: '#00EC9F',
+    flashWarningBG: '#FFBA44',
+    flashCardAnswerBG: '#817e92',
     modes: {
       dark: {
         primary: '#9090F1',
@@ -365,7 +370,12 @@ export default {
         statusColor: '#fafafa',
         codeBG: '#00585E',
         codeText: '#fafafa',
-        onPrimary: '#291A42'
+        onPrimary: '#291A42',
+        flashCard: '#212145',
+        flashCardAnswerBG: '2e2949',
+        flashText: '#fff',
+        flashCorrectBG: '#00EC9F',
+        flashWarningBG: '#FFBA44'
       }
     },
 

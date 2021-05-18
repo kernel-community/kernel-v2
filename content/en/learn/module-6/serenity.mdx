@@ -107,23 +107,17 @@ are all areas of rapid innovation, which tilts the trade-off towards ensuring we
 some solution in the stone of our protocol spec for an area likely to develop extensively 
 over the next 10 years.
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
+<Card>
 
 Q: What are the five principles of the Eth2 Design Rationale?
 
 A: Simplicity, stability, sufficiency, defense, verifiability.
 
-</Flex>
+</Card>
 
-</Chocolate>
-
-</Box>
+</Flash>
 
 ### A Defender's Game
 
@@ -148,23 +142,17 @@ inefficient. The cost of attack and cost of defense are at a 1:1 ratio, so there
 penalties [...] The “one-sentence philosophy” of proof of stake is thus not “security comes 
 from burning energy”, but rather “security comes from putting up economic value-at-loss”.
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
+<Card>
 
 Q: What kind of actor does cryptography favour fundamentally?
 
 A: (individual) defenders.
 
-</Flex>
+</Card>
 
-</Chocolate>
-
-</Box>
+</Flash>
 
 Consider Amazon's algorithm and how they solved unbounded search by turning everything into a 
 platform, only to find that [advertising is intractable to platform solutions](/learn/module-5/amazon-unbounded-search/#unsolved-advertising). 
@@ -184,25 +172,25 @@ protocols which define and encode penalties are **more likely to benefit all the
 This is because encoding rewards creates inevitably skewed incentives that only accrue to the 
 subset of network participants who are best placed to game the system required to earn them.
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
+<Card>
 
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
-
-Q: The cost of attacking or defending Proof of Work consensus is 1:1. Proof of Stake breaks this symmetry by relying on what, instead of rewards? This solves the conflict of interest between miners and users, because Eth2 validators and Eth2 users are more likely to be what?
+Q: The cost of attacking or defending Proof of Work consensus is 1:1. Proof of Stake breaks this symmetry by relying on what, instead of rewards? 
 
 A: Penalties.
 
+</Card>
+
+<Card>
+
+Q: This solves the conflict of interest between miners and users, because Eth2 validators and Eth2 users are more likely to be what?
+
 The same people. 
 
-</Flex>
+</Card>
 
-</Chocolate>
-
-</Box>
+</Flash>
 
 ### Proving Stake
 
@@ -231,23 +219,17 @@ validator failure - most of which are benign (like simply being offline) - and o
 which are genuinely malicious. Critically, **it is the trade-off between different penalties** 
 which informs how we structure rewards.
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
+<Card>
 
 Q: What kind of mechanism is used to ensure that attackers still pay a very high cost to break the chain's guarantees, assuming the worst-case model?
 
 A: Slashing (extra points if you said Casper the Friendly Finality Gadget).
 
-</Flex>
+</Card>
 
-</Chocolate>
-
-</Box>
+</Flash>
 
 #### Aligning Incentives
 
@@ -274,45 +256,41 @@ mechanism design is *all about balancing trade-offs*.
 
 </Process>
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
+<Card>
 
 Q: Multiplying the base reward **B** with the portion of validators who agree, while only penalizing those who disagree with **-B** is what kind explicitly prosocial scheme?
 
 A: Collective rewards.
 
-</Flex>
+</Card>
 
-</Chocolate>
+<Card>
 
-</Box>
-
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
-
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
-
-Q: Making the base reward proportional to the inverse square root of all deposits strikes a balance between what two fixed quantities? If the reward rate were fixed, it would create too much uncertainty about what two things? If the total rewards were fixed, it would incentivize what kind of malicious behaviour?
+Q: Making the base reward proportional to the inverse square root of all deposits strikes a balance between what two fixed quantities?
 
 A: Reward rate and total rewards.
 
-Total issuance and total deposits (i.e. how much ETH is created over time, and how much we can reasonably expect to be staked).
+</Card>
 
-Griefing.
+<Card>
 
-</Flex>
+Q: If the reward rate were fixed, it would create too much uncertainty about what two things?
 
-</Chocolate>
+A: Total issuance and total deposits (i.e. how much ETH is created over time, and how much we can reasonably expect to be staked).
 
-</Box>
+</Card>
+
+<Card>
+
+Q: If the total rewards were fixed, it would incentivize what kind of malicious behaviour?
+
+A: Griefing.
+
+</Card>
+
+</Flash>
 
 Rewards are designed this way *only as a result* of the thinking about how to penalize 
 different kinds of undesirable validator behaviour. Now that we understand this premise, we 
@@ -330,25 +308,25 @@ preventing blocks from being finalized and
 - Ensures that if more than 1/3 do go offline, eventually the portion online goes back up to 
 2/3 because of the declining deposits of the offline validators.
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
+<Card>
 
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
-
-Q: If everyone else is online, what percentage of time must I be online for to break even as a validator? If others start to go offline, does this increase or decrease?
+Q: If everyone else is online, what percentage of time must I be online for to break even as a validator?
 
 A: ~44.4%. 
 
-Increase (as there is a higher penalty if my being offline impacts the chain's ability to reach finality).
+</Card>
 
-</Flex>
+<Card>
 
-</Chocolate>
+Q: If others start to go offline, does the break even uptime for validators increase or decrease?
 
-</Box>
+A: Increase (as there is a higher penalty if my being offline impacts the chain's ability to reach finality).
+
+</Card>
+
+</Flash>
 
 So, we can handle elegantly the penalties for common and benign kinds of validator failures, 
 but what about actual attacks and/or malicious behaviour? If a validator is caught violating 
@@ -365,23 +343,17 @@ failures that are likely to be honest mistakes.
 case, a large validator would be the only one failing at the same time as themselves).
 - It creates a disincentive against everyone joining the largest pool.
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
+<Card>
 
 Q: True or false: the collective reward scheme of **B * P** incentivises validators to pool their resources?
 
 A: False! We can now program collective rewards without sacrificing decentralization.
 
-</Flex>
+</Card>
 
-</Chocolate>
-
-</Box>
+</Flash>
 
 ### Technicalities
 
@@ -426,27 +398,25 @@ at any stage is critical to the system's game theoretic equilibria.
 
 </Process>
 
-<Box sx={{backgroundColor:'backgroundAlt', color:'onBackgroundAlt', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap', alignItems: 'center'}}>
+<Flash>
 
-<Chocolate>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-**Flashcard**
+<Card>
 
 Q: What three features does the 32 ETH validator deposit make a trade-off between?  
 
-What principle of the Design Rationale dictated the choice of a beacon chain, rather than distinct shards connected in some other manner?
-
 A: Decentralization, finality time, and message overhead.
 
-Simplicity.
+</Card>
 
-</Flex>
+<Card>
 
-</Chocolate>
+Q: What principle of the Design Rationale dictated the choice of a beacon chain, rather than distinct shards connected in some other manner?
 
-</Box>
+A: Simplicity.
+
+</Card>
+
+</Flash>
 
 ### The Positive Sum
 
