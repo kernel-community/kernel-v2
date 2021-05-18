@@ -26,7 +26,7 @@ const TableOfContents = ({data, styles, isMobile}) => {
           maxHeight: ['unset', 'unset', '100vh'],
           overflow: 'auto'
         }}>
-        <p sx={{fontWeight: 'bold', m: 0, fontSize: ['30px', '30px', '18px']}}>
+        <p sx={{fontWeight: 'bold', m: 0, fontSize: ['26px', '26px', '14px']}}>
           Table of contents
         </p>
         <ul sx={{m: 0, mt: 3, pl: 0, minWidth: '200px', listStyleType: 'none'}}>
@@ -52,7 +52,7 @@ const ChildNode = ({url, items, title, parentDepth}) => {
           variant: 'styles.a',
           lineBreak: 'anywhere',
           fontWeight: parentDepth > 1 ? 'normal' : 'bold',
-          fontSize: ['26px', '26px', 4]
+          fontSize: ['14px', '14px', 2]
         }}>
         {title}
       </Link>
