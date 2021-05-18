@@ -28,16 +28,20 @@ const Flash = ({children}) => {
   };
 
   const answer = (remembered) => {
+    if (!isCurrentlyRevealed) {
+      return;
+    }
+
     setState((draft) => {
       draft.answers[draft.currentCard] = {
         ...draft.answers[draft.currentCard],
         remembered
       };
 
-      const oldCards = [...draft.cards];
+      // const oldCards = [...draft.cards];
 
-      oldCards.splice(draft.currentCard, 1);
-      draft.cards = oldCards;
+      // oldCards.splice(draft.currentCard, 1);
+      // draft.cards = oldCards;
 
       //This is the last card to answer, complete the session.
       if (currentCard === _children.length - 1) {
@@ -55,43 +59,44 @@ const Flash = ({children}) => {
     completed: {opacity: 0, y: 20}
   };
 
-  const cardHoldVariants = {
-    inactive: {}
-  };
-
-  console.log(cards);
-
   return (
     <Flex
       sx={{
         borderRadius: '20px',
         minHeight: '400px',
         mb: 4,
-        p: 5,
+        p: [4, 5, 5],
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         boxShadow:
           'inset 0 0px 30px rgba(0,0,0,0.30), inset 0 0px 4px rgba(0,0,0,0.22)'
       }}>
-      <div sx={{position: 'relative'}}>
-        {cards.length > 0 && (
+      <div sx={{position: 'relative', width: '100%'}}>
+        {cards.length > 0 && !completed && (
           <motion.div
             sx={{
-              width: '343px',
-              mb: 4,
-              height: '439px',
+              width: ['100%', '343px', '343px'],
+              mb: [4, 4, 4],
+              height: ['58vh', '439px', '439px'],
               position: 'relative'
             }}>
             {cards.map(({props}, index) => (
               <motion.div
                 key={`flash-card-${index}`}
-                sx={{position: 'absolute', zIndex: _children.length - index}}>
+                sx={{
+                  position: 'absolute',
+                  width: '100%',
+                  zIndex: _children.length - index,
+                  pointerEvents: currentCard === index ? 'all' : 'none'
+                }}>
                 <Card
                   index={index}
                   answerCallback={answer}
                   revealCallback={reveal}
                   isActive={currentCard === index}
+                  wasActive={currentCard > index}
+                  currentCard={currentCard}
                   isRevealed={answers[index]?.revealed}
                   {...props}
                 />
@@ -127,7 +132,12 @@ const Flash = ({children}) => {
               : 'inactive'
           }
           sx={{position: completed ? 'absolute' : 'initial'}}>
-          <Flex sx={{color: 'flashText', fontWeight: '600'}}>
+          <Flex
+            sx={{
+              color: 'flashText',
+              fontWeight: '600',
+              flexDirection: ['column', 'row', 'row']
+            }}>
             <Flex
               onClick={() => answer(false)}
               sx={{
@@ -135,11 +145,12 @@ const Flash = ({children}) => {
                 borderRadius: 6,
                 p: '8px',
                 bg: 'primary',
-                mr: 3,
+                mr: [0, 3, 3],
+                mb: [3, 0, 0],
                 cursor: isCurrentlyRevealed ? 'pointer' : 'not-allowed',
                 alignItems: 'center',
-                fontSize: '14px',
-                justifyContent: 'space-around',
+                fontSize: ['16px', '14px', '14px'],
+                justifyContent: ['center', 'space-around', 'space-around'],
                 transition: 'all .2s ease',
                 '&:hover': isCurrentlyRevealed
                   ? {
@@ -147,7 +158,8 @@ const Flash = ({children}) => {
                     }
                   : {}
               }}>
-              <Icon size={'28px'} name="refresh" /> Didn't remember
+              <Icon size={'28px'} name="refresh" sx={{mr: [3, 0, 0]}} /> Didn't
+              remember
             </Flex>
             <Flex
               onClick={() => answer(true)}
@@ -158,8 +170,8 @@ const Flash = ({children}) => {
                 bg: 'primary',
                 cursor: isCurrentlyRevealed ? 'pointer' : 'not-allowed',
                 alignItems: 'center',
-                fontSize: '14px',
-                justifyContent: 'space-around',
+                fontSize: ['16px', '14px', '14px'],
+                justifyContent: ['center', 'space-around', 'space-around'],
                 transition: 'all .2s ease',
                 '&:hover': isCurrentlyRevealed
                   ? {
@@ -167,7 +179,7 @@ const Flash = ({children}) => {
                     }
                   : {}
               }}>
-              <Icon size={'22px'} name="checkmark" />
+              <Icon size={'22px'} name="checkmark" sx={{mr: [3, 0, 0]}} />
               Remembered
             </Flex>
           </Flex>
