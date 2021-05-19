@@ -20,7 +20,8 @@ const IndexPage = () => {
 
   const seo = {
     title: 'Kernel Community',
-    description: '/images/kernel_lp.png',
+    description:
+      'A peer-to-peer, lifelong learning community of the most talented individuals in web3',
     keywords: 'community, kernel, contribute',
     featuredImage: '/images/kernel_lp.png'
   };
