@@ -157,7 +157,7 @@ export default (props) => {
     hasTopSection;
   const renderLanguageSelector = hasTopSection && !hideLanguageSelector;
   const renderTableOfContents =
-    !isNil(tableOfContents) && tableOfContents.items.length !== 0;
+    !isNil(tableOfContents) && tableOfContents.items?.length !== 0;
   const renderBreadcrumbs =
     !hideBreadcrumbs || (hasTopSection && !hideLanguageSelector);
 

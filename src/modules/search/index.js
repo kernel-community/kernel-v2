@@ -83,7 +83,6 @@ export default function Search({onClick, ...otherProps}) {
 
   //On input change, run the search query and update our results state.
   const onChange = (val) => {
-    console.log(lunr);
     if (lunr && val !== '') {
       const query = val
         .trim() // remove trailing and leading spaces
@@ -124,7 +123,6 @@ export default function Search({onClick, ...otherProps}) {
         .map(({ref}) => {
           return lunr[locale].store[ref];
         });
-      console.log(results);
       setResults(results);
     }
 
