@@ -1,46 +1,46 @@
-import React from "react";
-import { icons as themeIcons } from "@makerdao/dai-ui-icons";
-import { icons as brandingIcons } from "@makerdao/dai-ui-icons-branding";
-import maker from "@makerdao/dai-ui-theme-maker";
+import React from 'react';
+import {icons as themeIcons} from '@makerdao/dai-ui-icons';
+import {icons as brandingIcons} from '@makerdao/dai-ui-icons-branding';
+import maker from '@makerdao/dai-ui-theme-maker';
 
 const prismPreset = {
-  color: "codeText",
-  backgroundColor: "codeBG",
-  ".selector, .attr-name, .string, .char, .builtin, .inserted": {
-    color: "primaryEmphasis",
+  color: 'codeText',
+  backgroundColor: 'codeBG',
+  '.selector, .attr-name, .string, .char, .builtin, .inserted': {
+    color: 'primaryEmphasis'
   },
   // comments and characters like <, =>, (), etc
-  ".prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url": {
-    color: "codeText",
+  '.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
+    color: 'codeText'
   },
-  ".comment": {
-    fontStyle: "italic",
-    color: "primaryMuted",
+  '.comment': {
+    fontStyle: 'italic',
+    color: 'primaryMuted'
   },
   // class names, functions and numbers
-  ".property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .maybe-class-name, .regex, .important, .variable": {
-    color: "secondary",
+  '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .maybe-class-name, .regex, .important, .variable': {
+    color: 'secondary'
   },
 
   // keywords like const, return
-  ".atrule, .attr-value, .keyword": {
-    color: "primaryEmphasis",
+  '.atrule, .attr-value, .keyword': {
+    color: 'primaryEmphasis'
   },
 
   fontSize: 3,
-  fontWeight: "400",
-  fontFamily: "monospace",
-  overflow: "auto",
+  fontWeight: '400',
+  fontFamily: 'monospace',
+  overflow: 'auto',
   p: 3,
   mt: 0,
-  borderRadius: "4px",
+  borderRadius: '4px'
 };
 
 export default {
   ...maker, //<- Your default theme.
   useCustomProperties: true,
   useColorSchemeMediaQuery: true, //TODO(Rejon): useBodyStyles could be the culprit for the flashing we're seeing. Will explore.
-  breakpoints: ["640px", "932px", "infinity"],
+  breakpoints: ['640px', '1228px', 'infinity'],
   icons: {
     ...themeIcons,
     ...brandingIcons,
@@ -55,7 +55,68 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 20 20",
+      viewBox: '0 0 20 20'
+    },
+    kernel_icon: {
+      path: (
+        <g>
+          <path
+            d="M106,38.91A16.46,16.46,0,1,0,89.37,22.46,16.55,16.55,0,0,0,106,38.91Zm38.27,91.65c0,22.49-17.13,40.71-38.27,40.71s-38.27-18.22-38.27-40.71c0-14.89,16.79-42.65,28.12-59.7a12,12,0,0,1,20.29,0C127.48,87.91,144.27,115.67,144.27,130.56ZM206,107c0,54.58-44.86,99-100,99S6,161.61,6,107A98.51,98.51,0,0,1,60.55,18.86a8.35,8.35,0,0,1,11.2,3.6,8.17,8.17,0,0,1-3.63,11.08A82.11,82.11,0,0,0,22.67,107a81.2,81.2,0,0,0,9.63,38.41A73.37,73.37,0,0,1,47.46,85.38a8.38,8.38,0,0,1,11.71-1.27A8.19,8.19,0,0,1,60.46,95.7a56.64,56.64,0,0,0-12.79,36.07c0,30.84,24.55,56.11,55.33,57.65,1,0,2,.08,3,.08s2,0,3-.08c30.78-1.54,55.33-26.81,55.33-57.65a57.35,57.35,0,0,0-14.58-38.18A8.18,8.18,0,0,1,150.49,82a8.38,8.38,0,0,1,11.76.72,73.53,73.53,0,0,1,17.46,62.76A81.31,81.31,0,0,0,189.33,107a82.12,82.12,0,0,0-45.45-73.49,8.18,8.18,0,0,1-3.63-11.08,8.36,8.36,0,0,1,11.2-3.6A98.52,98.52,0,0,1,206,107Z"
+            fill="currentColor"
+          />
+        </g>
+      ),
+      viewBox: '0 0 212 212'
+    },
+    kernel_icon_color: {
+      path: (
+        <g>
+          <path
+            fill="#FFD500"
+            d="M106,37.91A16.46,16.46,0,1,0,89.37,21.46,16.55,16.55,0,0,0,106,37.91Z"
+          />
+          <path
+            fill="#FFD500"
+            d="M144.27,129.56c0,22.49-17.13,40.71-38.27,40.71s-38.27-18.22-38.27-40.71c0-14.89,16.79-42.65,28.12-59.7a12,12,0,0,1,20.29,0C127.48,86.91,144.27,114.67,144.27,129.56Z"
+          />
+          <path
+            fill="#00EC9F"
+            d="M151.45,17.86a8.36,8.36,0,0,0-11.2,3.6,8.18,8.18,0,0,0,3.63,11.08A82.12,82.12,0,0,1,189.33,106a81.31,81.31,0,0,1-9.62,38.41,73.53,73.53,0,0,0-17.46-62.76A8.38,8.38,0,0,0,150.49,81a8.18,8.18,0,0,0-.74,11.63,57.35,57.35,0,0,1,14.58,38.18c0,30.84-24.55,56.11-55.33,57.65-1,0-2,.08-3,.08s-2,0-3-.08c-30.78-1.54-55.33-26.81-55.33-57.65A56.64,56.64,0,0,1,60.46,94.7a8.19,8.19,0,0,0-1.29-11.59,8.38,8.38,0,0,0-11.71,1.27A73.37,73.37,0,0,0,32.3,144.44,81.2,81.2,0,0,1,22.67,106,82.11,82.11,0,0,1,68.12,32.54a8.17,8.17,0,0,0,3.63-11.08,8.35,8.35,0,0,0-11.2-3.6A98.51,98.51,0,0,0,6,106c0,54.58,44.86,99,100,99s100-44.39,100-99A98.52,98.52,0,0,0,151.45,17.86Z"
+          />
+        </g>
+      ),
+      viewBox: '0 0 212 210'
+    },
+    kernel_logo: {
+      path: (
+        <g>
+          <path
+            d="M45.4,2.6c3.9,0,7.1,3.2,7.1,7.1c0,3.9-3.2,7-7.1,7c-3.9,0-7.1-3.2-7.1-7.1C38.3,5.7,41.5,2.5,45.4,2.6z
+	 M49.7,30.3c-2.1-3.2-6.5-3.2-8.7,0c-4.9,7.3-12.1,19.1-12.1,25.5c0,9.6,7.3,17.4,16.3,17.4c9,0,16.4-7.7,16.4-17.3
+	C61.6,49.4,54.5,37.6,49.7,30.3z"
+            fill="#FFCC00"
+          />
+          <path
+            d="M64.8,8.1c-1.8-0.9-3.9-0.2-4.8,1.5c-0.9,1.7-0.2,3.9,1.5,4.7c11.9,6.1,19.3,18.2,19.3,31.5
+	c0,5.9-1.5,11.5-4.2,16.4c0.4-1.9,0.6-3.8,0.6-5.8c0-7.7-2.8-15.2-7.9-21c-1.3-1.5-3.5-1.6-5-0.3c-1.5,1.3-1.6,3.5-0.3,5
+	c4,4.5,6.2,10.3,6.2,16.3c-0.1,13.2-10.6,23.9-23.7,24.5c-0.4,0-0.9,0-1.3,0c-0.4,0-0.9,0-1.3,0c-13.1-0.7-23.6-11.5-23.5-24.7
+	c0-5.7,1.9-11,5.5-15.4c1.2-1.5,1-3.7-0.5-5c-1.5-1.2-3.8-1-5,0.5C15.7,42,13.2,49,13.2,56.2c0,2,0.2,4,0.5,5.9
+	c-2.6-4.9-4.1-10.5-4.1-16.4c0.1-13.3,7.5-25.3,19.5-31.3c1.8-0.9,2.5-3,1.6-4.7c-0.9-1.7-3-2.4-4.8-1.6
+	C11.6,15.2,2.6,29.6,2.6,45.6C2.5,68.3,20.7,87,43.5,87.9c0.5,0,1.1,0,1.6,0.1C68.7,88.1,87.9,69.2,88,45.9
+	C88,29.9,79.2,15.5,64.8,8.1z"
+            fill="#25E899"
+          />
+          <path
+            d="M113.9,44.9l11.8-12.1h6.1l-13.7,13.7l13.8,16.6h-6.1l-10.9-13.5l-0.9,0.9v12.5h-4.6V32.8h4.6V44.9z
+	 M154.6,37.1h-12.1v7.3h11.8v4.3h-11.8v10.1h12.1v4.3h-16.7V32.8h16.7V37.1z M172.9,50.2l9.4,12.9h-5.6l-8.7-12.4h-0.8v12.4h-4.6
+	V32.8h5.4c4,0,6.9,0.8,8.7,2.3c2,1.7,2.9,3.9,2.9,6.6c0,2.1-0.6,4-1.8,5.5C176.6,48.7,174.9,49.7,172.9,50.2z M167.2,46.7h1.5
+	c4.3,0,6.5-1.7,6.5-5c0-3.1-2.1-4.7-6.3-4.7h-1.6V46.7z M188.9,63.1V30.7L211,53.8V32.8h4.6v32.1l-22.1-23.1v21.2L188.9,63.1
+	L188.9,63.1z M241.5,37.1h-12.1v7.3h11.8v4.3h-11.8v10.1h12.1v4.3h-16.7V32.8h16.7V37.1z M254.1,32.8v26h8.9v4.3h-13.5V32.8H254.1z"
+            fill="currentColor"
+          />
+        </g>
+      ),
+      viewBox: '0 0 266.9 90.6'
     },
     minus: {
       path: (
@@ -66,7 +127,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 20 20",
+      viewBox: '0 0 20 20'
     },
     moon: {
       path: (
@@ -79,7 +140,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 20 20",
+      viewBox: '0 0 20 20'
     },
     sun: {
       path: (
@@ -92,7 +153,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 20 20",
+      viewBox: '0 0 20 20'
     },
     github: {
       path: (
@@ -103,7 +164,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 136 133",
+      viewBox: '0 0 136 133'
     },
     clipboard: {
       path: (
@@ -114,7 +175,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     folder: {
       path: (
@@ -125,7 +186,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     forum: {
       path: (
@@ -136,7 +197,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     globe: {
       path: (
@@ -147,7 +208,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     laptop: {
       path: (
@@ -158,7 +219,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     pencil: {
       path: (
@@ -169,7 +230,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     people: {
       path: (
@@ -180,7 +241,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     wrench: {
       path: (
@@ -191,7 +252,7 @@ export default {
           />
         </g>
       ),
-      viewBox: "0 0 48 48",
+      viewBox: '0 0 48 48'
     },
     makerLogo: {
       path: (
@@ -237,90 +298,101 @@ export default {
           </defs>
         </g>
       ),
-      viewBox: "0 0 240 35",
-    },
+      viewBox: '0 0 240 35'
+    }
   }, //<- Icon package
   colors: {
     ...maker.colors, //<- Deconstruct maker.colors so default colors aren't lost.
-    primary: "#5AE2CA",
-    primaryEmphasis: "#68FEE3",
-    primaryAlt: "#1AAA9B",
-    primaryMuted: "#E7FCFA",
-    secondary: "#FFBA44",
-    secondaryEmphasis: "#FFE1A8",
-    secondaryAlt: "#FBA615",
-    secondaryMuted: "#FFF3DD",
-    background: "#FFFFFF",
-    backgroundAlt: "#291A42",
-    surface: "#E7FCFA",
-    surfaceAlt: "#FFFFFF",
-    surfaceDark: "#4D4968",
-    muted: "#D0D3D7",
-    link: "#1AAA9B",
-    linkAlt: "#5AE2CA",
-    mutedAlt: "#90969C",
-    error: "#FF6948",
-    success: "#5AE2CA",
-    successAlt: "#68FEE3",
-    notice: "#FF78F2",
-    noticeAlt: "#F2B9FF",
-    warning: "#FFBA44",
-    warningAlt: "#FFBA44",
-    text: "#291A42",
-    onBackgroundAlt: "#FFFFFF",
-    textMuted: "#302F35",
-    strawberry: "#FF78F2",
-    bubblegum: "#F2B9FF",
-    grape: "#9B9FFF",
-    onPrimary: "#291A42",
-    lemon: "#F3FF64",
+    primary: '#6166DC',
+    primaryEmphasis: '#2f2f59',
+    primaryAlt: '#1AAA9B',
+    primaryMuted: '#bbbded',
+    secondary: '#FFB400',
+    secondaryEmphasis: '#e09f00',
+    secondaryAlt: '#FBA615',
+    secondaryMuted: '#FFF3DD',
+    background: '#fafafa',
+    backgroundAlt: '#212144',
+    surface: '#E7FCFA',
+    surfaceAlt: '#fafafa',
+    surfaceDark: '#212144',
+    muted: '#D0D3D7',
+    link: '#6166DC',
+    linkAlt: '#6166DC',
+    mutedAlt: '#90969C',
+    error: '#EE565B',
+    success: '#46B17B',
+    successAlt: '#68FEE3',
+    notice: '#FF78F2',
+    noticeAlt: '#F2B9FF',
+    warning: '#FFBA44',
+    warningAlt: '#FFBA44',
+    text: '#000',
+    onBackgroundAlt: '#fafafa',
+    textMuted: '#484857',
+    strawberry: '#FF78F2',
+    bubblegum: '#F2B9FF',
+    grape: '#9B9FFF',
+    onPrimary: '#fafafa',
+    onSecondary: '#212144',
+    lemon: '#F3FF64',
+    flashCard: '#212145',
+    flashText: '#fff',
+    flashCorrectBG: '#00EC9F',
+    flashWarningBG: '#FFBA44',
+    flashCardAnswerBG: '#817e92',
     modes: {
       dark: {
-        primary: "#68FEE3",
-        primaryEmphasis: "#A6FFEF",
-        primaryMuted: "#00585E",
-        secondary: "#FF78F2",
-        secondaryEmphasis: "#F2B9FF",
-        backgroundAlt: "#4D4968",
-        secondaryMuted: "#94008E",
-        text: "#FFFFFF",
-        onBackgroundAlt: "#FFFFFF",
-        textMuted: "#E3E2EA",
-        muted: "#E1DFEC",
-        mutedAlt: "#4D4968",
-        background: "#291A42",
-        surface: "#4D4968",
-        surfaceAlt: "#4D4968",
-        warning: "#FFBA44",
-        link: "#68FEE3",
-        linkAlt: "#A6FFEF",
-        warningAlt: "#FBA615",
-        notice: "#F2B9FF",
-        noticeAlt: "#FF78F2",
-        success: "#68FEE3",
-        successAlt: "#A6FFEF",
-        statusBG: "#291A42",
-        statusColor: "#FFFFFF",
-        codeBG: "#00585E",
-        codeText: "#FFFFFF",
-        onPrimary: "#291A42",
-      },
+        primary: '#9090F1',
+        primaryEmphasis: '#4545bf',
+        primaryMuted: '#5454b0',
+        secondary: '#79F1B5',
+        secondaryEmphasis: '#09cb6a',
+        backgroundAlt: '#4D4968',
+        secondaryMuted: '#94008E',
+        text: '#fafafa',
+        onBackgroundAlt: '#fafafa',
+        textMuted: '#b7b7e8',
+        muted: '#E1DFEC',
+        mutedAlt: '#4D4968',
+        background: '#212144',
+        surface: '#4D4968',
+        surfaceAlt: '#4D4968',
+        warning: '#FFBA44',
+        link: '#79F1B5',
+        linkAlt: '#E9DAAC',
+        warningAlt: '#FBA615',
+        notice: '#9B98F8',
+        noticeAlt: '#514E9F',
+        success: '#E9DAAC',
+        successAlt: '#FFB400',
+        statusBG: '#291A42',
+        statusColor: '#fafafa',
+        codeBG: '#00585E',
+        codeText: '#fafafa',
+        onPrimary: '#291A42',
+        flashCard: '#212145',
+        flashCardAnswerBG: '2e2949',
+        flashText: '#fff',
+        flashCorrectBG: '#00EC9F',
+        flashWarningBG: '#FFBA44'
+      }
     },
 
-    statusBG: "#291A42",
-    statusColor: "#FFFFFF",
+    statusBG: '#291A42',
+    statusColor: '#FFFFFF',
 
-    callout: "#f4f4f7",
-    calloutSecondary: "#fdefd9",
-    calloutSecondaryBorder: "#F5B13D",
+    callout: '#f4f4f7',
+    calloutSecondary: '#fdefd9',
+    calloutSecondaryBorder: '#F5B13D',
 
-    codeBG: "#4D4968",
-    codeText: "#FFFFFF",
+    codeBG: '#4D4968',
+    codeText: '#FFFFFF'
   },
   text: {
     text: {
       ...maker.text.text,
-      color: 'textMuted',
+      color: 'text',
       marginBottom: '24px'
     },
     heading: {
@@ -329,8 +401,8 @@ export default {
     },
     h1: {
       fontSize: ['48px', '48px', '48px'],
-      letterSpacing: "0.3px",
-      fontWeight: "500",
+      letterSpacing: '0.3px',
+      fontWeight: '500',
       fontFamily: 'heading',
       color: 'text',
       marginTop: '48px',
@@ -338,8 +410,8 @@ export default {
     },
     h2: {
       fontSize: '32px',
-      fontWeight: "500",
-      letterSpacing: "0.3px",
+      fontWeight: '500',
+      letterSpacing: '0.3px',
       fontFamily: 'heading',
       color: 'text',
       marginTop: '48px',
@@ -348,7 +420,7 @@ export default {
     h3: {
       fontSize: '24px',
       fontWeight: '500',
-      letterSpacing: "0.3px",
+      letterSpacing: '0.3px',
       fontFamily: 'heading',
       color: 'text',
       marginTop: '16px',
@@ -376,206 +448,207 @@ export default {
     }
   },
   shadows: {
-    high: "0px 2px 17px rgba(35, 21, 54, 0.46)",
-    raised: "0px 2px 15px rgba(35, 21, 54, 0.15)",
-    float: "0px 2px 10px rgba(35, 21, 54, 0.05)",
+    high: '0px 2px 17px rgba(35, 21, 54, 0.46)',
+    raised: '0px 2px 15px rgba(35, 21, 54, 0.15)',
+    float: '0px 2px 10px rgba(35, 21, 54, 0.05)'
   },
   radii: {
     ...maker.radii,
-    round: "32px",
+    round: '32px'
   },
   fonts: {
-    ...maker.fonts,
+    serif: 'Miriam Libre',
+    sanserif: 'Libre Franklin',
     body:
-      'FT Base, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif',
+      'Libre Franklin, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif',
     heading:
-      'FT Base, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif',
-    transparencyDashboard: 'system-ui,"Helvetica Neue",sans-serif',
+      'Miriam Libre, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif'
   },
   styles: {
     ...maker.styles,
     root: {
       ...maker.styles.root,
-      color: "textMuted",
+      color: 'textMuted'
     },
     a: {
-      color: "link",
-      fontWeight: "600",
-      textDecoration: "none",
-      transition: "all .1s ease",
-      "&.active": {
-        color: "linkAlt",
+      color: 'link',
+      fontWeight: '600',
+      textDecoration: 'none',
+      transition: 'all .1s ease',
+      '&.active': {
+        color: 'linkAlt'
       },
-      "&:hover": {
-        color: "linkAlt",
+      '&:hover': {
+        color: 'linkAlt'
       },
-      "&:hover > svg": {
-        color: "linkAlt",
-      },
+      '&:hover > svg': {
+        color: 'linkAlt'
+      }
     },
     Link: {
-      color: "link",
-      fontWeight: "600",
-      textDecoration: "none",
-      transition: "all .1s ease",
-      "&.active": {
-        color: "linkAlt",
+      color: 'link',
+      fontWeight: '600',
+      textDecoration: 'none',
+      transition: 'all .1s ease',
+      '&.active': {
+        color: 'linkAlt',
+        fontWeight: 'bold'
       },
-      "&:hover": {
-        color: "linkAlt",
+      '&:hover': {
+        color: 'linkAlt'
       },
-      "&:hover > svg": {
-        color: "linkAlt",
-      },
+      '&:hover > svg': {
+        color: 'linkAlt'
+      }
     },
     pre: {
-      ...prismPreset,
+      ...prismPreset
     },
     code: {
       ...prismPreset,
-      background: "none",
-    },
+      background: 'none'
+    }
   },
 
   buttons: {
     primary: {
-      cursor: "pointer",
-      outline: "none",
-      fontFamily: "body",
-      borderRadius: "32px",
-      py: "15px",
+      cursor: 'pointer',
+      outline: 'none',
+      fontFamily: 'body',
+      borderRadius: '32px',
+      py: '15px',
       px: 4,
-      color: "onPrimary",
-      fontWeight: "500",
-      fontSize: "18px",
-      letterSpacing: "0.03px",
-      lineHeight: "19px",
-      margin: "8px 24px 8px 0",
-      bg: "primary",
-      "&:hover": {
-        bg: "primaryEmphasis",
-        textDecoration: "none",
-        color: "onPrimary",
-        transition: ".1s ease",
+      color: 'onPrimary',
+      fontWeight: '500',
+      fontSize: '18px',
+      letterSpacing: '0.03px',
+      lineHeight: '19px',
+      margin: '8px 24px 8px 0',
+      bg: 'primary',
+      '&:hover': {
+        bg: 'primaryEmphasis',
+        textDecoration: 'none',
+        color: 'onPrimary',
+        transition: '.1s ease'
       },
-      "&:active": {
-        color: "onPrimary",
-        textDecoration: "none",
-        boxShadow: "raised",
-        bg: "primaryEmphasis",
-        transition: ".1s ease",
+      '&:active': {
+        color: 'onPrimary',
+        textDecoration: 'none',
+        boxShadow: 'raised',
+        bg: 'primaryEmphasis',
+        transition: '.1s ease'
       },
-      "&:disabled": {
-        bg: "primaryMuted",
-        color: "muted",
-        pointerEvents: "none",
-        cursor: "not-allowed",
-      },
+      '&:disabled': {
+        bg: 'primaryMuted',
+        color: 'textMuted',
+        pointerEvents: 'none',
+        cursor: 'not-allowed'
+      }
     },
     secondary: {
-      variant: "buttons.primary",
-      bg: "secondary",
-      "&:hover": {
-        color: "onPrimary",
-        textDecoration: "none",
-        bg: "secondaryEmphasis",
-        transition: ".1s ease",
+      variant: 'buttons.primary',
+      color: 'onSecondary',
+      bg: 'secondary',
+      '&:hover': {
+        textDecoration: 'none',
+        bg: 'secondaryEmphasis',
+        transition: '.1s ease'
       },
-      "&:active": {
-        color: "onPrimary",
-        textDecoration: "none",
-        boxShadow: "raised",
-        transition: ".1s ease",
+      '&:active': {
+        color: 'onPrimary',
+        textDecoration: 'none',
+        boxShadow: 'raised',
+        transition: '.1s ease'
       },
-      "&:disabled": {
-        bg: "secondaryMuted",
-        color: "muted",
-        pointerEvents: "none",
-        cursor: "not-allowed",
-      },
+      '&:disabled': {
+        bg: 'secondaryMuted',
+        color: 'muted',
+        pointerEvents: 'none',
+        cursor: 'not-allowed'
+      }
     },
     outline: {
-      variant: "buttons.primary",
-      bg: "transparent",
-      color: "textMuted",
-      border: "1px solid",
-      borderColor: "text",
-      "&:hover": {
-        color: "textMuted",
-        textDecoration: "none",
-        bg: "primaryMuted",
-        transition: ".1s ease",
+      variant: 'buttons.primary',
+      bg: 'transparent',
+      color: 'textMuted',
+      border: '1px solid',
+      borderColor: 'text',
+      '&:hover': {
+        color: 'textMuted',
+        textDecoration: 'none',
+        bg: 'primaryMuted',
+        transition: '.1s ease'
       },
-      "&:active": {
-        color: "textMuted",
-        textDecoration: "none",
-        bg: "primaryMuted",
-        boxShadow: "raised",
-        transition: ".1s ease",
+      '&:active': {
+        color: 'textMuted',
+        textDecoration: 'none',
+        bg: 'primaryMuted',
+        boxShadow: 'raised',
+        transition: '.1s ease'
       },
-      "&:disabled": {
-        borderColor: "muted",
-        color: "muted",
-        pointerEvents: "none",
-        cursor: "not-allowed",
-      },
+      '&:disabled': {
+        borderColor: 'muted',
+        color: 'muted',
+        pointerEvents: 'none',
+        cursor: 'not-allowed'
+      }
     },
     primarySmall: {
-      variant: "buttons.primary",
+      variant: 'buttons.primary',
       py: 2,
-      px: "24px",
-      fontSize: "10px",
-      letterSpacing: "1px",
-      textTransform: "uppercase",
-      lineHeight: "12px",
+      px: '24px',
+      fontSize: '10px',
+      letterSpacing: '1px',
+      textTransform: 'uppercase',
+      lineHeight: '12px'
     },
     outlineSmall: {
-      variant: "buttons.outline",
+      variant: 'buttons.outline',
       py: 2,
-      px: "24px",
-      fontSize: "10px",
-      letterSpacing: "1px",
-      textTransform: "uppercase",
-      lineHeight: "12px",
+      px: '24px',
+      fontSize: '10px',
+      letterSpacing: '1px',
+      textTransform: 'uppercase',
+      lineHeight: '12px'
     },
     icon_primary: {
-      variant: "buttons.primary",
+      variant: 'buttons.primary'
     },
     icon_secondary: {
-      variant: "buttons.secondary",
+      variant: 'buttons.secondary'
     },
     icon_outline: {
-      variant: "buttons.outline",
+      variant: 'buttons.outline'
     },
     icon_outlineSmall: {
-      variant: "buttons.outlineSmall"
+      variant: 'buttons.outlineSmall'
     },
     text: {
-      variant: "buttons.primary",
+      variant: 'buttons.primary',
       fontSize: 3,
-      bg: "transparent",
-      color: "link",
-      "&:hover": {
-        color: "primaryEmphasis",
-        textDecoration: "none",
-        transition: ".1s ease",
+      bg: 'transparent',
+      color: 'link',
+      '&:hover': {
+        color: 'primaryEmphasis',
+        textDecoration: 'none',
+        transition: '.1s ease'
       },
-      "&:active": {
-        color: "primary",
-        textDecoration: "none",
-        transition: ".1s ease",
+      '&:active': {
+        color: 'primary',
+        textDecoration: 'none',
+        transition: '.1s ease'
       },
-      "&:disabled": {
-        color: "mutedAlt",
-        pointerEvents: "none",
-        cursor: "not-allowed",
-      },
+      '&:disabled': {
+        color: 'mutedAlt',
+        pointerEvents: 'none',
+        cursor: 'not-allowed'
+      }
     },
     textSmall: {
-      variant: "buttons.text",
+      variant: 'buttons.text'
     },
     icon_text: {
-      variant: "buttons.text",
-    },
-  },
+      variant: 'buttons.text'
+    }
+  }
 };

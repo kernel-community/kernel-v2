@@ -1,61 +1,66 @@
-const path = require("path");
-const remark = require("remark");
-const remarkFrontmatter = require("remark-frontmatter");
-const remarkSlug = require("remark-slug");
+const path = require('path');
+const remark = require('remark');
+const remarkFrontmatter = require('remark-frontmatter');
+const remarkSlug = require('remark-slug');
 const removeFrontmatter = () => (tree) =>
   // eslint-disable-next-line
-  filter(tree, (node) => node.type !== "yaml");
-const visit = require("unist-util-visit");
-const { TitleConverter, UrlConverter } = require("./src/build-utils");
-require("dotenv").config();
+  filter(tree, (node) => node.type !== 'yaml');
+const visit = require('unist-util-visit');
+const {console} = require('window-or-global');
+const {
+  TitleConverter,
+  UrlConverter,
+  getBlogPostTypeFromPath,
+  sanitizeAnchorLink
+} = require('./src/build-utils');
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
     title: `Kernel`,
     description: `A curated community of brilliance in web3.`,
     author: `Kernel Community Team`,
-    copyright: "",
-    siteUrl: "https://kernel.community/",
+    copyright: '',
+    siteUrl: 'https://kernel.community/'
   },
   plugins: [
-    "gatsby-plugin-theme-ui",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-catch-links",
-    "gatsby-plugin-flow",
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-catch-links',
     {
       //NOTE(Rejon): This is what allows us to do aliased imports like "@modules/ect..."
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@modules": path.resolve(__dirname, "src/modules"),
-          "@src": path.resolve(__dirname, "src"),
-          "@utils": path.resolve(__dirname, "src/utils.js"),
-          "@pages": path.resolve(__dirname, "src/pages"),
-          "@images": path.resolve(__dirname, "static/images"),
-          "@content": path.resolve(__dirname, "content"),
+          '@modules': path.resolve(__dirname, 'src/modules'),
+          '@src': path.resolve(__dirname, 'src'),
+          '@utils': path.resolve(__dirname, 'src/utils.js'),
+          '@pages': path.resolve(__dirname, 'src/pages'),
+          '@images': path.resolve(__dirname, 'static/images'),
+          '@content': path.resolve(__dirname, 'content')
         },
         extensions: [
           //NOTE(Rejon): You don't have to write .js at the end of js files now.
-          "js",
-        ],
-      },
+          'js'
+        ]
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: `${__dirname}/content`,
-      },
+        path: `${__dirname}/content`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blogPosts`,
-        path: `${__dirname}/blogPosts`,
-      },
+        path: `${__dirname}/blogPosts`
+      }
     },
     {
-      resolve: "gatsby-plugin-page-creator",
+      resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/content`,
         ignore: {
@@ -67,15 +72,15 @@ module.exports = {
             `**/example.mdx`,
             `**/footer.mdx`,
             `**/**.pptx`,
-            "**/**.jpg",
-            "**/**.png",
+            '**/**.jpg',
+            '**/**.png'
           ],
-          options: { nocase: true },
-        },
-      },
+          options: {nocase: true}
+        }
+      }
     },
     {
-      resolve: "gatsby-plugin-page-creator",
+      resolve: 'gatsby-plugin-page-creator',
       options: {
         path: `${__dirname}/blogPosts`,
         ignore: {
@@ -87,12 +92,12 @@ module.exports = {
             `**/example.mdx`,
             `**/footer.mdx`,
             `**/**.pptx`,
-            "**/**.jpg",
-            "**/**.png",
+            '**/**.jpg',
+            '**/**.png'
           ],
-          options: { nocase: true },
-        },
-      },
+          options: {nocase: true}
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-sitemap`,
@@ -111,8 +116,8 @@ module.exports = {
                 }
               }
             }
-        }`,
-      },
+        }`
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
@@ -123,70 +128,90 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
-          default: require.resolve("./src/modules/layouts/default_layout.js"),
-          blogPosts: require.resolve(
-            "./src/modules/layouts/blogPost_layout.js"
-          ),
+          default: require.resolve('./src/modules/layouts/default_layout.js'),
+          blogPosts: require.resolve('./src/modules/layouts/blogPost_layout.js')
         },
         remarkPlugins: [remarkSlug],
         gatsbyRemarkPlugins: [
           {
-            resolve: "gatsby-remark-embed-video",
+            resolve: 'gatsby-remark-embed-video',
             options: {
               width: 800,
               ratio: 1.77, // Optional: Defaults to 16/9 = 1.77.
               height: 400, // Optional: Overrides optional.ratio.
               related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
               noIframeBorder: true, // Optional: Disable insertion of <style> border: 0.
-              showInfo: false, // Optional: Hides video title and player actions.
-            },
+              showInfo: false // Optional: Hides video title and player actions.
+            }
           },
-
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              className: 'anchor-link',
+              icon: '<span>¶</span>'
+            }
+          },
           `gatsby-remark-responsive-iframe`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1000,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
           {
-            resolve: "gatsby-remark-code-titles",
+            resolve: 'gatsby-remark-code-titles',
             options: {
-              className: "prism-code-title",
-            },
-          },
-        ],
-      },
+              className: 'prism-code-title'
+            }
+          }
+        ]
+      }
     },
-
     {
       //NOTE(Rejon): Your search will have to be manually updated for ever new locale that's added.
-      resolve: "gatsby-plugin-lunr",
+      resolve: 'gatsby-plugin-lunr',
       options: {
         languages: [
           {
-            name: "en",
+            name: 'en',
             filterNodes: (node) =>
               node.frontmatter !== undefined &&
               node.fileAbsolutePath &&
               node.fileAbsolutePath.match(
                 /\/en\/(?!header.mdx|footer.mdx|index.mdx|example.mdx|social.mdx|404.mdx|.js|.json)/
-              ) !== null,
-          },
+              ) !== null
+          }
         ],
         fields: [
-          { name: "title", store: true, attributes: { boost: 20 } },
-          { name: "keywords", attributes: { boost: 15 } },
-          { name: "url", store: true },
-          { name: "excerpt", store: true, attributes: { boost: 5 } },
+          {name: 'title', store: true, attributes: {boost: 20}},
+          {name: 'keywords', attributes: {boost: 15}},
+          {name: 'isBlog', store: true},
+          {name: 'authors', store: true},
+          {name: 'type', store: true},
+          {name: 'description', store: true, attributes: {boost: 15}},
+          {name: 'date', store: true},
+          {name: 'url', store: true},
+          {name: 'excerpt', store: true, attributes: {boost: 5}}
         ],
         resolvers: {
           Mdx: {
             title: TitleConverter,
+            authors: (node) => node.frontmatter.authors,
+            description: (node) => node.frontmatter.description,
+            date: (node) => node.frontmatter.date,
+            type: (node) => {
+              if (node.frontmatter.type) {
+                return node.frontmatter.type;
+              } else if (node.fileAbsolutePath.includes('/blogPosts/')) {
+                return getBlogPostTypeFromPath(node.fileAbsolutePath);
+              }
+            },
+            isBlog: (node) => node.fileAbsolutePath.includes('/blogPosts/'),
             url: UrlConverter,
             excerpt: (node) => {
-              const excerptLength = 60; // Hard coded excerpt length
+              const excerptLength = 200; // Hard coded excerpt length
 
               //If this node's frontmatter has a description use THAT for excerpts.
               if (node.frontmatter.description) {
@@ -195,71 +220,71 @@ module.exports = {
 
               //NOTE(Rejon): We have to do excerpt this way because excerpt isn't available at the level that the lunr resolver is tapping Graphql.
               // TLDR: The excerpt node is undefined so we have to parse it ourselves.
-              let excerpt = "";
+              let excerpt = '';
               const tree = remark()
                 .use(remarkFrontmatter)
                 .use(removeFrontmatter)
                 .parse(node.rawBody);
-              visit(tree, "text", (node) => {
-                excerpt += node.value + " ";
+              visit(tree, 'text', (node) => {
+                excerpt += node.value + ' ';
               });
               return `${excerpt.slice(0, excerptLength)}${
-                excerpt.length > excerptLength ? "..." : ""
+                excerpt.length > excerptLength ? '...' : ''
               }`;
             },
-            keywords: (node) => node.frontmatter.keywords,
-          },
+            keywords: (node) => node.frontmatter.keywords
+          }
         },
-        filename: "search_index.json",
+        filename: 'search_index.json',
         fetchOptions: {
-          credentials: "same-origin",
-        },
-      },
+          credentials: 'same-origin'
+        }
+      }
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        // Avoids sending pageview hits from custom paths
-        exclude: ["/"],
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
-        // Enables Google Optimize using your container Id
-        optimizeId: process.env.GOOGLE_ANALYTICS_OPTIMIZE_ID,
-        // Enables Google Optimize Experiment ID
-        // experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
-        // Set Variation ID. 0 for original 1,2,3....
-        // variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
-        // Defers execution of google analytics script after page load
-        defer: true,
-        // Any additional optional fields
-        // sampleRate: 5,
-        // siteSpeedSampleRate: 10,
-        // cookieDomain: "makerdao.com",
-      },
-    },
-    "gatsby-plugin-preload-link-crossorigin",
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     // The property ID; the tracking code won't be generated without it
+    //     trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+    //     // Defines where to place the tracking script - `true` in the head and `false` in the body
+    //     head: false,
+    //     // Setting this parameter is optional
+    //     anonymize: true,
+    //     // Setting this parameter is also optional
+    //     respectDNT: true,
+    //     // Avoids sending pageview hits from custom paths
+    //     exclude: ["/"],
+    //     // Delays sending pageview hits on route update (in milliseconds)
+    //     pageTransitionDelay: 0,
+    //     // Enables Google Optimize using your container Id
+    //     optimizeId: process.env.GOOGLE_ANALYTICS_OPTIMIZE_ID,
+    //     // Enables Google Optimize Experiment ID
+    //     // experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
+    //     // Set Variation ID. 0 for original 1,2,3....
+    //     // variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+    //     // Defers execution of google analytics script after page load
+    //     defer: true,
+    //     // Any additional optional fields
+    //     // sampleRate: 5,
+    //     // siteSpeedSampleRate: 10,
+    //     // cookieDomain: "makerdao.com",
+    //   },
+    // },
+    'gatsby-plugin-preload-link-crossorigin',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Kernel Community`,
         short_name: `Kernel`,
         start_url: `/`,
-        background_color: "#291a42",
-        theme_color: "#5AE2CA",
+        background_color: '#291a42',
+        theme_color: '#5AE2CA',
         display: `standalone`,
         include_favicon: false,
-        icon: "src/modules/utility/icon-512x512.png",
-        cache_busting_mode: "none",
-        theme_color_in_head: false,
-      },
+        icon: 'src/modules/utility/icon-512x512.png',
+        cache_busting_mode: 'none',
+        theme_color_in_head: false
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
@@ -272,12 +297,12 @@ module.exports = {
     `gatsby-plugin-client-side-redirect`, //<- NOTE(Rejon): We're only using this because we're using Github Pages. If we're on vercel or netlify just use their redirect scripts.
     // `gatsby-plugin-meta-redirect`,
     {
-      resolve: "gatsby-plugin-offline",
+      resolve: 'gatsby-plugin-offline',
       options: {
         workboxConfig: {
-          globPatterns: ["**/images/icons/icon-512x512.png"],
-        },
-      },
-    },
-  ],
+          globPatterns: ['**/images/icons/icon-512x512.png']
+        }
+      }
+    }
+  ]
 };

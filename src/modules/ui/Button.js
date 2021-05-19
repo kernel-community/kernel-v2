@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { Button as ThemedButton, Text, jsx } from "theme-ui";
-import { Icon } from "@makerdao/dai-ui-icons";
-import isNil  from 'lodash/isNil'
+import {Button as ThemedButton, Text, jsx} from 'theme-ui';
+import {Icon} from '@makerdao/dai-ui-icons';
+import isNil from 'lodash/isNil';
 
-import { Link } from "@modules/navigation";
+import {Link} from '@modules/navigation';
 
 const Button = ({
   to,
@@ -26,53 +26,55 @@ const Button = ({
   //  <Button primary outline />
   // Instead of
   // <Button variant="primaryOutline" />
-  let _variant = `${icon ? "icon_" : ""}${
+  let _variant = `${icon ? 'icon_' : ''}${
     variant || secondary
-      ? "secondary"
+      ? 'secondary'
       : outline
-      ? "outline"
+      ? 'outline'
       : text
-      ? "text"
-      : "primary"
-  }${small ? "Small" : ""}`;
+      ? 'text'
+      : 'primary'
+  }${small ? 'Small' : ''}`;
 
   const internal = /^\/(?!\/)/.test(href) || /^\/(?!\/)/.test(to);
 
   const willHaveIcon = icon || (!internal && !hideExternalIcon && !small);
 
-  if (isNil(to) && isNil(href)) 
-  {
-    return  (
+  if (isNil(to) && isNil(href)) {
+    return (
       <ThemedButton
         className="button"
         disabled={disabled}
         variant={_variant}
         sx={{
-          p: willHaveIcon ? "13px 32px" : "",
+          p: willHaveIcon ? '13px 32px' : '',
           display: 'flex',
           alignItems: 'center',
-          "& > *": { display: "inline-block", mb: "0 !important" }, //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
+          '& > *': {display: 'inline-block', mb: '0 !important'} //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
         }}
-        {...otherProps}
-      >
-      {willHaveIcon && (
+        {...otherProps}>
+        {willHaveIcon && (
           <Icon
-            name={icon || "increase"}
+            name={icon || 'increase'}
             className="increase"
-            size={"20px"}
+            size={'20px'}
             sx={{
-              ml: "2px",
-              mr: ".5em",
-              verticalAlign: "middle",
+              ml: '2px',
+              mr: '.5em',
+              verticalAlign: 'middle'
             }}
           />
         )}
 
-        <Text sx={{ verticalAlign: willHaveIcon ? "middle" : "" }}>
+        <Text
+          sx={{
+            verticalAlign: willHaveIcon ? 'middle' : '',
+            fontFamily: 'Miriam Libre'
+          }}>
           {children}
         </Text>
       </ThemedButton>
-    )
+    );
   }
 
   return (
@@ -81,44 +83,55 @@ const Button = ({
       disabled={disabled}
       hideExternalIcon={true}
       sx={{
-        whiteSpace: "nowrap",
-        display: inline ? "inline-block" : "block",
-        cursor: disabled ? "not-allowed" : "",
-        fontWeight: "500",
-        "&:not(:last-child)": {
-          mb: 3,
-        },
-        ...sx,
-      }}
-    >
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
+        cursor: disabled ? 'not-allowed' : '',
+        fontWeight: '500',
+        ...sx
+      }}>
       <ThemedButton
         className="button"
         disabled={disabled}
         variant={_variant}
         sx={{
-          p: willHaveIcon ? "13px 32px" : "",
+          p: willHaveIcon ? '13px 32px' : '',
           display: 'flex',
-          alignItems:'center',
-          "& > *": { mb: "0 !important" }, //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
+          alignItems: 'center',
+          '& > *': {mb: '0 !important'} //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
         }}
-        {...otherProps}
-      >
-        {willHaveIcon && (
+        {...otherProps}>
+        {willHaveIcon && icon && (
           <Icon
-            name={icon || "increase"}
+            name={icon}
             className="increase"
-            size={"20px"}
+            size={'20px'}
             sx={{
-              ml: "2px",
-              mr: ".5em",
-              verticalAlign: "middle",
+              ml: '2px',
+              mr: '.5em',
+              verticalAlign: 'middle'
             }}
           />
         )}
 
-        <Text sx={{ verticalAlign: willHaveIcon ? "middle" : "" }}>
+        <Text
+          sx={{
+            verticalAlign: willHaveIcon ? 'middle' : '',
+            fontFamily: 'Miriam Libre'
+          }}>
           {children}
         </Text>
+
+        {willHaveIcon && !icon && (
+          <Icon
+            name={'increase'}
+            className="increase"
+            size={'20px'}
+            sx={{
+              ml: '.5em',
+              verticalAlign: 'middle'
+            }}
+          />
+        )}
       </ThemedButton>
     </Link>
   );
