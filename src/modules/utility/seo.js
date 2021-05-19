@@ -85,7 +85,7 @@ function SEO({description, lang, meta, title, keywords, url, featuredImage}) {
         },
         {
           name: 'twitter:image',
-          content: `https://kernel.community/${featuredImage}`
+          content: `https://kernel.community${featuredImage}`
         },
         {
           name: `twitter:description`,
