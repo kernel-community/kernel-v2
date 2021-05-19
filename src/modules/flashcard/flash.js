@@ -62,15 +62,11 @@ const Flash = ({children}) => {
   return (
     <Flex
       sx={{
-        borderRadius: '20px',
         minHeight: '400px',
         mb: 4,
-        p: [4, 5, 5],
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow:
-          'inset 0 0px 30px rgba(0,0,0,0.30), inset 0 0px 4px rgba(0,0,0,0.22)'
+        justifyContent: 'center'
       }}>
       <div sx={{position: 'relative', width: ['100%', '100%', 'initial']}}>
         {cards.length > 0 && !completed && (
