@@ -68,17 +68,9 @@ const Card = ({
     initial: {opacity: 0}
   };
 
-  const question = cloneElement(_children[0], {
-    sx: {
-      p: [1, 2, 3],
-      fontSize: [2, 3, 4],
-      alignItems: 'center',
-      textAlign: 'center',
-      justifyContent: 'center',
-      flex: '1 1 auto'
-    }
-  });
-  const answer = cloneElement(_children[1], {});
+  const question = _children[0];
+
+  const answer = _children[1];
 
   const postAnswer = _children.slice(2, _children.length);
   const currentVariant = isActive ? 'active' : wasActive ? 'exit' : 'initial';
@@ -105,12 +97,12 @@ const Card = ({
           <>
             <Flex
               sx={{
-                p: 3,
-                fontSize: [3, 4, 5],
                 alignItems: 'center',
                 textAlign: 'center',
                 justifyContent: 'center',
-                flex: '1 1 auto'
+                flex: '1 1 auto',
+                p: [1, 2, 3],
+                fontSize: [2, 3, 4]
               }}>
               {question}
             </Flex>

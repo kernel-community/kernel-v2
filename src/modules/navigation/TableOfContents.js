@@ -5,6 +5,8 @@ import Sticky from 'react-sticky-el';
 import {console, parent} from 'window-or-global';
 
 const TableOfContents = ({data, styles, isMobile}) => {
+  const itemsToRender = data.items || [];
+
   return (
     <Sticky
       boundaryElement=".content-boundary"
@@ -30,7 +32,7 @@ const TableOfContents = ({data, styles, isMobile}) => {
           Table of contents
         </p>
         <ul sx={{m: 0, mt: 3, pl: 0, minWidth: '200px', listStyleType: 'none'}}>
-          {data.items.map((node, index) => (
+          {itemsToRender.map((node, index) => (
             <ChildNode
               key={`toc-${node.url}-${index}`}
               parentDepth={0}
