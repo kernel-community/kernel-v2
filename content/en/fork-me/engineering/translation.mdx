@@ -122,7 +122,7 @@ const ComponentExample = () => {
   return (
        <p>{t("Friend", null, {count: 0})}</p> //0 Friends
        <p>{t("Friend", null, {count: 1})}</p> //Friend
-       <p>{t("Friend", null, {count: 2})}</p> //2 Friends, ect.
+       <p>{t("Friend", null, {count: 2})}</p> //2 Friends, etc.
        <p>{t("VariableExample", null, {name: "Réjon"})}</p> // My name is Réjon
    )
 }
@@ -130,7 +130,7 @@ const ComponentExample = () => {
 
 ### Advanced Plurals
 
-Because different locales can have multiple plurals, and different ways of counting (ie. Arabic),
+Because different locales can have multiple plurals, and different ways of counting (i.e. Arabic),
 we have a system in place to handle counting differently if the strict variable is added to the `t` function like so:
 `t('Friend', null, {count: 1, strict: true})`.
 
@@ -211,5 +211,5 @@ const ComponentExample = () => {
 }
 ```
 
-These are just examples for the sake of documentation. For an indepth on how the function works,
+These are just examples for the sake of documentation. For an in-depth on how the function works,
 see the [comments in code](https://github.com/kernel-community/kernel-v2/blob/main/src/modules/localization/useTranslation.js).
