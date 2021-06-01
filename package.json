@@ -13,7 +13,7 @@
     "@theme-ui/prism": "^0.7.3",
     "date-fns": "^2.21.1",
     "del": "^6.0.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^10.0.0",
     "framer-motion": "^4.1.9",
     "gatsby": "^3.3.1",
     "gatsby-image": "^3.3.0",
