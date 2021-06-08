@@ -14,7 +14,7 @@
     "date-fns": "^2.21.1",
     "del": "^6.0.0",
     "dotenv": "^10.0.0",
-    "framer-motion": "^4.1.9",
+    "framer-motion": "^4.1.17",
     "gatsby": "^3.3.1",
     "gatsby-image": "^3.3.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
