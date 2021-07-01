@@ -39,7 +39,7 @@
     "gatsby-source-filesystem": "^3.3.0",
     "gatsby-transformer-json": "^3.3.0",
     "gatsby-transformer-remark": "^4.5.0",
-    "gatsby-transformer-sharp": "^3.3.0",
+    "gatsby-transformer-sharp": "^3.8.0",
     "html-react-parser": "^1.2.6",
     "immer": "^9.0.2",
     "lodash": "^4.17.21",
