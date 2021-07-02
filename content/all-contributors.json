@@ -140,6 +140,15 @@
         "projectManagement",
         "question"
       ]
+    },
+    {
+      "login": "thetagan",
+      "name": "thetagan",
+      "avatar_url": "https://kernel.community/images/thetagan.jpg",
+      "profile": "https://twitter.com/thetagan",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 6,
