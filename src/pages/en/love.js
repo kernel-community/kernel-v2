@@ -27,8 +27,12 @@ class Love extends React.Component {
           <Box sx={{textAlign: 'left'}}>
             <Heading level={1}>Wall of Love</Heading>
             <Subtitle>
-              This virtual wall is a collection of all the love that came our
-              way from all our social channels
+              Collected testimonials to help us explain what Kernel is. These
+              show "the truth - that love is the ultimate and the highest goal
+              to which we can aspire. Then we grasped the meaning of the
+              greatest secret that human poetry and human thought and belief
+              have to impart: our salvation is through love and in love." –
+              Viktor Frankl
             </Subtitle>
           </Box>
           <Image
