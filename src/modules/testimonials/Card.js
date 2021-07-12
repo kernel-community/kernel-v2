@@ -11,7 +11,6 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
   const parsed = processString(config)(text);
   return (
     <Flex
-      onClick={() => window.open(url, '_new')}
       sx={{
         width: ['100%', '400px'],
         height: '526px',
@@ -27,13 +26,7 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
         mb: 22,
-        padding: '24px',
-        ':hover': {
-          boxShadow:
-            'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
-          borderRadius: '0.2%',
-          cursor: 'pointer'
-        }
+        padding: '24px'
       }}>
       <Box
         sx={{
@@ -67,6 +60,14 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
             src={
               source === 'slack' ? Slack : source === 'twitter' ? Twitter : ''
             }
+            onClick={() => window.open(url, '_new')}
+            sx={{
+              transition: 'all 0.2s ease-in-out',
+              ':hover': {
+                cursor: 'pointer',
+                transform: 'scale(1.2)'
+              }
+            }}
           />
         </Box>
       </Box>
@@ -102,11 +103,17 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
       </Box>
 
       <Box
+        onClick={() => window.open(url, '_new')}
         sx={{
           width: '100%',
           display: 'flex',
           flexDirection: 'row',
-          pb: '12px'
+          pb: '12px',
+          transition: 'all 0.2s ease-in-out',
+          ':hover': {
+            cursor: 'pointer',
+            transform: 'scale(1.03)'
+          }
         }}>
         <Box
           sx={{
