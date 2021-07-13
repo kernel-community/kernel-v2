@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import {icons as themeIcons} from '@makerdao/dai-ui-icons';
 import {icons as brandingIcons} from '@makerdao/dai-ui-icons-branding';
@@ -320,6 +321,10 @@ export default {
     link: '#6166DC',
     linkAlt: '#6166DC',
     mutedAlt: '#90969C',
+    // mutedAlt: '',
+    mutedDark: '#757087',
+    kernelPurple: '#9090F1',
+    kernelGreen: '#25E899',
     error: '#EE565B',
     success: '#46B17B',
     successAlt: '#68FEE3',
@@ -341,14 +346,22 @@ export default {
     flashCorrectBG: '#00EC9F',
     flashWarningBG: '#FFBA44',
     flashCardAnswerBG: '#817e92',
+    testimonialCardSlack: '#fafafa',
+    testimonialCardSlackText: '#757087',
+    testimonialCardTwitter: '#212144',
+    testimonialCardTwitterText: '#ffffff',
     modes: {
       dark: {
+        testimonialCardSlack: '#fafafa',
+        testimonialCardSlackText: '#3F3F3F',
+        testimonialCardTwitter: '#474791',
+        testimonialCardTwitterText: '#ffffff',
         primary: '#9090F1',
         primaryEmphasis: '#4545bf',
         primaryMuted: '#5454b0',
         secondary: '#79F1B5',
         secondaryEmphasis: '#09cb6a',
-        backgroundAlt: '#4D4968',
+        backgroundAlt: '#fafafa',
         secondaryMuted: '#94008E',
         text: '#fafafa',
         onBackgroundAlt: '#fafafa',
