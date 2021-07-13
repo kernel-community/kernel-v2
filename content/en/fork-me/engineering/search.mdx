@@ -24,7 +24,7 @@ Lunr is also used widely. If you've used mkdocs or docusaurus recently then you'
 ## How Lunr Indexes
 
 Since we're using Gatsby, there's always an integration someone has built, and luckily we have
-the gatsby-plugin-lunr that does a lot of heavy lifting for us. We provide languages and how to filternodes
+the gatsby-plugin-lunr that does a lot of heavy lifting for us. We provide languages and how to filter nodes
 in the options oof our plugin in the `gatsby-config` like so:
 
 ```js:title=gatsby-config.js
@@ -80,9 +80,7 @@ resolvers: {
 Since we also have some rules around what a Title is and how the URL is provided from the data we have
 (remember, automagic) we added some util methods that take in a node and transforms its data to meet our needs (TitleConverter, UrlConverter, etc).
 
-Providing an excerpt on search requires more work, since the excerpt is supposed to be our compiled MDX in HTML form. \
-However, that doesn't happen during build time, so `excerpt` is undefined due to a timing issue with Lunr.
-The solution is to
+Providing an excerpt on search requires more work, since the excerpt is supposed to be our compiled MDX in HTML form. However, that doesn't happen during build time, so `excerpt` is undefined due to a timing issue with Lunr. The solution is to
 
 1. Use the description from the frontmatter if provided, or
 2. use the `rawBody` and parse it manually like so:

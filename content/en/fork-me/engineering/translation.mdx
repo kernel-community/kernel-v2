@@ -135,7 +135,6 @@ we have a system in place to handle counting differently if the strict variable 
 `t('Friend', null, {count: 1, strict: true})`.
 
 Your json will look like:
-NOTE: `Friend` and `Friend_plural` are still valid, but will be overriden when strict is provided to the variables argument.
 
 ```json:title=en/UI.json
 {
@@ -151,6 +150,8 @@ NOTE: `Friend` and `Friend_plural` are still valid, but will be overriden when s
   }
 }
 ```
+
+>NOTE: `Friend` and `Friend_plural` are still valid, but will be overriden when `strict` is provided to the variables argument.
 
 Your output will look something like this:
 
@@ -169,13 +170,7 @@ const ComponentExample = () => {
 }
 ```
 
-<CTA>
-
-
-NOTE: If your count goes past 4 or is less than 0, it will default to key_5
-
-</CTA>
-
+>NOTE: If your count goes past 4 or is less than 0, it will default to key_5
 
 ### Getting a localized string from another locale
 

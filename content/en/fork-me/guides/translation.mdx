@@ -12,7 +12,7 @@ Translations can present a challenge. Our philosophy is that "content creators w
 
 We show translations on a per page basis, so as you translate the content, you'll need to then set the `hideLanguageSelector` field in your frontmatter to **false**, or simply do not include it (as it renders by default). This is cool because you can translate one page at a time instead of doing the whole project and then waiting months for reviews.
 
-Because the **content** folder defines how the website renders, we need to keep a separate file for UI elements that are not found in any of the **mdx** files - like the text in the search box, or in the footer etc. Follow the structure in that file and make sure that each elemnt there is translated. 
+Because the **content** folder defines how the website renders, we need to keep a separate file for UI elements that are not found in any of the **mdx** files - like the text in the search box, or in the footer etc. Follow the structure in [this file](https://github.com/kernel-community/kernel-v2/blob/r2d/content/en/UI.json) and make sure that each element there is translated. 
 
 Adding a new language in that file and a new directory in the **content** folder, named appropriately, should result in your language automatically appearing in the language selector for the pages you have translated.
 
@@ -31,10 +31,10 @@ Your responsibility is to:
 
 ## Best Practices
 
-- **Use Markdown:** All documents are formatted in Markdown. They contain headers, lists, links, tables, etc. Information about Markdown can be found on [Wikipedia](https://en.wikipedia.org/wiki/Markdown). Alternatively, this [cheat-sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) is a good reference.
+- **Use Markdown:** All documents are formatted in Markdown. Use the [cheatsheet](/fork-me/guides/cheatsheet) to help you if you get lost.
 - **Maintain Original Formatting.**
 - **Use a Markdown Editor:** Editors like [hackmd.io](https://hackmd.io/) or [VScode](https://code.visualstudio.com/) make working with Markdown more convenient.
-- **Keep Hyperlinks as they are:** Do not translate them. The editors will handle any necessary changes to links.
+- **Keep hyperlinks as they are:** Do not translate the actual URL. The editors will handle any necessary changes to links.
 - **Take notes:** of the specific things you would like editors to keep in mind.
 - **Editor Tools:** Feel free to use any software that helps find translation errors and improve writing. We encourage using tools that assist workflow but copying directly from a program will disqualify you from receiving a bounty and from future assignments. Please use them as an aide and not a substitute for your work.
 - **Communicate early and often**: Join our [Slack](https://kernel-community.slack.com). We encourage reaching out to translators and reviewers for guidance.
@@ -49,6 +49,6 @@ The reviewer’s role is to ensure that translated documents meet both our forma
 - **Simplicity:** Our aim is to write plainly and simply. Maintain contact with translators as they work on documents. Be sure to agree on translated terms and other conventions.
 - **Formatting:** Ensure that translated documents retain the original formatting.
 - **Adherence to the Kernel Style:** A simple style must be maintained throughout all documents.
-- **Hyperlinks:** Give extra attention to this task. Hyperlinks allow users to explore other important resources. Ensure all links are functioning properly and included where necessary. Hyperlinks fall into three general categories:
-- **Links Between Translated Documents:** If possible, ensure that the link goes to a page which has also been translated into that same language.
-- **Links to Other Pages:** Try to source a native language version for the link. For example, if a link leads to a Wikipedia page, it’s likely that a version of this page exists in the native language.
+- **Hyperlinks:** Give extra attention to this task. Hyperlinks allow users to explore other important resources. Ensure all links are functioning properly and included where necessary. Hyperlinks fall into two general categories:
+    - **Links Between Translated Documents:** If possible, ensure that the link goes to a page which has also been translated into that same language.
+    - **Links to Other Pages:** Try to source a native language version for the link. For example, if a link leads to a Wikipedia page, it’s likely that a version of this page exists in the native language.

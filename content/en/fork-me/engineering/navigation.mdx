@@ -47,13 +47,13 @@ We used parts of the [hasura/gastsby-gitbook-starter](https://github.com/hasura/
 as a reference for how to logically put this together.
 
 To keep it short, there's a file called `Sidenav_Tree` that exports a method that
-converts the MDX edge data into {title, slug, rawSlug} (rawSlug being the file path without it's locale)
+converts the MDX edge data into `{title, slug, rawSlug}` (rawSlug being the file path without it's locale)
 and only returns elements for the locale specified and our currentTopSection (Start, Learn, Resources, etc.).
 We convert this into sidenav objects for our default locale and our current locale
 (if our current locale is the same as the default we don't make objects for it).
 Then we merge overlap the locale files over the default locale files.
 
-After we've gotten our `mergedLocaleFiles` we reduce all them using some of the sidenav example
+After we've gotten our `mergedLocaleFiles` we reduce them using some of the sidenav example
 from the hasura starter to generate an object `items` that contain more items
 (tl;dr: our sidenav in object/array form).
 
@@ -68,13 +68,13 @@ relative to their siblings based on these simple rules:
 
 1. If order exists in a file it will always be above files without order.
 2. The lower the order number, the higher it is in the list. 0 -> 10 is Top -> Bottom
-3. If relative files have the same order (i.e. human error) then they will be sorted alphabetically of their Title.
+3. If relative files have the same order (i.e. human error) then they will be sorted alphabetically according to their Title.
 4. Files without order are sorted in alphabetical order of their title (Title rule applies, localeCompare is used for non english characters).
 
 ## Breadcrumbs
 
-Breadcrumbs are very simple. They are aware of their location in the app, run a query to get all the MDX,
-and then breaks down the data blob based on our current route to produce an array of objects to be rendered.
+Breadcrumbs are very simple. They are aware of their location in the app, so we run a query to get all the MDX,
+and then break down the data blob based on our current route to produce an array of objects to be rendered.
 
 You would think that we could just utilize the route/uri and convert those, however this solution doesn't
 cover every edge case. Based on our specs, the expectation is that the Breadcrumb labels will match the
