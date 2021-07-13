@@ -12,7 +12,6 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
   return (
     <Flex
       sx={{
-        width: ['100%', '400px'],
         height: '526px',
         bg:
           source === 'slack'
@@ -144,7 +143,9 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
                   : source === 'twitter'
                   ? '50%'
                   : '50%',
-              width: ['76px', '86px']
+              width: '66px',
+              boxShadow:
+                'rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px'
             }}
           />
         </Box>

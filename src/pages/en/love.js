@@ -35,15 +35,8 @@ class Love extends React.Component {
               Viktor Frankl
             </Subtitle>
           </Box>
-          <Image
-            src={KernelHeart}
-            alt="kernel heart"
-            sx={{
-              width: ['100%', '543px', '550px']
-            }}
-          />
+          <Image src={KernelHeart} alt="kernel heart" />
         </InfoBlock>
-        {/* <hr/> */}
         <CardGrid cards={this.state.cards} />
       </Box>
     );
