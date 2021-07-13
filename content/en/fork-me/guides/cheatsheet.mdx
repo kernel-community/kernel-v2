@@ -5,6 +5,8 @@ hideLanguageSelector: true
 
 # Cheat Sheet
 
+Use the table below whenever you'd like to add something visual to your text. The **Syntax** column is what should help you most, as it contains everything you can do as a writer for this site. The **Props** column gives you additional information about how each component can be extended with specific properties you may need.
+
 ## Overview of all components
 
 | Component       | Syntax                    | Markdown Equivalent       | Props                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -31,29 +33,26 @@ hideLanguageSelector: true
 
 ## Using the "sx" property
 
-[Theme UI](https://theme-ui.com/home) is a library which allows us to do enormously cool things,
+[Theme UI](https://theme-ui.com/home) is a library which allows us to do cool things
 like building a fully themed design system for an open source, decentralized community of makers. Enter
 [DAI-UI](https://design-system.mkr-js-prod.now.sh/). Built on top of Theme UI, DAI-UI provides us with predefined spacings, fontsizes, colors, icons, and much, much more.
 Moreover, we can be sure that all our colours, icons, spacing, headers and whatever other styles we wish to use are all the same
 not just on this website, but across **every single community project**! It's really mind-blowing when you get to grips with it.
 
-You, as the content creator, have **complete control** over how the content appears, and you need never ask a developer to insert some fancy UI element for you. It's all within you power...
+You, as the content creator, have **complete control** over how the content appears, and you need never ask a developer to insert some fancy UI element for you. It's all within your power...
 
 You can provide any css style you want in the `sx` prop. It's best to consult the docs above - especially the "Recipes" files of DAI-UI - to get a sense of the great variety on offer. Here, we'll just explain the preset sizing and spaces like the `4` we've used
 above and what they mean, so that you can use the correct preset in the correct place and we can achieve uniformity across our entire
 ecosystem.
 
+If you'd like to set up mobile styles, just pass an array of values to the `sx` prop, beginning with mobile, then tablet, then desktop. So, if I'd like different padding for different devices for my component, I could write `sx={{ padding:'[1, 2, 3]' }}`. The exact breakpoints are defined [here](https://github.com/kernel-community/kernel-v2/blob/r2d/src/gatsby-plugin-theme-ui/index.js#L44).
+
 > Note that `sx` props must use camelCase, which means first letter lower case, any other word uppercase and no spacing.
 > So the css property font-size becomes fontSize, or background-image becomes backgroundImage when being passed as a prop to
 > any React component. To find more details on object styling, please see the [Theme UI docs](https://theme-ui.com/guides/object-styles/).
 
-<Box sx={{backgroundColor: 'notice', padding: 3, marginBottom: 4}}>
-
-
-The `fontSize` and `Spacing` are given below in **px**. `fontSize` can be used for any text element, including headings, and
+> The `fontSize` and `Spacing` are given below in **px**. `fontSize` can be used for any text element, including headings, and
 `spacing` gets applied both when specifying margins or padding.
-
-</Box>
 
 
 | Preset | fontSize | Spacing |
