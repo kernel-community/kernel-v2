@@ -8,7 +8,6 @@ export default function Heading5(props) {
     <Text
       as="h5"
       sx={{
-        mb: '32px',
         display: 'block',
         fontSize: '20px',
         fontWeight: 'normal',

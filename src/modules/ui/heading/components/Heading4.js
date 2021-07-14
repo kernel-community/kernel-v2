@@ -8,7 +8,6 @@ export default function Heading4(props) {
     <Text
       as="h4"
       sx={{
-        mb: '32px',
         display: 'block',
         lineHeight: 'normal',
         fontSize: '20px',
