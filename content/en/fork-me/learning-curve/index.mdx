@@ -57,7 +57,7 @@ The Factory is constructed to be aware of only these three items essential to it
 > **uint256 _fee** - the amount of DAI to be locked for the duration of study;   
 > **uint256 _checkpoints** - the number of points at which learners can redeem part of their fee;   
 > **uint256 _checkpointBlockSpacing** - checkpoints can be defined in blocks as exact time is not required;   
-> **string _url** - a simple "metadata" field to link any course to its frontend, useful for validation &amp; security, as well as future frontend displays;   
+> **string calldata _url** - a simple "metadata" field to link any course to its frontend, useful for validation &amp; security, as well as future frontend displays;   
 > **address _creator** - the address to receive any yield generated when learners on this course choose not to mint LEARN.
 
 Anyone can create a course. There are no privileged roles here. The only expectation is that you define clearly when learners may redeem whatever it costs to take your course. You are encouraged to allow them to do so incrementally, using a few checkpoints, so that they can redeem portions of their fee as they go, as this likely makes their studies even more sustainable.
@@ -78,7 +78,7 @@ A function which can be called by anyone to take the current funds in the Factor
 
 > params: **uint256 _courseId**
 
-This method allows a learner to register for a course of their choice. It checks the fee associated with that course, accepts tokens amounting to that fee and registers the learner. The tokens are kept in the contract and assigned to the current batch. Once there are enough tokens in the batch to justify the gas costs of calling `batchDeposit()`, anyone may do so and add the current batch the yearn vault.
+This method allows a learner to register for a course of their choice. It checks the fee associated with that course, accepts tokens amounting to that fee and registers the learner. The tokens are kept in the contract and assigned to the current batch. Once there are enough tokens in the batch to justify the gas costs of calling `batchDeposit()`, anyone may do so and add the current batch to the yearn vault.
 
 </Accordion>
 
@@ -90,7 +90,7 @@ This method allows a learner to register for a course of their choice. It checks
 > **address learner**  
 > **uint256 _courseId**  
 
-All course are deployed with a given number of checkpoints allowing learners to receive a portion of their fees back at various stages in the course. This is a helper function that checks where a learner is in a course and is used by both `redeem()` and `mint()` to figure out the proper amount required. It is public, so anyone may check it at any time.
+All course are deployed with a given number of checkpoints allowing learners to receive a portion of their fees back at various stages in the course. This is a helper function that checks where a learner is in a course and is used by both `redeem()` and `mint()` to figure out the proper amount to be redeemed. It is public, so anyone may check it at any time.
 
 </Accordion>
 
@@ -112,9 +112,9 @@ The internal function that does the actual calculations and checks for the publi
 
 > params: **uint256 _courseId**
 
-If a learner is redeeming rather than minting, it means they are simply requesting their initial fee back (whether they have completed the course or not). In this case, it checks what proportion of `fee` (set when the course is deployed) must be returned and sends it back to the learner. Whatever yield they earned is sent to the course creator.
+If a learner is redeeming rather than minting, it means they are simply requesting their initial fee back (whether they have completed the course or not). In this case, the method checks what proportion of `fee` (set when the course is deployed) must be returned and sends it back to the learner. Whatever yield they earned is allocated to the course creator, which they can choose to redeem at any point with another method described below.
 
-If the learner has not completed the course, it checks the period elapsed since `blockRegistered`, at which point the full `fee` can be returned and the yield sent to the course creator.
+This contract contains no sense of "completing" a course based on some kind of examination or assessment, as we do not feel this is the direction in which modern education ought to trend. This method simply checks the period elapsed since `blockRegistered`. If this contains more blocks than `checkpoints * checkpointBlockSpacing`, then the full `fee` can be returned and the yield sent to the course creator.
 
 </Accordion>
 
@@ -124,7 +124,15 @@ If the learner has not completed the course, it checks the period elapsed since 
 
 > params: **uint256 _courseId**
 
-Handles learner minting new LEARN checks via `verify()` what proportion of the fee to send to the Learning Curve, adds any yield earned to that, and returns all the resulting LEARN tokens to the learner. This acts as an effective discount for learners (as they receive more LEARN) without us having to maintain a whitelist or the like: great for simplicity, security and usability
+Handles learner minting new LEARN and checks via `verify()` what proportion of the fee to send to the Learning Curve. If `mint` is chosen, a learner gets their initial fee _plus_ any yield earned, all of which is returned directly to the learner in the form of LEARN tokens. This acts as an effective discount for learners (as they receive more LEARN) without us having to maintain a whitelist or the like: great for simplicity, security, and usability.
+
+</Accordion>
+
+<Accordion>
+
+**withdrawYieldRewards**
+
+Transfers the amount of DAI that an address is eligible to withdraw. Addresses become eligible if they are set as the `creator` a specific course and a learner on that course decides to redeem their fee rather than mint LEARN, which means that any yield the fee earned is returned to the course creator.
 
 </Accordion>
 
@@ -132,15 +140,19 @@ Handles learner minting new LEARN checks via `verify()` what proportion of the f
 
 **getEligibleAmount**
 
-> params: **uint256 _courseId**
+> params: **uint256 _courseId**  
 
-Gets the amount of funds that a learner is eligible for at this checkpoint in their course. It does this by looking at two things: `eligibleShares` that represent that share of collateral in the yearn vault which the learner can rightfully claim; and any `undeployed` DAI from their initial staked fees which has not yet been sent to a yearn vault.
+> returns: **uint256 eligibleShares**, **bool deployed**
+
+Gets the amount of funds that a learner is eligible for at this checkpoint in their course. It does this by looking at two things: `eligibleShares` that represent the share of collateral in the yearn vault which the learner can rightfully claim; and any "undeployed" DAI from their initial staked fees which has not yet been sent to a yearn vault.
 
 </Accordion>
 
 <Accordion>
 
 **getCurrentBatchTotal**
+
+> returns: **uint256**
 
 A helper get function which returns the total number of batches in our yearn vault.
 
@@ -152,7 +164,9 @@ A helper get function which returns the total number of batches in our yearn vau
 
 > params:  
 > **address learner**  
-> **uint256 _courseId**  
+> **uint256 _courseId**    
+
+> returns: **uint256**
 
 A helper get function which returns the block a given learner registered in.
 
@@ -162,6 +176,8 @@ A helper get function which returns the block a given learner registered in.
 
 **getCurrentBatchId**
 
+> returns: **uint256**
+
 A helper get function which returns the current `batchId`.
 
 </Accordion>
@@ -170,17 +186,21 @@ A helper get function which returns the current `batchId`.
 
 **getNextCourseId**
 
+> returns: **uint256**
+
 A helper get function which returns the current `courseId`.
 
 </Accordion>
 
 <Accordion>
 
-**getUserCourseEligibleFunds**
+**getLearnerCourseEligibleFunds**
 
 > params:  
 > **address learner**  
 > **uint256 _courseId**  
+
+> returns: **uint256**
 
 A helper get function which returns the amount of funds a learner is eligible to claim back from a given course, at any given time.
 
@@ -188,13 +208,39 @@ A helper get function which returns the amount of funds a learner is eligible to
 
 <Accordion>
 
-**getUserCourseFundsRemaining**
+**getLearnerCourseFundsRemaining**
 
 > params:  
 > **address learner**  
 > **uint256 _courseId**  
 
+> returns: **uint256**
+
 A helper get function which returns the amount of the initial fee a learner staked which remains in the course at any given time.
+
+</Accordion>
+
+<Accordion>
+
+**getCourseUrl**
+
+> params: **uint256 _courseId**  
+
+> returns: **string memory**
+
+A helper get function which returns the URL associated with the `courseId` stored in the contract, mostly for security and independent verification/auditing purposes.
+
+</Accordion>
+
+<Accordion>
+
+**getYieldRewards**
+
+> params: **address redeemer**  
+
+> returns: **uint256**
+
+A helper get function which returns the current yieldRewards mapped to a given `creator` address, should any educator wish to claim some of their earnings at any point.
 
 </Accordion>
 
@@ -204,12 +250,12 @@ A helper get function which returns the amount of the initial fee a learner stak
 
 **CourseCreated**
 
-> uint256 indexed courseId,
-> uint256 checkpoints,
-> uint256 fee,
-> uint256 checkpointBlockSpacing,
-> uint256 url,
-> uint256 creator
+> uint256 indexed courseId,  
+> uint256 checkpoints,  
+> uint256 fee,  
+> uint256 checkpointBlockSpacing,  
+> uint256 url,  
+> uint256 creator  
 
 Likely the most important event in the long run, especially if we want to build a catalogue of courses, the URLs that they exist at, and the creator addresses which are receiving any yield. Tracking these events allows us to build a coherent and clear front-end for discovering the various courses using this standard.
 
@@ -219,8 +265,8 @@ Likely the most important event in the long run, especially if we want to build 
 
 **LearnerRegistered**
 
-> uint256 indexed courseId,
-> address learner
+> uint256 indexed courseId,  
+> address learner  
 
 Keep track of the addresses of learners and the courses they've signed up for.
 
@@ -230,9 +276,9 @@ Keep track of the addresses of learners and the courses they've signed up for.
 
 **FeeRedeemed**
 
-> uint256 courseId,
-> address learner,
-> uint256 amount
+> uint256 courseId,  
+> address learner,  
+> uint256 amount  
 
 useful for understanding which learners have redeemed how much for each course. This allows for two important things: understanding which courses learners are `redeeming` on rather than `minting`; and tracking how many learners (and how much of their original fees) are inactive in either the Vault or the Factory.
 
@@ -242,10 +288,10 @@ useful for understanding which learners have redeemed how much for each course. 
 
 **LearnMintedFromCourse**
 
-> uint256 courseId,
-> address learner,
-> uint256 stableConverted,
-> uint256 learnMinted
+> uint256 courseId,  
+> address learner,  
+> uint256 stableConverted,  
+> uint256 learnMinted  
 
 Tracked separately from `LearnMinted` events in the Learning Curve so it's easy to see how much of the total supply of LEARN comes directly from learners going through the courses on offer.
 
@@ -255,9 +301,9 @@ Tracked separately from `LearnMinted` events in the Learning Curve so it's easy 
 
 **BatchDeposited**
 
-> uint256 batchId,
-> uint256 batchAmount,
-> uint256 batchYieldAmount
+> uint256 batchId,  
+> uint256 batchAmount,  
+> uint256 batchYieldAmount  
 
 Tracked to make it easy to see how much DAI is in each batch in the vault, and how many yDAI are associated with it for redemption or minting purposes.
 
@@ -267,11 +313,22 @@ Tracked to make it easy to see how much DAI is in each batch in the vault, and h
 
 **CheckpointUpdated**
 
-> uint256 courseId,
-> uint256 checkpointReached,
-> address learner
+> uint256 courseId,  
+> uint256 checkpointReached,  
+> address learner  
 
 Helpful in understanding where different learners are at different points in the course. Only emitted when a learner actually claims some amount of their intial fee back at a given checkpoint.
+
+</Accordion>
+
+<Accordion>
+
+**YieldRewardRedeemed**
+
+> address redeemer,    
+> uint256 YieldRewarded   
+
+Helpful to keep track of how much yield has been claimed/sent back to the course creator at any given point.
 
 </Accordion>
 
@@ -352,6 +409,32 @@ A helper function for the frontend so that we can calculate and pass the correct
 > params: **uint256 reserveAmount** - DAI to lock
 
 A helper function to check if the learner has enough DAI to get the desired LEARN tokens and ensure a successful `mint` transaction.
+
+</Accordion>
+
+#### Events
+
+<Accordion>
+
+**LearnMinted**
+
+> address indexed learner,  
+> uint256 amountMinted,  
+> uint256 daiDeposited
+
+It is likely helpful to distinguish between `LearnMintedFromCourse` and `LearnMinted` by anyone interacting directly with the LearningCurve as secondary markets become more established, so that we can tell how much LEARN in existence comes from learning, and how much comes from speculation on the value of the resulting epistemic community.
+
+</Accordion>
+
+<Accordion>
+
+**LearnBurned**
+
+> address indexed learner,   
+> uint256 amountBurned,  
+> uint256 daiReturned
+
+The same reasoning applies as above: it is helpful to track LEARN created and destroyed by learners going through courses, and by other people interacting directly with these contracts. We have nothing against speculation, as such people take real risks and provide the necessary liquidity for more efficient markets to form.
 
 </Accordion>
 
