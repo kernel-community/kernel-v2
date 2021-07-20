@@ -19,17 +19,17 @@ yarn
 yarn start
 ```
 
-Check out the `fork-me` directory under `content/en` for everything you could possibly need to know about how to work with this site, from a cheatsheet and component palette, to detail about how translations, search, and navigation are handled.
+Check out the `guiding` directory under `content/en` for everything you could possibly need to know about how to work with this site, from a cheatsheet and component palette, to detail about how translations, search, and navigation are handled.
 
 ## Roadmap
 
 This is a **rough outline** of the next steps to meet the vision above. Many of these steps can/may happen in parallel. All of them will be detailed in our project board.
 
-- [ ] Fix all current styling issues to make this new site match closely the old one.
-- [ ] Model smart contracts fully and write a formal spec. Figure out checkpoint verification mechanism.
-- [ ] Write some good blog pieces and structure that section correctly.
-- [ ] Write flashcard content and build `flashcard` React component.
-- [ ] Soft launch: no signups or actual spaced repetitive tracking. Anyone can use the flashcards simply as fun additions to the text.
+- [x] Fix all current styling issues to make this new site match closely the old one.
+- [x] Model smart contracts fully and write a formal spec. Figure out checkpoint verification mechanism.
+- [x] Write some good blog pieces and structure that section correctly.
+- [x] Write flashcard content and build `flashcard` React component.
+- [x] Soft launch: no signups or actual spaced repetitive tracking. Anyone can use the flashcards simply as fun additions to the text.
 - [ ] Build backend with email notifications and spaced tracking. Build `register` React component. Wire up `flashcards` to use the backend tracking.
 - [ ] Finish writing and testing contracts. Get some Kernel friends to audit them.
 - [ ] Build `redeem` React component and do all the testing on Kovan/Ropsten/whatever test net.
