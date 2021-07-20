@@ -8,11 +8,11 @@ featuredImage: /images/shares/learn.png
 
 # ⚙️ How to Translate Kernel Content
 
-Translations can present a challenge. Our philosophy is that "content creators write the website", so the **content** folder therefore decides how the site is rendered, including translated content. This means, when you start to translate Kernel into your language, you'll need to create a brand new folder under the **content** directory and name it appropriately, i.e. **en** for English, **es** for Spanish, **fr** for French, **ko** for Korean etc.
+Translations can present a challenge. Our philosophy is that "content creators write the website", so the content folder therefore decides how the site is rendered, including translated content. This means, when you start to translate Kernel into your language, you'll need to create a brand new folder under the content directory and name it appropriately, i.e. **en** for English, **es** for Spanish, **fr** for French, **ko** for Korean etc.
 
 We show translations on a per page basis, so as you translate the content, you'll need to then set the `hideLanguageSelector` field in your frontmatter to **false**, or simply do not include it (as it renders by default). This is cool because you can translate one page at a time instead of doing the whole project and then waiting months for reviews.
 
-Because the **content** folder defines how the website renders, we need to keep a separate file for UI elements that are not found in any of the **mdx** files - like the text in the search box, or in the footer etc. Follow the structure in [this file](https://github.com/kernel-community/kernel-v2/blob/r2d/content/en/UI.json) and make sure that each element there is translated. 
+Because the content folder defines how the website renders, we need to keep a separate file for UI elements that are not found in any of the **mdx** files - like the text in the search box, or in the footer etc. Follow the structure in [this file](https://github.com/kernel-community/kernel-v2/blob/r2d/content/en/UI.json) and make sure that each element there is translated. 
 
 Adding a new language in that file and a new directory in the **content** folder, named appropriately, should result in your language automatically appearing in the language selector for the pages you have translated.
 
@@ -31,7 +31,7 @@ Your responsibility is to:
 
 ## Best Practices
 
-- **Use Markdown:** All documents are formatted in Markdown. Use the [cheatsheet](/fork-me/guides/cheatsheet) to help you if you get lost.
+- **Use Markdown:** All documents are formatted in Markdown. Use the [cheatsheet](/guiding/recipes) to help you if you get lost.
 - **Maintain Original Formatting.**
 - **Use a Markdown Editor:** Editors like [hackmd.io](https://hackmd.io/) or [VScode](https://code.visualstudio.com/) make working with Markdown more convenient.
 - **Keep hyperlinks as they are:** Do not translate the actual URL. The editors will handle any necessary changes to links.

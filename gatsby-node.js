@@ -307,6 +307,11 @@ exports.createPages = async ({graphql, actions}) => {
     fromPath: '/module-7/the-gift',
     toPath: `/${FALLBACK_LOCALE}/learn/module-7/the-gift`
   });
+
+  createRedirect({
+    fromPath: '/fork-me/learning-curve',
+    toPath: `/${FALLBACK_LOCALE}/guiding/contracts`
+  });
 };
 
 exports.onCreatePage = async ({page, actions}) => {
