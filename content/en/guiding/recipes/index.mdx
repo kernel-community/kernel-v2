@@ -1,5 +1,6 @@
 ---
-order: 1
+order: 4
+title: Kernel Recipes
 hideLanguageSelector: true
 ---
 
@@ -34,16 +35,12 @@ Use the table below whenever you'd like to add something visual to your text. Th
 ## Using the "sx" property
 
 [Theme UI](https://theme-ui.com/home) is a library which allows us to do cool things
-like building a fully themed design system for an open source, decentralized community of makers. Enter
-[DAI-UI](https://design-system.mkr-js-prod.now.sh/). Built on top of Theme UI, DAI-UI provides us with predefined spacings, fontsizes, colors, icons, and much, much more.
-Moreover, we can be sure that all our colours, icons, spacing, headers and whatever other styles we wish to use are all the same
-not just on this website, but across **every single community project**! It's really mind-blowing when you get to grips with it.
+like building a fully themed design system for an open source, decentralized community of makers. Enter [DAI-UI](https://design-system.mkr-js-prod.now.sh/). Built on top of Theme UI, DAI-UI provides us with predefined spacings, fontsizes, colors, icons, and much, much more.
+Moreover, we can be sure that all our colours, icons, spacing, headers and whatever other styles we wish to use are all the same not just on this website, but across **every single community project**! It's really mind-blowing when you get to grips with it.
 
 You, as the content creator, have **complete control** over how the content appears, and you need never ask a developer to insert some fancy UI element for you. It's all within your power...
 
-You can provide any css style you want in the `sx` prop. It's best to consult the docs above - especially the "Recipes" files of DAI-UI - to get a sense of the great variety on offer. Here, we'll just explain the preset sizing and spaces like the `4` we've used
-above and what they mean, so that you can use the correct preset in the correct place and we can achieve uniformity across our entire
-ecosystem.
+You can provide any css style you want in the `sx` prop. It's best to consult the docs above - especially the "Recipes" files of DAI-UI - to get a sense of the great variety on offer. Here, we'll just explain the preset sizing and spaces like the `4` we've used above and what they mean, so that you can use the correct preset in the correct place and we can achieve uniformity across our entire ecosystem.
 
 If you'd like to set up mobile styles, just pass an array of values to the `sx` prop, beginning with mobile, then tablet, then desktop. So, if I'd like different padding for different devices for my component, I could write `sx={{ padding:'[1, 2, 3]' }}`. The exact breakpoints are defined [here](https://github.com/kernel-community/kernel-v2/blob/r2d/src/gatsby-plugin-theme-ui/index.js#L44).
 
