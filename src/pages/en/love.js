@@ -22,7 +22,7 @@ class Love extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get('https://wall-of-love.herokuapp.com/wol/raw').then((response) => {
+    axios.get('https://kernel-wall-of-love.herokuapp.com/wol/raw').then((response) => {
       this.setState({
         cards: response.data.data
       });
