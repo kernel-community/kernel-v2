@@ -52,7 +52,7 @@ const ChildNode = ({url, items, title, parentDepth}) => {
         to={url}
         sx={{
           variant: 'styles.a',
-          lineBreak: 'anywhere',
+          lineBreak: 'auto',
           fontWeight: parentDepth > 1 ? 'normal' : 'bold',
           fontSize: ['14px', '14px', 2]
         }}>
