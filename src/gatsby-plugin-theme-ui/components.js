@@ -21,7 +21,7 @@ import {
 } from '@modules/ui/';
 import Card from '@modules/flashcard/card';
 import Flash from '@modules/flashcard/flash';
-import {Aligner, Indent, Video} from '@modules/utility/';
+import {Aligner, Indent, Video, Sound} from '@modules/utility/';
 import {motion} from 'framer-motion';
 import {Box, Divider, Flex, Image, jsx, Text} from 'theme-ui';
 
@@ -87,6 +87,7 @@ const Custom_Components = {
   Tout,
   Column,
   Video,
+  Sound,
   Authors,
   motionDiv: motion.div,
   motionUL: motion.ul,
