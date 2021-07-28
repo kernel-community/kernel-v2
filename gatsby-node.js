@@ -309,7 +309,7 @@ exports.createPages = async ({graphql, actions}) => {
   });
 
   createRedirect({
-    fromPath: '/fork-me/learning-curve',
+    fromPath: '/en/fork-me/learning-curve',
     toPath: `/${FALLBACK_LOCALE}/guiding/contracts`
   });
 };
