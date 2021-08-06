@@ -6817,12 +6817,12 @@ gatsby-plugin-alias-imports@^1.0.5:
   dependencies:
     "@babel/runtime" "^7.2.0"
 
-gatsby-plugin-catch-links@^3.3.0:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-3.4.0.tgz"
-  integrity sha512-vYjlTdPlHIRsCzsCokCQ+cOnOlmn2xi87h2f59nZ7pl3gCKG/dTz4XOAjj6+5hpn/tPuf2ulU/LgJv35rkAi0g==
+gatsby-plugin-catch-links@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-3.10.0.tgz#b68fec57299c87381ab208f01529d942ae151a67"
+  integrity sha512-TOrHm86IWLmNQKZvxO+oq0xwfYySZS9Yk0FOtMSAYy92kOHf8CP5Lvdaw4U0M0LfiSePtwwvHPkviYvmqQ0gIw==
   dependencies:
-    "@babel/runtime" "^7.12.5"
+    "@babel/runtime" "^7.14.6"
     escape-string-regexp "^1.0.5"
 
 gatsby-plugin-client-side-redirect@^1.1.0:
