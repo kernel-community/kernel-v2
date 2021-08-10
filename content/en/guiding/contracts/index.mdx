@@ -11,7 +11,7 @@ Any good spec starts with a picture:
 
 <Aligner center>
 
-<Image alt="Learning Curve Explainer" src="/images/Learning-Curve.png" />
+<Image alt="Learning Curve Explainer" src="/images/Learning-Curve-v2.png" />
 
 </Aligner>
 
@@ -125,7 +125,7 @@ This contract contains no sense of "completing" a course based on some kind of e
 
 > params: **uint256 _courseId**
 
-Handles learner minting new LEARN and checks via `verify()` what proportion of the fee to send to the Learning Curve. If `mint` is chosen, a learner gets their initial fee _plus_ any yield earned, all of which is returned directly to the learner in the form of LEARN tokens. This acts as an effective discount for learners (as they receive more LEARN) without us having to maintain a whitelist or the like: great for simplicity, security, and usability.
+Handles learner minting new LEARN and checks via `verify()` what proportion of the fee to send to the Learning Curve. If `mint` is chosen, the yield earned is still assigned to the course creator to balance incentives for educators as best as possible. The total fee is returned directly to the learner in the form of LEARN tokens, and we feel that the shape and design of the Learning Curve is enough to incentivize many learners to choose this option. However, if they don't, this is not really a concern, as we see this as a long-term project and will be satisfied if the supply of LEARN grows very slowly.
 
 </Accordion>
 
@@ -139,13 +139,13 @@ Transfers the amount of DAI that an address is eligible to withdraw. Addresses b
 
 <Accordion>
 
-**getEligibleAmount**
+**determineEligibleAmount**
 
 > params: **uint256 _courseId**  
 
 > returns: **uint256 eligibleShares**, **bool deployed**
 
-Gets the amount of funds that a learner is eligible for at this checkpoint in their course. It does this by looking at two things: `eligibleShares` that represent the share of collateral in the yearn vault which the learner can rightfully claim; and any "undeployed" DAI from their initial staked fees which has not yet been sent to a yearn vault.
+Fetches and updates the amount of funds that a learner is eligible for at this checkpoint in their course. It does this by looking at two things: `eligibleShares` that represent the share of collateral in the yearn vault which the learner can rightfully claim; and any "undeployed" DAI from their initial staked fees which has not yet been sent to a yearn vault.
 
 </Accordion>
 
@@ -377,9 +377,19 @@ This is the same as a normal mint, except that an address is passed in which the
 
 **burn**
 
-> params: **uint256 _daiToReceive** - how much underlying DAI the burner wishes to receive back.
+> params: **uint256 _burnAmount** - how much underlying DAI the burner wishes to receive back.
 
-Ideally, we'd simply pass in how much LEARN is to be burned. However, taking in a `_amountLearn` and then converting this on-chain to the `_daiToReceive` is not possible, as it requires dividing by `e` raised to the power of (_amountLearn / k). 
+This function takes in some amount of LEARN to be burned, calculates how much underlying DAI collateral this corresponds to using the inverse operation of the natural logarithm decay function for minting - i.e. the natural exponent `e` - burns the LEARN and returns the DAI to the sender.  
+
+</Accordion>
+
+<Accordion>
+
+**e_calc**
+
+> params: **uint256 x** - some number to be used in the calculation of exponents for `burn` method calls.
+
+This function takes in some number `x`, divides it by the global constant `k` and returns the value of `e` raised to the power of that number. This is used for the reverse operation of minting LEARN, here called `burn`.  
 
 </Accordion>
 
@@ -395,11 +405,11 @@ An internal, pure helper function that uses the PRBMathUD60x18 contract to retur
 
 <Accordion>
 
-**getBurnableForReserveAmount**
+**getPredictedBurn**
 
-> params: **uint256 reserveAmount** - DAI to receive
+> params: **uint256 _burnAmount** - DAI to receive
 
-A helper function for the frontend so that we can calculate and pass the correct `_daiToReceive` to the `burn` method. It returns to the amount of LEARN which must be burnt in order to receive the requested DAI, which can be used to check if the learner has enough LEARN tokens for a successful `burn` transaction.
+A helper function wich calculates the amount of underlying DAI collateral to return for some `_burnAmount` of LEARN tokens passed into it.
 
 </Accordion>
 
