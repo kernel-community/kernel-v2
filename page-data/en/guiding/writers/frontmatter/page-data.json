@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-guiding-writers-frontmatter-mdx","path":"/en/guiding/writers/frontmatter/","result":{"pageContext":{"frontmatter":{"title":"Frontmatter","order":2,"hideLanguageSelector":true,"keywords":"frontmatter, guide, markdown, help, technical","description":"The most complete guide to writing frontmatter in mdx files that you've ever read.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/guiding/writers/frontmatter/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-guiding-writers-frontmatter-mdx",
+    "path": "/en/guiding/writers/frontmatter/",
+    "result": {"pageContext":{"frontmatter":{"title":"Frontmatter","order":2,"hideLanguageSelector":true,"keywords":"frontmatter, guide, markdown, help, technical","description":"The most complete guide to writing frontmatter in mdx files that you've ever read.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/guiding/writers/frontmatter/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

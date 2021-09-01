@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-learn-module-0-index-mdx","path":"/en/learn/module-0/","result":{"pageContext":{"frontmatter":{"title":"Introduction to Kernel","order":0,"hideLanguageSelector":true,"description":"An overview of the Kernel Learn Track, which will teach you to think about and build a better web.","featuredImage":"images/shares/play-of-pattern.png"},"locale":"en","pagePath":"/en/learn/module-0/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-learn-module-0-index-mdx",
+    "path": "/en/learn/module-0/",
+    "result": {"pageContext":{"frontmatter":{"title":"Introduction to Kernel","order":0,"hideLanguageSelector":true,"description":"An overview of the Kernel Learn Track, which will teach you to think about and build a better web.","featuredImage":"images/shares/play-of-pattern.png"},"locale":"en","pagePath":"/en/learn/module-0/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

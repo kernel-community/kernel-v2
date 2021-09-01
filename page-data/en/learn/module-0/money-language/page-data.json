@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-learn-module-0-money-language-mdx","path":"/en/learn/module-0/money-language/","result":{"pageContext":{"frontmatter":{"title":"Money Talks","order":3,"hideLanguageSelector":true,"description":"Andreas Antonopoulos describes the shift from closed organizations to open platforms to ownerless protocols and describes the historical appearance and uses of money.","featuredImage":"images/shares/giving.png"},"locale":"en","pagePath":"/en/learn/module-0/money-language/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-learn-module-0-money-language-mdx",
+    "path": "/en/learn/module-0/money-language/",
+    "result": {"pageContext":{"frontmatter":{"title":"Money Talks","order":3,"hideLanguageSelector":true,"description":"Andreas Antonopoulos describes the shift from closed organizations to open platforms to ownerless protocols and describes the historical appearance and uses of money.","featuredImage":"images/shares/giving.png"},"locale":"en","pagePath":"/en/learn/module-0/money-language/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-learn-module-3-freedom-mdx","path":"/en/learn/module-3/freedom/","result":{"pageContext":{"frontmatter":{"title":"🦄 Freedom","order":2,"hideLanguageSelector":true,"description":"What is freedom, really? Everybody seems to value it, but few can describe what it actually is in practical terms. Let's change that.","featuredImage":"images/shares/freedom.png"},"locale":"en","pagePath":"/en/learn/module-3/freedom/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-learn-module-3-freedom-mdx",
+    "path": "/en/learn/module-3/freedom/",
+    "result": {"pageContext":{"frontmatter":{"title":"🦄 Freedom","order":2,"hideLanguageSelector":true,"description":"What is freedom, really? Everybody seems to value it, but few can describe what it actually is in practical terms. Let's change that.","featuredImage":"images/shares/freedom.png"},"locale":"en","pagePath":"/en/learn/module-3/freedom/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

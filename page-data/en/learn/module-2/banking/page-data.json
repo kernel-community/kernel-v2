@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-learn-module-2-banking-mdx","path":"/en/learn/module-2/banking/","result":{"pageContext":{"frontmatter":{"title":"In Pyramids?","order":5,"hideLanguageSelector":true,"description":"A fantastic MOOC given by Perry Mehrling to help us understand, in detail, the current banking world from a banker's perspective.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/learn/module-2/banking/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-learn-module-2-banking-mdx",
+    "path": "/en/learn/module-2/banking/",
+    "result": {"pageContext":{"frontmatter":{"title":"In Pyramids?","order":5,"hideLanguageSelector":true,"description":"A fantastic MOOC given by Perry Mehrling to help us understand, in detail, the current banking world from a banker's perspective.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/learn/module-2/banking/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

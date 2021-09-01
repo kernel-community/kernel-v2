@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-koans-index-mdx","path":"/en/koans/","result":{"pageContext":{"frontmatter":{"header":false,"title":"Question","hideLanguageSelector":true,"description":"Seemingly simple questions which make no sense and so short-circuit our map-making habit in the hope we may arrive at a fuller experience of reality. If you can find your way through the universal library in which they live, you will become the steward of some rare and highly prized NFTs.","featuredImage":"images/koans/i_ching_genetic_code.jpeg"},"locale":"en","pagePath":"/en/koans/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-koans-index-mdx",
+    "path": "/en/koans/",
+    "result": {"pageContext":{"frontmatter":{"header":false,"title":"Question","hideLanguageSelector":true,"description":"Seemingly simple questions which make no sense and so short-circuit our map-making habit in the hope we may arrive at a fuller experience of reality. If you can find your way through the universal library in which they live, you will become the steward of some rare and highly prized NFTs.","featuredImage":"images/koans/i_ching_genetic_code.jpeg"},"locale":"en","pagePath":"/en/koans/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

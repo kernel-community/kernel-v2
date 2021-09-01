@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-resources-read-mdx","path":"/en/resources/read/","result":{"pageContext":{"frontmatter":{"title":"Community Reads","order":6,"hideLanguageSelector":true,"image":"/images/shares/giving.png"},"locale":"en","pagePath":"/en/resources/read/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-resources-read-mdx",
+    "path": "/en/resources/read/",
+    "result": {"pageContext":{"frontmatter":{"title":"Community Reads","order":6,"hideLanguageSelector":true,"image":"/images/shares/giving.png"},"locale":"en","pagePath":"/en/resources/read/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

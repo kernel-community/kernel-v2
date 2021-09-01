@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-resources-security-mdx","path":"/en/resources/security/","result":{"pageContext":{"frontmatter":{"title":"Security Best Practices","order":3,"hideLanguageSelector":true,"description":"A highly curated collection of the best smart contract security tools currently available.","image":"/images/shares/learn.png"},"locale":"en","pagePath":"/en/resources/security/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-resources-security-mdx",
+    "path": "/en/resources/security/",
+    "result": {"pageContext":{"frontmatter":{"title":"Security Best Practices","order":3,"hideLanguageSelector":true,"description":"A highly curated collection of the best smart contract security tools currently available.","image":"/images/shares/learn.png"},"locale":"en","pagePath":"/en/resources/security/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

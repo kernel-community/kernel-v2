@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-learn-module-4-consensus-mdx","path":"/en/learn/module-4/consensus/","result":{"pageContext":{"frontmatter":{"title":"Consensus By Asking","order":4,"hideLanguageSelector":true,"description":"We mix an old IETF governance document about rough consensus and running code with some thoughts on legibility from James Scott and Venkatesh Rao in order to decipher what governance actually means on the internet.","featuredImage":"images/shares/giving.png"},"locale":"en","pagePath":"/en/learn/module-4/consensus/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-learn-module-4-consensus-mdx",
+    "path": "/en/learn/module-4/consensus/",
+    "result": {"pageContext":{"frontmatter":{"title":"Consensus By Asking","order":4,"hideLanguageSelector":true,"description":"We mix an old IETF governance document about rough consensus and running code with some thoughts on legibility from James Scott and Venkatesh Rao in order to decipher what governance actually means on the internet.","featuredImage":"images/shares/giving.png"},"locale":"en","pagePath":"/en/learn/module-4/consensus/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

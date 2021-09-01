@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-track-gaming-x-genesis-index-mdx","path":"/en/track-gaming/x-genesis/","result":{"pageContext":{"frontmatter":{"title":"Genesis","order":7,"hideLanguageSelector":true,"description":"The initial Gaming Track syllabus from the Kernel Genesis Block in 2020."},"locale":"en","pagePath":"/en/track-gaming/x-genesis/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-track-gaming-x-genesis-index-mdx",
+    "path": "/en/track-gaming/x-genesis/",
+    "result": {"pageContext":{"frontmatter":{"title":"Genesis","order":7,"hideLanguageSelector":true,"description":"The initial Gaming Track syllabus from the Kernel Genesis Block in 2020."},"locale":"en","pagePath":"/en/track-gaming/x-genesis/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

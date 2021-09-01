@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-learn-module-3-time-mdx","path":"/en/learn/module-3/time/","result":{"pageContext":{"frontmatter":{"title":"The Present Time","order":4,"hideLanguageSelector":true,"description":"Douglas Rushkoff explains the initial vision of the web as something which would create time, and how we must respond to the attempt to extract and commoditize our attention by being genuinely present.","featuredImage":"images/shares/giving.png"},"locale":"en","pagePath":"/en/learn/module-3/time/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-learn-module-3-time-mdx",
+    "path": "/en/learn/module-3/time/",
+    "result": {"pageContext":{"frontmatter":{"title":"The Present Time","order":4,"hideLanguageSelector":true,"description":"Douglas Rushkoff explains the initial vision of the web as something which would create time, and how we must respond to the attempt to extract and commoditize our attention by being genuinely present.","featuredImage":"images/shares/giving.png"},"locale":"en","pagePath":"/en/learn/module-3/time/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

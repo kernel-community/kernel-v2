@@ -1,1 +1,5 @@
-{"componentChunkName":"component---content-en-koans-module-1-mdx","path":"/en/koans/module-1/","result":{"pageContext":{"frontmatter":{"title":"There Will Be Buds","order":1,"hideLanguageSelector":true,"featuredImage":"images/koans/bud_of_bud.png"},"locale":"en","pagePath":"/en/koans/module-1/"}},"staticQueryHashes":["221863732","2367353373","263894237","2744905544","63159454"]}
+{
+    "componentChunkName": "component---content-en-koans-module-1-mdx",
+    "path": "/en/koans/module-1/",
+    "result": {"pageContext":{"frontmatter":{"title":"There Will Be Buds","order":1,"hideLanguageSelector":true,"featuredImage":"images/koans/bud_of_bud.png"},"locale":"en","pagePath":"/en/koans/module-1/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
