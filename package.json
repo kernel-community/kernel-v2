@@ -12,7 +12,7 @@
     "@mdx-js/react": "^1.6.22",
     "@theme-ui/prism": "^0.7.3",
     "axios": "^0.21.1",
-    "date-fns": "^2.21.1",
+    "date-fns": "^2.23.0",
     "del": "^6.0.0",
     "dotenv": "^10.0.0",
     "framer-motion": "^4.1.17",
@@ -59,7 +59,7 @@
     "remark-frontmatter": "^3.0.0",
     "remark-slug": "^6.1.0",
     "theme-ui": "^0.9.1",
-    "use-immer": "^0.5.2",
+    "use-immer": "^0.6.0",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
