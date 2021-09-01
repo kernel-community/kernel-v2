@@ -59,7 +59,7 @@
     "remark-frontmatter": "^3.0.0",
     "remark-slug": "^6.1.0",
     "theme-ui": "^0.9.1",
-    "use-immer": "^0.5.2",
+    "use-immer": "^0.6.0",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
