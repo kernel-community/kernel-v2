@@ -16,7 +16,7 @@
     "del": "^6.0.0",
     "dotenv": "^10.0.0",
     "framer-motion": "^4.1.17",
-    "gatsby": "^3.3.1",
+    "gatsby": "^3.13.0",
     "gatsby-image": "^3.8.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-catch-links": "^3.10.0",
