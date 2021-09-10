@@ -166,7 +166,6 @@ const Header = () => {
     showMobileMenu,
     hideMobileMenu
   } = useNavigation();
-  const [colorMode] = useColorMode();
 
   const breakpoints = theme.breakpoints.slice(0, -1); //NOTE(Rejon): The last element of the break point array SHOULD be infinity.
 
@@ -304,7 +303,7 @@ const Header = () => {
           name={mobileNavOpen ? 'close' : 'menu'}
           sx={{
             p: mobileNavOpen ? '7px' : '0px', //NOTE(Rejon): Close and Menu have different viewbox sizes in the dai-ui spec.
-            color: colorMode !== 'dark' ? 'onSecondary' : 'onBackgroundAlt',
+            color: 'currentColor',
             cursor: 'pointer',
             ml: '1rem',
             display: ['initial', 'initial', 'none']
