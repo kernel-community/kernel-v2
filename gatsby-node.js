@@ -312,6 +312,11 @@ exports.createPages = async ({graphql, actions}) => {
     fromPath: '/en/fork-me/learning-curve',
     toPath: `/${FALLBACK_LOCALE}/guiding/contracts`
   });
+
+  createRedirect({
+    fromPath: '/en/resources/nfts',
+    toPath: `/${FALLBACK_LOCALE}/resources/culture`
+  });
 };
 
 exports.onCreatePage = async ({page, actions}) => {
