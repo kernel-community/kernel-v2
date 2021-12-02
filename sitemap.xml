@@ -28,6 +28,7 @@
 <url> <loc>https://kernel.community/en/build/decentralized-ai/lesson-1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/decentralized-ai/lesson-2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/decentralized-ai/lesson-3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/build/decentralized-ai/lesson-4/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/nfteasy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/nfteasy/lesson-0/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/nfteasy/lesson-1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -42,6 +43,7 @@
 <url> <loc>https://kernel.community/en/build/tokenomics/lesson-0/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/tokenomics/lesson-1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/tokenomics/lesson-2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/build/tokenomics/lesson-3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/zodiac/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/zodiac/lesson-1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/zodiac/lesson-2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -120,9 +122,9 @@
 <url> <loc>https://kernel.community/en/track-gaming/module-1/curated/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-2/crafted/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://kernel.community/en/track-gaming/module-2/curated/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-3/crafted/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/track-gaming/module-2/curated/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-3/curated/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-4/crafted/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
