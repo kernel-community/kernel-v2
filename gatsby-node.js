@@ -59,13 +59,13 @@ exports.createPages = async ({graphql, actions}) => {
   });
 
   createRedirect({
-    fromPath: '/module-0/conversation',
+    fromPath: '/module-0/play-of-pattern',
     toPath: `/${FALLBACK_LOCALE}/learn/module-0/play-of-pattern`
   });
 
   createRedirect({
-    fromPath: '/module-0/conversation',
-    toPath: `/${FALLBACK_LOCALE}/learn/module-0/play-of-pattern`
+    fromPath: '/module-0/purpose',
+    toPath: `/${FALLBACK_LOCALE}/learn/module-0/purpose`
   });
 
   createRedirect({
@@ -311,6 +311,11 @@ exports.createPages = async ({graphql, actions}) => {
   createRedirect({
     fromPath: '/en/fork-me/learning-curve',
     toPath: `/${FALLBACK_LOCALE}/guiding/contracts`
+  });
+
+  createRedirect({
+    fromPath: '/en/resources/nfts',
+    toPath: `/${FALLBACK_LOCALE}/resources/culture`
   });
 };
 
