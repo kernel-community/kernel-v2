@@ -2423,10 +2423,10 @@
     "@emotion/react" "^11.1.1"
     "@theme-ui/css" "0.9.1"
 
-"@theme-ui/prism@^0.7.3":
-  version "0.7.4"
-  resolved "https://registry.npmjs.org/@theme-ui/prism/-/prism-0.7.4.tgz"
-  integrity sha512-rhRUJJ//EKPYr4S6xdiXoVIecCdIRTn4S8u21uS5c5dSlcYubtbhPbhyZoDr5IOcQYRWCbxmiL3lxC8kfGyl9Q==
+"@theme-ui/prism@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.12.0.tgz#90a8e6e40365cabe9f7b140619c14264c0a490e6"
+  integrity sha512-QaS1l8f85KJhbkInygF+/f/3DWqcVCfvF9md4uJ2Hg8igguCJz+hYzycb6ZycZWQWq/kx0ucc81bwb+9KpvQfA==
   dependencies:
     prism-react-renderer "^1.1.1"
 
