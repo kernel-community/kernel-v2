@@ -38,7 +38,7 @@
     "gatsby-remark-images": "^5.8.0",
     "gatsby-remark-responsive-iframe": "^4.8.0",
     "gatsby-source-filesystem": "^3.3.0",
-    "gatsby-transformer-json": "^3.3.0",
+    "gatsby-transformer-json": "^3.14.0",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "html-react-parser": "^1.2.6",
