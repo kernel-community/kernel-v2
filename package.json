@@ -10,7 +10,7 @@
     "@makerdao/dai-ui-theme-maker": "^0.0.66",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@theme-ui/prism": "^0.7.3",
+    "@theme-ui/prism": "^0.12.0",
     "axios": "^0.21.1",
     "date-fns": "^2.23.0",
     "del": "^6.0.0",
