@@ -32,7 +32,7 @@
     "gatsby-plugin-sharp": "^3.3.1",
     "gatsby-plugin-sitemap": "^3.3.0",
     "gatsby-plugin-theme-ui": "^0.11.1",
-    "gatsby-remark-autolink-headers": "^4.1.0",
+    "gatsby-remark-autolink-headers": "^4.11.0",
     "gatsby-remark-code-titles": "^1.1.0",
     "gatsby-remark-embed-video": "^3.1.1",
     "gatsby-remark-images": "^5.8.0",
