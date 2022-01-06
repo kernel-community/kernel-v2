@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-guiding-writers-translation-mdx",
     "path": "/en/guiding/writers/translation/",
-    "result": {"pageContext":{"frontmatter":{"title":"Translate Kernel","order":3,"hideLanguageSelector":true,"description":"Learn how to contribute translations to the Kernel Community website.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/guiding/writers/translation/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"Translate Kernel","order":4,"hideLanguageSelector":true,"description":"Learn how to contribute translations to the Kernel Community website.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/guiding/writers/translation/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

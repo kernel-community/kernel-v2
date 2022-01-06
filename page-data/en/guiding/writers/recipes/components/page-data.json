@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-guiding-writers-recipes-components-mdx",
     "path": "/en/guiding/writers/recipes/components/",
-    "result": {"pageContext":{"frontmatter":{"title":"Component Palette","order":5,"keywords":"kernel, component palette","description":"This page serves as a palette for all the components this project has to offer.","hideLanguageSelector":true},"locale":"en","pagePath":"/en/guiding/writers/recipes/components/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"Component Palette","order":6,"keywords":"kernel, component palette","description":"This page serves as a palette for all the components this project has to offer.","hideLanguageSelector":true},"locale":"en","pagePath":"/en/guiding/writers/recipes/components/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
