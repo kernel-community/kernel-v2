@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-build-index-mdx",
     "path": "/en/build/",
-    "result": {"pageContext":{"frontmatter":{"header":false,"title":"Build","description":"Build a better web, together.","keywords":"kernel, web3, build, people, together","featuredImage":"images/kernel_learn.png","hideBreadcrumbs":true,"hideLanguageSelector":true},"locale":"en","pagePath":"/en/build/"}},
+    "result": {"pageContext":{"frontmatter":{"header":true,"headerOrder":2,"title":"Build","description":"Build a better web, together.","keywords":"kernel, web3, build, people, together","featuredImage":"images/kernel_learn.png","hideBreadcrumbs":true,"hideLanguageSelector":true},"locale":"en","pagePath":"/en/build/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
