@@ -1,0 +1,215 @@
+---
+title: Design & UX
+order: 1
+hideLanguageSelector: true
+description: A highly curated list of design and UX tools made or recommended by our community.
+image: /images/shares/listening-stories.png
+---
+
+# Design and User Experience
+
+There is an entire world of great design tools out there. Here, again, we aim to provide you with a highly curated list of tools that we ourselves _regularly_ and which have made a profound impact on the way in which we work and the quality of what we are able to produce.
+
+## Case Studies & User Testing
+
+Instead of linking you to Figma - which is the design tool we use ourselves - we have two things which are infinitely more useful, both given as gifts to us by Andrej from Deepwork Studios, to whom we are eternally grateful.
+
+<Column sx={{gap:"10%"}}>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Case Studies**
+
+Each of the studies which Deepwork have open-sourced here contain literally every aspect of their design process. You can find and fork all their Figma files, their Miro boards, their UX tests and prototypes. It's genuinely unbelievable at first. If you are a designer or UX Researcher, this is an actual, literal treasure trove.
+
+<Button to="https://deepwork.studio/case-studies/" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Explore
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**User Testing Guide** 
+
+A genuinely useful, highly detailed, step-by-step guide for running fast, effective, and insightful user testing. There is no need to interview thousands of people - just [find five incentivized people](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/), listen to their feedback (especially the critical parts), and integrate it into your workflow through numerous iterations.
+
+<Button to="https://www.notion.so/How-to-run-user-tests-fast-0e3ea190c9a34afabeb7eef9fdd7ef69" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Test
+</Button>
+
+</Flex>
+
+</Column>
+
+## Sketching Designs
+
+We can't provide as much alpha here, but below are the six best tools we know and use for quick sketching and wireframes, especially useful in conversation with other team members to illustrate your ideas visually and collaborate in a medium which does not privilege words.
+
+<Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Excalidraw**
+
+Open-source, collaborative, e2e encrypted sketching app. Need we say more?
+
+_H/T Adrian le Bas_
+
+<Button to="https://excalidraw.com/" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Explore
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Machinations**
+
+A tool intended for game designers, useful for mechanism design and token economics.
+
+_H/T James Young_
+
+<Button to="https://machinations.io/" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Mechanise
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Balsamiq**
+
+Rapid, effective and fun wireframing software.
+
+<Button to="https://balsamiq.com/" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Wireframe
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Whimsical**
+
+A visual workspace. You can build more beautiful flow charts more easily in here than in Diagrams.net, though perhaps not quite as extensive or complicated.
+
+_H/T Nazzareno Massari_
+
+<Button to="https://whimsical.com/" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Visualise
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**sketch.systems**
+
+A tool for prototyping state machines. Useful for whiteboarding sessions and iterating quickly with designs which you can play with in real time.
+
+_H/T Mike Ryan_
+
+<Button to="https://sketch.systems/Linknon/sketch/new" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Sketch
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Loom**
+
+The expressiveness of video with the convenience of messaging. Easily linked to GitHub. Great for code review and collaborative design.
+
+_H/T Jo-Ann Hamilton_.
+
+<Button to="https://www.loom.com/use-cases/engineering" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Record
+</Button>
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
+## System Design
+
+Building the one design system for all web3 components has been a long-time dream for many different people in web3. After all, if everything is modular and interoperable, shouldn't we just be able to build a best practices/standard library for critical components - connecting your wallet, signing transactions, displaying transaction statuses etc. - that everyone can reuse? 
+
+This sounds eminently reasonable, and like many similarly reasonable ideas has been more difficult to realise in practice - see the now-deprecated Lorikeet (Aragon) and Rimble (Consensys) for proof. However, we present the design system used by this site as one live example of an approach which may be more long-lived. 
+
+MakerDAO built it in order to maintain a coherent visual language across the Maker Foundation's assets and community-run sites, while enabling key differences that (i) made it clear which sites and documents were run by whom and (ii) to keep from running afoul of legal regulations to which the Foundation had to adhere. It therefore has a great reason for being, is well thought-out and very well engineered.
+
+<Column>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**DAI-UI**
+
+Though in early stages, there are some useful recipes here. It also uses theme-ui, so check out that library for all your normal design needs, especially if you're building in React.
+
+<Button to="https://design-system.mkr-js-prod.now.sh/recipes" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Craft
+</Button>
+
+</Flex>
+
+</Column>
+
+## Space Design 
+
+All our resources are intended to reveal the interdisciplinary nature of work in web3. Therefore, before you actually begin coding, we think you should explore the full design space by thinking very carefully about the **deep why**. Why are you building this particular product as opposed to any other thing? When you find what you think is an answer, ask yourself the question again and keep pushing for ever deeper insights into your actual motivations and intentions. We promise that this will help you write much less code, and it will be much more awesome.
+
+<Column>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Hypersprint**
+
+Based on the insightful design book of the same name, this is a Miro template that you can fork and use to quickly iterate over new ideas with your own team. We use it for Kernel and recommend the process for identifying the most impactful practical work your team can undertake.
+
+<Button to="https://miro.com/miroverse/category/workshops/hypersprint" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Consider
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+**Design Tools for Developers**
+
+Now that you have thought through your deep why, you'll need some easy prototyping tools iterating over any user feedback you may have gathered. This list of tools is as complete as any we know and will lead you to many interesting resources. The list is limited to free tools you can use right away.
+
+<Button to="https://github.com/bradtraversy/design-resources-for-developers" sx={{ alignSelf: "flex-start", mt: "auto" }}>
+    Begin
+</Button>
+
+</Flex>
+
+</Column>
+
+We have included a recording of Andrej describing the Hypersprint process in case you find the Miro template linked above a bit confusing at first. The main point is to keep moving, play great music, and have fun.
+
+<Video src="https://www.youtube-nocookie.com/embed/GgPfP_3cR9U?start=137" />
+
+
+
+
+
+

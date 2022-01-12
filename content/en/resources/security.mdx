@@ -1,5 +1,5 @@
 ---
-title: Security Best Practices
+title: Security
 order: 3
 hideLanguageSelector: true
 description: A highly curated collection of the best smart contract security tools currently available.
@@ -9,6 +9,8 @@ image: /images/shares/learn.png
 # Security Best Practices
 
 Kernel is about being careful, in all the many senses of that word. When it comes to code we write, that means safety first, then teamwork. Below, you will find the best security resources we know of to help you ensure that your contracts follow best practices and abide by the latest industry standards.
+
+## Tools
 
 <Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
 
@@ -34,20 +36,6 @@ _H/T Matt Solomon. Check out <Link to="https://medium.com/coinmonks/ethereum-sec
 
 <Icon size={"40px"} name="open_in_new_tab" />
 
-**Secureum Checklist**
-
-A clear and concise checklist any serious developer or audit _needs_ for their work. Written by our own Rajeev Gopalakrishna.
-
-<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://secureum.substack.com/p/smart-contract-security-101-secureum">
-    Check
-</Button>
-
-</Flex>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-<Icon size={"40px"} name="open_in_new_tab" />
-
 **Detecting Not So Smart Contracts**
 
 Two useful repos for understanding the vulnerable patterns used by not-so-smart contracts, and for <Link to="https://github.com/crytic/slither/tree/master/tests/detectors">detecting various potential vulnerabilities</Link>.
@@ -64,38 +52,10 @@ Two useful repos for understanding the vulnerable patterns used by not-so-smart 
 
 **MythX**
 
-Another useful Consensys tool that's easy to integrate with frameworks like Truffle especially.
+Another useful Consensys tool that's easy to integrate with frameworks like Truffle especially. Find a useful code, among many other things, <Link to="https://www.notion.so/Module-2-Automated-Tooling-22b7b1513dd247d685616d55e27b6877">here</Link>.
 
 <Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://mythx.io/">
     Analyse
-</Button>
-
-</Flex>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-<Icon size={"40px"} name="open_in_new_tab" />
-
-**Mutation Testing**
-
-An introduction to mutation testing from Security Track mentor Joran Honig. You can find a more detailed explanation of this technique <Link to="https://github.com/JoranHonig/publications/blob/master/practical_mutation_testing_for_smart_contracts.pdf">here</Link>.
-
-<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://joranhonig.nl/introduction-into-mutation/">
-    Mutate
-</Button>
-
-</Flex>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-<Icon size={"40px"} name="open_in_new_tab" />
-
-**Smashing Smart Contracts for Fun and Profit**
-
-The original paper by Bernhard on profiting from fun and the security analysis tool Mythril.
-
-<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://github.com/b-mueller/smashing-smart-contracts/blob/master/smashing-smart-contracts-1of1.pdf">
-    Symbolise
 </Button>
 
 </Flex>
@@ -110,6 +70,88 @@ A convenient and useful VS Code plugin to audit your smart contracts as you work
 
 <Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://github.com/ConsenSys/vscode-solidity-auditor">
     Audit
+</Button>
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
+## Praxis
+
+Where practice and theory meet. This practices, lists, and methods indicated below are not quite tools in the sense of the section above, but they are very, very useful.
+
+<Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Secureum Checklist**
+
+A clear and concise checklist any serious developer or audit _needs_ for their work. Written by our own Rajeev Gopalakrishna.
+
+<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://secureum.substack.com/p/smart-contract-security-101-secureum">
+    Check
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Consensys Best Practices**
+
+A detailed set of instructions for writing safe code.
+
+_H/T Nazzareno Massari_
+
+<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://consensys.github.io/smart-contract-best-practices/">
+    Learn
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**Mutation Testing**
+
+An introduction to mutation testing from Security Track mentor Joran Honig. You can find a detailed explanation <Link to="https://github.com/JoranHonig/publications/blob/master/practical_mutation_testing_for_smart_contracts.pdf">here</Link>.
+
+<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://joranhonig.nl/introduction-into-mutation/">
+    Mutate
+</Button>
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
+## Alerts
+
+Security has as much to do with being informed as it does with managing risk. We recommend these publications to help you stay on top of the latest news, developments and insights across the industry (without having to spend all your days trawling CT - though that can have its use too).
+
+<Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
+
+<Chocolate>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={"40px"} name="open_in_new_tab" />
+
+**BlockThreat**
+
+The latest in blockchain and cryptocurrency threat intelligence, vulnerabilities, security tools, and events.
+
+<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://blockthreat.substack.com/">
+    Learn
 </Button>
 
 </Flex>
@@ -132,36 +174,6 @@ The best blog to see how not to write smart contracts and learn about all the di
 
 <Icon size={"40px"} name="open_in_new_tab" />
 
-**BlockThreat**
-
-The latest in blockchain and cryptocurrency threat intelligence, vulnerabilities, security tools, and events.
-
-<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://blockthreat.substack.com/">
-    Learn
-</Button>
-
-</Flex>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-<Icon size={"40px"} name="open_in_new_tab" />
-
-**SecBit Token Libs**
-
-A useful set of token libraries, with proofs!
-
-_H/T val_
-
-<Button sx={{ alignSelf: "flex-start", mt: "auto" }} to="https://github.com/sec-bit/tokenlibs-with-proofs">
-    Analyse
-</Button>
-
-</Flex>
-
-<Flex sx={{position:'relative', flexDirection: 'column'}}>
-
-<Icon size={"40px"} name="open_in_new_tab" />
-
 **Rekt**
 
 The dark web of DeFi journalism. 
@@ -176,5 +188,4 @@ The dark web of DeFi journalism.
 
 </Box>
 
-You can find a more complete, less organised list of other available resources <Link to="https://www.notion.so/Module-2-Automated-Tooling-22b7b1513dd247d685616d55e27b6877">here</Link>.
 
