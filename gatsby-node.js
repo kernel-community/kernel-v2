@@ -315,7 +315,27 @@ exports.createPages = async ({graphql, actions}) => {
 
   createRedirect({
     fromPath: '/en/resources/nfts',
-    toPath: `/${FALLBACK_LOCALE}/resources/culture`
+    toPath: `/${FALLBACK_LOCALE}/resources/research/#nfts`
+  });
+
+  createRedirect({
+    fromPath: '/en/resources/culture',
+    toPath: `/${FALLBACK_LOCALE}/resources/research/#culture`
+  });
+
+  createRedirect({
+    fromPath: '/en/resources/design-spec',
+    toPath: `/${FALLBACK_LOCALE}/resources/design-ux`
+  });
+
+  createRedirect({
+    fromPath: '/en/resources/smart-contracts',
+    toPath: `/${FALLBACK_LOCALE}/resources/development`
+  });
+
+  createRedirect({
+    fromPath: '/en/resources/zero-knowledge',
+    toPath: `/${FALLBACK_LOCALE}/resources/research/#zero-knowledge`
   });
 };
 
