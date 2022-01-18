@@ -1,0 +1,52 @@
+{
+    "projects": [
+      { 
+        "name": "EPNS",
+        "url": "https://epns.io/",
+        "description": "Blockchain based notifications that are chain agnostic, platform independent and incentivized",
+        "image": "https://kernel.community/images/projects/epns.png"
+      },
+      { 
+        "name": "Good Ghosting",
+        "url": "https://goodghosting.com/",
+        "description": "A better way to grow your savings",
+        "image": "https://kernel.community/images/projects/goodghosting.png"
+      },
+      {
+        "name": "Swivel Finance",
+        "url": "https://swivel.finance/",
+        "description": "The protocol for interest-rate derivatives",
+        "image": "https://kernel.community/images/projects/swivel.png" 
+      },
+      { 
+        "name": "EthBlockArt",
+        "url": "https://ethblock.art/",
+        "description": "Create your own deterministic art painting Ethereum blocks, mint NFTs.",
+        "image": "https://kernel.community/images/projects/eba.jpg"
+      },
+      { 
+        "name": "Charged Particles",
+        "url": "https://www.charged.fi/",
+        "description": "Now, every NFT can contain digital assets",
+        "image": "https://kernel.community/images/projects/charged_particles.png"
+      },
+      { 
+        "name": "Nifty Ink",
+        "url": "https://nifty.ink/",
+        "description": "Instantly onboarding artists: no downloads, no onramps",
+        "image": "https://kernel.community/images/projects/nifty_ink.png"
+      },
+      { 
+        "name": "Parcel",
+        "url": "https://parcel.money/",
+        "description": "Treasury Management, simplified for DAOs",
+        "image": "https://kernel.community/images/projects/parcel.png"
+      },
+      { 
+        "name": "Akropolis",
+        "url": "https://www.akropolis.io/",
+        "description": "Earn DeFi yield on autopilot",
+        "image": "https://kernel.community/images/projects/akropolis.png"
+      }
+    ]
+  }
