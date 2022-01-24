@@ -46,9 +46,14 @@
         "image": "https://kernel.community/images/fellows/Alisha.jpg"
       },
       {
+        "name": "Diana Chen",
+        "url": "https://twitter.com/ddwchen",
+        "image": "https://kernel.community/images/fellows/Diana_Chen.jpg"
+      },
+      {
         "name": "Nichanan Kesonpat",
         "url": "https://twitter.com/nichanank",
-        "image": "https://kernel.community/images/fellows/" 
+        "image": "https://kernel.community/images/fellows/Nichanan_Kesonpat.jpg" 
       },
       {
         "name": "sidcode",
@@ -89,6 +94,16 @@
         "name": "Juliette Chevalier",
         "url": "https://juliet.tech",
         "image": "https://kernel.community/images/fellows/Juliette_Chevalier.jpg" 
+      },
+      {
+        "name": "Liz Strong",
+        "url": "https://twitter.com/iamlizendary",
+        "image": "https://kernel.community/images/fellows/Liz_Strong.jpg" 
+      },
+      {
+        "name": "Jenil Thakker",
+        "url": "https://twitter.com/0xjenil",
+        "image": "https://kernel.community/images/fellows/Jenil_Thakker.jpg" 
       },
       {
         "name": "Alisa Khieu",
@@ -134,6 +149,11 @@
         "name": "Darrell Jones",
         "url": "https://twitter.com/darrelljonesiii",
         "image": "https://kernel.community/images/fellows/Darrell_Jones.jpg" 
+      },
+      {
+        "name": "Zayi Reyes",
+        "url": "https://twitter.com/ZayiRey",
+        "image": "https://kernel.community/images/fellows/Zayi_Reyes.jpg" 
       },
       {
         "name": "Pranay Walson",
@@ -196,6 +216,16 @@
         "image": "https://kernel.community/images/fellows/Jasmine_Wang.jpg" 
       },
       {
+        "name": "David Phelps",
+        "url": "https://twitter.com/divine_economy",
+        "image": "https://kernel.community/images/fellows/David_Phelps.jpg" 
+      },
+      {
+        "name": "Claudie Linke",
+        "url": "https://twitter.com/claudie_linke",
+        "image": "https://kernel.community/images/fellows/Claudie_Linke.jpg" 
+      },
+      {
         "name": "Dilan Shah",
         "url": "https://twitter.com/dilan_shah",
         "image": "https://kernel.community/images/fellows/Dilan_Shah.jpg" 
@@ -251,6 +281,11 @@
         "image": "https://kernel.community/images/fellows/Martin_Etzrodt.jpg" 
       },
       {
+        "name": "Brittney Scott",
+        "url": "https://twitter.com/b666s",
+        "image": "https://kernel.community/images/fellows/Brittney_Scott.jpg" 
+      },
+      {
         "name": "Matthew Scott Jones",
         "url": "https://twitter.com/WhiteRabbit_w3",
         "image": "https://kernel.community/images/fellows/Matthew_Scott_Jones.jpg" 
@@ -281,9 +316,19 @@
         "image": "https://kernel.community/images/fellows/Tim_Courtney.jpg" 
       },
       {
+        "name": "Elena Giralt",
+        "url": "https://www.elenagiralt.com/",
+        "image": "https://kernel.community/images/fellows/Elena_Giralt.jpg" 
+      },
+      {
         "name": "Greg Becker",
         "url": "https://twitter.com/iamgregbecker",
         "image": "https://kernel.community/images/fellows/Greg_Becker.jpg" 
+      },
+      {
+        "name": "bitsikka",
+        "url": "https://twitter.com/bitsikka",
+        "image": "https://kernel.community/images/fellows/bitsikka.jpg" 
       },
       {
         "name": "Stephanie Bazley",
