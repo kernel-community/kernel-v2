@@ -3,16 +3,6 @@ import {Flex, Text, Image, Grid, Button} from 'theme-ui';
 
 const originalArray = require('../../../content/fellows.json');
 
-const filteredFellows = originalArray.fellows.sort((a, b) => {
-  if (a.name < b.name) {
-    return -1;
-  }
-  if (a.name > b.name) {
-    return 1;
-  }
-  return 0;
-});
-
 const Fellows = () => {
   return (
     <Flex
@@ -40,7 +30,7 @@ const Fellows = () => {
           borderRadius: '0.5rem',
           scrollBehavior: 'smooth'
         }}>
-        {filteredFellows.map((fellow, index) => (
+        {originalArray.fellows.map((fellow, index) => (
           <Flex
             sx={{
               flexDirection: 'column',
