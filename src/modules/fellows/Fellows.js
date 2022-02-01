@@ -32,6 +32,7 @@ const Fellows = () => {
         }}>
         {originalArray.fellows.map((fellow, index) => (
           <Flex
+            key={index}
             sx={{
               flexDirection: 'column',
               ':hover': {

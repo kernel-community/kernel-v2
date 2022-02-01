@@ -27,6 +27,7 @@ const Projects = () => {
         }}>
         {projects.map((project, index) => (
           <Flex
+            key={index}
             onClick={() => {
               window.open(project.url, '_blank');
             }}
