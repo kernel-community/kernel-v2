@@ -23,7 +23,8 @@ const Projects = () => {
           overflowX: 'scroll',
           gridTemplateRows: ['auto', 'auto'],
           gridAutoFlow: 'column',
-          scrollBehavior: 'smooth'
+          scrollBehavior: 'smooth',
+          scrollbarWidth: 'none'
         }}>
         {projects.map((project, index) => (
           <Flex
