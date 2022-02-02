@@ -28,7 +28,8 @@ const Fellows = () => {
           gridTemplateRows: ['auto auto auto', 'auto auto'],
           gridAutoFlow: 'column',
           borderRadius: '0.5rem',
-          scrollBehavior: 'smooth'
+          scrollBehavior: 'smooth',
+          scrollbarWidth: 'none'
         }}>
         {originalArray.fellows.map((fellow, index) => (
           <Flex
