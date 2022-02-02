@@ -40,8 +40,10 @@ const Fellows = () => {
                 cursor: 'pointer',
                 color: 'primary'
               },
-
-              minWidth: [100, 100]
+              minWidth: [60, 100],
+              maxWidth: [60, 100],
+              minHeight: [60, 150],
+              maxHeight: [60, 150]
             }}
             onClick={() => {
               window.open(fellow.url, '_blank');
@@ -49,10 +51,6 @@ const Fellows = () => {
             <Image
               src={fellow.image}
               sx={{
-                minWidth: [60, 100],
-                maxWidth: [60, 100],
-                minHeight: [60, 100],
-                maxHeight: [60, 100],
                 borderRadius: '100%',
                 marginX: 'auto',
                 marginBottom: '0.5rem'
