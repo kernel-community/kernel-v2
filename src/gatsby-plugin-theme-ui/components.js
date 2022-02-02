@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import {Icon} from '@makerdao/dai-ui-icons';
 import {Authors} from '@modules/authors';
+import {Fellows} from '@modules/fellows';
+import {Projects} from '@modules/projects';
 import {BlogHome} from '@modules/blog';
 import {Link} from '@modules/navigation/';
 import {
@@ -89,6 +91,8 @@ const Custom_Components = {
   Video,
   Sound,
   Authors,
+  Fellows,
+  Projects,
   motionDiv: motion.div,
   motionUL: motion.ul,
   motionLI: motion.li,

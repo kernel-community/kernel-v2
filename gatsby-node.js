@@ -319,11 +319,6 @@ exports.createPages = async ({graphql, actions}) => {
   });
 
   createRedirect({
-    fromPath: '/en/resources/culture',
-    toPath: `/${FALLBACK_LOCALE}/resources/research/#culture`
-  });
-
-  createRedirect({
     fromPath: '/en/resources/design-spec',
     toPath: `/${FALLBACK_LOCALE}/resources/design-ux`
   });
