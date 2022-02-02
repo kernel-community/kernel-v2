@@ -15,6 +15,7 @@
     "date-fns": "^2.23.0",
     "del": "^6.0.0",
     "dotenv": "^10.0.0",
+    "ethers": "^5.5.4",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.13.0",
     "gatsby-image": "^3.8.0",
@@ -24,8 +25,8 @@
     "gatsby-plugin-google-analytics": "^3.3.0",
     "gatsby-plugin-lunr": "^1.5.2",
     "gatsby-plugin-manifest": "^3.3.0",
-    "gatsby-plugin-offline": "^4.14.0",
     "gatsby-plugin-mdx": "^2.14.0",
+    "gatsby-plugin-offline": "^4.14.0",
     "gatsby-plugin-page-creator": "^3.3.0",
     "gatsby-plugin-preload-link-crossorigin": "^1.0.2",
     "gatsby-plugin-react-helmet": "^4.6.0",
@@ -60,6 +61,7 @@
     "remark-slug": "^6.1.0",
     "theme-ui": "^0.9.1",
     "use-immer": "^0.6.0",
+    "wagmi": "^0.2.6",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
