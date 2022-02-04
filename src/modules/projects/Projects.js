@@ -14,46 +14,51 @@ const Projects = () => {
         marginX: ['2rem', '2rem', '0rem'],
         marginTop: ['-2rem', '-4rem']
       }}>
-      <Grid
-        id="projectContainer"
-        sx={{
-          gridColumnGap: ['1rem', '4rem'],
-          gridRowGap: ['4rem', '6rem'],
-          padding: '2rem',
-          overflowX: 'scroll',
-          gridTemplateRows: ['auto', 'auto'],
-          gridAutoFlow: 'column',
-          scrollBehavior: 'smooth',
-          scrollbarWidth: 'none'
-        }}>
-        {projects.map((project, index) => (
-          <Flex
-            key={index}
-            onClick={() => {
-              window.open(project.url, '_blank');
-            }}
-            sx={{
-              flexDirection: 'column',
-              rowGap: '1rem',
-              ':hover': {
-                cursor: 'pointer',
-                color: 'primary'
-              },
-              minWidth: '344px'
-            }}>
-            <Image
-              sx={{borderRadius: '3%', width: '344px', height: '206px'}}
-              src={project.image}
-            />
-            <Text sx={{fontWeight: 600, fontSize: '24px'}}>{project.name}</Text>
-            <Text sx={{color: 'text'}}>{project.description}</Text>
-          </Flex>
-        ))}
-      </Grid>
+      <Flex>
+        <Grid
+          id="projectContainer"
+          sx={{
+            gridColumnGap: ['1rem', '4rem'],
+            gridRowGap: ['4rem', '6rem'],
+            padding: '2rem',
+            overflowX: 'scroll',
+            gridTemplateRows: ['auto', 'auto'],
+            gridAutoFlow: 'column',
+            scrollBehavior: 'smooth',
+            scrollbarWidth: 'none'
+          }}>
+          {projects.map((project, index) => (
+            <Flex
+              key={index}
+              onClick={() => {
+                window.open(project.url, '_blank');
+              }}
+              sx={{
+                flexDirection: 'column',
+                rowGap: '1rem',
+                ':hover': {
+                  cursor: 'pointer',
+                  color: 'primary'
+                },
+                minWidth: '344px'
+              }}>
+              <Image
+                sx={{borderRadius: '3%', width: '344px', height: '206px'}}
+                src={project.image}
+              />
+              <Text sx={{fontWeight: 600, fontSize: '24px'}}>
+                {project.name}
+              </Text>
+              <Text sx={{color: 'text'}}>{project.description}</Text>
+            </Flex>
+          ))}
+        </Grid>
+      </Flex>
       <Flex
         sx={{
           marginX: 'auto',
-          marginBottom: ['0rem', '2rem'],
+          marginBottom: ['-1rem', '1rem'],
+          marginTop: ['0rem', '1rem'],
           textColor: 'callout',
           visibility: ['hidden', 'visible']
         }}>
