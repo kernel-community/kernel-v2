@@ -332,6 +332,11 @@ exports.createPages = async ({graphql, actions}) => {
     fromPath: '/en/resources/zero-knowledge',
     toPath: `/${FALLBACK_LOCALE}/resources/research/#zero-knowledge`
   });
+
+  createRedirect({
+    fromPath: '/en/learn/module-1/promise-blockchains',
+    toPath: `/${FALLBACK_LOCALE}/learn/module-1/dreamers`
+  });
 };
 
 exports.onCreatePage = async ({page, actions}) => {
