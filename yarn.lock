@@ -16040,22 +16040,22 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-wagmi-private@0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/wagmi-private/-/wagmi-private-0.1.7.tgz#7e29f609452531395692cc0c4f7ffa57d4a92dc5"
-  integrity sha512-73HlcoZkom1WSZCfNRrtNd7MZ3j1z5T9nVG3LJZ+dAhOhVLxg00uEFo6PGq2Ex8IWkowU5fff9DCDWYGoCjrCg==
+wagmi-private@0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/wagmi-private/-/wagmi-private-0.1.8.tgz#744e8b29cce5daa2869fb51108f2a52431fd82af"
+  integrity sha512-xREyemJcxdLYlIYrNagdv46PUaovCCGz+Bfy/6D3ZUTbsW/5E/50MK+a+NzJSuAjCbtTF9kaiZIaGBUNx/AO8A==
   dependencies:
     "@ethersproject/providers" "^5.5.1"
     eventemitter3 "^4.0.7"
 
-wagmi@^0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-0.2.6.tgz#ac47c455e19336c111822d9880b381b8cd904808"
-  integrity sha512-0pvboWgCkPrX16K0evT9VxNVTq559FSs28WwjotPKlMYAkkcVN46kTIWaLUN7Bm5BaysWlgxaCHrS6kcBC9czw==
+wagmi@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-0.2.9.tgz#39f403cac747d64f0f01834d51d657f36d9bfdb6"
+  integrity sha512-lHmpC1O30t2Q80N2GuhoAQZiXG/I1gQO3HGdrn9wS8fbjaYM653JgjbwWzY9kCMqrPEdK5s2BDPhgqguHzu0gQ==
   dependencies:
     "@ethersproject/providers" "^5.5.1"
     "@walletconnect/ethereum-provider" "1.7.1"
-    wagmi-private "0.1.7"
+    wagmi-private "0.1.8"
     walletlink "^2.2.8"
 
 walletlink@^2.2.8:

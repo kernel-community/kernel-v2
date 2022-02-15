@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import React, {Children, cloneElement} from 'react';
-import {jsx, Flex} from 'theme-ui';
+import {jsx, Flex, Text, Box} from 'theme-ui';
+import {useAccount, useConnect} from 'wagmi';
+import {Button} from '@modules/ui';
 import {AnimatePresence, motion} from 'framer-motion';
 import {console} from 'window-or-global';
 
@@ -22,6 +24,15 @@ const Card = ({
     active: {y: 0, opacity: 1},
     exit: {y: -64, opacity: 0, scale: 1.1}
   };
+
+  const [
+    {data: accountData, error: accountError, loading},
+    disconnect
+  ] = useAccount({
+    fetchEns: false
+  });
+
+  const [{data, error}, connect] = useConnect();
 
   if (_children.length < 2) {
     return (
@@ -119,6 +130,7 @@ const Card = ({
                 overflow: 'hidden',
                 alignItems: 'center',
                 justifyContent: 'center',
+
                 cursor: 'pointer',
                 flexDirection: 'column',
                 '&:hover .reveal-answer': {
@@ -126,59 +138,105 @@ const Card = ({
                   transform: 'scale(1.1)'
                 }
               }}
-              onClick={revealCallback}>
-              <div
+              //onClick={revealCallback}
+            >
+              {/* <div
                 sx={{
-                  position: 'absolute',
-                  boxShadow: '0px 0 10px rgba(0,0,0,0.3)',
-                  top: '-13px',
-                  height: '13px',
-                  width: '100%'
-                }}></div>
+                  position: "absolute",
+                  boxShadow: "0px 0 10px rgba(0,0,0,0.3)",
+                  top: "-13px",
+                  height: "13px",
+                  width: "100%",
+                }}
+              ></div> */}
               <motion.div
                 variants={revealCopyVariant}
                 initial="initial"
                 animate={isRevealed ? 'revealed' : 'initial'}
-                sx={{position: 'absolute'}}>
-                <span
-                  className="reveal-answer"
-                  sx={{
-                    fontSize: [3, 4, 4],
-                    mb: 2,
-                    fontWeight: 'bold',
-                    transform: 'scale(1)',
-                    transition: 'all .2s ease'
-                  }}>
-                  {' '}
-                  Reveal the answer
-                </span>
-              </motion.div>
-              <motion.div
-                variants={answerCopyVariant}
-                initial="initial"
-                animate={isRevealed ? 'revealed' : 'initial'}
-                sx={{
-                  overflow: 'auto',
-                  '& > *:first-child': {
-                    fontSize: [3, 4, 4],
-                    textAlign: 'center',
-                    fontWeight: 'bold',
-                    opacity: isRevealed ? 0.8 : 1,
-                    filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
-                    transition: 'all .2s ease'
-                  }
-                }}>
-                {answer}
-                {_children.length > 2 && (
-                  <motion.div
-                    sx={{fontSize: '12px', mt: 2}}
-                    variants={postAnswerVariant}
-                    initial="initial"
-                    animate={isRevealed ? 'revealed' : 'initial'}>
-                    {postAnswer}
-                  </motion.div>
+                sx={{position: 'absolute', zIndex: 10}}>
+                {data.connected && (
+                  <Flex onClick={revealCallback}>
+                    <span
+                      className="reveal-answer"
+                      sx={{
+                        fontSize: [3, 4, 4],
+                        mb: 2,
+                        fontWeight: 'bold',
+                        transform: 'scale(1)',
+                        transition: 'all .2s ease'
+                      }}>
+                      {' '}
+                      Reveal the Answer
+                    </span>
+                  </Flex>
+                )}
+                {!data.connected && (
+                  <>
+                    <div>
+                      {data.connectors.map((x) => (
+                        <>
+                          <Box
+                            sx={{
+                              padding: '0.5rem'
+                            }}>
+                            <Text
+                              sx={{
+                                textAlign: 'center',
+
+                                fontWeight: 'bold',
+                                marginX: 'auto'
+                              }}>
+                              Connect wallet to reveal
+                            </Text>
+                          </Box>
+
+                          <Button
+                            sx={{marginX: 'auto'}}
+                            disabled={!x.ready}
+                            key={x.id}
+                            onClick={() => connect(x)}>
+                            {x.name}
+                            {!x.ready && ' (unsupported)'}
+                          </Button>
+                        </>
+                      ))}
+
+                      {error && (
+                        <div>{error?.message ?? 'Failed to connect'}</div>
+                      )}
+                    </div>
+                  </>
                 )}
               </motion.div>
+              {data.connected && (
+                <motion.div
+                  variants={answerCopyVariant}
+                  initial="initial"
+                  animate={isRevealed ? 'revealed' : 'initial'}
+                  sx={{
+                    overflow: 'auto',
+                    '& > *:first-child': {
+                      fontSize: [3, 4, 4],
+                      textAlign: 'center',
+                      fontWeight: 'bold',
+                      opacity: isRevealed ? 0.8 : 1,
+                      zIndex: -1,
+                      filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
+                      transition: 'all .2s ease'
+                    }
+                  }}>
+                  {answer}
+                  {_children.length > 2 && (
+                    <motion.div
+                      sx={{fontSize: '12px', mt: 2}}
+                      variants={postAnswerVariant}
+                      initial="initial"
+                      animate={isRevealed ? 'revealed' : 'initial'}>
+                      {postAnswer}
+                    </motion.div>
+                  )}
+                </motion.div>
+              )}
             </Flex>
           </>
         )}
