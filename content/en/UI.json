@@ -15,20 +15,13 @@
   "Need_Another_Language": "Need another language?",
   "Join_translation_team": "Join translation team",
   "Translations": "Translations",
-  "Touts": {
-    "alt_defaultImage": "Default Tout Image",
-    "alt_altImage": "Alternate Tout Image"
-  },
   "Back_To_Main_Menu": "Back to Main Menu",
-  "aria_MakerHomeIcon": "Kernel Home Icon",
-  "aria_MakerFooterLogo": "Kernel Footer Logo",
+  "aria_FooterLogo": "Kernel Footer Logo",
   "aria_GithubIcon": "Github",
   "aria_TwitterIcon": "Twitter",
   "aria_YoutubeIcon": "Youtube",
   "aria_ExternalWebsite": "External Website",
   "Chat": "Chat",
-  
-  
   "NotFoundPage": {
     "seoTitle": "404 Page Not Found",
     "line_1": "Uh oh, the page you're looking for doesn't exist.",
@@ -36,12 +29,6 @@
     "line_3": "Think something's broken on our end?"
   },
   "Footer": {
-    "Resources": "Resources",
-    "Whitepaper": "Whitepaper",
-    "FAQs": "FAQs",
-    "Brand_Assets": "Brand Assets",
-    "Community": "Community",
-    "Team": "Team",
     "Contribute": "Contribute",
     "Contact": "Contact",
     "Blog": "Blog",

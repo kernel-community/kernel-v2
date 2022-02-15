@@ -54,7 +54,7 @@ const Footer = () => {
             sx={{
               display: 'inline-block'
             }}
-            aria-label={t('aria_MakerFooterLogo')}>
+            aria-label={t('aria_FooterLogo')}>
             <Icon
               name="kernel_logo"
               sx={{
@@ -182,12 +182,12 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link hideExternalIcon to={'/resources/design-spec'}>
+                    <Link hideExternalIcon to={'/resources/design-ux'}>
                       {t('Create', 'Footer')}
                     </Link>
                   </li>
                   <li>
-                    <Link hideExternalIcon to={'/resources/smart-contracts'}>
+                    <Link hideExternalIcon to={'/resources/development'}>
                       {t('Code', 'Footer')}
                     </Link>
                   </li>
@@ -197,12 +197,14 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link hideExternalIcon to={'/resources/read'}>
+                    <Link hideExternalIcon to={'/resources/culture'}>
                       {t('Cogitate', 'Footer')}
                     </Link>
                   </li>
                   <li>
-                    <Link hideExternalIcon to={'/resources/zero-knowledge'}>
+                    <Link
+                      hideExternalIcon
+                      to={'/resources/development/#the-unknown-path'}>
                       {t('Conceal', 'Footer')}
                     </Link>
                   </li>
