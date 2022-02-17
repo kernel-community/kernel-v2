@@ -29,7 +29,7 @@ const Card = ({
     {data: accountData, error: accountError, loading},
     disconnect
   ] = useAccount({
-    fetchEns: false
+    fetchEns: true
   });
 
   const [{data, error}, connect] = useConnect();
@@ -130,30 +130,26 @@ const Card = ({
                 overflow: 'hidden',
                 alignItems: 'center',
                 justifyContent: 'center',
-
                 cursor: 'pointer',
                 flexDirection: 'column',
                 '&:hover .reveal-answer': {
                   transition: 'all .2s ease',
                   transform: 'scale(1.1)'
                 }
-              }}
-              //onClick={revealCallback}
-            >
-              {/* <div
+              }}>
+              <div
                 sx={{
-                  position: "absolute",
-                  boxShadow: "0px 0 10px rgba(0,0,0,0.3)",
-                  top: "-13px",
-                  height: "13px",
-                  width: "100%",
-                }}
-              ></div> */}
+                  position: 'absolute',
+                  boxShadow: '0px 0 10px rgba(0,0,0,0.3)',
+                  top: '-13px',
+                  height: '13px',
+                  width: '100%'
+                }}></div>
               <motion.div
                 variants={revealCopyVariant}
                 initial="initial"
                 animate={isRevealed ? 'revealed' : 'initial'}
-                sx={{position: 'absolute', zIndex: 10}}>
+                sx={{position: 'absolute'}}>
                 {data.connected && (
                   <Flex onClick={revealCallback}>
                     <span
@@ -182,7 +178,6 @@ const Card = ({
                             <Text
                               sx={{
                                 textAlign: 'center',
-
                                 fontWeight: 'bold',
                                 marginX: 'auto'
                               }}>
@@ -220,7 +215,6 @@ const Card = ({
                       textAlign: 'center',
                       fontWeight: 'bold',
                       opacity: isRevealed ? 0.8 : 1,
-                      zIndex: -1,
                       filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
                       transition: 'all .2s ease'
                     }
