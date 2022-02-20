@@ -142,7 +142,7 @@ const HeaderNav = ({headerLinks, hideMenu}) => {
               fontWeight: 'normal',
               flexShrink: 0
             }}>
-            {title}
+            {t(title)}
           </Link>
         ))}
         <Link
