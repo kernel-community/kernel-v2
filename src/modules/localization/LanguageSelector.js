@@ -1,33 +1,25 @@
 /** @jsx jsx */
 import {Select} from '@modules/ui';
 import {useNavigate} from '@reach/router';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {useTranslation} from '@modules/localization';
 import {Link} from '@modules/navigation';
 import {components} from 'react-select';
 import {Fragment} from 'react';
 import {Box, jsx, Text, useThemeUI} from 'theme-ui';
+import {console} from 'window-or-global';
 
 const LanguageSelector = ({data, pagePath}) => {
   const {theme} = useThemeUI();
   const navigate = useNavigate();
   const {locale, t, allLocales} = useTranslation();
 
-  const onChange = ({value, label}) => {
+  console.log('Is there anything here: ', data);
+
+  const onChange = ({value}) => {
     //Update local storage on switch
     if (typeof window !== 'undefined') {
       localStorage.setItem('locale', value.split('/')[1]);
     }
-
-    //Google Analytics Tracking
-    trackCustomEvent({
-      category: 'Language Selector',
-      action: `Switch Page to ${label}`,
-      label: `From Page: ${pagePath} (${locale}) |  To Page: ${value} (${
-        value.split('/')[1]
-      })`
-    });
-
     navigate(value);
   };
 
@@ -135,7 +127,7 @@ const LanguageSelector = ({data, pagePath}) => {
             }}>
             {`${t('Need_Another_Language')}  `}
             <Link
-              to="/contribute/translations"
+              to="/guiding/writers/translations"
               sx={{
                 color: 'link',
                 textDecoration: 'none',
@@ -152,6 +144,7 @@ const LanguageSelector = ({data, pagePath}) => {
     );
   }
   const availableLanguages = allLocales.filter((loc) => loc !== locale);
+  console.log('availableLanguages from languageSelector: ', availableLanguages);
 
   return (
     <Box
@@ -224,7 +217,7 @@ const LanguageSelector = ({data, pagePath}) => {
           }}>
           {`${t('Need_Another_Language')}  `}
           <Link
-            to="/contribute/translations"
+            to="/guiding/writers/translations"
             sx={{
               color: 'link',
               textDecoration: 'none',

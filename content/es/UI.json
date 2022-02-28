@@ -21,7 +21,9 @@
     "aria_TwitterIcon": "Twitter",
     "aria_YoutubeIcon": "Youtube",
     "aria_ExternalWebsite": "Página web externa",
+    "kernel_icon": "Kernel",
     "Chat": "Chat",
+    "Love": "Amor",
     "NotFoundPage": {
       "seoTitle": "404 Página no encontrada",
       "line_1": "Uh oh, la página que buscas no existe.",
