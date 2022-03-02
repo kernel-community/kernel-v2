@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import React, {Children, cloneElement} from 'react';
-import {jsx, Flex, Text, Box} from 'theme-ui';
-import {useAccount, useConnect} from 'wagmi';
-import {Button} from '@modules/ui';
-import {AnimatePresence, motion} from 'framer-motion';
-import {console} from 'window-or-global';
+import React, { Children, cloneElement } from "react";
+import { jsx, Flex, Text, Box } from "theme-ui";
+import { useAccount, useConnect } from "wagmi";
+import { Button } from "@modules/ui";
+import { connectors, Connector } from "./utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { console } from "window-or-global";
 
 const Card = ({
   index,
@@ -20,44 +21,46 @@ const Card = ({
   const _children = Children.toArray(children);
 
   const cardVariants = {
-    initial: {y: 10 * (index - currentCard), opacity: 1},
-    active: {y: 0, opacity: 1},
-    exit: {y: -64, opacity: 0, scale: 1.1}
+    initial: { y: 10 * (index - currentCard), opacity: 1 },
+    active: { y: 0, opacity: 1 },
+    exit: { y: -64, opacity: 0, scale: 1.1 },
   };
 
   const [
-    {data: accountData, error: accountError, loading},
-    disconnect
+    { data: accountData, error: accountError, loading },
+    disconnect,
   ] = useAccount({
-    fetchEns: true
+    fetchEns: true,
   });
 
-  const [{data, error}, connect] = useConnect();
+  const [{ data, error }, connect] = useConnect();
 
   if (_children.length < 2) {
     return (
       <Flex
         sx={{
-          width: '343px',
-          height: '439px',
+          width: "343px",
+          height: "439px",
           borderRadius: 7,
-          bg: 'error',
-          color: 'onBackgroundAlt',
-          flexDirection: 'column',
-          overflow: 'hidden',
-          position: 'relative',
+          bg: "error",
+          color: "onBackgroundAlt",
+          flexDirection: "column",
+          overflow: "hidden",
+          position: "relative",
           zIndex: 1,
-          boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
-        }}>
+          boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+        }}
+      >
         <Flex
           sx={{
             p: 3,
             fontSize: 5,
-            alignItems: 'center',
-            textAlign: 'center',
-            justifyContent: 'center',
-            flex: '1 1 auto'
-          }}>
+            alignItems: "center",
+            textAlign: "center",
+            justifyContent: "center",
+            flex: "1 1 auto",
+          }}
+        >
           ERROR! Incorrect # of Children for Card. Please check your mdx.
         </Flex>
       </Flex>
@@ -65,18 +68,18 @@ const Card = ({
   }
 
   const revealCopyVariant = {
-    revealed: {opacity: 0, y: 12, transition: {duration: 0.2}},
-    initial: {opacity: 1, y: 0, transition: {duration: 0.2}}
+    revealed: { opacity: 0, y: 12, transition: { duration: 0.2 } },
+    initial: { opacity: 1, y: 0, transition: { duration: 0.2 } },
   };
 
   const answerCopyVariant = {
-    revealed: {y: 0},
-    initial: {y: 48}
+    revealed: { y: 0 },
+    initial: { y: 48 },
   };
 
   const postAnswerVariant = {
-    revealed: {opacity: 1},
-    initial: {opacity: 0}
+    revealed: { opacity: 1 },
+    initial: { opacity: 0 },
   };
 
   const question = _children[0];
@@ -84,72 +87,77 @@ const Card = ({
   const answer = _children[1];
 
   const postAnswer = _children.slice(2, _children.length);
-  const currentVariant = isActive ? 'active' : wasActive ? 'exit' : 'initial';
+  const currentVariant = isActive ? "active" : wasActive ? "exit" : "initial";
   const inactiveScale = 1 - 0.05 * (index - currentCard);
 
   return (
     <motion.div variants={cardVariants} animate={currentVariant}>
       <Flex
         sx={{
-          width: ['100%', '343px', '343px'],
-          height: ['58vh', '439px', '439px'],
+          width: ["100%", "343px", "343px"],
+          height: ["58vh", "439px", "439px"],
           borderRadius: 7,
-          bg: 'backgroundAlt',
-          color: 'onBackgroundAlt',
-          display: index - currentCard > 2 ? 'none' : 'flex',
+          bg: "backgroundAlt",
+          color: "onBackgroundAlt",
+          display: index - currentCard > 2 ? "none" : "flex",
           opacity: inactiveScale,
-          flexDirection: 'column',
-          overflow: 'hidden',
-          transform: `scale(${isActive ? '1' : inactiveScale})`,
-          transformOrigin: 'bottom',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
-        }}>
+          flexDirection: "column",
+          overflow: "hidden",
+          transform: `scale(${isActive ? "1" : inactiveScale})`,
+          transformOrigin: "bottom",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)",
+        }}
+      >
         {isActive && (
           <>
             <Flex
               sx={{
-                alignItems: 'center',
-                textAlign: 'center',
-                justifyContent: 'center',
-                flex: '1 1 auto',
+                alignItems: "center",
+                textAlign: "center",
+                justifyContent: "center",
+                flex: "1 1 auto",
                 p: [1, 2, 3],
-                fontSize: [2, 3, 4]
-              }}>
+                fontSize: [2, 3, 4],
+              }}
+            >
               {question}
             </Flex>
             <Flex
               sx={{
-                height: '38%',
-                bg: 'primaryMuted',
-                borderTop: '1px solid',
-                borderColor: 'background',
-                position: 'relative',
-                color: 'text',
+                height: "38%",
+                bg: "primaryMuted",
+                borderTop: "1px solid",
+                borderColor: "background",
+                position: "relative",
+                color: "text",
                 px: 2,
-                pt: '20px',
-                overflow: 'hidden',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                flexDirection: 'column',
-                '&:hover .reveal-answer': {
-                  transition: 'all .2s ease',
-                  transform: 'scale(1.1)'
-                }
-              }}>
+                pt: "20px",
+                overflow: "hidden",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                flexDirection: "column",
+                "&:hover .reveal-answer": {
+                  transition: "all .2s ease",
+                  transform: "scale(1.1)",
+                },
+              }}
+            >
               <div
                 sx={{
-                  position: 'absolute',
-                  boxShadow: '0px 0 10px rgba(0,0,0,0.3)',
-                  top: '-13px',
-                  height: '13px',
-                  width: '100%'
-                }}></div>
+                  position: "absolute",
+                  boxShadow: "0px 0 10px rgba(0,0,0,0.3)",
+                  top: "-13px",
+                  height: "13px",
+                  width: "100%",
+                }}
+              ></div>
               <motion.div
                 variants={revealCopyVariant}
                 initial="initial"
-                animate={isRevealed ? 'revealed' : 'initial'}
-                sx={{position: 'absolute'}}>
+                animate={isRevealed ? "revealed" : "initial"}
+                sx={{ position: "absolute" }}
+              >
                 {data.connected && (
                   <Flex onClick={revealCallback}>
                     <span
@@ -157,11 +165,12 @@ const Card = ({
                       sx={{
                         fontSize: [3, 4, 4],
                         mb: 2,
-                        fontWeight: 'bold',
-                        transform: 'scale(1)',
-                        transition: 'all .2s ease'
-                      }}>
-                      {' '}
+                        fontWeight: "bold",
+                        transform: "scale(1)",
+                        transition: "all .2s ease",
+                      }}
+                    >
+                      {" "}
                       Reveal the Answer
                     </span>
                   </Flex>
@@ -173,31 +182,65 @@ const Card = ({
                         <>
                           <Box
                             sx={{
-                              padding: '0.5rem'
-                            }}>
+                              padding: "0.5rem",
+                            }}
+                          >
                             <Text
                               sx={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                marginX: 'auto'
-                              }}>
+                                textAlign: "center",
+                                fontWeight: "bold",
+                                marginX: "auto",
+                              }}
+                            >
                               Connect wallet to reveal
                             </Text>
                           </Box>
 
                           <Button
-                            sx={{marginX: 'auto'}}
+                            sx={{ marginX: "auto" }}
                             disabled={!x.ready}
                             key={x.id}
-                            onClick={() => connect(x)}>
+                            onClick={() => connect(x)}
+                          >
                             {x.name}
-                            {!x.ready && ' (unsupported)'}
+                            {!x.ready && " (unsupported)"}
                           </Button>
                         </>
                       ))}
 
+                      {/* <>
+                        <Box
+                          sx={{
+                            padding: "0.5rem",
+                          }}
+                        >
+                          <Text
+                            sx={{
+                              textAlign: "center",
+                              fontWeight: "bold",
+                              marginX: "auto",
+                            }}
+                          >
+                            Connect wallet to reveal
+                          </Text>
+                        </Box>
+
+                        <Button
+                          sx={{ marginX: "auto" }}
+                          disabled={!connectors[Connector.WALLETCONNECT].ready}
+                          key={connectors[Connector.INJECTED].id}
+                          onClick={() =>
+                            connect(connectors[Connector.INJECTED])
+                          }
+                        >
+                          {connectors[Connector.INJECTED].name}
+                          {!connectors[Connector.INJECTED].ready &&
+                            " (unsupported)"}
+                        </Button>
+                      </> */}
+
                       {error && (
-                        <div>{error?.message ?? 'Failed to connect'}</div>
+                        <div>{error?.message ?? "Failed to connect"}</div>
                       )}
                     </div>
                   </>
@@ -207,25 +250,27 @@ const Card = ({
                 <motion.div
                   variants={answerCopyVariant}
                   initial="initial"
-                  animate={isRevealed ? 'revealed' : 'initial'}
+                  animate={isRevealed ? "revealed" : "initial"}
                   sx={{
-                    overflow: 'auto',
-                    '& > *:first-child': {
+                    overflow: "auto",
+                    "& > *:first-child": {
                       fontSize: [3, 4, 4],
-                      textAlign: 'center',
-                      fontWeight: 'bold',
+                      textAlign: "center",
+                      fontWeight: "bold",
                       opacity: isRevealed ? 0.8 : 1,
-                      filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
-                      transition: 'all .2s ease'
-                    }
-                  }}>
+                      filter: isRevealed ? "blur(0px)" : "blur(4px)",
+                      transition: "all .2s ease",
+                    },
+                  }}
+                >
                   {answer}
                   {_children.length > 2 && (
                     <motion.div
-                      sx={{fontSize: '12px', mt: 2}}
+                      sx={{ fontSize: "12px", mt: 2 }}
                       variants={postAnswerVariant}
                       initial="initial"
-                      animate={isRevealed ? 'revealed' : 'initial'}>
+                      animate={isRevealed ? "revealed" : "initial"}
+                    >
                       {postAnswer}
                     </motion.div>
                   )}
