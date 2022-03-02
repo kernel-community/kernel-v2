@@ -3,7 +3,7 @@ import React, { Children, cloneElement } from "react";
 import { jsx, Flex, Text, Box } from "theme-ui";
 import { useAccount, useConnect } from "wagmi";
 import { Button } from "@modules/ui";
-import { connectors } from "./utils";
+import { connectors, Connector } from "./utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { console } from "window-or-global";
 
@@ -178,34 +178,37 @@ const Card = ({
                 {!data.connected && (
                   <>
                     <div>
-                      {/* {data.connectors.map((x) => (
+                      {data.connectors.map((x) => (
                         <>
                           <Box
                             sx={{
-                              padding: '0.5rem'
-                            }}>
+                              padding: "0.5rem",
+                            }}
+                          >
                             <Text
                               sx={{
-                                textAlign: 'center',
-                                fontWeight: 'bold',
-                                marginX: 'auto'
-                              }}>
+                                textAlign: "center",
+                                fontWeight: "bold",
+                                marginX: "auto",
+                              }}
+                            >
                               Connect wallet to reveal
                             </Text>
                           </Box>
 
                           <Button
-                            sx={{marginX: 'auto'}}
+                            sx={{ marginX: "auto" }}
                             disabled={!x.ready}
                             key={x.id}
-                            onClick={() => connect(x)}>
+                            onClick={() => connect(x)}
+                          >
                             {x.name}
-                            {!x.ready && ' (unsupported)'}
+                            {!x.ready && " (unsupported)"}
                           </Button>
                         </>
-                      ))} */}
+                      ))}
 
-                      <>
+                      {/* <>
                         <Box
                           sx={{
                             padding: "0.5rem",
@@ -224,7 +227,7 @@ const Card = ({
 
                         <Button
                           sx={{ marginX: "auto" }}
-                          disabled={!connectors[Connector.INJECTED].ready}
+                          disabled={!connectors[Connector.WALLETCONNECT].ready}
                           key={connectors[Connector.INJECTED].id}
                           onClick={() =>
                             connect(connectors[Connector.INJECTED])
@@ -234,7 +237,7 @@ const Card = ({
                           {!connectors[Connector.INJECTED].ready &&
                             " (unsupported)"}
                         </Button>
-                      </>
+                      </> */}
 
                       {error && (
                         <div>{error?.message ?? "Failed to connect"}</div>
