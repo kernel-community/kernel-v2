@@ -4,7 +4,6 @@ import {Flex, jsx} from 'theme-ui';
 
 const InfoBlock = ({children}) => {
   let _Children = Children.toArray(children);
-  let hasImageMobileOrdering = {};
 
   //NOTE(Rejon): In the future when css4 comes out this will be replaced by the :has() selector!
   const hasImage = _Children.find((n, index) => {
@@ -41,9 +40,9 @@ const InfoBlock = ({children}) => {
             mx: hasImage ? '' : 'auto'
           }
         },
-        '& > * img': {
+        '& > img': {
           height: '100%',
-          width: ['100%', '50%', '50%'],
+          width: ['90%', '50%', '50%'],
           objectFit: 'cover',
           objectPosition: 'center',
           order: [-1, -1, 0]
@@ -55,8 +54,7 @@ const InfoBlock = ({children}) => {
         '& > *:last-child': {
           minWidth: ['unset', 'unset', '250px'],
           ml: hasImage ? [0, 0, '4%'] : 0
-        },
-        ...hasImageMobileOrdering
+        }
       }}>
       {_Children.map((child) => child)}
     </Flex>
