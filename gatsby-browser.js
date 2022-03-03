@@ -1,40 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import { TranslationProvider } from "@modules/localization";
+import {TranslationProvider} from '@modules/localization';
 
-import Layout from "@modules/layouts/site_layout";
-import { NavigationProvider } from "@modules/navigation";
-import { Provider, chain, defaultChains } from "wagmi";
-import { InjectedConnector } from "wagmi/connectors/injected";
+import Layout from '@modules/layouts/site_layout';
+import {NavigationProvider} from '@modules/navigation';
+import {Provider} from 'wagmi';
+import {connectors, provider, connectorStorageKey} from './utils';
 
 //Load our Primsjs css and Fonts
-import "@modules/layouts/global.css"; //<- Load in Prismjs css. Our custom styles have to be loaded this way cause Prismjs is blackboxed from our own code.
+import '@modules/layouts/global.css'; //<- Load in Prismjs css. Our custom styles have to be loaded this way cause Prismjs is blackboxed from our own code.
 
-const infuraId = process.env.INFURA_ID;
-const chains = defaultChains;
-
-// Set up connectors
-const connectors = ({ chainId }) => {
-  const rpcUrl =
-    chains.find((x) => x.id === chainId)?.rpcUrls?.[0] ??
-    chain.mainnet.rpcUrls[0];
-  return [
-    new InjectedConnector({
-      chains,
-      options: { shimDisconnect: true },
-    }),
-  ];
-};
-
-export const wrapRootElement = ({ element }) => (
+export const wrapRootElement = ({element}) => (
   <TranslationProvider>
-    <Provider autoConnect connectors={connectors}>
+    <Provider
+      autoConnect
+      connectors={connectors}
+      provider={provider}
+      connectorStorageKey={connectorStorageKey}>
       {element}
     </Provider>
   </TranslationProvider>
 );
 
-export const wrapPageElement = ({ element, props }) => (
+export const wrapPageElement = ({element, props}) => (
   <NavigationProvider>
     <Layout {...props}>{element}</Layout>
   </NavigationProvider>
