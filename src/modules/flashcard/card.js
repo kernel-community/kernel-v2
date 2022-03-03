@@ -1,8 +1,10 @@
 /** @jsx jsx */
-import React, {Children, cloneElement} from 'react';
-import {jsx, Flex} from 'theme-ui';
-import {AnimatePresence, motion} from 'framer-motion';
-import {console} from 'window-or-global';
+import React, {Children} from 'react';
+import {jsx, Flex, Text, Box} from 'theme-ui';
+import {useConnect} from 'wagmi';
+import {Button} from '@modules/ui';
+import {motion} from 'framer-motion';
+import {Connector} from '../../../utils';
 
 const Card = ({
   index,
@@ -22,6 +24,8 @@ const Card = ({
     active: {y: 0, opacity: 1},
     exit: {y: -64, opacity: 0, scale: 1.1}
   };
+
+  const [{data, error}, connect] = useConnect();
 
   if (_children.length < 2) {
     return (
@@ -125,8 +129,7 @@ const Card = ({
                   transition: 'all .2s ease',
                   transform: 'scale(1.1)'
                 }
-              }}
-              onClick={revealCallback}>
+              }}>
               <div
                 sx={{
                   position: 'absolute',
@@ -140,45 +143,84 @@ const Card = ({
                 initial="initial"
                 animate={isRevealed ? 'revealed' : 'initial'}
                 sx={{position: 'absolute'}}>
-                <span
-                  className="reveal-answer"
-                  sx={{
-                    fontSize: [3, 4, 4],
-                    mb: 2,
-                    fontWeight: 'bold',
-                    transform: 'scale(1)',
-                    transition: 'all .2s ease'
-                  }}>
-                  {' '}
-                  Reveal the answer
-                </span>
-              </motion.div>
-              <motion.div
-                variants={answerCopyVariant}
-                initial="initial"
-                animate={isRevealed ? 'revealed' : 'initial'}
-                sx={{
-                  overflow: 'auto',
-                  '& > *:first-child': {
-                    fontSize: [3, 4, 4],
-                    textAlign: 'center',
-                    fontWeight: 'bold',
-                    opacity: isRevealed ? 0.8 : 1,
-                    filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
-                    transition: 'all .2s ease'
-                  }
-                }}>
-                {answer}
-                {_children.length > 2 && (
-                  <motion.div
-                    sx={{fontSize: '12px', mt: 2}}
-                    variants={postAnswerVariant}
-                    initial="initial"
-                    animate={isRevealed ? 'revealed' : 'initial'}>
-                    {postAnswer}
-                  </motion.div>
+                {data.connected && (
+                  <Flex onClick={revealCallback}>
+                    <span
+                      className="reveal-answer"
+                      sx={{
+                        fontSize: [3, 4, 4],
+                        mb: 2,
+                        fontWeight: 'bold',
+                        transform: 'scale(1)',
+                        transition: 'all .2s ease'
+                      }}>
+                      {' '}
+                      Reveal the Answer
+                    </span>
+                  </Flex>
+                )}
+                {!data.connected && (
+                  <>
+                    <div>
+                      <>
+                        <Box
+                          sx={{
+                            padding: '0.5rem'
+                          }}>
+                          <Text
+                            sx={{
+                              textAlign: 'center',
+                              fontWeight: 'bold',
+                              marginX: 'auto'
+                            }}>
+                            Connect wallet to reveal
+                          </Text>
+                        </Box>
+
+                        <Button
+                          sx={{marginX: 'auto'}}
+                          disabled={!data.connectors[Connector.INJECTED].ready}
+                          onClick={() =>
+                            connect(data.connectors[Connector.INJECTED])
+                          }>
+                          Metamask
+                        </Button>
+                      </>
+                      {error && (
+                        <div>{error?.message ?? 'Failed to connect'}</div>
+                      )}
+                    </div>
+                  </>
                 )}
               </motion.div>
+              {data.connected && (
+                <motion.div
+                  variants={answerCopyVariant}
+                  initial="initial"
+                  animate={isRevealed ? 'revealed' : 'initial'}
+                  sx={{
+                    overflow: 'auto',
+                    '& > *:first-child': {
+                      fontSize: [3, 4, 4],
+                      textAlign: 'center',
+                      fontWeight: 'bold',
+                      opacity: isRevealed ? 0.8 : 1,
+                      filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
+                      transition: 'all .2s ease'
+                    }
+                  }}>
+                  {answer}
+                  {_children.length > 2 && (
+                    <motion.div
+                      sx={{fontSize: '12px', mt: 2}}
+                      variants={postAnswerVariant}
+                      initial="initial"
+                      animate={isRevealed ? 'revealed' : 'initial'}>
+                      {postAnswer}
+                    </motion.div>
+                  )}
+                </motion.div>
+              )}
             </Flex>
           </>
         )}
