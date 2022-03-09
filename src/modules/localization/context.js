@@ -28,7 +28,6 @@ const TranslationProvider = ({children}) => {
     if (uiData) {
       localeStrings[loc] = {...uiData};
     }
-    console.log('Locales from context: ', loc);
     return loc;
   });
 

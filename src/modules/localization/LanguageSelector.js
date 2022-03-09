@@ -125,7 +125,7 @@ const LanguageSelector = ({data, pagePath}) => {
             }}>
             {`${t('Need_Another_Language')}  `}
             <Link
-              to="/guiding/writers/translations"
+              to="/en/guiding/writers/translation"
               sx={{
                 color: 'link',
                 textDecoration: 'none',
@@ -142,7 +142,6 @@ const LanguageSelector = ({data, pagePath}) => {
     );
   }
   const availableLanguages = allLocales.filter((loc) => loc !== locale);
-  console.log('availableLanguages from languageSelector: ', availableLanguages);
 
   return (
     <Box
@@ -215,7 +214,7 @@ const LanguageSelector = ({data, pagePath}) => {
           }}>
           {`${t('Need_Another_Language')}  `}
           <Link
-            to="/guiding/writers/translations"
+            to="/en/guiding/writers/translation"
             sx={{
               color: 'link',
               textDecoration: 'none',
