@@ -15,7 +15,6 @@ import calculateTreeData from '@modules/navigation/calculateTreeData';
 import {SEO} from '@modules/utility';
 import {UrlConverter, getLocaleFromPath} from '@utils';
 import {Pager} from '../navigation/Pager';
-import {console} from 'window-or-global';
 
 export default (props) => {
   const {locale, t, DEFAULT_LOCALE} = useTranslation();
@@ -235,14 +234,10 @@ export default (props) => {
         <Pager sidenavData={sidenavData} pagePath={pagePath} />
       </Box>
 
-      <Box sx={{position: 'relative'}}>
+      <Box sx={{position: 'relative', display: ['none', 'none', 'block']}}>
         {/* DESKTOP LANGUAGE SELECTOR */}
         {renderLanguageSelector && (
-          <LanguageSelector
-            sx={{display: ['none', 'none', 'block']}}
-            data={languageSelectorData}
-            pagePath={pagePath}
-          />
+          <LanguageSelector data={languageSelectorData} pagePath={pagePath} />
         )}
         {renderTableOfContents && (
           <TableOfContents

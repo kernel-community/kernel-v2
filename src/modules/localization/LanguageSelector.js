@@ -3,10 +3,8 @@ import {Select} from '@modules/ui';
 import {navigate} from 'gatsby';
 import {useTranslation} from '@modules/localization';
 import {Link} from '@modules/navigation';
-import {components} from 'react-select';
 import {Fragment} from 'react';
 import {Box, jsx, Text, useThemeUI} from 'theme-ui';
-import {console} from 'window-or-global';
 
 const LanguageSelector = ({data, pagePath}) => {
   const {theme} = useThemeUI();
@@ -21,71 +19,6 @@ const LanguageSelector = ({data, pagePath}) => {
     navigate(value);
   };
 
-  const Menu = (props) => (
-    <components.Menu
-      {...props}
-      sx={{
-        marginTop: 0,
-        borderRadius: '12px',
-        border: '1px solid',
-        borderColor: 'muted',
-        overflow: 'hidden'
-      }}
-    />
-  );
-
-  const MenuList = (props) => (
-    <components.MenuList {...props} sx={{py: 0, borderRadius: '12px'}} />
-  );
-
-  const Option = (props) => (
-    <components.Option
-      {...props}
-      sx={{px: '18px', cursor: 'pointer', fontSize: ['18px', '18px', 3]}}
-    />
-  );
-
-  const IndicatorsContainer = (props) => (
-    <Box
-      sx={{
-        width: 'auto',
-        pr: 2,
-        '& > * >span': {
-          display: 'none'
-        },
-        '& svg, &:hover svg': {
-          color: props.isDisabled ? 'muted' : 'backgroundAlt'
-        }
-      }}>
-      <components.IndicatorsContainer {...props} />
-    </Box>
-  );
-
-  const ValueContainer = (props) => (
-    <components.ValueContainer
-      sx={{
-        fontFamily: 'body',
-        color: 'textMuted',
-        pl: 3
-      }}
-      {...props}
-    />
-  );
-
-  const Control = (props) => (
-    <components.Control
-      sx={{
-        border: '1px solid',
-        borderColor: 'muted',
-        borderRadius: '12px',
-        fontSize: ['18px', '18px', 3],
-        pr: 0,
-        p: ['2px', '2px', 0]
-      }}
-      {...props}
-    />
-  );
-
   //Override select component theme with our theme since it's not connected to theme-ui
   const uiSelectTheme = {
     primary: theme.colors.primary,
@@ -96,51 +29,6 @@ const LanguageSelector = ({data, pagePath}) => {
     dangerLight: theme.colors.bearAlt
   };
 
-  //If we have existing languages or we're swapping, show the select.
-  if (data.length > 0) {
-    return (
-      <Box
-        sx={{
-          width: ['100%', '100%', '205px'],
-          mb: [3, 3, 'unset'],
-          position: 'relative',
-          top: 0,
-          right: 0
-        }}>
-        <Select
-          isSearchable={false}
-          options={data}
-          onChange={onChange}
-          aria-label={t('Page_Language_Selector')}
-          value={{
-            value: pagePath,
-            label: t('Language')
-          }}
-        />
-        <Box sx={{mt: 2, textAlign: ['left', 'left', 'right']}}>
-          <Text
-            sx={{
-              lineHeight: 'normal',
-              display: ['inline-block', 'inline-block', 'unset']
-            }}>
-            {`${t('Need_Another_Language')}  `}
-            <Link
-              to="/en/guiding/writers/translation"
-              sx={{
-                color: 'link',
-                textDecoration: 'none',
-                fontWeight: '500',
-                mt: 1,
-                lineHeight: 'normal',
-                display: ['inline-block', 'inline-block', 'block']
-              }}>
-              {t('Join_translation_team')}
-            </Link>
-          </Text>
-        </Box>
-      </Box>
-    );
-  }
   const availableLanguages = allLocales.filter((loc) => loc !== locale);
 
   return (
@@ -165,16 +53,7 @@ const LanguageSelector = ({data, pagePath}) => {
           fontFamily: theme.fonts.body,
           colors: {...selectTheme.colors, ...uiSelectTheme}
         })}
-        isDisabled={true}
-        sx={{display: ['block', 'block', 'none'], width: '100%', mb: 2}}
-        components={{
-          Menu,
-          MenuList,
-          IndicatorsContainer,
-          ValueContainer,
-          Control,
-          Option
-        }}
+        sx={{display: ['inline-block', 'block', 'block'], width: '100%', mb: 2}}
         options={data}
         onChange={onChange}
         aria-label={t('Page_Language_Selector')}
@@ -183,6 +62,7 @@ const LanguageSelector = ({data, pagePath}) => {
           label: t('Language')
         }}
       />
+
       <Text
         sx={{
           display: ['inline-block', 'inline-block', 'block'],
