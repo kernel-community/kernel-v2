@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import {Select} from '@modules/ui';
-import {useNavigate} from '@reach/router';
+import {navigate} from 'gatsby';
 import {useTranslation} from '@modules/localization';
 import {Link} from '@modules/navigation';
 import {components} from 'react-select';
@@ -10,16 +10,14 @@ import {console} from 'window-or-global';
 
 const LanguageSelector = ({data, pagePath}) => {
   const {theme} = useThemeUI();
-  const navigate = useNavigate();
   const {locale, t, allLocales} = useTranslation();
-
-  console.log('Is there anything here: ', data);
 
   const onChange = ({value}) => {
     //Update local storage on switch
     if (typeof window !== 'undefined') {
       localStorage.setItem('locale', value.split('/')[1]);
     }
+
     navigate(value);
   };
 
