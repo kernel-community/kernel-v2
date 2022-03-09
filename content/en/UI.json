@@ -21,7 +21,9 @@
   "aria_TwitterIcon": "Twitter",
   "aria_YoutubeIcon": "Youtube",
   "aria_ExternalWebsite": "External Website",
+  "kernel_icon": "Kernel",
   "Chat": "Chat",
+  "Love": "Love",
   "NotFoundPage": {
     "seoTitle": "404 Page Not Found",
     "line_1": "Uh oh, the page you're looking for doesn't exist.",
@@ -41,6 +43,7 @@
     "Start": "Start",
     "What is Kernel?": "What is Kernel?",
     "Guide": "Guide",
+    "FAQs": "FAQs",
     "Get Involved": "Get Involved",
     "Learn": "Learn",
     "Play": "Play",
