@@ -144,8 +144,17 @@
     {
       "login": "thetagan",
       "name": "thetagan",
-      "avatar_url": "https://kernel.community/images/thetagan.jpg",
+      "avatar_url": "/images/fellows/thetagan.jpg",
       "profile": "https://twitter.com/thetagan",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "davidhuntmateo",
+      "name": "davidhuntmateo",
+      "avatar_url": "/images/fellows/davidhuntmateo.jpg",
+      "profile": "https://twitter.com/MantisClone",
       "contributions": [
         "doc"
       ]
