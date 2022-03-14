@@ -12,7 +12,7 @@ const Process = ({children}) => {
           <Flex
             key={`process-child-${index}`}
             sx={{
-              flexDirection: ['column', 'column', 'row']
+              flexDirection: 'row'
             }}>
             <Box
               sx={{
@@ -22,7 +22,8 @@ const Process = ({children}) => {
                 minWidth: '40px',
                 height: '40px',
                 lineHeight: '39px',
-                mb: ['18px', '18px', 0],
+                mt: '10px',
+                mb: '10px',
                 minHeight: '40px',
                 borderRadius: '100%',
                 color: 'onPrimary',
@@ -34,8 +35,9 @@ const Process = ({children}) => {
             </Box>
             <Box
               sx={{
-                ml: [0, 0, 3],
-                mb: ['23px', '23px', '36px'],
+                ml: 3,
+                mt: '18px',
+                mb: '18px',
                 borderBottom: '1px solid',
                 borderColor: 'muted',
                 width: '100%',
