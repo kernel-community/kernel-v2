@@ -4,7 +4,7 @@ import {jsx, Flex, Text, Box} from 'theme-ui';
 import {useConnect} from 'wagmi';
 import {Button} from '@modules/ui';
 import {motion} from 'framer-motion';
-import {Connector} from '../../../utils';
+import {Connector} from '@src/course/connect';
 
 const Card = ({
   index,
