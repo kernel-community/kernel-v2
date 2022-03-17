@@ -33,7 +33,7 @@ These contracts present exactly one such solution. An epistemic community of lea
 
 ### Kernel Factory
 
-This contract contains the logic for creating courses, registering learners, and tracking whose money has gone where and how much of the initial fee can be redeemed at any given time.
+This contract contains the logic for creating courses, registering learners, and tracking whose money has gone where and how much of the initial fee can be redeemed at any given time. It includes interfaces to the Learning Curve, which is the contract responsible for accepting DAI and minting LEARN (or vice versa); to a Yearn Vault; to the Yearn Registry (which stores a pointer to the latest vault contracts); and to an ERC20 implementation that includes the `permit()` functionality necessary to ensure learners will only sign one transaction when registering for a course or redeeming their funds (rather than the approve-transact pattern we often see).
 
 #### Methods
 
@@ -44,7 +44,7 @@ This contract contains the logic for creating courses, registering learners, and
 > params:   
 > **address _stable** - the kind of token fees are denominated in;  
 > **address _learningCurve** - the address of the contract containing the logic for minting & burning;  
-> **address _vault** - the yearn vault where fees are kept during study.
+> **address _registry** - the yearn registry of vaults, where fees are kept during study.
 
 The Factory is constructed to be aware of only these three items essential to its correct functioning.
 
@@ -79,7 +79,24 @@ A function which can be called by anyone to take the current funds in the Factor
 
 > params: **uint256 _courseId**
 
-This method allows a learner to register for a course of their choice. It checks the fee associated with that course, accepts tokens amounting to that fee and registers the learner. The tokens are kept in the contract and assigned to the current batch. Once there are enough tokens in the batch to justify the gas costs of calling `batchDeposit()`, anyone may do so and add the current batch to the yearn vault.
+This method allows a learner to register for a course of their choice. It checks the fee associated with that course, accepts tokens amounting to that fee and registers the learner. The tokens are kept in the contract and assigned to the current batch. Once there are enough tokens in the batch to justify the gas costs of calling `batchDeposit()`, anyone may do so and add the current batch to the yearn vault. Note that simply calling this route will require two transactions - one to approve this contract to spend your DAI, and another to actually spend it.
+
+</Accordion>
+
+<Accordion>
+
+**permitAndRegister**
+
+> params: 
+> **uint256 _courseId**  
+> **uint256 nonce**  
+> **uint256 expiry**  
+> **uint8 v**  
+> **bytes32 r**  
+> **bytes32 s**  
+
+
+This method uses te `permit()` functionality associated with DAI to approve the KernelFactory contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `register()` and have it operate as expected.
 
 </Accordion>
 
@@ -355,6 +372,23 @@ This is called only once, upon deployment, and is necessary for the maths to wor
 
 <Accordion>
 
+**permitAndMint**
+
+> params: 
+> **uint256 _amount**  
+> **uint256 nonce**  
+> **uint256 expiry**  
+> **uint8 v**  
+> **bytes32 r**  
+> **bytes32 s**  
+
+
+This method uses te `permit()` functionality associated with DAI to approve the LearningCurve contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `mint()` and have it operate as expected.
+
+</Accordion>
+
+<Accordion>
+
 **mint**
 
 > params: **uint256 _wad** - the amount of DAI collateral to be swapped for LEARN
@@ -463,8 +497,8 @@ There are no special accounts or privileged roles in these contracts. There are 
 
 We are sure that there are even better ways to achieve this, and so have tried to outline in detail all our assumptions in order that this may be the beginning of a fruitful conversation about how programmable money might solve incentive problems surrounding the transfer of knowledge.
 
-The state of Ethereum will be around for a long, long time to come and so we are not here to get rich quickly, we are here to play with this vastly expanded [temporal](/learn/module-3/time) [boundary](/learn/module-4/the-garden). We have not written this for ourselves, but as a work of love and devotion to those yet to come.
+The state of Ethereum will be around for a long, long time to come and so we are not here to get rich quickly, we are here to [play](/build/games/infinite) with this vastly expanded [temporal](/learn/module-3/time) [boundary](/learn/module-4/the-garden). We have not written this for ourselves, but as a work of love and devotion to those yet to come.
 
 Education is the [original gift](/learn/module-7/) and is especially interesting in gift-giving economies, because knowledge is given within a context that still demands effort and attention in order to be learned. Valuable knowledge may present itself for free, but it must be given attention and reflection in order to become personally meaningful. It is this paradox which makes educational gifts the seed around which a community crafting new value models can flourish. 
 
-> As Buddha said: “a single flower blooms, and throughout the world it is spring”.
+> “A single flower blooms, and throughout the world it is spring”.
