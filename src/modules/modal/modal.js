@@ -17,8 +17,7 @@ const Modal = ({isModalVisible, setModalVisible}) => {
           backdropFilter: 'blur(10px)',
           alignItems: 'center',
           justifyContent: 'center'
-        }}
-        onClick={() => setModalVisible(false)}>
+        }}>
         <Flex
           sx={{
             flexDirection: 'column',

@@ -5,6 +5,7 @@ import {useConnect} from 'wagmi';
 import {Button} from '@modules/ui';
 import {motion} from 'framer-motion';
 import {Connector} from '@src/course/connect';
+import {Modal} from '../modal';
 
 const Card = ({
   index,
@@ -26,6 +27,7 @@ const Card = ({
   };
 
   const [{data, error}, connect] = useConnect();
+  const [isUserRegistered, setIsUserRegistered] = React.useState(false);
 
   if (_children.length < 2) {
     return (
@@ -82,6 +84,8 @@ const Card = ({
 
   return (
     <motion.div variants={cardVariants} animate={currentVariant}>
+      {/* If User is Not Registered and Wallet is Connected Display Modal */}
+      {!isUserRegistered && data.connected && <Modal />}
       <Flex
         sx={{
           width: ['100%', '343px', '343px'],
@@ -193,7 +197,8 @@ const Card = ({
                   </>
                 )}
               </motion.div>
-              {data.connected && (
+              {/* Reveal answer when Wallet is Connected and User is Registered */}
+              {data.connected && isUserRegistered && (
                 <motion.div
                   variants={answerCopyVariant}
                   initial="initial"
