@@ -1,5 +1,5 @@
 {
-    "componentChunkName": "component---content-en-conversation-hospitality-mdx",
+    "componentChunkName": "component---content-en-conversation-hospitality-index-mdx",
     "path": "/en/conversation/hospitality/",
-    "result": {"pageContext":{"frontmatter":{"title":"Hospitality","order":3,"hideLanguageSelector":true,"description":"In which we play with David Graeber and David Wengrow and propose a new science of history and some old ideas about freedom.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/conversation/hospitality/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"Hospitality","order":5,"hideLanguageSelector":true,"description":"In which we play with David Graeber and David Wengrow and propose a new science of history and some old ideas about freedom.","featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/conversation/hospitality/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
