@@ -14,64 +14,67 @@ const Fellows = () => {
         borderRadius: 'medium',
         marginX: ['2rem', '2rem', '0rem']
       }}>
-      <Grid
-        id="fellowContainer"
-        gap={0}
-        columns={2}
-        sx={{
-          gridColumnGap: ['2rem', '4rem'],
-          gridRowGap: ['2.5rem', '4rem'],
-          paddingBottom: ['0rem', '0rem'],
-          overflowX: 'scroll',
-          paddingX: '2rem',
-          paddingTop: '2rem',
-          gridTemplateRows: ['auto auto auto', 'auto auto'],
-          gridAutoFlow: 'column',
-          borderRadius: '0.5rem',
-          scrollBehavior: 'smooth'
-        }}>
-        {originalArray.fellows.map((fellow, index) => (
-          <Flex
-            key={index}
-            sx={{
-              flexDirection: 'column',
-              ':hover': {
-                cursor: 'pointer',
-                color: 'primary'
-              },
-
-              minWidth: [100, 100]
-            }}
-            onClick={() => {
-              window.open(fellow.url, '_blank');
-            }}>
-            <Image
-              src={fellow.image}
+      <Flex>
+        <Grid
+          id="fellowContainer"
+          sx={{
+            gridColumnGap: ['2rem', '4rem'],
+            gridRowGap: ['2.5rem', '3rem'],
+            paddingBottom: ['0rem', '0rem'],
+            overflowX: ['scroll', 'hidden', 'hidden'],
+            overflowY: 'hidden',
+            height: ['428px', '392px'],
+            paddingX: '2rem',
+            paddingTop: '2rem',
+            gridTemplateRows: ['auto auto auto', 'auto auto'],
+            gridAutoFlow: 'column',
+            borderRadius: '0.5rem',
+            scrollBehavior: 'smooth',
+            scrollbarWidth: 'none',
+            webkitScrollbarWidth: 'none'
+          }}>
+          {originalArray.fellows.map((fellow, index) => (
+            <Flex
+              key={index}
               sx={{
+                flexDirection: 'column',
+                ':hover': {
+                  cursor: 'pointer',
+                  color: 'primary'
+                },
                 minWidth: [60, 100],
                 maxWidth: [60, 100],
-                minHeight: [60, 100],
-                maxHeight: [60, 100],
-                borderRadius: '100%',
-                marginX: 'auto',
-                marginBottom: '0.5rem'
+                minHeight: [60, 150],
+                maxHeight: [60, 150]
               }}
-            />
-
-            <Text
-              sx={{
-                textAlign: 'center',
-                fontSize: ['0.8rem', '1rem']
+              onClick={() => {
+                window.open(fellow.url, '_blank');
               }}>
-              {fellow.name}
-            </Text>
-          </Flex>
-        ))}
-      </Grid>
+              <Image
+                src={fellow.image}
+                sx={{
+                  borderRadius: '100%',
+                  marginX: 'auto',
+                  marginBottom: '0.5rem'
+                }}
+              />
+
+              <Text
+                sx={{
+                  textAlign: 'center',
+                  fontSize: ['0.8rem', '1rem']
+                }}>
+                {fellow.name}
+              </Text>
+            </Flex>
+          ))}
+        </Grid>
+      </Flex>
       <Flex
         sx={{
           marginX: 'auto',
-          marginBottom: ['0rem', '2rem'],
+          marginBottom: ['-1rem', '1rem'],
+          marginTop: ['0rem', '1rem'],
           textColor: 'callout',
           visibility: ['hidden', 'visible']
         }}>

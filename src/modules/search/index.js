@@ -4,13 +4,12 @@ import {useState, useEffect, useRef} from 'react';
 import {Box, Flex, Text, jsx} from 'theme-ui';
 import LUNR from 'lunr';
 import {navigate} from 'gatsby';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
 import {motion} from 'framer-motion';
 
 import {useTranslation} from '@modules/localization';
 import SearchInput from './SearchInput';
 import SearchHit from './SearchHit';
-import {console, document} from 'window-or-global';
+import {document} from 'window-or-global';
 
 //Hook mostly to detect if there's a click outside of the results element.
 //If a click is detected we hide the results.
@@ -305,12 +304,6 @@ export default function Search({onClick, ...otherProps}) {
                   onClick={() => {
                     setFocus(false);
                     onClick();
-                    //Google Analytics Tracking
-                    trackCustomEvent({
-                      category: 'Internal Search',
-                      action: `Click Result`,
-                      label: `Query: ${query} | To Page: ${result.url}`
-                    });
                   }}
                 />
               </li>

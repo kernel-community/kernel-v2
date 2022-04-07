@@ -332,6 +332,121 @@ exports.createPages = async ({graphql, actions}) => {
     fromPath: '/en/resources/zero-knowledge',
     toPath: `/${FALLBACK_LOCALE}/resources/research/#zero-knowledge`
   });
+
+  createRedirect({
+    fromPath: '/en/learn/module-1/promise-blockchains',
+    toPath: `/${FALLBACK_LOCALE}/learn/module-1/dreamers`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/outsmarting-contracts/lesson-0',
+    toPath: `/${FALLBACK_LOCALE}/build/outsmarting-contracts/lifting-the-veil`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/outsmarting-contracts/lesson-1',
+    toPath: `/${FALLBACK_LOCALE}/build/outsmarting-contracts/random-order`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/outsmarting-contracts/lesson-2',
+    toPath: `/${FALLBACK_LOCALE}/build/outsmarting-contracts/true-store`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/outsmarting-contracts/lesson-3',
+    toPath: `/${FALLBACK_LOCALE}/build/outsmarting-contracts/reenter-the-kingdom`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/nfteasy/lesson-0',
+    toPath: `/${FALLBACK_LOCALE}/build/nfteasy/long-life-libraries`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/nfteasy/lesson-1',
+    toPath: `/${FALLBACK_LOCALE}/build/nfteasy/character-types`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/nfteasy/lesson-2',
+    toPath: `/${FALLBACK_LOCALE}/build/nfteasy/perma-network-culture`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/nfteasy/lesson-3',
+    toPath: `/${FALLBACK_LOCALE}/build/nfteasy/would-tries`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/lesson-0',
+    toPath: `/${FALLBACK_LOCALE}/build/tokenomics/mounting-up`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/lesson-1',
+    toPath: `/${FALLBACK_LOCALE}/build/tokenomics/adaptive-sharing`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/lesson-2',
+    toPath: `/${FALLBACK_LOCALE}/build/tokenomics/communal-treasure`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/lesson-3',
+    toPath: `/${FALLBACK_LOCALE}/build/tokenomics/flying-high`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/lesson-4',
+    toPath: `/${FALLBACK_LOCALE}/build/tokenomics/regenerative-commons`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/lesson-0',
+    toPath: `/${FALLBACK_LOCALE}/build/zodiac/past-light`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/lesson-1',
+    toPath: `/${FALLBACK_LOCALE}/build/zodiac/expanding-universe`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/lesson-2',
+    toPath: `/${FALLBACK_LOCALE}/build/zodiac/cosmic-reality`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/lesson-3',
+    toPath: `/${FALLBACK_LOCALE}/build/zodiac/open-multiverse`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/lesson-4',
+    toPath: `/${FALLBACK_LOCALE}/build/zodiac/infinite-learning`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/decentralized-ai/lesson-0',
+    toPath: `/${FALLBACK_LOCALE}/build/decentralized-ai/into-the-ocean`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/decentralized-ai/lesson-1',
+    toPath: `/${FALLBACK_LOCALE}/build/decentralized-ai/generative-adversaries`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/decentralized-ai/lesson-2',
+    toPath: `/${FALLBACK_LOCALE}/build/decentralized-ai/punks-python`
+  });
+
+  createRedirect({
+    fromPath: '/en/build/decentralized-ai/lesson-3',
+    toPath: `/${FALLBACK_LOCALE}/build/decentralized-ai/analogue-imaginings`
+  });
 };
 
 exports.onCreatePage = async ({page, actions}) => {

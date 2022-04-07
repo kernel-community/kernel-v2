@@ -1,10 +1,28 @@
 {
     "projects": [
       { 
+        "name": "Toucan Protocol",
+        "url": "https://toucan.earth/",
+        "description": "Programmable carbon for a regenerative economy",
+        "image": "/images/projects/toucan.jpg"
+      },
+      { 
+        "name": "Impact Market",
+        "url": "https://impactmarket.com/",
+        "description": "Decentralized Poverty Alleviation Protocol",
+        "image": "/images/projects/impactmarket.jpg"
+      },
+      { 
         "name": "EPNS",
         "url": "https://epns.io/",
         "description": "Blockchain based notifications that are chain agnostic, platform independent and incentivized",
         "image": "/images/projects/epns.png"
+      },
+      { 
+        "name": "Idea Market",
+        "url": "https://ideamarket.io/",
+        "description": "The credibility layer of the internet",
+        "image": "/images/projects/ideamarket.png"
       },
       { 
         "name": "Good Ghosting",
@@ -31,16 +49,148 @@
         "image": "/images/projects/charged_particles.png"
       },
       { 
+        "name": "Revert Finance",
+        "url": "Actionable analytics for DeFi liquidity providers",
+        "description": "https://revert.finance/",
+        "image": "/images/projects/revert.jpg"
+      },
+      { 
         "name": "Nifty Ink",
         "url": "https://nifty.ink/",
         "description": "Instantly onboarding artists: no downloads, no onramps",
         "image": "/images/projects/nifty_ink.png"
       },
       { 
+        "name": "TryBonfire",
+        "url": "https://trybonfire.xyz",
+        "description": "Build a home for your web3 community",
+        "image": "/images/projects/trybonfire.jpg"
+      },
+      { 
+        "name": "Reach",
+        "url": "https://reach.sh/",
+        "description": "The platform for practical blockchain development",
+        "image": "/images/projects/reach.png"
+      },
+      { 
+        "name": "DePay",
+        "url": "https://depay.fi/",
+        "description": "Web3 payments with any token",
+        "image": "/images/projects/depay.jpg"
+      },
+      { 
+        "name": "Sherlock",
+        "url": "https://www.sherlock.xyz/",
+        "description": "DeFi exploit protection",
+        "image": "/images/projects/sherlock.jpg"
+      },
+      { 
+        "name": "TryCrypto",
+        "url": "https://trycrypto.com/",
+        "description": "A community of women builders that uses decentralized technology to create a fairer, more just society.",
+        "image": "/images/projects/trycrypto.png"
+      },
+      { 
+        "name": "Llama",
+        "url": "https://llama.community/#/",
+        "description": "A hub for crypto community treasuries ",
+        "image": "/images/projects/llama.png"
+      },
+      { 
+        "name": "DefiSafety",
+        "url": "https://www.defisafety.com/",
+        "description": "Your guide to a safe DeFi Experience",
+        "image": "/images/projects/defisafety.png"
+      },
+      { 
+        "name": "Atlantis World",
+        "url": "https://atlantis.world/",
+        "description": "Web3 social metaverse",
+        "image": "/images/projects/atlantis.png"
+      },
+      { 
+        "name": "Dada.art",
+        "url": "https://dada.art/home",
+        "description": "Speak through drawings",
+        "image": "/images/projects/dada.jpg"
+      },
+      { 
+        "name": "dOrg",
+        "url": "https://www.dorg.tech/#/",
+        "description": "We accelerate development and adoption for our favorite Web3 projects",
+        "image": "/images/projects/dorg.png"
+      },
+      { 
+        "name": "Pr1s0nArt",
+        "url": "https://pr1s0n.art/",
+        "description": "Digital art which pays back prisoner debt, restoring justice and the dignity of returning citizens",
+        "image": "/images/projects/prisonart.png"
+      },
+      { 
+        "name": "CryptoNative Podcast",
+        "url": "https://podcasts.apple.com/co/podcast/crypto-native/id1570341480?l=en",
+        "description": "futurealisha's great beginning",
+        "image": "/images/projects/cryptonative.jpg"
+      },
+      { 
+        "name": "Coinshift",
+        "url": "https://coinshift.xyz/",
+        "description": "Smart treasury management for DAOs and companies",
+        "image": "/images/projects/coinshift.jpg"
+      },
+      { 
+        "name": "Paladin",
+        "url": "https://paladin.vote/",
+        "description": "The Ultimate Ally for Better Governance",
+        "image": "/images/projects/paladin.jpg"
+      },
+      { 
         "name": "Parcel",
         "url": "https://parcel.money/",
         "description": "Treasury Management, simplified for DAOs",
         "image": "/images/projects/parcel.png"
+      },
+      { 
+        "name": "Beyond NFT",
+        "url": "https://beyondnft.io/",
+        "description": "A playground for generative creativity",
+        "image": "/images/projects/beyondnft.png"
+      },
+      { 
+        "name": "Metaverse AI",
+        "url": "https://www.metaverseai.org/",
+        "description": "Building the open metaverse with AI and web3",
+        "image": "/images/projects/metaverseai.jpg"
+      },
+      { 
+        "name": "MyCo",
+        "url": "https://www.myco.space/",
+        "description": "Cooperatives, communities, collective and companies all in one",
+        "image": "/images/projects/myco.jpg"
+      },
+      { 
+        "name": "OpenDive",
+        "url": "https://twitter.com/openerahq",
+        "description": "DeFi MMO RPG game on Solana, powered by ProjectSerum. Inspired by RuneScape, and Albion Online.",
+        "image": "/images/projects/opendive.jpg"
+      },
+      { 
+        "name": "Planck",
+        "url": "https://www.p1anck.com/",
+        "description": "NFTs for open science",
+        "image": "/images/projects/planck.png"
+      },
+      { 
+        "name": "Stake.gg",
+        "url": "https://www.stake.gg/",
+        "description": "No limit prediction markets",
+        "image": "/images/projects/stakegg.png"
+      },
+      { 
+        "name": "Timeless",
+        "url": "https://timeless.space",
+        "description": "Timeless products for a world in a rush",
+        "image": "/images/projects/timeless.png"
       },
       { 
         "name": "Akropolis",
