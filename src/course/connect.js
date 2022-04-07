@@ -1,14 +1,13 @@
-import {defaultChains, defaultL2Chains} from 'wagmi';
+import {allChains} from 'wagmi';
 import {InjectedConnector} from 'wagmi/connectors/injected';
 import {WalletConnectConnector} from 'wagmi/connectors/walletConnect';
 import {providers} from 'ethers';
 
 const infuraId = process.env.INFURA_ID;
-const chains = [...defaultChains, ...defaultL2Chains];
 export const connectors = () => [
-  new InjectedConnector({chains}),
+  new InjectedConnector({allChains}),
   new WalletConnectConnector({
-    chains,
+    chains: allChains,
     options: {
       infuraId,
       qrcode: true
@@ -21,7 +20,11 @@ export const Connector = {
   WALLETCONNECT: 1
 };
 
-export const provider = ({chainId}) =>
-  new providers.InfuraProvider(chainId, infuraId);
+export const provider = ({chainId}) => {
+  if (chainId === 1337) {
+    return new providers.JsonRpcProvider('http://localhost:8545');
+  }
+  return new providers.InfuraProvider(chainId, infuraId);
+};
 
 export const connectorStorageKey = 'kernel.community.wallet';

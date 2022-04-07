@@ -1,11 +1,13 @@
+/* eslint-disable no-console */
 /** @jsx jsx */
-import React, {Children} from 'react';
+import React, {Children, useEffect} from 'react';
 import {jsx, Flex, Text, Box} from 'theme-ui';
-import {useConnect} from 'wagmi';
+import {useConnect, useAccount, useProvider} from 'wagmi';
 import {Button} from '@modules/ui';
 import {motion} from 'framer-motion';
 import {Connector} from '@src/course/connect';
 import {Modal} from '../modal';
+import {isRegistered} from '../../course/course';
 
 const Card = ({
   index,
@@ -27,7 +29,18 @@ const Card = ({
   };
 
   const [{data, error}, connect] = useConnect();
+  const [{data: accountData}] = useAccount();
   const [isUserRegistered, setIsUserRegistered] = React.useState(false);
+  const provider = useProvider();
+
+  useEffect(() => {
+    async function get() {
+      setIsUserRegistered(await isRegistered(accountData.address, provider));
+    }
+    if (accountData?.address && provider) {
+      get();
+    }
+  }, [accountData?.address, provider]);
 
   if (_children.length < 2) {
     return (
