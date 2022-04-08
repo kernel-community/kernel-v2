@@ -29,6 +29,8 @@ import {Box, Divider, Flex, Image, jsx, Text} from 'theme-ui';
 
 import {Heading} from '../modules/ui/heading';
 
+import {Web3} from '@modules/web3';
+
 //Markdown Component overrides
 //Replace MDX html defaults with our custom implementation.
 
@@ -98,7 +100,8 @@ const Custom_Components = {
   motionLI: motion.li,
   BlogHome,
   Flash,
-  Card
+  Card,
+  Web3
 };
 
 export default {

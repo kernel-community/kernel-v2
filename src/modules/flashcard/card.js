@@ -6,8 +6,6 @@ import {useConnect, useAccount, useProvider} from 'wagmi';
 import {Button} from '@modules/ui';
 import {motion} from 'framer-motion';
 import {Connector} from '@src/course/connect';
-import {Modal} from '../modal';
-import {isRegistered} from '../../course/course';
 
 const Card = ({
   index,
@@ -29,18 +27,6 @@ const Card = ({
   };
 
   const [{data, error}, connect] = useConnect();
-  const [{data: accountData}] = useAccount();
-  const [isUserRegistered, setIsUserRegistered] = React.useState(false);
-  const provider = useProvider();
-
-  useEffect(() => {
-    async function get() {
-      setIsUserRegistered(await isRegistered(accountData.address, provider));
-    }
-    if (accountData?.address && provider) {
-      get();
-    }
-  }, [accountData?.address, provider]);
 
   if (_children.length < 2) {
     return (
@@ -98,7 +84,7 @@ const Card = ({
   return (
     <motion.div variants={cardVariants} animate={currentVariant}>
       {/* If User is Not Registered and Wallet is Connected Display Modal */}
-      {!isUserRegistered && data.connected && <Modal />}
+      {/* {!isUserRegistered && data.connected && <Web3Modal />} */}
       <Flex
         sx={{
           width: ['100%', '343px', '343px'],
@@ -211,7 +197,7 @@ const Card = ({
                 )}
               </motion.div>
               {/* Reveal answer when Wallet is Connected and User is Registered */}
-              {data.connected && isUserRegistered && (
+              {data.connected && (
                 <motion.div
                   variants={answerCopyVariant}
                   initial="initial"
