@@ -33,6 +33,8 @@ const Card = ({
   const [isUserRegistered, setIsUserRegistered] = React.useState(false);
   const provider = useProvider();
 
+  const [isModalVisible, setModalVisible] = React.useState(false);
+
   useEffect(() => {
     async function get() {
       setIsUserRegistered(await isRegistered(accountData.address, provider));
@@ -56,7 +58,8 @@ const Card = ({
           position: 'relative',
           zIndex: 1,
           boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
-        }}>
+        }}
+      >
         <Flex
           sx={{
             p: 3,
@@ -65,7 +68,8 @@ const Card = ({
             textAlign: 'center',
             justifyContent: 'center',
             flex: '1 1 auto'
-          }}>
+          }}
+        >
           ERROR! Incorrect # of Children for Card. Please check your mdx.
         </Flex>
       </Flex>
@@ -95,10 +99,20 @@ const Card = ({
   const currentVariant = isActive ? 'active' : wasActive ? 'exit' : 'initial';
   const inactiveScale = 1 - 0.05 * (index - currentCard);
 
+  const handleOnClickMetamask = () => {
+    connect(data.connectors[Connector.INJECTED]).then((result) => {
+      if (!result.error) {
+        setModalVisible(true);
+      }
+    });
+  };
+
   return (
     <motion.div variants={cardVariants} animate={currentVariant}>
-      {/* If User is Not Registered and Wallet is Connected Display Modal */}
-      {!isUserRegistered && data.connected && <Modal />}
+      <Modal
+        setModalVisible={setModalVisible}
+        isModalVisible={isModalVisible}
+      />
       <Flex
         sx={{
           width: ['100%', '343px', '343px'],
@@ -113,7 +127,8 @@ const Card = ({
           transform: `scale(${isActive ? '1' : inactiveScale})`,
           transformOrigin: 'bottom',
           boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
-        }}>
+        }}
+      >
         {isActive && (
           <>
             <Flex
@@ -124,7 +139,8 @@ const Card = ({
                 flex: '1 1 auto',
                 p: [1, 2, 3],
                 fontSize: [2, 3, 4]
-              }}>
+              }}
+            >
               {question}
             </Flex>
             <Flex
@@ -146,7 +162,8 @@ const Card = ({
                   transition: 'all .2s ease',
                   transform: 'scale(1.1)'
                 }
-              }}>
+              }}
+            >
               <div
                 sx={{
                   position: 'absolute',
@@ -154,13 +171,15 @@ const Card = ({
                   top: '-13px',
                   height: '13px',
                   width: '100%'
-                }}></div>
+                }}
+              ></div>
               <motion.div
                 variants={revealCopyVariant}
                 initial="initial"
                 animate={isRevealed ? 'revealed' : 'initial'}
-                sx={{position: 'absolute'}}>
-                {data.connected && (
+                sx={{position: 'absolute'}}
+              >
+                {data.connected && isUserRegistered && (
                   <Flex onClick={revealCallback}>
                     <span
                       className="reveal-answer"
@@ -170,7 +189,8 @@ const Card = ({
                         fontWeight: 'bold',
                         transform: 'scale(1)',
                         transition: 'all .2s ease'
-                      }}>
+                      }}
+                    >
                       {' '}
                       Reveal the Answer
                     </span>
@@ -183,13 +203,15 @@ const Card = ({
                         <Box
                           sx={{
                             padding: '0.5rem'
-                          }}>
+                          }}
+                        >
                           <Text
                             sx={{
                               textAlign: 'center',
                               fontWeight: 'bold',
                               marginX: 'auto'
-                            }}>
+                            }}
+                          >
                             Connect wallet to reveal
                           </Text>
                         </Box>
@@ -197,9 +219,8 @@ const Card = ({
                         <Button
                           sx={{marginX: 'auto'}}
                           disabled={!data.connectors[Connector.INJECTED].ready}
-                          onClick={() =>
-                            connect(data.connectors[Connector.INJECTED])
-                          }>
+                          onClick={handleOnClickMetamask}
+                        >
                           Metamask
                         </Button>
                       </>
@@ -210,6 +231,37 @@ const Card = ({
                   </>
                 )}
               </motion.div>
+              {data.connected && !isUserRegistered && (
+                <>
+                  <div>
+                    <>
+                      <Box
+                        sx={{
+                          padding: '0.5rem'
+                        }}
+                      >
+                        <Text
+                          sx={{
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            marginX: 'auto'
+                          }}
+                        >
+                          Register to reveal
+                        </Text>
+                      </Box>
+
+                      <Button
+                        sx={{marginX: 'auto'}}
+                        disabled={!data.connectors[Connector.INJECTED].ready}
+                        onClick={() => setModalVisible(true)}
+                      >
+                        Register
+                      </Button>
+                    </>
+                  </div>
+                </>
+              )}
               {/* Reveal answer when Wallet is Connected and User is Registered */}
               {data.connected && isUserRegistered && (
                 <motion.div
@@ -226,14 +278,16 @@ const Card = ({
                       filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
                       transition: 'all .2s ease'
                     }
-                  }}>
+                  }}
+                >
                   {answer}
                   {_children.length > 2 && (
                     <motion.div
                       sx={{fontSize: '12px', mt: 2}}
                       variants={postAnswerVariant}
                       initial="initial"
-                      animate={isRevealed ? 'revealed' : 'initial'}>
+                      animate={isRevealed ? 'revealed' : 'initial'}
+                    >
                       {postAnswer}
                     </motion.div>
                   )}
