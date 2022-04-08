@@ -61,7 +61,7 @@
     "sharp": "^0.30.2",
     "theme-ui": "^0.9.1",
     "use-immer": "^0.6.0",
-    "wagmi": "^0.2.9",
+    "wagmi": "^0.2.25",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
