@@ -1,6 +1,7 @@
 export const Constants = {
-  LearningCurveContractAddress: '0xbe48E8E67594ac9A8c1B79655915166ea3edF282',
-  KernelFactoryContractAddress: '0x0471f77962c7E7706618CbEFa8Abfb5a1dBFd7C2',
+  DaiContractAddress: '0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa',
+  LearningCurveContractAddress: '0xeBdca29Ae582ff0819a6B56853752B5ab3443bf5',
+  KernelFactoryContractAddress: '0xEe761B3219737cE3f3f59a7e3f99E2930663aeff',
   KernelFactoryAbi: `[
     {
       "inputs": [],
