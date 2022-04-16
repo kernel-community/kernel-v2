@@ -8,6 +8,10 @@ featuredImage: images/shares/giving.png
 
 # 💡 The idea
 
+We now have some context for what verifiability is, where it comes from and the unique role it plays in securing our trade, and therefore trust, relationships. Critically, Szabo has made it clear how this self-same verifiability is the means by which we can understand the network within which trade (and trust) operate. Knowing this, we can turn to the founder of Ethereum - Vitalik Buterin - without making the mistake of thinking that he is talking about something new.
+
+Ethereum is a very old idea, dressed up in new clothes and a network that operates by virtue of encoded light, rather than clay seals.
+
 <Video src="https://www.youtube-nocookie.com/embed/gjwr-7PgpN8" />
 
 ## How does this fit into Kernel?
@@ -107,40 +111,26 @@ This is followed by a description of the **Ethereum Virtual Machine**:
 the more gas you have to pay. **Most of the limits aren't static, they're economic and you'll 
 see this idea again and again.**
 - Storage - permanent for contracts. You can read and write to it.
-- Environment variables - VM can access block number, time, mining difficulty, previous block 
+- Environment variables - the VM can access block number, time, mining difficulty, previous block 
 hash etc.
 - Logs - append-only storage in a specific block, not in state.
-- Sub-calling - opcode by which VM can itself call other contracts.
+- Sub-calling - opcodes by which VM can itself call other contracts.
 
-Vitalik then discusses ABI (application binary interface) and RLP (recursive length prefix) encoding "for people who are set 
-theory geeks". It may seem boring, but it is a demonstration of the early culture and how the 
-people who built all this stuff really think. He follows this with an explanation of memory-hard 
-algorithms for mining and why they were an innovation; emphasises the fast block time (17s); and discusses "uncles", which solve the stale rates of blocks that arise due to network latency.. It's worth listening to for cultural context, but 23:50 - 28:57 is now a bit outdated.
+Vitalik then discusses ABI (application binary interface) and RLP (recursive length prefix) encoding "for people who are set theory geeks". It may seem boring, but it is a demonstration of the early culture and how the people who built all this stuff really think. He follows this with an explanation of memory-hard algorithms for mining and why they were an innovation; emphasises the fast block time (17s); and discusses "uncles", which solve the stale rates of blocks that arise due to network latency. It's worth listening to for cultural context, but 23:50 - 28:57 is now a bit outdated.
 
-Vitalik makes the critical point that merkle tries are "a construction that allows for compact, 
-efficiently-verifiable proofs that a particular transaction was included in a particular block." 
-It's not just transactions in the Merkle trie though; it's the state too: i.e. that storage 
-trie root we talked about in the account object earlier.
+Vitalik makes the critical point that merkle tries are "a construction that allows for compact, efficiently-verifiable proofs that a particular transaction was included in a particular block." It's not just transactions in the Merkle trie though; it's the state too: i.e. that storage trie root we talked about in the account object earlier.
 
-Understanding how this particular choice of data structure allows us to succinctly express 
-shared state reveals why intimacy with low-level technical details allows one to build a 
-comprehensive conceptual picture of how it all ties together, and what meanings any technology 
-can be used to build.
+Understanding how this particular choice of data structure allows us to succinctly express shared state reveals why intimacy with low-level technical details allows one to build a comprehensive conceptual picture of how it all ties together, and what meanings any technology can be used to build.
 
-What kinds of meaning exactly? Well, [language itself is composed out of tree-like deep structures](https://www.goodreads.com/book/show/5755.The_Language_Instinct). It is these basic, but extraordinarily powerful, combinatorial patterns which allow very young human beings to learn and use an almost infinitely complex phenomenon with such ease, even as their brains are still developing. More prosaically, every word is a tree, with its roots tracing through endless other words and languages and people, and its branches reaching into any number of unique interpretations in times and contexts yet to be discovered. Language is the only [logically decentralized](https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274) system we have, so it makes sense that the data structures which inform the next logically decentralized systems we co-create mirror that at the heart of how we currently communicate value.
+What kinds of meaning exactly? Well, [language itself is composed out of tree-like deep structures](https://www.goodreads.com/book/show/5755.The_Language_Instinct). It is these basic, but extraordinarily powerful, combinatorial patterns which allow very young human beings to learn and use an almost infinitely complex phenomenon with such ease, even as their brains are still developing. 
+
+More prosaically, every word is a tree, with its roots tracing through endless other words and languages and people, and its branches reaching into any number of unique interpretations in times and contexts yet to be discovered. Language is the only [logically decentralized](https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274) system we have, so it makes sense that the data structures which inform the next logically decentralized systems we co-create mirror that at the heart of how we currently communicate value.
 
 ### Generalised Compute
 
-So, you're less technical then Vitalik (i.e. all of us) and are wondering what this all really 
-means? Well, the critical point is this notion of a **general purpose operating system** - one, 
-monolithic virtual machine distributed across the world which is shared by everyone, owned by 
-no-one and which can't be turned off without also turning off the internet. With Bitcoin, 
-you can carry 12 magical words in your head across any border in the 
-world, incant them into an internet-connected machine and have immediate access to value. 
+So, you're less technical than Vitalik (i.e. all of us) and are wondering what this all really means? Well, the critical point is this notion of a **general purpose operating system** - one, monolithic virtual machine distributed across the world which is shared by everyone, owned by no-one and which can't be turned off without also turning off the internet. With Bitcoin, you can carry 12 magical words in your head across any border in the world, incant them into an internet-connected machine and have immediate access to value. 
 
-Now, there is the possibility that you could pull down not just monetary value, but 
-_generalised compute_. That is, your 12 or 24-word mnemonic could be your entire personal OS, 
-which would be accessible from anywhere. Stop thinking of computers as a screen into which you type things from a keyboard. Start seeing the world itself as an infinitely programmable playground, access to which only requires a few magical words anyone, anywhere can create when they learn the basics of a new order of language.
+Now, there is the possibility that you could pull down not just monetary value, but _generalised computation_. That is, your 12 or 24-word mnemonic could be your entire personal OS, which would be accessible from anywhere. Stop thinking of computers as a screen into which you type things from a keyboard. Start seeing the world itself as an infinitely programmable playground, access to which only requires a few magical words anyone, anywhere can create when they learn the basics of a new order of language.
 
 <Flash>
 
@@ -167,7 +157,7 @@ The Quintessential DevCon IV Talk
 
 </List>
 
-The term 改善 (pronounced "kaizen", meaning "continuous improvement") was first used in Japan after World War II, mostly promoted by American business and quality-management teachers, and found its apogee in "The Toyota Way". So it's not a term with a great history, but it is one we can reclaim by pairing it with it's opposite, what Aya Miyaguchi calls "The Principle of Subtraction".
+The term 改善 (pronounced "kaizen", meaning "continuous improvement") was first used in Japan after World War II, mostly promoted by American business and quality-management teachers, and found its apogee in "The Toyota Way". So it's not a term with a great history, but it is one we can reclaim by pairing it with its opposite, what Aya Miyaguchi calls "The Principle of Subtraction".
 
 Rooted in Zen philosophy, the Ethereum Foundation aims to "grow small"; to do by not doing; and to try and matter less. When consistently subtracting from your own importance and influence, then the continuous improvement we all wish to see happens in the community's capacity and capability. It's elegant and simple.
 
