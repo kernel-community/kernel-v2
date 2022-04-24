@@ -447,6 +447,11 @@ exports.createPages = async ({graphql, actions}) => {
     fromPath: '/en/build/decentralized-ai/lesson-3',
     toPath: `/${FALLBACK_LOCALE}/build/decentralized-ai/analogue-imaginings`
   });
+
+  createRedirect({
+    fromPath: '/en/guiding/contracts/',
+    toPath: `/${FALLBACK_LOCALE}/guiding/free-learn/`
+  });
 };
 
 exports.onCreatePage = async ({page, actions}) => {
