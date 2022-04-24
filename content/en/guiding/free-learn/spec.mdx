@@ -56,11 +56,11 @@ DeSchool is constructed to be aware of only these three items essential to its c
 
 > params:   
 > **uint256 _stake** - the amount of DAI to be locked for the duration of study;   
-> **uint256 _duration** - the number of blocks for which the course runs, after which learners can redeem part of their stake;      
+> **uint256 _duration** - the number of blocks for which the course runs, after which learners can redeem, or mint from, their stake;      
 > **string calldata _url** - a simple "metadata" field to link any course to its frontend, useful for validation &amp; security, as well as future frontend displays;   
 > **address _creator** - the address to receive any yield generated when learners on this course choose not to mint LEARN.
 
-Anyone can create a course. There are no privileged roles here. The only expectation is that you define clearly when learners may redeem whatever it costs to take your course. You are encouraged to allow them to do so incrementally, using a few checkpoints, so that they can redeem portions of their stake as they go, as this likely makes their studies even more sustainable.
+Anyone can create a course. There are no privileged roles here. The only expectation is that you define clearly when learners may redeem whatever it costs to take your course, as well as the digital location where you course will take place.
 
 </Accordion>
 
