@@ -4,8 +4,9 @@ import {Flex, Text, Box, Button} from 'theme-ui';
 import {add, getUnixTime} from 'date-fns';
 import {useSignPermitTransaction} from '../../hooks';
 import {getDaiNonce, permitAndRegister} from '../../course/course';
+import {Icon} from '@makerdao/dai-ui-icons';
 
-const Web3 = () => {
+const Web3 = ({setIsVisible}) => {
   const provider = useProvider();
   const [{data: accountData}] = useAccount();
   const [{data: signer}] = useSigner();
@@ -13,6 +14,10 @@ const Web3 = () => {
     provider,
     address: accountData?.address
   });
+
+  const handleDimissModal = () => {
+    setIsVisible(false);
+  };
 
   const handleOnClickRegister = async () => {
     const expirationTime = add(new Date(), {minutes: 30});
@@ -25,12 +30,21 @@ const Web3 = () => {
     });
 
     await permitAndRegister(signer, nonce, expiry, v, r, s);
+    handleDimissModal();
   };
 
   if (accountData) {
     return (
       <Box sx={styles.modalOuterContainer}>
         <Flex sx={styles.modalInnerContainer}>
+          <Flex sx={styles.dismissIconContainer}>
+            <div
+              style={styles.dismissIconClickTarget}
+              onClick={handleDimissModal}
+            >
+              <Icon name="close" className="close" size="20px" />
+            </div>
+          </Flex>
           <Text sx={styles.descriptionText}>
             To reveal the answer, you need to <br /> register for our course.
           </Text>
@@ -75,6 +89,14 @@ const styles = {
     textAlign: 'center',
     margin: 'auto',
     fontWeight: 'bold'
+  },
+  dismissIconContainer: {
+    width: '100%',
+    flexDirection: 'row-reverse'
+  },
+  dismissIconClickTarget: {
+    cursor: 'pointer',
+    padding: '15px'
   },
   learnMoreCTA: {
     color: '#fff',
