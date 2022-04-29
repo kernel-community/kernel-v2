@@ -1,11 +1,37 @@
 /* eslint-disable no-console */
 /** @jsx jsx */
-import React, {Children} from 'react';
+import React, {Children, useState, useEffect} from 'react';
 import {jsx, Flex, Text, Box} from 'theme-ui';
-import {useConnect} from 'wagmi';
+import {useConnect, useAccount, useProvider} from 'wagmi';
 import {Button} from '@modules/ui';
 import {motion} from 'framer-motion';
 import {Connector} from '@src/course/connect';
+import Web3Modal from '../web3/modal';
+import {isRegistered} from '../../course/course';
+
+const Web3Control = ({
+  children,
+  onClickButton,
+  buttonText,
+  descriptionText,
+  isDisabled
+}) => {
+  return (
+    <div>
+      <Box sx={{padding: '0.5rem'}}>
+        <Text sx={styles.connectText}>{descriptionText}</Text>
+      </Box>
+      <Button
+        sx={{marginX: 'auto'}}
+        disabled={isDisabled}
+        onClick={onClickButton}
+      >
+        {buttonText}
+      </Button>
+      {children}
+    </div>
+  );
+};
 
 const Card = ({
   children,
@@ -17,9 +43,27 @@ const Card = ({
   wasActive
 }) => {
   const [{data, error}, connect] = useConnect();
+  const [{data: accountData}] = useAccount();
+  const provider = useProvider();
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isUserRegistered, setIsUserRegistered] = useState(false);
+
+  useEffect(() => {
+    async function get() {
+      setIsUserRegistered(await isRegistered(accountData.address, provider));
+    }
+    if (accountData?.address && provider) {
+      get();
+    }
+  }, [accountData?.address, provider]);
 
   const handleOnClickConnect = () => {
-    connect(data.connectors[Connector.INJECTED]);
+    connect(data.connectors[Connector.INJECTED]).then((result) => {
+      if (!result.error && !isUserRegistered) {
+        setIsModalVisible(true);
+      }
+    });
   };
 
   const cardVariants = {
@@ -77,76 +121,76 @@ const Card = ({
   }
 
   return (
-    <motion.div variants={cardVariants} animate={currentVariant}>
-      {/* If User is Not Registered and Wallet is Connected Display Modal */}
-      {/* {!isUserRegistered && data.connected && <Web3Modal />} */}
-      <Flex sx={cardContainerStyle}>
-        {isActive && (
-          <>
-            <Flex sx={styles.questionText}>{question}</Flex>
-            <Flex sx={styles.answerContainer}>
-              <div sx={styles.boxShadow} />
-              <motion.div
-                variants={revealCopyVariant}
-                initial="initial"
-                animate={revealAnimateState}
-                sx={{position: 'absolute'}}
-              >
-                {data.connected && (
-                  <Flex onClick={revealCallback}>
-                    <span
-                      className="reveal-answer"
-                      sx={styles.revealAnswerText}
-                    >
-                      Reveal the Answer
-                    </span>
-                  </Flex>
-                )}
-                {!data.connected && (
-                  <div>
-                    <Box sx={{padding: '0.5rem'}}>
-                      <Text sx={styles.connectText}>
-                        Connect wallet to reveal
-                      </Text>
-                    </Box>
-
-                    <Button
-                      sx={{marginX: 'auto'}}
-                      disabled={!data.connectors[Connector.INJECTED].ready}
-                      onClick={handleOnClickConnect}
-                    >
-                      Metamask
-                    </Button>
-                    {error && error.message && <div>Failed to connect</div>}
-                  </div>
-                )}
-              </motion.div>
-              {/* Reveal answer when Wallet is Connected and User is Registered */}
-              {data.connected && (
+    <>
+      {isModalVisible && <Web3Modal setIsVisible={setIsModalVisible} />}
+      <motion.div variants={cardVariants} animate={currentVariant}>
+        <Flex sx={cardContainerStyle}>
+          {isActive && (
+            <>
+              <Flex sx={styles.questionText}>{question}</Flex>
+              <Flex sx={styles.answerContainer}>
+                <div sx={styles.boxShadow} />
                 <motion.div
-                  variants={answerCopyVariant}
+                  variants={revealCopyVariant}
                   initial="initial"
                   animate={revealAnimateState}
-                  sx={answerTextStyle}
+                  sx={{position: 'absolute'}}
                 >
-                  {answer}
-                  {_children.length > 2 && (
-                    <motion.div
-                      sx={{fontSize: '12px', mt: 2}}
-                      variants={postAnswerVariant}
-                      initial="initial"
-                      animate={revealAnimateState}
+                  {data.connected && isUserRegistered && (
+                    <Flex onClick={revealCallback}>
+                      <span
+                        className="reveal-answer"
+                        sx={styles.revealAnswerText}
+                      >
+                        Reveal the Answer
+                      </span>
+                    </Flex>
+                  )}
+                  {data.connected && !isUserRegistered && (
+                    <Web3Control
+                      descriptionText="Register to reveal"
+                      buttonText="Register"
+                      isDisabled={!data.connectors[Connector.INJECTED].ready}
+                      onClickButton={() => setIsModalVisible(true)}
+                    />
+                  )}
+                  {!data.connected && (
+                    <Web3Control
+                      descriptionText="Connect wallet to reveal"
+                      buttonText="Metamask"
+                      isDisabled={!data.connectors[Connector.INJECTED].ready}
+                      onClickButton={handleOnClickConnect}
                     >
-                      {postAnswer}
-                    </motion.div>
+                      {error && error.message && <div>Failed to connect</div>}
+                    </Web3Control>
                   )}
                 </motion.div>
-              )}
-            </Flex>
-          </>
-        )}
-      </Flex>
-    </motion.div>
+                {data.connected && isUserRegistered && (
+                  <motion.div
+                    variants={answerCopyVariant}
+                    initial="initial"
+                    animate={revealAnimateState}
+                    sx={answerTextStyle}
+                  >
+                    {answer}
+                    {_children.length > 2 && (
+                      <motion.div
+                        sx={{fontSize: '12px', mt: 2}}
+                        variants={postAnswerVariant}
+                        initial="initial"
+                        animate={revealAnimateState}
+                      >
+                        {postAnswer}
+                      </motion.div>
+                    )}
+                  </motion.div>
+                )}
+              </Flex>
+            </>
+          )}
+        </Flex>
+      </motion.div>
+    </>
   );
 };
 
