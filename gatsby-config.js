@@ -18,7 +18,7 @@ require('dotenv').config();
 module.exports = {
   siteMetadata: {
     title: `Kernel`,
-    description: `A curated community of brilliance in web3.`,
+    description: `A care-full community of hearts and souls in web3.`,
     author: `Kernel Community Team`,
     copyright: '',
     siteUrl: 'https://kernel.community/'
