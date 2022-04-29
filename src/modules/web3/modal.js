@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useAccount, useProvider, useSigner} from 'wagmi';
 import {Flex, Text, Box, Button} from 'theme-ui';
 import {add, getUnixTime} from 'date-fns';
 import {useSignPermitTransaction} from '../../hooks';
-import {getDaiNonce, permitAndRegister} from '../../course/course';
+import {
+  getDaiNonce,
+  getScholarshipAvailable,
+  permitAndRegister,
+  registerScholar
+} from '../../course/course';
 import {Icon} from '@makerdao/dai-ui-icons';
 
 const Web3 = ({setIsVisible}) => {
@@ -15,11 +20,23 @@ const Web3 = ({setIsVisible}) => {
     address: accountData?.address
   });
 
+  const [scholarshipAvailable, setIsScholarshipAvailable] = useState(false);
+
+  useEffect(() => {
+    const fetchScholarshipStatus = async () => {
+      setIsScholarshipAvailable(await getScholarshipAvailable(provider));
+    };
+
+    if (accountData?.address && provider) {
+      fetchScholarshipStatus();
+    }
+  }, [accountData?.address, provider]);
+
   const handleDimissModal = () => {
     setIsVisible(false);
   };
 
-  const handleOnClickRegister = async () => {
+  const handleDAIPermitAndRegister = async () => {
     const expirationTime = add(new Date(), {minutes: 30});
     const expiry = getUnixTime(expirationTime);
     const nonce = await getDaiNonce(accountData?.address, provider);
@@ -30,6 +47,15 @@ const Web3 = ({setIsVisible}) => {
     });
 
     await permitAndRegister(signer, nonce, expiry, v, r, s);
+  };
+
+  const handleOnClickRegister = async () => {
+    if (scholarshipAvailable) {
+      await registerScholar(signer);
+    } else {
+      await handleDAIPermitAndRegister();
+    }
+
     handleDimissModal();
   };
 
@@ -46,18 +72,36 @@ const Web3 = ({setIsVisible}) => {
             </div>
           </Flex>
           <Text sx={styles.descriptionText}>
-            To reveal the answer, you need to <br /> register for our course.
+            To reveal the answer, you need to register for our course.
           </Text>
-          <Flex sx={{flexDirection: 'column'}}>
-            <Text sx={styles.descriptionText}>You can do this by staking</Text>
-            <Text sx={styles.stakeAmountText}>100 DAI</Text>
-          </Flex>
-          <Text sx={styles.descriptionText}>
-            You can claim this DAI back after{' '}
-            <Text sx={{fontWeight: 'bold'}}>two months</Text>. You{' '}
-            <Text sx={{fontWeight: 'bold'}}>learn for free</Text> and we use the
-            yield to keep the lights on.
-          </Text>
+
+          {scholarshipAvailable && (
+            <>
+              <Text sx={styles.descriptionText}>
+                There are currently scholarships available. <br /> <br />
+                Instead of having to make a deposit before registering for the
+                course, you may register for the scholarship instead
+              </Text>
+              <div style={{height: '50px'}} />
+            </>
+          )}
+
+          {!scholarshipAvailable && (
+            <>
+              <Flex sx={{flexDirection: 'column'}}>
+                <Text sx={styles.descriptionText}>
+                  You can do this by staking
+                </Text>
+                <Text sx={styles.stakeAmountText}>100 DAI</Text>
+              </Flex>
+              <Text sx={styles.descriptionText}>
+                You can claim this DAI back after{' '}
+                <Text sx={{fontWeight: 'bold'}}>two months</Text>. You{' '}
+                <Text sx={{fontWeight: 'bold'}}>learn for free</Text> and we use
+                the yield to keep the lights on.
+              </Text>
+            </>
+          )}
         </Flex>
         <Flex sx={styles.CTAContainer}>
           <Text sx={styles.learnMoreCTA}>Learn More.</Text>
@@ -87,12 +131,14 @@ const styles = {
   descriptionText: {
     color: '#fff',
     textAlign: 'center',
-    margin: 'auto',
+    marginY: 'auto',
+    marginX: '50px',
     fontWeight: 'bold'
   },
   dismissIconContainer: {
     width: '100%',
-    flexDirection: 'row-reverse'
+    flexDirection: 'row-reverse',
+    marginBottom: '-40px'
   },
   dismissIconClickTarget: {
     cursor: 'pointer',

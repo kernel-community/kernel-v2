@@ -1,27 +1,27 @@
-import {BigNumber, Contract} from 'ethers';
+import {Contract} from 'ethers';
 import {Constants} from './constants';
 
 const KERNEL_COURSE_ID = '0';
-
-const KernelFactory = {
-  address: Constants.KernelFactoryContractAddress,
-  abi: Constants.KernelFactoryAbi
-};
 
 const DaiContract = {
   address: Constants.DaiContractAddress,
   abi: ['function nonces(address owner) view returns (uint256)']
 };
 
+const DeSchoolContract = {
+  address: Constants.DeSchoolContractAddress,
+  abi: Constants.DeSchoolAbi
+};
+
 export const isRegistered = async (learner, provider) => {
-  const kernelFactoryContract = new Contract(
-    KernelFactory.address,
-    KernelFactory.abi,
+  const deSchoolContract = new Contract(
+    DeSchoolContract.address,
+    DeSchoolContract.abi,
     provider
   );
   let res = false;
   try {
-    res = !!(await kernelFactoryContract.verify(learner, KERNEL_COURSE_ID));
+    res = !!(await deSchoolContract.verify(learner, KERNEL_COURSE_ID));
   } catch (err) {
     // throws an error if either the learner is not registered or if the courseId does not exist
     /** */
@@ -39,15 +39,35 @@ export const getDaiNonce = async (learner, provider) => {
   return await daiContract.nonces(learner);
 };
 
+export const getScholarshipAvailable = async (provider) => {
+  const deSchoolContract = new Contract(
+    DeSchoolContract.address,
+    DeSchoolContract.abi,
+    provider
+  );
+
+  return await deSchoolContract.scholarshipAvailable(KERNEL_COURSE_ID);
+};
+
+export const registerScholar = async (signer) => {
+  const deSchoolContract = new Contract(
+    DeSchoolContract.address,
+    DeSchoolContract.abi,
+    signer
+  );
+
+  return await deSchoolContract.registerScholar(KERNEL_COURSE_ID);
+};
+
 export const permitAndRegister = async (signer, nonce, expiry, v, r, s) => {
-  const kernelFactoryContract = new Contract(
-    KernelFactory.address,
-    KernelFactory.abi,
+  const deSchoolContract = new Contract(
+    DeSchoolContract.address,
+    DeSchoolContract.abi,
     signer
   );
   let res = false;
   try {
-    res = !!(await kernelFactoryContract.permitAndRegister(
+    res = !!(await deSchoolContract.permitAndRegister(
       KERNEL_COURSE_ID,
       nonce,
       expiry,
