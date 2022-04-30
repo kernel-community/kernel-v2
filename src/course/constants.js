@@ -1,15 +1,8 @@
 export const Constants = {
-  DaiContractAddress: '0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa',
-  LearningCurveContractAddress: '0xeBdca29Ae582ff0819a6B56853752B5ab3443bf5',
-  KernelFactoryContractAddress: '0xEe761B3219737cE3f3f59a7e3f99E2930663aeff',
-  KernelFactoryAbi: `[
-    {
-      "inputs": [],
-      "name": "batchDeposit",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
+  DaiContractAddress: '0x3255DE32b6961709BB22804595d799D2E850fCFc',
+  DeSchoolContractAddress: '0x768864b0f574aDcD161A03c5997097ac94669c1b',
+  LearningCurveContractAddress: '0xE8013DeBF06d31Daa59158ED3120B48Db7eb8Da1',
+  DeSchoolAbi: `[
     {
       "inputs": [
         {
@@ -60,31 +53,6 @@ export const Constants = {
       "anonymous": false,
       "inputs": [
         {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "courseId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "checkpointReached",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "learner",
-          "type": "address"
-        }
-      ],
-      "name": "CheckpointUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
           "indexed": true,
           "internalType": "uint256",
           "name": "courseId",
@@ -93,19 +61,13 @@ export const Constants = {
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "checkpoints",
+          "name": "stake",
           "type": "uint256"
         },
         {
           "indexed": false,
           "internalType": "uint256",
-          "name": "fee",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "checkpointBlockSpacing",
+          "name": "duration",
           "type": "uint256"
         },
         {
@@ -122,64 +84,6 @@ export const Constants = {
         }
       ],
       "name": "CourseCreated",
-      "type": "event"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_fee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_checkpoints",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_checkpointBlockSpacing",
-          "type": "uint256"
-        },
-        {
-          "internalType": "string",
-          "name": "_url",
-          "type": "string"
-        },
-        {
-          "internalType": "address",
-          "name": "_creator",
-          "type": "address"
-        }
-      ],
-      "name": "createCourse",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "courseId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "address",
-          "name": "learner",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "FeeRedeemed",
       "type": "event"
     },
     {
@@ -233,88 +137,116 @@ export const Constants = {
       "type": "event"
     },
     {
+      "anonymous": false,
       "inputs": [
         {
+          "indexed": true,
           "internalType": "uint256",
-          "name": "_courseId",
+          "name": "courseId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "scholar",
+          "type": "address"
+        }
+      ],
+      "name": "ScholarRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "courseId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "scholarshipAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newScholars",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "scholarshipTotal",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "scholarshipProvider",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "scholarshipVault",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "scholarshipYield",
           "type": "uint256"
         }
       ],
-      "name": "mint",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "name": "ScholarshipCreated",
+      "type": "event"
     },
     {
+      "anonymous": false,
       "inputs": [
         {
+          "indexed": true,
           "internalType": "uint256",
-          "name": "_courseId",
+          "name": "courseId",
           "type": "uint256"
         },
         {
+          "indexed": false,
           "internalType": "uint256",
-          "name": "nonce",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "expiry",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint8",
-          "name": "v",
-          "type": "uint8"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "r",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "s",
-          "type": "bytes32"
-        }
-      ],
-      "name": "permitAndRegister",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_courseId",
+          "name": "amountWithdrawn",
           "type": "uint256"
         }
       ],
-      "name": "redeem",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "name": "ScholarshipWithdrawn",
+      "type": "event"
     },
     {
+      "anonymous": false,
       "inputs": [
         {
+          "indexed": false,
           "internalType": "uint256",
-          "name": "_courseId",
+          "name": "courseId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "learner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
           "type": "uint256"
         }
       ],
-      "name": "register",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "withdrawYieldRewards",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "name": "StakeRedeemed",
+      "type": "event"
     },
     {
       "anonymous": false,
@@ -336,6 +268,13 @@ export const Constants = {
       "type": "event"
     },
     {
+      "inputs": [],
+      "name": "batchDeposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "uint256",
@@ -347,17 +286,12 @@ export const Constants = {
       "outputs": [
         {
           "internalType": "uint256",
-          "name": "checkpoints",
+          "name": "stake",
           "type": "uint256"
         },
         {
           "internalType": "uint256",
-          "name": "fee",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "checkpointBlockSpacing",
+          "name": "duration",
           "type": "uint256"
         },
         {
@@ -369,9 +303,80 @@ export const Constants = {
           "internalType": "address",
           "name": "creator",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "scholars",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "completedScholars",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "scholarshipTotal",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "scholarshipVault",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "scholarshipYield",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_stake",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_duration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_url",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_creator",
+          "type": "address"
+        }
+      ],
+      "name": "createCourse",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "createScholarships",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -444,54 +449,6 @@ export const Constants = {
       "type": "function"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "learner",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_courseId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getLearnerCourseEligibleFunds",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "learner",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_courseId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getLearnerCourseFundsRemaining",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [],
       "name": "getNextCourseId",
       "outputs": [
@@ -507,9 +464,9 @@ export const Constants = {
     {
       "inputs": [
         {
-          "internalType": "address",
-          "name": "redeemer",
-          "type": "address"
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
         }
       ],
       "name": "getYieldRewards",
@@ -537,6 +494,139 @@ export const Constants = {
       "type": "function"
     },
     {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "permitAndRegister",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nonce",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        }
+      ],
+      "name": "permitCreateScholarships",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "redeem",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "register",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "registerScholar",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [],
       "name": "registry",
       "outputs": [
@@ -544,6 +634,25 @@ export const Constants = {
           "internalType": "contract I_Registry",
           "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "scholarshipAvailable",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
         }
       ],
       "stateMutability": "view",
@@ -566,7 +675,7 @@ export const Constants = {
       "inputs": [
         {
           "internalType": "address",
-          "name": "learner",
+          "name": "_learner",
           "type": "address"
         },
         {
@@ -578,12 +687,43 @@ export const Constants = {
       "name": "verify",
       "outputs": [
         {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
+          "internalType": "bool",
+          "name": "completed",
+          "type": "bool"
         }
       ],
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdrawScholarship",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_courseId",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdrawYieldRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     }
   ]`,
