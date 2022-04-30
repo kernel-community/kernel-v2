@@ -78,12 +78,19 @@ Anyone can create scholarships for any course. All you need to do is lock up DAI
 
 <Accordion>
 
-**perpetualScholarships**
+**permitCreateScholarships**
 
-> params:   
-> **uint256 _courseId** - the course in which we need to refresh scholarship slots;    
+> params: 
+> **uint256 _courseId**  
+> **uint256 _amount**  
+> **uint256 nonce**  
+> **uint256 expiry**  
+> **uint8 v**  
+> **bytes32 r**  
+> **bytes32 s**  
 
-A public function which anyone can call to check which registered scholars have completed the course - i.e. the number of blocks for which it runs has passed since they registered - so that we can use the same locked money to provide new scholarship slots and implement truly perpetual scholarships.
+
+This method uses te `permit()` functionality associated with DAI to approve the DeSchool contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `createScholarships()` and have it operate as expected.
 
 </Accordion>
 
@@ -203,14 +210,14 @@ Simply checks whether a learner's staked has been deployed to a Yearn vault or n
 
 <Accordion>
 
-**getScholars**
+**scholarshipAvailable**
 
 > params:  
 > **uint256 _courseId**   
 
-> returns: **uint256**
+> returns: **bool**
 
-A helper get function which returns the number of open scholarships for a given course.
+A helper function which returns whether there are any open scholarships for a given course.
 
 </Accordion>
 
@@ -327,22 +334,10 @@ Useful for collecting offchain data for the total number of scholars ever regist
 
 <Accordion>
 
-**PerpetualScholarships**
-
-> uint256 indexed courseId,  
-> uint256 newScholars  
-
-Emitted every time `perpetualScholarships()` is called, mostly because we love the name of this method and event.
-
-</Accordion>
-
-<Accordion>
-
 **ScholarshipWithdrawn**
 
 > uint256 scholarshipId,  
-> uint256 amountWithdrawn,  
-> uint256 scholarsRemoved
+> uint256 amountWithdrawn  
 
 Similar to ScholarRegistered, meant for keeping track accurately of scholarships for different courses, who has provided them and how much they have provided and withdrawn over time.
 
