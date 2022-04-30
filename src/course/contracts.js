@@ -1,22 +1,14 @@
 import {Contract} from 'ethers';
-import {Constants} from './constants';
+import {addresses, abis} from './constants';
 
 const KERNEL_COURSE_ID = '0';
 
-const DaiContract = {
-  address: Constants.DaiContractAddress,
-  abi: ['function nonces(address owner) view returns (uint256)']
-};
-
-const DeSchoolContract = {
-  address: Constants.DeSchoolContractAddress,
-  abi: Constants.DeSchoolAbi
-};
-
 export const isRegistered = async (learner, provider) => {
+  const {chainId} = await provider.getNetwork();
+
   const deSchoolContract = new Contract(
-    DeSchoolContract.address,
-    DeSchoolContract.abi,
+    addresses(chainId).deSchool,
+    abis.deSchool,
     provider
   );
   let res = false;
@@ -30,19 +22,19 @@ export const isRegistered = async (learner, provider) => {
 };
 
 export const getDaiNonce = async (learner, provider) => {
-  const daiContract = new Contract(
-    DaiContract.address,
-    DaiContract.abi,
-    provider
-  );
+  const {chainId} = await provider.getNetwork();
+
+  const daiContract = new Contract(addresses(chainId).dai, abis.dai, provider);
 
   return await daiContract.nonces(learner);
 };
 
 export const getScholarshipAvailable = async (provider) => {
+  const {chainId} = await provider.getNetwork();
+
   const deSchoolContract = new Contract(
-    DeSchoolContract.address,
-    DeSchoolContract.abi,
+    addresses(chainId).deSchool,
+    abis.deSchool,
     provider
   );
 
@@ -50,9 +42,11 @@ export const getScholarshipAvailable = async (provider) => {
 };
 
 export const registerScholar = async (signer) => {
+  const chainId = await signer.getChainId();
+
   const deSchoolContract = new Contract(
-    DeSchoolContract.address,
-    DeSchoolContract.abi,
+    addresses(chainId).deSchool,
+    abis.deSchool,
     signer
   );
 
@@ -60,9 +54,11 @@ export const registerScholar = async (signer) => {
 };
 
 export const permitAndRegister = async (signer, nonce, expiry, v, r, s) => {
+  const chainId = await signer.getChainId();
+
   const deSchoolContract = new Contract(
-    DeSchoolContract.address,
-    DeSchoolContract.abi,
+    addresses(chainId).deSchool,
+    abis.deSchool,
     signer
   );
   let res = false;

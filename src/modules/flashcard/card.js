@@ -6,8 +6,8 @@ import {useConnect, useAccount, useProvider} from 'wagmi';
 import {Button} from '@modules/ui';
 import {motion} from 'framer-motion';
 import {Connector} from '@src/course/connect';
+import {isRegistered} from '@src/course/contracts';
 import Web3Modal from '../web3/modal';
-import {isRegistered} from '../../course/course';
 
 const Web3Control = ({
   children,

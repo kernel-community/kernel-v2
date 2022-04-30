@@ -4,6 +4,7 @@ import {WalletConnectConnector} from 'wagmi/connectors/walletConnect';
 import {providers} from 'ethers';
 
 const infuraId = process.env.INFURA_ID;
+
 export const connectors = () => [
   new InjectedConnector({allChains}),
   new WalletConnectConnector({

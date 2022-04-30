@@ -8,7 +8,7 @@ import {
   getScholarshipAvailable,
   permitAndRegister,
   registerScholar
-} from '../../course/course';
+} from '@src/course/contracts';
 import {Icon} from '@makerdao/dai-ui-icons';
 
 const Web3 = ({setIsVisible}) => {

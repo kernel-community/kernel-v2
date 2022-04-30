@@ -1,6 +1,6 @@
 import {BigNumber} from 'ethers';
-import {Constants} from '../course/constants';
 import {useSignTypedData} from 'wagmi';
+import {addresses} from '@src/course/constants';
 
 const types = {
   Permit: [
@@ -22,11 +22,11 @@ const useSignPermitTransaction = ({provider, address}) => {
       name: 'Dai Stablecoin',
       version: '1',
       chainId,
-      verifyingContract: Constants.DaiContractAddress
+      verifyingContract: addresses(chainId).dai
     };
     const value = {
       holder: address,
-      spender: Constants.KernelFactoryContractAddress,
+      spender: addresses(chainId).deSchool,
       nonce: BigNumber.from(nonce),
       expiry: BigNumber.from(expiry),
       allowed: true

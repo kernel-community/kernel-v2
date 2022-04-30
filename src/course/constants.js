@@ -1,8 +1,29 @@
-export const Constants = {
-  DaiContractAddress: '0x3255DE32b6961709BB22804595d799D2E850fCFc',
-  DeSchoolContractAddress: '0x768864b0f574aDcD161A03c5997097ac94669c1b',
-  LearningCurveContractAddress: '0xE8013DeBF06d31Daa59158ED3120B48Db7eb8Da1',
-  DeSchoolAbi: `[
+const addresses = (chainId) => {
+  switch (chainId) {
+    case 4:
+      return {
+        dai: '0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa',
+        deSchool: '0xEe761B3219737cE3f3f59a7e3f99E2930663aeff',
+        learningCurve: '0xeBdca29Ae582ff0819a6B56853752B5ab3443bf5'
+      };
+    case 1337:
+      return {
+        dai: '0x3255DE32b6961709BB22804595d799D2E850fCFc',
+        deSchool: '0x768864b0f574aDcD161A03c5997097ac94669c1b',
+        learningCurve: '0xE8013DeBF06d31Daa59158ED3120B48Db7eb8Da1'
+      };
+    default:
+      return {
+        dai: 'mainnet dai address',
+        deSchool: 'mainnet deschool address',
+        learningCurve: 'mainnet learning curve address'
+      };
+  }
+};
+
+const abis = {
+  dai: ['function nonces(address owner) view returns (uint256)'],
+  deSchool: `[
     {
       "inputs": [
         {
@@ -727,7 +748,7 @@ export const Constants = {
       "type": "function"
     }
   ]`,
-  LearningCurveAbi: `[
+  learningCurve: `[
     {
       "inputs": [
         {
@@ -1308,3 +1329,5 @@ export const Constants = {
     }
   ]`
 };
+
+export {addresses, abis};
