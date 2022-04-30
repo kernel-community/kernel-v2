@@ -16,7 +16,17 @@ endless student debt cycles).
 git clone https://github.com/kernel-community/kernel-v2.git
 cd kernel-v2
 yarn
+cp .env.example .env
 yarn start
+```
+
+If you're working locally on any smart contract related work, you may deploy the
+desired contracts locally and set their addresses in your .env file.
+
+```
+GATSBY_LOCAL_DESCHOOL_ADDRESS="your-address-here"
+GATSBY_LOCAL_LEARNING_CURVE_ADDRESS="your-address-here"
+GATSBY_LOCAL_DAI_ADDRESS="your-address-here"
 ```
 
 Check out the `guiding` directory under `content/en` for everything you could possibly need to know about how to work with this site, from a cheatsheet and component palette, to detail about how translations, search, and navigation are handled.

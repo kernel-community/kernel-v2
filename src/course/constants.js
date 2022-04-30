@@ -8,9 +8,9 @@ const addresses = (chainId) => {
       };
     case 1337:
       return {
-        dai: '0x3255DE32b6961709BB22804595d799D2E850fCFc',
-        deSchool: '0x768864b0f574aDcD161A03c5997097ac94669c1b',
-        learningCurve: '0xE8013DeBF06d31Daa59158ED3120B48Db7eb8Da1'
+        dai: process.env.GATSBY_LOCAL_DAI_ADDRESS,
+        deSchool: process.env.GATSBY_LOCAL_DESCHOOL_ADDRESS,
+        learningCurve: process.env.GATSBY_LOCAL_LEARNING_CURVE_ADDRESS
       };
     default:
       return {
