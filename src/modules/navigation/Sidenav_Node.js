@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import {useState, useEffect} from 'react';
-import {Link} from '@modules/navigation';
+import { useState, useEffect } from 'react'
+import { Link } from '@modules/navigation'
 
-import {jsx} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
+import { jsx } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
 
 const Sidenav_Node = ({
   url,
@@ -16,12 +16,12 @@ const Sidenav_Node = ({
 }) => {
   const [active, setActive] = useState(
     currentPath === url || currentPath.includes(otherProps.slugPart)
-  );
-  const hasChildren = items.length !== 0;
+  )
+  const hasChildren = items.length !== 0
 
   //URL fallback for directories that have children, but don't have an index file.
   if (!url && hasChildren) {
-    url = items[0].url;
+    url = items[0].url
   }
 
   useEffect(() => {
@@ -29,9 +29,9 @@ const Sidenav_Node = ({
       !active &&
       (currentPath === url || currentPath.includes(otherProps.slugPart))
     ) {
-      setActive(true);
+      setActive(true)
     }
-  }, [currentPath, url, otherProps.slugPart]);
+  }, [currentPath, url, otherProps.slugPart])
 
   return (
     <li
@@ -42,8 +42,8 @@ const Sidenav_Node = ({
             : 'text',
         position: 'relative',
         '&:not(:last-of-type)': {
-          mb: '14px'
-        }
+          mb: '14px',
+        },
       }}>
       {title && (
         <Link
@@ -71,9 +71,9 @@ const Sidenav_Node = ({
                 transform: active
                   ? 'translate(0, -50%) rotate(0deg)'
                   : 'translate(0, -50%) rotate(90deg)',
-                transition: 'all .1s ease'
-              }
-            }
+                transition: 'all .1s ease',
+              },
+            },
           }}>
           {title}
         </Link>
@@ -93,7 +93,7 @@ const Sidenav_Node = ({
             top: [
               'calc(1.5em)',
               'calc(1.5em)',
-              !active ? '50%' : 'calc(.8em + 6px)'
+              !active ? '50%' : 'calc(.8em + 6px)',
             ],
             transform: 'translate(0, -50%) rotate(0deg)',
             transformOrigin: 'center',
@@ -101,8 +101,8 @@ const Sidenav_Node = ({
             '&:hover': {
               transform: active
                 ? 'translate(0, -50%) rotate(180deg)'
-                : 'translate(0, -50%) rotate(90deg)'
-            }
+                : 'translate(0, -50%) rotate(90deg)',
+            },
           }}
         />
       )}
@@ -116,7 +116,7 @@ const Sidenav_Node = ({
             pl: 0,
             minWidth: '200px',
             pr: '31px',
-            listStyleType: 'none'
+            listStyleType: 'none',
           }}>
           {items.map((item) => (
             <Sidenav_Node
@@ -131,7 +131,7 @@ const Sidenav_Node = ({
         </ul>
       )}
     </li>
-  );
-};
+  )
+}
 
-export default Sidenav_Node;
+export default Sidenav_Node

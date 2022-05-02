@@ -1,23 +1,23 @@
 /** @jsx jsx */
-import {Flex, Box, jsx} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
-import Link from '@modules/navigation/Link';
+import { Flex, Box, jsx } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
+import Link from '@modules/navigation/Link'
 
-import {useTranslation} from '@modules/localization';
-import {getLinkIcon} from '@modules/navigation';
+import { useTranslation } from '@modules/localization'
+import { getLinkIcon } from '@modules/navigation'
 
 const socialLinks = {
   Twitter: 'https://twitter.com/kernel0x',
   Chat: 'https://kernel-community.slack.com/',
   Youtube:
-    'https://www.youtube.com/watch?v=AdmuZalNPIQ&list=PLvTrX8LNPbPk3yfCY1uuPsiBgpxaO_G8-'
-};
+    'https://www.youtube.com/watch?v=AdmuZalNPIQ&list=PLvTrX8LNPbPk3yfCY1uuPsiBgpxaO_G8-',
+}
 
 const Footer = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation()
 
   return (
-    <Box as="footer" sx={{position: 'relative'}}>
+    <Box as="footer" sx={{ position: 'relative' }}>
       <Flex
         className="footer-content"
         sx={{
@@ -38,8 +38,8 @@ const Footer = () => {
             background:
               'linear-gradient(90deg, rgba(115,115,125,0.1) 0%, rgba(115,115,125,1) 50%, rgba(115,115,125,0.1) 100%)',
             position: 'absolute',
-            top: 0
-          }
+            top: 0,
+          },
         }}>
         <Box
           sx={{
@@ -47,12 +47,12 @@ const Footer = () => {
             display: 'inline-block',
             width: '217px',
             mt: '-10px',
-            '& > *, & svg': {color: 'text'}
+            '& > *, & svg': { color: 'text' },
           }}>
           <Link
             to="/"
             sx={{
-              display: 'inline-block'
+              display: 'inline-block',
             }}
             aria-label={t('aria_FooterLogo')}>
             <Icon
@@ -61,14 +61,14 @@ const Footer = () => {
                 width: '217px',
                 height: '100px',
                 display: 'block',
-                mb: '10px'
+                mb: '10px',
               }}
             />
           </Link>
           <Box
             sx={{
-              '& > *:not(:last-of-type)': {mr: '18px'},
-              '& > a': {mr: 0}
+              '& > *:not(:last-of-type)': { mr: '18px' },
+              '& > a': { mr: 0 },
             }}>
             {Object.keys(socialLinks).map((s, index) =>
               getLinkIcon(socialLinks[s], `footer-social-link-${index}`)
@@ -92,7 +92,7 @@ const Footer = () => {
               display: 'flex',
               flexWrap: ['wrap', 'wrap', 'unset'],
               '& > li:not(:last-of-type)': {
-                mr: ['unset', 'unset', '5vw']
+                mr: ['unset', 'unset', '5vw'],
               },
               '& > li': {
                 fontWeight: '500',
@@ -107,23 +107,23 @@ const Footer = () => {
                   mt: 3,
                   listStyleType: 'none',
                   '& li': {
-                    maxWidth: '200px'
+                    maxWidth: '200px',
                   },
                   '& li a': {
                     color: 'text',
-                    fontWeight: 'normal'
+                    fontWeight: 'normal',
                   },
                   '& li:not(:last-of-type)': {
-                    mb: '10px'
-                  }
-                }
-              }
-            }
+                    mb: '10px',
+                  },
+                },
+              },
+            },
           }}>
-          <div sx={{flex: 1}}>
+          <div sx={{ flex: 1 }}>
             <ul>
               <li>
-                <span sx={{mt: 0, fontWeight: 'bold'}}>
+                <span sx={{ mt: 0, fontWeight: 'bold' }}>
                   {t('Start', 'Footer')}
                 </span>
 
@@ -146,7 +146,7 @@ const Footer = () => {
                 </ul>
               </li>
               <li>
-                <span sx={{mt: 0, fontWeight: 'bold'}}>
+                <span sx={{ mt: 0, fontWeight: 'bold' }}>
                   {t('Get Involved', 'Footer')}
                 </span>
 
@@ -171,7 +171,7 @@ const Footer = () => {
                 </ul>
               </li>
               <li>
-                <span sx={{mt: 0, fontWeight: 'bold'}}>
+                <span sx={{ mt: 0, fontWeight: 'bold' }}>
                   {t('Find', 'Footer')}
                 </span>
 
@@ -211,7 +211,7 @@ const Footer = () => {
                 </ul>
               </li>
               <li>
-                <span sx={{fontWeight: 'bold'}}>{t('About', 'Footer')}</span>
+                <span sx={{ fontWeight: 'bold' }}>{t('About', 'Footer')}</span>
                 <ul>
                   <li>
                     <Link hideExternalIcon to={'/start/principled-people'}>
@@ -235,7 +235,7 @@ const Footer = () => {
         </div>
       </Flex>
     </Box>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

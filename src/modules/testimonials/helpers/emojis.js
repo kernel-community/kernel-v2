@@ -4045,6 +4045,6 @@ const Emojis = {
   white_hair: '👨‍🦳',
   bald: '👨‍🦲',
   'yo-yo': '🪀',
-  'one-piece_swimsuit': '🩱'
-};
-export default Emojis;
+  'one-piece_swimsuit': '🩱',
+}
+export default Emojis

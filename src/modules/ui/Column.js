@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import {Children} from 'react';
-import {Box, Grid, jsx} from 'theme-ui';
+import { Children } from 'react'
+import { Box, Grid, jsx } from 'theme-ui'
 
-const Column = ({children}) => {
-  const _Children = Children.toArray(children);
+const Column = ({ children }) => {
+  const _Children = Children.toArray(children)
 
   const containerStyles = {
     borderRadius: '12px',
@@ -14,24 +14,24 @@ const Column = ({children}) => {
     boxShadow: 'float',
     border: '1px solid',
     borderColor: 'muted',
-    '& > *:only-child, & >*:only-child > *': {m: 0}
-  };
+    '& > *:only-child, & >*:only-child > *': { m: 0 },
+  }
 
-  const desktopColumns = _Children.length > 1 ? [2, '1fr 1fr'] : [1, '1fr'];
+  const desktopColumns = _Children.length > 1 ? [2, '1fr 1fr'] : [1, '1fr']
 
   return (
     <Grid
       gap={'24px'}
-      sx={{mb: 4}}
+      sx={{ mb: 4 }}
       columns={[[1, '1fr'], [1, '1fr'], desktopColumns]}>
       {_Children.map((child, index) => {
-        const childChildren = Children.toArray(child.props.children);
+        const childChildren = Children.toArray(child.props.children)
         if (
           typeof child.props.children !== 'string' &&
           childChildren.length > 0
         ) {
-          const headerElement = childChildren[0];
-          const childElements = childChildren.slice(1);
+          const headerElement = childChildren[0]
+          const childElements = childChildren.slice(1)
 
           return (
             <Box
@@ -42,7 +42,7 @@ const Column = ({children}) => {
                 boxShadow: 'float',
                 border: '1px solid',
                 borderColor: 'muted',
-                bg: 'surfaceAlt'
+                bg: 'surfaceAlt',
               }}>
               <Box
                 className="headerElement"
@@ -53,8 +53,8 @@ const Column = ({children}) => {
                   pb: 2,
                   px: '27px',
                   '& > *:only-child, & > *:only-child > *': {
-                    m: 0
-                  }
+                    m: 0,
+                  },
                 }}>
                 {headerElement}
               </Box>
@@ -66,23 +66,23 @@ const Column = ({children}) => {
                   pb: '27px',
                   color: 'text',
                   '& > *:only-child, & > *:last-child': {
-                    m: 0
-                  }
+                    m: 0,
+                  },
                 }}>
                 {childElements}
               </Box>
             </Box>
-          );
+          )
         }
 
         return (
           <Box sx={containerStyles} key={`column-child-element-${index}`}>
             {child}
           </Box>
-        );
+        )
       })}
     </Grid>
-  );
-};
+  )
+}
 
-export default Column;
+export default Column

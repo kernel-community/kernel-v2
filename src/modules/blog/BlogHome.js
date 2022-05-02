@@ -1,7 +1,7 @@
-import React from "react";
-import { BlogCard, BlogResult } from "@modules/blog";
-import { Link } from "@modules/navigation";
-import { Button } from "@modules/ui";
+import React from 'react'
+import { BlogCard, BlogResult } from '@modules/blog'
+import { Link } from '@modules/navigation'
+import { Button } from '@modules/ui'
 
 const BlogHome = () => {
   return (
@@ -17,18 +17,18 @@ const BlogHome = () => {
 
       <ul>
         <li>
-          <BlogCard isLatest post={{ type: "governance" }} />
-          <BlogCard isLatest post={{ type: "governance" }} />
-          <BlogCard isLatest post={{ type: "governance" }} />
+          <BlogCard isLatest post={{ type: 'governance' }} />
+          <BlogCard isLatest post={{ type: 'governance' }} />
+          <BlogCard isLatest post={{ type: 'governance' }} />
         </li>
       </ul>
 
       <div>
         <div>
-          <BlogResult post={{ type: "governance" }} />
-          <BlogResult post={{ type: "governance" }} />
-          <BlogResult post={{ type: "governance" }} />
-          <BlogResult post={{ type: "governance" }} />
+          <BlogResult post={{ type: 'governance' }} />
+          <BlogResult post={{ type: 'governance' }} />
+          <BlogResult post={{ type: 'governance' }} />
+          <BlogResult post={{ type: 'governance' }} />
         </div>
 
         <div>
@@ -50,7 +50,7 @@ const BlogHome = () => {
         <Button icon="plus">See more posts</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlogHome;
+export default BlogHome

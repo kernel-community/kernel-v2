@@ -1,18 +1,18 @@
 /** @jsx jsx */
-import {Children} from 'react';
-import {Flex, Box, jsx} from 'theme-ui';
+import { Children } from 'react'
+import { Flex, Box, jsx } from 'theme-ui'
 
-const Process = ({children}) => {
-  const _Children = Children.toArray(children);
+const Process = ({ children }) => {
+  const _Children = Children.toArray(children)
 
   return (
-    <Box sx={{mt: '34px', mb: '34px'}}>
+    <Box sx={{ mt: '34px', mb: '34px' }}>
       {_Children.map((child, index) => {
         return (
           <Flex
             key={`process-child-${index}`}
             sx={{
-              flexDirection: 'row'
+              flexDirection: 'row',
             }}>
             <Box
               sx={{
@@ -28,7 +28,7 @@ const Process = ({children}) => {
                 borderRadius: '100%',
                 color: 'onPrimary',
                 textAlign: 'center',
-                backgroundColor: 'primary'
+                backgroundColor: 'primary',
                 // marginTop: "12px",
               }}>
               {`${index + 1}`}
@@ -42,15 +42,15 @@ const Process = ({children}) => {
                 borderColor: 'muted',
                 width: '100%',
                 pb: '32px',
-                '& > *:only-child, & > *:last-child': {m: 0}
+                '& > *:only-child, & > *:last-child': { m: 0 },
               }}>
               {child}
             </Box>
           </Flex>
-        );
+        )
       })}
     </Box>
-  );
-};
+  )
+}
 
-export default Process;
+export default Process

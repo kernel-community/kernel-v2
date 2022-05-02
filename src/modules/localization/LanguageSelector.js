@@ -1,23 +1,23 @@
 /** @jsx jsx */
-import {Select} from '@modules/ui';
-import {navigate} from 'gatsby';
-import {useTranslation} from '@modules/localization';
-import {Link} from '@modules/navigation';
-import {Fragment} from 'react';
-import {Box, jsx, Text, useThemeUI} from 'theme-ui';
+import { Select } from '@modules/ui'
+import { navigate } from 'gatsby'
+import { useTranslation } from '@modules/localization'
+import { Link } from '@modules/navigation'
+import { Fragment } from 'react'
+import { Box, jsx, Text, useThemeUI } from 'theme-ui'
 
-const LanguageSelector = ({data, pagePath}) => {
-  const {theme} = useThemeUI();
-  const {locale, t, allLocales} = useTranslation();
+const LanguageSelector = ({ data, pagePath }) => {
+  const { theme } = useThemeUI()
+  const { locale, t, allLocales } = useTranslation()
 
-  const onChange = ({value}) => {
+  const onChange = ({ value }) => {
     //Update local storage on switch
     if (typeof window !== 'undefined') {
-      localStorage.setItem('locale', value.split('/')[1]);
+      localStorage.setItem('locale', value.split('/')[1])
     }
 
-    navigate(value);
-  };
+    navigate(value)
+  }
 
   //Override select component theme with our theme since it's not connected to theme-ui
   const uiSelectTheme = {
@@ -26,10 +26,10 @@ const LanguageSelector = ({data, pagePath}) => {
     primary50: theme.colors.primaryMuted,
     primary25: theme.colors.successAlt,
     danger: theme.colors.bear,
-    dangerLight: theme.colors.bearAlt
-  };
+    dangerLight: theme.colors.bearAlt,
+  }
 
-  const availableLanguages = allLocales.filter((loc) => loc !== locale);
+  const availableLanguages = allLocales.filter((loc) => loc !== locale)
 
   return (
     <Box
@@ -44,32 +44,36 @@ const LanguageSelector = ({data, pagePath}) => {
         mt: ['unset', 'unset', '64px'],
         position: 'relative',
         right: 0,
-        top: 0
+        top: 0,
       }}>
       <Select
         isSearchable={false}
         theme={(selectTheme) => ({
           ...selectTheme,
           fontFamily: theme.fonts.body,
-          colors: {...selectTheme.colors, ...uiSelectTheme}
+          colors: { ...selectTheme.colors, ...uiSelectTheme },
         })}
-        sx={{display: ['inline-block', 'block', 'block'], width: '100%', mb: 2}}
+        sx={{
+          display: ['inline-block', 'block', 'block'],
+          width: '100%',
+          mb: 2,
+        }}
         options={data}
         onChange={onChange}
         aria-label={t('Page_Language_Selector')}
         value={{
           value: pagePath,
-          label: t('Language')
+          label: t('Language'),
         }}
       />
 
       <Text
         sx={{
           display: ['inline-block', 'inline-block', 'block'],
-          mr: [2, 2, 'unset']
+          mr: [2, 2, 'unset'],
         }}>
         {t('Available_Languages', null, {
-          count: availableLanguages.length
+          count: availableLanguages.length,
         })}
       </Text>
 
@@ -77,7 +81,7 @@ const LanguageSelector = ({data, pagePath}) => {
         sx={{
           mb: [1, 1, 2],
           letterSpacing: '.7rem',
-          display: ['inline-block', 'inline-block', 'block']
+          display: ['inline-block', 'inline-block', 'block'],
         }}>
         {availableLanguages.length > 0 && (
           <Fragment>
@@ -90,7 +94,7 @@ const LanguageSelector = ({data, pagePath}) => {
         <Text
           sx={{
             lineHeight: 'normal',
-            display: ['inline-block', 'inline-block', 'unset']
+            display: ['inline-block', 'inline-block', 'unset'],
           }}>
           {`${t('Need_Another_Language')}  `}
           <Link
@@ -101,14 +105,14 @@ const LanguageSelector = ({data, pagePath}) => {
               fontWeight: '500',
               mt: 1,
               lineHeight: 'normal',
-              display: ['inline-block', 'inline-block', 'block']
+              display: ['inline-block', 'inline-block', 'block'],
             }}>
             {t('Join_translation_team')}
           </Link>
         </Text>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default LanguageSelector;
+export default LanguageSelector

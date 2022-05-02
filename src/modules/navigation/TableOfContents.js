@@ -1,11 +1,10 @@
 /** @jsx jsx */
-import {Flex, jsx} from 'theme-ui';
-import {Link} from 'gatsby';
-import Sticky from 'react-sticky-el';
-import {console, parent} from 'window-or-global';
+import { Flex, jsx } from 'theme-ui'
+import { Link } from 'gatsby'
+import Sticky from 'react-sticky-el'
 
-const TableOfContents = ({data, styles, isMobile}) => {
-  const itemsToRender = data.items || [];
+const TableOfContents = ({ data, styles, isMobile }) => {
+  const itemsToRender = data.items || []
 
   return (
     <Sticky
@@ -16,9 +15,9 @@ const TableOfContents = ({data, styles, isMobile}) => {
       sx={{
         width: ['100%', '100%', '258px'],
         '.sticky': {
-          width: '258px'
+          width: '258px',
         },
-        ...styles
+        ...styles,
       }}>
       <Flex
         sx={{
@@ -26,12 +25,14 @@ const TableOfContents = ({data, styles, isMobile}) => {
           pl: [0, 0, 3],
           pt: [0, 0, 5],
           maxHeight: ['unset', 'unset', '100vh'],
-          overflow: 'auto'
+          overflow: 'auto',
         }}>
-        <p sx={{fontWeight: 'bold', m: 0, fontSize: ['26px', '26px', '14px']}}>
+        <p
+          sx={{ fontWeight: 'bold', m: 0, fontSize: ['26px', '26px', '14px'] }}>
           Table of contents
         </p>
-        <ul sx={{m: 0, mt: 3, pl: 0, minWidth: '200px', listStyleType: 'none'}}>
+        <ul
+          sx={{ m: 0, mt: 3, pl: 0, minWidth: '200px', listStyleType: 'none' }}>
           {itemsToRender.map((node, index) => (
             <ChildNode
               key={`toc-${node.url}-${index}`}
@@ -42,19 +43,19 @@ const TableOfContents = ({data, styles, isMobile}) => {
         </ul>
       </Flex>
     </Sticky>
-  );
-};
+  )
+}
 
-const ChildNode = ({url, items, title, parentDepth}) => {
+const ChildNode = ({ url, items, title, parentDepth }) => {
   return (
-    <li sx={{mb: 3}}>
+    <li sx={{ mb: 3 }}>
       <Link
         to={url}
         sx={{
           variant: 'styles.a',
           lineBreak: 'auto',
           fontWeight: parentDepth > 1 ? 'normal' : 'bold',
-          fontSize: ['14px', '14px', 2]
+          fontSize: ['14px', '14px', 2],
         }}>
         {title}
       </Link>
@@ -67,7 +68,7 @@ const ChildNode = ({url, items, title, parentDepth}) => {
             pl: 0,
             minWidth: '200px',
             listStyleType: 'none',
-            ml: parentDepth < 3 ? '20px' : 0 //NOTE(Rejon): Don't let the margin left continue for more than 3 depth. It just looks wrong.
+            ml: parentDepth < 3 ? '20px' : 0, //NOTE(Rejon): Don't let the margin left continue for more than 3 depth. It just looks wrong.
           }}>
           {items.map((node, index) => (
             <ChildNode
@@ -79,7 +80,7 @@ const ChildNode = ({url, items, title, parentDepth}) => {
         </ul>
       )}
     </li>
-  );
-};
+  )
+}
 
-export default TableOfContents;
+export default TableOfContents
