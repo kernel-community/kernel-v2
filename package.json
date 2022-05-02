@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Andy Tudhope",
   "dependencies": {
+    "@emotion/styled": "^11.8.1",
     "@makerdao/dai-ui-icons": "^0.0.66",
     "@makerdao/dai-ui-icons-branding": "^0.0.66",
     "@makerdao/dai-ui-theme-maker": "^0.0.66",
