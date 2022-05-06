@@ -71,7 +71,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-react": "^7.29.2",
+    "eslint-plugin-react": "^7.29.4",
     "lint-staged": "^12.4.1",
     "pre-commit": "^1.2.2",
     "prettier": "^2.6.2"
@@ -84,22 +84,16 @@
     "build": "npm run acrollout && gatsby build",
     "acrollout": "node scripts/allcontributors-transformer.js",
     "lint": "eslint --fix '**/*.{js,jsx}'",
-    "format": "prettier --no-bracket-spacing --trailing-comma none --single-quote --jsx-bracket-same-line --write ./src",
+    "format": "prettier --write ./src",
     "start": "npm run acrollout && gatsby develop",
-    "precom-lint": "lint-staged",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
   },
   "pre-commit": [
-    "precom-lint"
+    "format",
+    "lint"
   ],
-  "lint-staged": {
-    "*.js": [
-      "prettier --no-bracket-spacing --trailing-comma none --single-quote --jsx-bracket-same-line --write",
-      "eslint --fix"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kernel-community/kernel-v2"

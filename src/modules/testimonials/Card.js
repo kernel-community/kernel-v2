@@ -1,14 +1,14 @@
-import React from 'react';
-import {Box, Image, Flex} from 'theme-ui';
-import processString from 'react-process-string';
-import Twitter from '../../../static/images/wol/Twitter.svg';
-import Slack from '../../../static/images/wol/Slack.svg';
-import QuotationsPurple from '../../../static/images/wol/QuotationsPurple.svg';
-import QuotationsYellow from '../../../static/images/wol/QuotationsYellow.svg';
-import config from './helpers/parsingConfig';
+import React from 'react'
+import { Box, Image, Flex } from 'theme-ui'
+import processString from 'react-process-string'
+import Twitter from '../../../static/images/wol/Twitter.svg'
+import Slack from '../../../static/images/wol/Slack.svg'
+import QuotationsPurple from '../../../static/images/wol/QuotationsPurple.svg'
+import QuotationsYellow from '../../../static/images/wol/QuotationsYellow.svg'
+import config from './helpers/parsingConfig'
 
-const Card = ({id, source, url, author_name, text, author_image}) => {
-  const parsed = processString(config)(text);
+const Card = ({ source, url, author_name, text, author_image }) => {
+  const parsed = processString(config)(text)
   return (
     <Flex
       sx={{
@@ -25,18 +25,18 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
         boxShadow:
           'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
         mb: 22,
-        padding: '24px'
+        padding: '24px',
       }}>
       <Box
         sx={{
           width: '100%',
           display: 'flex',
           flexDirection: 'row',
-          pb: '12px'
+          pb: '12px',
         }}>
         <Box
           sx={{
-            flexGrow: '3'
+            flexGrow: '3',
           }}>
           <Image
             src={
@@ -47,13 +47,13 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
                 : QuotationsYellow
             }
             sx={{
-              width: ['70px', '80px']
+              width: ['70px', '80px'],
             }}
           />
         </Box>
         <Box
           sx={{
-            margin: 'auto'
+            margin: 'auto',
           }}>
           <Image
             src={
@@ -64,8 +64,8 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
               transition: 'all 0.2s ease-in-out',
               ':hover': {
                 cursor: 'pointer',
-                transform: 'scale(1.2)'
-              }
+                transform: 'scale(1.2)',
+              },
             }}
           />
         </Box>
@@ -93,10 +93,10 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
             fontSize: 5,
             position: 'relative',
             left: '10px',
-            top: '-3px'
+            top: '-3px',
           },
-          '&:hover > .anchor-link': {opacity: 1},
-          '& > .anchor-link:hover': {opacity: 1, color: 'primary'}
+          '&:hover > .anchor-link': { opacity: 1 },
+          '& > .anchor-link:hover': { opacity: 1, color: 'primary' },
         }}>
         {parsed}
       </Box>
@@ -111,8 +111,8 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
           transition: 'all 0.2s ease-in-out',
           ':hover': {
             cursor: 'pointer',
-            transform: 'scale(1.03)'
-          }
+            transform: 'scale(1.03)',
+          },
         }}>
         <Box
           sx={{
@@ -126,13 +126,13 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
                 : source === 'twitter'
                 ? 'testimonialCardTwitterText'
                 : 'black',
-            margin: 'auto'
+            margin: 'auto',
           }}>
           {author_name}
         </Box>
         <Box
           sx={{
-            margin: 'auto'
+            margin: 'auto',
           }}>
           <Image
             src={author_image}
@@ -145,12 +145,12 @@ const Card = ({id, source, url, author_name, text, author_image}) => {
                   : '50%',
               width: '66px',
               boxShadow:
-                'rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px'
+                'rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px',
             }}
           />
         </Box>
       </Box>
     </Flex>
-  );
-};
-export default Card;
+  )
+}
+export default Card
