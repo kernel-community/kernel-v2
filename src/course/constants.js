@@ -4,22 +4,22 @@ const addresses = (chainId) => {
       return {
         dai: '0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa',
         deSchool: '0xEe761B3219737cE3f3f59a7e3f99E2930663aeff',
-        learningCurve: '0xeBdca29Ae582ff0819a6B56853752B5ab3443bf5'
-      };
+        learningCurve: '0xeBdca29Ae582ff0819a6B56853752B5ab3443bf5',
+      }
     case 1337:
       return {
         dai: process.env.GATSBY_LOCAL_DAI_ADDRESS,
         deSchool: process.env.GATSBY_LOCAL_DESCHOOL_ADDRESS,
-        learningCurve: process.env.GATSBY_LOCAL_LEARNING_CURVE_ADDRESS
-      };
+        learningCurve: process.env.GATSBY_LOCAL_LEARNING_CURVE_ADDRESS,
+      }
     default:
       return {
         dai: 'mainnet dai address',
         deSchool: 'mainnet deschool address',
-        learningCurve: 'mainnet learning curve address'
-      };
+        learningCurve: 'mainnet learning curve address',
+      }
   }
-};
+}
 
 const abis = {
   dai: ['function nonces(address owner) view returns (uint256)'],
@@ -1327,7 +1327,7 @@ const abis = {
       "stateMutability": "view",
       "type": "function"
     }
-  ]`
-};
+  ]`,
+}
 
-export {addresses, abis};
+export { addresses, abis }

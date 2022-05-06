@@ -1,3 +1,3 @@
-import useSignPermitTransaction from './useSignPermitTransaction';
+import useSignPermitTransaction from './useSignPermitTransaction'
 
-export {useSignPermitTransaction};
+export { useSignPermitTransaction }

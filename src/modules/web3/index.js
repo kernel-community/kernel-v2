@@ -1,1 +1,1 @@
-export {default as Web3} from './modal';
+export { default as Web3 } from './modal'
