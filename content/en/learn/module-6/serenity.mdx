@@ -8,9 +8,32 @@ featuredImage: images/shares/giving.png
 
 # 🦋 Serenity
 
-You've finally reached the tranquil waters of Eth2 - congratulations! Like the network it 
-describes, this post will be completed in some indefinite series of stages over the next 
-"little while". Please check back here periodically for at least a few years.
+We have finally reached the tranquil waters of Eth2. It's been many years in the making, and it appears we still have some way to go yet. 
+
+In fact, coming up with the right wording for the previous sentence was quite a challenge, because Kernel aims for “evergreen” content which will still be accurate and relevant at least a decade from now. As we will shortly see, this is an aspiration we share with the Eth2 Design Rationale on which the below brief is based.
+
+You might wonder, are we saying that we will “still have some way to go yet” ten years from now? We certainly hope so. The desire for enclosure, for a certain and definitive end state which can be encapsulated as a “product” and consumed by the wider culture is a peculiarly modern phenomenon. 
+
+We hope that Ethereum, and networks like it, are never really finished. We hope that people continue tinkering with them and playing with new ways of imagining how we might relate for as long as there are world machines and people using them to build new trust spaces. This is what traditional business people will never understand: it's not interesting to ship products using this kind of technology. What is truly fascinating is **the ongoing art of making possible**:
+
+<Aligner center>
+
+<Box>
+
+_And once those limits are understood_  
+_To understand that limitations no longer exist._  
+_Earth could be fair. And you and I must be free_  
+_Not to save the world in a glorious crusade_  
+_Not to kill ourselves with a nameless gnawing pain_  
+_But to practice with all the skill of our being_  
+_The art of making possible._  
+  
+Nancy Scheibner 
+
+</Box>
+
+</Aligner>
+
 
 <InfoBlock>
 
@@ -34,23 +57,20 @@ describes, this post will be completed in some indefinite series of stages over 
 
 In a way, this is what Kernel has been preparing you for: the [continuous iteration](/learn/module-1/understanding-ethereum/#kaizen-and-the-principle-of-subtraction) which leads to a global, public, decentralized and censorship-resistant computing surface which anyone can use and no-one owns. 
 
-What this [*means*](/learn/module-1/meaning/) for our networked species remains an 
-open [question](/learn/module-2/better-questions/). One thing seems clear: it is an upgrade 
-the likes of which is only seen once in an [age](/learn/module-2/debt/#virtual-money-coins-and-an-ancient-global-system). You'll need to recall the 
-arguments made in [value](/learn/module-1/value/) and [incentives](/learn/module-5/incentives) 
-to understand the design rationale for these next few scenes of 
-the [human](/learn/module-0/conversation/) [story](/learn/module-5/listening-stories/).
-
-In particular, [we claimed that](/learn/module-2/money-speech/#regulation-vs-expense) - 
-with blockchains - the best way to protect free speech is to price it correctly. We don't 
-enforce "the good" by legal fiat and deal with exceptions like libel and hate speech through 
-human interpretation and violent enforcement; we define what is "bad" and set a price on it 
-such that malicious expression is provably more expensive than its potential effects. Eth2 
-extends this idea greatly: it is our 
-generation's <Link to="https://www.ribbonfarm.com/2019/01/31/elderblog-sutra-1/" >elder game</Link> 
-of economic penalties.
+What this [*means*](/learn/module-1/meaning/) for our networked species remains an open [question](/learn/module-2/better-questions/). One thing seems clear: it is an upgrade the likes of which is only seen once in an [age](/learn/module-2/debt/#virtual-money-coins-and-an-ancient-global-system). You'll need to recall the arguments made in [value](/learn/module-1/value/) and [incentives](/learn/module-5/incentives) to understand the design rationale for these next few scenes of the [human](/learn/module-0/conversation/) [story](/learn/module-5/listening-stories/).
 
 ## Brief
+
+We’ll be taking a close look at Vitalik’s Design Rationale for Ethereum 2, which is the move to a Proof-of-Stake network that also greatly increases capacity by using “shards”. Don’t get intimidated by the technical jargon here: this has been included in the syllabus for two primary reasons:
+
+<Process>
+
+When discussing mechanism design and game mechanics which arise from revealing truth with least contrivance, we made the claim that “exploration of low-level primitives yields possibility”. We need to look at the primitives, but the intention is primarily to walk away with a better understanding of the possibilities they imply.  
+
+When discussing money and speech, we claimed that - with blockchains - the best way to protect free speech is to price it correctly. We don't enforce "the good" by legal fiat and deal with exceptions like libel and hate speech through human interpretation and violent enforcement; we define what is "bad" and set a price on it such that malicious expression is provably more expensive than its potential effects. Eth2 extends this idea greatly: it is our generation's elder game of economic penalties.
+
+</Process>
+
 
 ### Principled Layers
 
@@ -159,7 +179,7 @@ This kind of conflict can only be [solved with a **protocol**, not a platform](/
 However, PoW protocols still have a comparable conflict of interests between miners and users. 
 Miners must pay for the massive power they are incentivized to use in securing a PoW network, 
 which creates both (i) consistent forced sellers in any market and (ii) skewed incentives 
-around, for instance, block sizes which lead to sub-optimal outcomes for users of the network.
+around, for instance, block sizes which lead to suboptimal outcomes for users of the network.
 
 Ensuring that anyone, even with entry-level hardware and a small amount of ETH, can act as a 
 validator and that the protocol relies on penalties rather than rewards, means that users and 
@@ -248,7 +268,7 @@ so the attacker can get more revenue, or as part of a longer-term 51% attack).
 The **base reward** is proportional to the inverse square root of all deposits. This strikes a 
 compromise between a *fixed reward rate* and a *fixed total reward*. The first creates too much 
 uncertainty about both issuance and the total level of deposits; the second potentially 
-incentivizes griefing more than can be disincentivzed by the collective scheme above. Again, 
+incentivizes griefing more than can be disincentivized by the collective scheme above. Again, 
 mechanism design is *all about balancing trade-offs*.
 
 </Process>
@@ -289,7 +309,7 @@ A: Griefing.
 
 </Flash>
 
-Rewards are designed this way *only as a result* of the thinking about how to penalize 
+Rewards are designed this way *only as a result* of thinking about how to penalize 
 different kinds of undesirable validator behaviour. Now that we understand this premise, we 
 can check that the rewards fit our requirements by considering the **break-even uptime** for 
 any validator. If everyone is validating, you need only be online ~44.44% of the time. However, 
@@ -417,15 +437,9 @@ A: Simplicity.
 
 ### The Positive Sum
 
-What is Eth2? Well, we said it already: our generation's elder game of economic penalties. 
-These penalties are the game mechanics we use to reveal 
-a [unique kind of truth](/learn/module-5/reveal-the-universe/#the-value-of-truth): it is 
-possible to build - and asymmetrically defend/maintain - an explicitly prosocial, global, and 
-ownerless system that provably benefits all the people who choose to use it. The benefits of 
-encoding penalties extend to all layers of this game, including our ability 
-to <Link to="https://twitter.com/VitalikButerin/status/1294461236680130560" >use co-ordination costs to our advantage</Link>.
+What is Eth2? Well, we said it already: our generation's elder game of economic penalties. These penalties are the game mechanics we use to reveal a [unique kind of truth](/learn/module-5/reveal-the-universe/#the-value-of-truth): it is possible to build - and asymmetrically defend/maintain - an explicitly prosocial, global, and ownerless system that provably benefits all the people who choose to use it. The benefits of encoding penalties extend to all layers of this game, including our ability to <Link to="https://twitter.com/VitalikButerin/status/1294461236680130560" >use coordination costs to our advantage</Link>.
 
-Welcome. Most of us [friends](/learn/module-5/prosocial-value/#friendship) here, 
+Welcome. Most of us are [friends](/learn/module-5/prosocial-value/#friendship) here, 
 because the alternatives are more expensive.
 
 ### Further resources

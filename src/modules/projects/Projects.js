@@ -1,8 +1,8 @@
-import React from 'react';
-import {Flex, Text, Image, Grid, Button} from 'theme-ui';
+import React from 'react'
+import { Flex, Text, Image, Grid, Button } from 'theme-ui'
 
-const projectsArray = require('../../../content/projects.json');
-const projects = projectsArray.projects;
+const projectsArray = require('../../../content/projects.json')
+const projects = projectsArray.projects
 
 const Projects = () => {
   return (
@@ -12,7 +12,7 @@ const Projects = () => {
         borderRadius: 'medium',
         flexDirection: 'column',
         marginX: ['2rem', '2rem', '0rem'],
-        marginTop: ['-2rem', '-4rem']
+        marginTop: ['-2rem', '-4rem'],
       }}>
       <Flex>
         <Grid
@@ -26,31 +26,31 @@ const Projects = () => {
             gridTemplateRows: ['auto', 'auto'],
             gridAutoFlow: 'column',
             scrollBehavior: 'smooth',
-            scrollbarWidth: 'none'
+            scrollbarWidth: 'none',
           }}>
           {projects.map((project, index) => (
             <Flex
               key={index}
               onClick={() => {
-                window.open(project.url, '_blank');
+                window.open(project.url, '_blank')
               }}
               sx={{
                 flexDirection: 'column',
                 rowGap: '1rem',
                 ':hover': {
                   cursor: 'pointer',
-                  color: 'primary'
+                  color: 'primary',
                 },
-                minWidth: '344px'
+                minWidth: '344px',
               }}>
               <Image
-                sx={{borderRadius: '3%', width: '344px', height: '206px'}}
+                sx={{ borderRadius: '3%', width: '344px', height: '206px' }}
                 src={project.image}
               />
-              <Text sx={{fontWeight: 600, fontSize: '24px'}}>
+              <Text sx={{ fontWeight: 600, fontSize: '24px' }}>
                 {project.name}
               </Text>
-              <Text sx={{color: 'text'}}>{project.description}</Text>
+              <Text sx={{ color: 'text' }}>{project.description}</Text>
             </Flex>
           ))}
         </Grid>
@@ -61,12 +61,12 @@ const Projects = () => {
           marginBottom: ['-1rem', '1rem'],
           marginTop: ['0rem', '1rem'],
           textColor: 'callout',
-          visibility: ['hidden', 'visible']
+          visibility: ['hidden', 'visible'],
         }}>
         <Button
           variant="outlineSmall"
           onClick={() => {
-            document.getElementById('projectContainer').scrollLeft -= 600;
+            document.getElementById('projectContainer').scrollLeft -= 600
           }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const Projects = () => {
         <Button
           variant="outlineSmall"
           onClick={() => {
-            document.getElementById('projectContainer').scrollLeft += 600;
+            document.getElementById('projectContainer').scrollLeft += 600
           }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ const Projects = () => {
         </Button>
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

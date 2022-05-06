@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import {Icon} from '@makerdao/dai-ui-icons';
-import {Authors} from '@modules/authors';
-import {Fellows} from '@modules/fellows';
-import {Projects} from '@modules/projects';
-import {BlogHome} from '@modules/blog';
-import {Link} from '@modules/navigation/';
+import { Icon } from '@makerdao/dai-ui-icons'
+import { Authors } from '@modules/authors'
+import { Fellows } from '@modules/fellows'
+import { Projects } from '@modules/projects'
+import { BlogHome } from '@modules/blog'
+import { Link } from '@modules/navigation/'
 import {
   Accordion,
   Button,
@@ -19,17 +19,17 @@ import {
   Process,
   StatusBanner,
   Table,
-  Tout
-} from '@modules/ui/';
-import Card from '@modules/flashcard/card';
-import Flash from '@modules/flashcard/flash';
-import {Aligner, Indent, Video, Sound} from '@modules/utility/';
-import {motion} from 'framer-motion';
-import {Box, Divider, Flex, Image, jsx, Text} from 'theme-ui';
+  Tout,
+} from '@modules/ui/'
+import Card from '@modules/flashcard/card'
+import Flash from '@modules/flashcard/flash'
+import { Aligner, Indent, Video, Sound } from '@modules/utility/'
+import { motion } from 'framer-motion'
+import { Box, Divider, Flex, Image, jsx, Text } from 'theme-ui'
 
-import {Heading} from '../modules/ui/heading';
+import { Heading } from '../modules/ui/heading'
 
-import {Web3} from '@modules/web3';
+import { Web3 } from '@modules/web3'
 
 //Markdown Component overrides
 //Replace MDX html defaults with our custom implementation.
@@ -44,8 +44,8 @@ const MD_Overrides = {
   h4: (props) => <Heading level={4} {...props} />,
   h5: (props) => <Heading level={5} {...props} />,
   table: (props) => <Table {...props} />,
-  thematicBreak: (props) => <Divider sx={{my: 4}} {...props} />,
-  hr: (props) => <Divider sx={{my: 4}} {...props} />,
+  thematicBreak: (props) => <Divider sx={{ my: 4 }} {...props} />,
+  hr: (props) => <Divider sx={{ my: 4 }} {...props} />,
   p: (props) => (
     <Text
       as="p"
@@ -55,14 +55,14 @@ const MD_Overrides = {
         letterSpacing: '0.4px',
         lineHeight: '150%',
         marginBottom: '24px',
-        '& .button': {display: 'inline-block'}
+        '& .button': { display: 'inline-block' },
       }}
       {...props}
     />
   ), //NOTE(Rejon): Don't add the as="p" prop to this text component, else you'll get warnings about our interweaving.
   blockquote: Callout,
-  inlineCode: Code
-};
+  inlineCode: Code,
+}
 
 //Custom component fragments to be used in MDX.
 //If you want to use a component, but want it's MDX fragment name to be different
@@ -101,10 +101,12 @@ const Custom_Components = {
   BlogHome,
   Flash,
   Card,
-  Web3
-};
+  Web3,
+}
 
-export default {
+const overridesAndComponents = {
   ...MD_Overrides,
-  ...Custom_Components
-};
+  ...Custom_Components,
+}
+
+export default overridesAndComponents

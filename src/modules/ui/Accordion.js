@@ -1,18 +1,18 @@
 /** @jsx jsx */
-import {useState, Children} from 'react';
-import SmoothCollapse from 'react-smooth-collapse';
+import { useState, Children } from 'react'
+import SmoothCollapse from 'react-smooth-collapse'
 
-import {Box, Flex, jsx} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
+import { Box, Flex, jsx } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
 
-const Accordion = ({children, defaultOpen, openIcon, closeIcon}) => {
-  const [expanded, setExpanded] = useState(defaultOpen ? true : false);
+const Accordion = ({ children, defaultOpen, openIcon, closeIcon }) => {
+  const [expanded, setExpanded] = useState(defaultOpen ? true : false)
 
-  const _Children = Children.toArray(children);
-  const Header = _Children.splice(0, 1);
+  const _Children = Children.toArray(children)
+  const Header = _Children.splice(0, 1)
 
-  const OpenIcon = openIcon || 'plus';
-  const CloseIcon = closeIcon || 'minus';
+  const OpenIcon = openIcon || 'plus'
+  const CloseIcon = closeIcon || 'minus'
 
   return (
     <Box
@@ -22,7 +22,7 @@ const Accordion = ({children, defaultOpen, openIcon, closeIcon}) => {
         letterSpacing: '0.3px',
         borderBottom: '1px solid',
         borderColor: 'muted',
-        backgroundColor: 'background'
+        backgroundColor: 'background',
       }}>
       <Flex
         sx={{
@@ -31,10 +31,10 @@ const Accordion = ({children, defaultOpen, openIcon, closeIcon}) => {
           cursor: 'pointer',
           position: 'relative',
           px: '12px',
-          py: '10px'
+          py: '10px',
         }}
         onClick={() => setExpanded(!expanded)}>
-        <Box sx={{'& > *:only-child': {m: 0}, pr: 3}}>{Header}</Box>
+        <Box sx={{ '& > *:only-child': { m: 0 }, pr: 3 }}>{Header}</Box>
         {!expanded ? (
           <Icon
             name={OpenIcon}
@@ -43,7 +43,7 @@ const Accordion = ({children, defaultOpen, openIcon, closeIcon}) => {
               width: '20px',
               height: '20px',
               position: 'relative',
-              top: '5px'
+              top: '5px',
             }}
             size={3}
           />
@@ -54,7 +54,7 @@ const Accordion = ({children, defaultOpen, openIcon, closeIcon}) => {
               width: '20px',
               height: '20px',
               position: 'relative',
-              top: '5px'
+              top: '5px',
             }}
             color="text"
             size={3}
@@ -71,13 +71,13 @@ const Accordion = ({children, defaultOpen, openIcon, closeIcon}) => {
             px: '12px',
             fontSize: '16px',
             color: 'textMuted',
-            '& > *:only-child': {m: 0}
+            '& > *:only-child': { m: 0 },
           }}>
           {_Children}
         </Box>
       </SmoothCollapse>
     </Box>
-  );
-};
+  )
+}
 
-export default Accordion;
+export default Accordion

@@ -1,42 +1,41 @@
 /** @jsx jsx */
-import {Children, cloneElement} from 'react';
-import {jsx, Flex} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
-import {motion, AnimatePresence} from 'framer-motion';
-import {useImmer} from 'use-immer';
-import Card from './card';
-import {console} from 'window-or-global';
+import { Children } from 'react'
+import { jsx, Flex } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
+import { motion } from 'framer-motion'
+import { useImmer } from 'use-immer'
+import Card from './card'
 
-const Flash = ({children}) => {
-  const _children = Children.toArray(children);
+const Flash = ({ children }) => {
+  const _children = Children.toArray(children)
 
-  const [{answers, currentCard, completed, cards}, setState] = useImmer({
+  const [{ answers, currentCard, completed, cards }, setState] = useImmer({
     answers: [],
     cards: _children,
     currentCard: 0,
-    completed: false
-  });
+    completed: false,
+  })
 
-  let isCurrentlyRevealed = answers[currentCard]?.revealed;
+  let isCurrentlyRevealed = answers[currentCard]?.revealed
 
   const reveal = () => {
     setState((draft) => {
       draft.answers[draft.currentCard] = {
-        revealed: true
-      };
-    });
-  };
+        revealed: true,
+      }
+    })
+  }
 
   const answer = (remembered) => {
     if (!isCurrentlyRevealed) {
-      return;
+      return
     }
 
     setState((draft) => {
       draft.answers[draft.currentCard] = {
         ...draft.answers[draft.currentCard],
-        remembered
-      };
+        remembered,
+      }
 
       // const oldCards = [...draft.cards];
 
@@ -45,19 +44,19 @@ const Flash = ({children}) => {
 
       //This is the last card to answer, complete the session.
       if (currentCard === _children.length - 1) {
-        draft.completed = true;
+        draft.completed = true
       } else {
         //This isn't the last card, increment.
-        draft.currentCard += 1;
+        draft.currentCard += 1
       }
-    });
-  };
+    })
+  }
 
   const answerVariants = {
-    inactive: {opacity: 0.5, y: 10},
-    active: {opacity: 1, y: 0, transition: {duration: 0.4}},
-    completed: {opacity: 0, y: 20}
-  };
+    inactive: { opacity: 0.5, y: 10 },
+    active: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+    completed: { opacity: 0, y: 20 },
+  }
 
   return (
     <Flex
@@ -66,25 +65,25 @@ const Flash = ({children}) => {
         mb: 4,
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}>
-      <div sx={{position: 'relative', width: ['100%', '100%', 'initial']}}>
+      <div sx={{ position: 'relative', width: ['100%', '100%', 'initial'] }}>
         {cards.length > 0 && !completed && (
           <motion.div
             sx={{
               width: ['100%', '343px', '343px'],
               mb: [4, 4, 4],
               height: ['58vh', '439px', '439px'],
-              position: 'relative'
+              position: 'relative',
             }}>
-            {cards.map(({props}, index) => (
+            {cards.map(({ props }, index) => (
               <motion.div
                 key={`flash-card-${index}`}
                 sx={{
                   position: 'absolute',
                   width: '100%',
                   zIndex: _children.length - index,
-                  pointerEvents: currentCard === index ? 'all' : 'none'
+                  pointerEvents: currentCard === index ? 'all' : 'none',
                 }}>
                 <Card
                   index={index}
@@ -103,15 +102,15 @@ const Flash = ({children}) => {
         {completed && (
           <motion.div
             key={'review_complete'}
-            initial={{opacity: 0, y: 32}}
-            animate={{opacity: 1, y: 0}}
-            exit={{opacity: 0, y: -32}}
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -32 }}
             sx={{
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
-              color: 'textMuted'
+              color: 'textMuted',
             }}>
             <Icon name="checkmark" size={5} />
             <h2>Review complete</h2>
@@ -127,12 +126,12 @@ const Flash = ({children}) => {
               ? 'active'
               : 'inactive'
           }
-          sx={{position: completed ? 'absolute' : 'initial'}}>
+          sx={{ position: completed ? 'absolute' : 'initial' }}>
           <Flex
             sx={{
               color: 'flashText',
               fontWeight: '600',
-              flexDirection: ['column', 'row', 'row']
+              flexDirection: ['column', 'row', 'row'],
             }}>
             <Flex
               onClick={() => answer(false)}
@@ -150,12 +149,12 @@ const Flash = ({children}) => {
                 transition: 'all .2s ease',
                 '&:hover': isCurrentlyRevealed
                   ? {
-                      bg: 'primaryMuted'
+                      bg: 'primaryMuted',
                     }
-                  : {}
+                  : {},
               }}>
-              <Icon size={'28px'} name="refresh" sx={{mr: [3, 0, 0]}} /> Didn't
-              remember
+              <Icon size={'28px'} name="refresh" sx={{ mr: [3, 0, 0] }} />{' '}
+              Didn&apos;t remember
             </Flex>
             <Flex
               onClick={() => answer(true)}
@@ -171,18 +170,18 @@ const Flash = ({children}) => {
                 transition: 'all .2s ease',
                 '&:hover': isCurrentlyRevealed
                   ? {
-                      bg: 'primaryMuted'
+                      bg: 'primaryMuted',
                     }
-                  : {}
+                  : {},
               }}>
-              <Icon size={'22px'} name="checkmark" sx={{mr: [3, 0, 0]}} />
+              <Icon size={'22px'} name="checkmark" sx={{ mr: [3, 0, 0] }} />
               Remembered
             </Flex>
           </Flex>
         </motion.div>
       </div>
     </Flex>
-  );
-};
+  )
+}
 
-export default Flash;
+export default Flash

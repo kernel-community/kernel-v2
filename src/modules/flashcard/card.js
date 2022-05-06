@@ -1,37 +1,35 @@
-/* eslint-disable no-console */
 /** @jsx jsx */
-import React, {Children, useState, useEffect} from 'react';
-import {jsx, Flex, Text, Box} from 'theme-ui';
-import {useConnect, useAccount, useProvider} from 'wagmi';
-import {Button} from '@modules/ui';
-import {motion} from 'framer-motion';
-import {Connector} from '@src/course/connect';
-import {isRegistered} from '@src/course/contracts';
-import Web3Modal from '../web3/modal';
+import { Children, Fragment, useState, useEffect } from 'react'
+import { jsx, Flex, Text, Box } from 'theme-ui'
+import { useConnect, useAccount, useProvider } from 'wagmi'
+import { Button } from '@modules/ui'
+import { motion } from 'framer-motion'
+import { Connector } from '@src/course/connect'
+import { isRegistered } from '@src/course/contracts'
+import Web3Modal from '../web3/modal'
 
 const Web3Control = ({
   children,
   onClickButton,
   buttonText,
   descriptionText,
-  isDisabled
+  isDisabled,
 }) => {
   return (
     <div>
-      <Box sx={{padding: '0.5rem'}}>
+      <Box sx={{ padding: '0.5rem' }}>
         <Text sx={styles.connectText}>{descriptionText}</Text>
       </Box>
       <Button
-        sx={{marginX: 'auto'}}
+        sx={{ marginX: 'auto' }}
         disabled={isDisabled}
-        onClick={onClickButton}
-      >
+        onClick={onClickButton}>
         {buttonText}
       </Button>
       {children}
     </div>
-  );
-};
+  )
+}
 
 const Card = ({
   children,
@@ -40,75 +38,75 @@ const Card = ({
   isActive,
   isRevealed,
   revealCallback,
-  wasActive
+  wasActive,
 }) => {
-  const [{data, error}, connect] = useConnect();
-  const [{data: accountData}] = useAccount();
-  const provider = useProvider();
+  const [{ data, error }, connect] = useConnect()
+  const [{ data: accountData }] = useAccount()
+  const provider = useProvider()
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isUserRegistered, setIsUserRegistered] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [isUserRegistered, setIsUserRegistered] = useState(false)
 
   useEffect(() => {
     async function get() {
-      setIsUserRegistered(await isRegistered(accountData.address, provider));
+      setIsUserRegistered(await isRegistered(accountData.address, provider))
     }
     if (accountData?.address && provider) {
-      get();
+      get()
     }
-  }, [accountData?.address, provider]);
+  }, [accountData?.address, provider])
 
   const handleOnClickConnect = () => {
     connect(data.connectors[Connector.INJECTED]).then((result) => {
       if (!result.error && !isUserRegistered) {
-        setIsModalVisible(true);
+        setIsModalVisible(true)
       }
-    });
-  };
+    })
+  }
 
   const cardVariants = {
-    initial: {y: 10 * (index - currentCard), opacity: 1},
-    active: {y: 0, opacity: 1},
-    exit: {y: -64, opacity: 0, scale: 1.1}
-  };
+    initial: { y: 10 * (index - currentCard), opacity: 1 },
+    active: { y: 0, opacity: 1 },
+    exit: { y: -64, opacity: 0, scale: 1.1 },
+  }
 
   const revealCopyVariant = {
-    revealed: {opacity: 0, y: 12, transition: {duration: 0.2}},
-    initial: {opacity: 1, y: 0, transition: {duration: 0.2}}
-  };
+    revealed: { opacity: 0, y: 12, transition: { duration: 0.2 } },
+    initial: { opacity: 1, y: 0, transition: { duration: 0.2 } },
+  }
 
   const answerCopyVariant = {
-    revealed: {y: 0},
-    initial: {y: 48}
-  };
+    revealed: { y: 0 },
+    initial: { y: 48 },
+  }
 
   const postAnswerVariant = {
-    revealed: {opacity: 1},
-    initial: {opacity: 0}
-  };
+    revealed: { opacity: 1 },
+    initial: { opacity: 0 },
+  }
 
-  const currentVariant = isActive ? 'active' : wasActive ? 'exit' : 'initial';
-  const inactiveScale = 1 - 0.05 * (index - currentCard);
+  const currentVariant = isActive ? 'active' : wasActive ? 'exit' : 'initial'
+  const inactiveScale = 1 - 0.05 * (index - currentCard)
 
   const cardContainerStyle = {
     ...styles.cardContainer,
     display: index - currentCard > 2 ? 'none' : 'flex',
     opacity: inactiveScale,
-    transform: `scale(${isActive ? '1' : inactiveScale})`
-  };
+    transform: `scale(${isActive ? '1' : inactiveScale})`,
+  }
 
   const answerTextStyle = {
     ...styles.answerText,
     opacity: isRevealed ? 0.8 : 1,
-    filter: isRevealed ? 'blur(0px)' : 'blur(4px)'
-  };
+    filter: isRevealed ? 'blur(0px)' : 'blur(4px)',
+  }
 
-  const revealAnimateState = isRevealed ? 'revealed' : 'initial';
+  const revealAnimateState = isRevealed ? 'revealed' : 'initial'
 
-  const _children = Children.toArray(children);
-  const question = _children[0];
-  const answer = _children[1];
-  const postAnswer = _children.slice(2, _children.length);
+  const _children = Children.toArray(children)
+  const question = _children[0]
+  const answer = _children[1]
+  const postAnswer = _children.slice(2, _children.length)
 
   if (_children.length < 2) {
     return (
@@ -117,16 +115,16 @@ const Card = ({
           ERROR! Incorrect # of Children for Card. Please check your mdx.
         </Flex>
       </Flex>
-    );
+    )
   }
 
   return (
-    <>
+    <Fragment>
       {isModalVisible && <Web3Modal setIsVisible={setIsModalVisible} />}
       <motion.div variants={cardVariants} animate={currentVariant}>
         <Flex sx={cardContainerStyle}>
           {isActive && (
-            <>
+            <Fragment>
               <Flex sx={styles.questionText}>{question}</Flex>
               <Flex sx={styles.answerContainer}>
                 <div sx={styles.boxShadow} />
@@ -134,14 +132,12 @@ const Card = ({
                   variants={revealCopyVariant}
                   initial="initial"
                   animate={revealAnimateState}
-                  sx={{position: 'absolute'}}
-                >
+                  sx={{ position: 'absolute' }}>
                   {data.connected && isUserRegistered && (
                     <Flex onClick={revealCallback}>
                       <span
                         className="reveal-answer"
-                        sx={styles.revealAnswerText}
-                      >
+                        sx={styles.revealAnswerText}>
                         Reveal the Answer
                       </span>
                     </Flex>
@@ -159,8 +155,7 @@ const Card = ({
                       descriptionText="Connect wallet to reveal"
                       buttonText="Metamask"
                       isDisabled={!data.connectors[Connector.INJECTED].ready}
-                      onClickButton={handleOnClickConnect}
-                    >
+                      onClickButton={handleOnClickConnect}>
                       {error && error.message && <div>Failed to connect</div>}
                     </Web3Control>
                   )}
@@ -170,29 +165,27 @@ const Card = ({
                     variants={answerCopyVariant}
                     initial="initial"
                     animate={revealAnimateState}
-                    sx={answerTextStyle}
-                  >
+                    sx={answerTextStyle}>
                     {answer}
                     {_children.length > 2 && (
                       <motion.div
-                        sx={{fontSize: '12px', mt: 2}}
+                        sx={{ fontSize: '12px', mt: 2 }}
                         variants={postAnswerVariant}
                         initial="initial"
-                        animate={revealAnimateState}
-                      >
+                        animate={revealAnimateState}>
                         {postAnswer}
                       </motion.div>
                     )}
                   </motion.div>
                 )}
               </Flex>
-            </>
+            </Fragment>
           )}
         </Flex>
       </motion.div>
-    </>
-  );
-};
+    </Fragment>
+  )
+}
 
 const styles = {
   answerContainer: {
@@ -211,8 +204,8 @@ const styles = {
     flexDirection: 'column',
     '&:hover .reveal-answer': {
       transition: 'all .2s ease',
-      transform: 'scale(1.1)'
-    }
+      transform: 'scale(1.1)',
+    },
   },
   answerText: {
     overflow: 'auto',
@@ -220,15 +213,15 @@ const styles = {
       fontSize: [3, 4, 4],
       textAlign: 'center',
       fontWeight: 'bold',
-      transition: 'all .2s ease'
-    }
+      transition: 'all .2s ease',
+    },
   },
   boxShadow: {
     position: 'absolute',
     boxShadow: '0px 0 10px rgba(0,0,0,0.3)',
     top: '-13px',
     height: '13px',
-    width: '100%'
+    width: '100%',
   },
   cardContainer: {
     width: ['100%', '343px', '343px'],
@@ -239,12 +232,12 @@ const styles = {
     flexDirection: 'column',
     overflow: 'hidden',
     transformOrigin: 'bottom',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
+    boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
   },
   connectText: {
     textAlign: 'center',
     fontWeight: 'bold',
-    marginX: 'auto'
+    marginX: 'auto',
   },
   errorContainer: {
     width: '343px',
@@ -256,7 +249,7 @@ const styles = {
     overflow: 'hidden',
     position: 'relative',
     zIndex: 1,
-    boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)'
+    boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
   },
   errorText: {
     p: 3,
@@ -264,14 +257,14 @@ const styles = {
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
-    flex: '1 1 auto'
+    flex: '1 1 auto',
   },
   revealAnswerText: {
     fontSize: [3, 4, 4],
     mb: 2,
     fontWeight: 'bold',
     transform: 'scale(1)',
-    transition: 'all .2s ease'
+    transition: 'all .2s ease',
   },
   questionText: {
     alignItems: 'center',
@@ -279,8 +272,8 @@ const styles = {
     justifyContent: 'center',
     flex: '1 1 auto',
     p: [1, 2, 3],
-    fontSize: [2, 3, 4]
-  }
-};
+    fontSize: [2, 3, 4],
+  },
+}
 
-export default Card;
+export default Card
