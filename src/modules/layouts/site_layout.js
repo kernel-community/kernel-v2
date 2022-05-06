@@ -1,11 +1,11 @@
 /** @jsx jsx */
 
-import PropTypes from "prop-types";
-import { Footer, Header } from "@modules/navigation";
-import { Flex, jsx } from "theme-ui";
+import PropTypes from 'prop-types'
+import { Footer, Header } from '@modules/navigation'
+import { Flex, jsx } from 'theme-ui'
 
 const Layout = ({ children, uri }) => {
-  const hasTopSection = uri ? uri.split("/").length >= 3 : false;
+  const hasTopSection = uri ? uri.split('/').length >= 3 : false
 
   // const [showScrollCTA, setShowScrollCTA] = useState(
   //   window.sessionStorage?.getItem("ScrollCTAHidden") === "true"
@@ -70,38 +70,34 @@ const Layout = ({ children, uri }) => {
   return (
     <Flex
       sx={{
-        flexDirection: "column",
-        minHeight: "100vh",
-        height: "100%",
-      }}
-    >
+        flexDirection: 'column',
+        minHeight: '100vh',
+        height: '100%',
+      }}>
       <Header />
       <Flex
         as="main"
         sx={{
-          maxWidth: "1296px",
-          flex: "1 0 auto",
-          width: "100%",
-          m: "0 auto",
+          maxWidth: '1296px',
+          flex: '1 0 auto',
+          width: '100%',
+          m: '0 auto',
           pr: 0,
-          pt: ["90px", "90px", "unset"],
-          position: "relative",
+          pt: ['90px', '90px', 'unset'],
+          position: 'relative',
         }}
-        className="content-boundary"
-      >
+        className="content-boundary">
         <Flex
           sx={{
             flexGrow: 1,
-            flexDirection: "column",
-            width: hasTopSection ? "80%" : "",
-          }}
-        >
+            flexDirection: 'column',
+            width: hasTopSection ? '80%' : '',
+          }}>
           <Flex
             sx={{
-              alignItems: "start",
+              alignItems: 'start',
               // pr: ["unset", "unset", "64px"],
-            }}
-          >
+            }}>
             {children}
           </Flex>
         </Flex>
@@ -172,11 +168,11 @@ const Layout = ({ children, uri }) => {
         </Button>
       </motion.div> */}
     </Flex>
-  );
-};
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
-export default Layout;
+export default Layout

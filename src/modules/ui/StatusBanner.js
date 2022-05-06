@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import {Box, jsx} from 'theme-ui';
-import {HexLuminanceCheck, colorToHex} from '@utils';
-import Sticky from 'react-sticky-el';
+import { Box, jsx } from 'theme-ui'
+import { HexLuminanceCheck, colorToHex } from '@utils'
+import Sticky from 'react-sticky-el'
 
-const StatusBanner = ({warning, sticky, children, hideSpacer, variant}) => {
-  const _variantKey = variant || (warning ? 'warning' : null) || 'primary';
+const StatusBanner = ({ warning, sticky, children, hideSpacer, variant }) => {
+  const _variantKey = variant || (warning ? 'warning' : null) || 'primary'
 
   //Check if the color of the BG (for sticky), passes our luminance test.
   //If it returns true, it's light, so we use a DARK text color.
@@ -12,18 +12,18 @@ const StatusBanner = ({warning, sticky, children, hideSpacer, variant}) => {
   const luminCheck = (_color, _variant) => {
     //The _color that comes in is from theme-ui below. It passes var(--theme-ui-color-variable, #000000);.
     //We just strip out the hex color.
-    const hexColor = _color.slice(_color.indexOf('#'), _color.length - 1);
+    const hexColor = _color.slice(_color.indexOf('#'), _color.length - 1)
 
     return HexLuminanceCheck(colorToHex(hexColor)) &&
       _variant !== 'successAlt' &&
       _variant !== 'warning'
       ? 'text'
-      : '#000';
-  };
+      : '#000'
+  }
 
   //If a  custom color is passed in, set it's text color if it passes the luminance test.
   const copyColor = (theme) =>
-    luminCheck(theme.colors[_variantKey], _variantKey);
+    luminCheck(theme.colors[_variantKey], _variantKey)
 
   const SBElement = () => (
     <Box
@@ -39,27 +39,27 @@ const StatusBanner = ({warning, sticky, children, hideSpacer, variant}) => {
         fontSize: 3,
         letterSpace: '0.3px',
         '& > *:last-child': {
-          mb: 0
+          mb: 0,
         },
         '& a': {
           textDecoration: 'underline',
           color: copyColor,
           '&.active': {
-            color: copyColor
+            color: copyColor,
           },
           '&:hover': {
-            color: copyColor
+            color: copyColor,
           },
           '&:hover > svg': {
-            color: copyColor
-          }
+            color: copyColor,
+          },
         },
         mb: '12px',
-        width: '100%'
+        width: '100%',
       }}>
       {children}
     </Box>
-  );
+  )
 
   if (sticky) {
     return (
@@ -68,24 +68,24 @@ const StatusBanner = ({warning, sticky, children, hideSpacer, variant}) => {
         stickyClassName="sticking"
         dontUpdateHolderHeightWhenSticky={true}
         sx={{
-          '& > *': {zIndex: '100'},
+          '& > *': { zIndex: '100' },
           width: '100%',
           '.sticking > .spacer:first-of-type:not(:last-child)': {
-            height: '24px'
+            height: '24px',
           },
           '.sticking > .statusBanner': {
-            boxShadow: 'float'
-          }
+            boxShadow: 'float',
+          },
         }}>
         {!hideSpacer && <div className="spacer"></div>}
         <SBElement />
         {/* NOTE(Rejon): Sticky acts weird when applying ANY margin. This spacer is here to keep the peace. */}
-        {!hideSpacer && <div className="spacer" sx={{height: '24px'}}></div>}
+        {!hideSpacer && <div className="spacer" sx={{ height: '24px' }}></div>}
       </Sticky>
-    );
+    )
   }
 
-  return <SBElement />;
-};
+  return <SBElement />
+}
 
-export default StatusBanner;
+export default StatusBanner

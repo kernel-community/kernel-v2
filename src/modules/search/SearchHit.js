@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import {jsx, Text} from 'theme-ui';
-import {Link} from '@modules/navigation';
+import { jsx, Text } from 'theme-ui'
+import { Link } from '@modules/navigation'
 
-const SearchHit = ({title, excerpt, isBlog, url, ...props}) => (
+const SearchHit = ({ title, excerpt, isBlog, url, ...props }) => (
   <Link
     to={url}
     partiallyActive={false}
@@ -16,8 +16,8 @@ const SearchHit = ({title, excerpt, isBlog, url, ...props}) => (
         display: 'block',
         textDecoration: 'none',
         '& mark': {
-          backgroundColor: 'primary'
-        }
+          backgroundColor: 'primary',
+        },
       }}>
       {title} {isBlog ? ' - Blog' : ''}
     </Text>
@@ -28,12 +28,12 @@ const SearchHit = ({title, excerpt, isBlog, url, ...props}) => (
         fontWeight: '400',
         fontSize: '14px',
         '& mark': {
-          backgroundColor: 'primary'
-        }
+          backgroundColor: 'primary',
+        },
       }}>
       {excerpt}
     </Text>
   </Link>
-);
+)
 
-export default SearchHit;
+export default SearchHit
