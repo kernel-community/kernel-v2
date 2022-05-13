@@ -40,12 +40,26 @@ const Card = ({
   revealCallback,
   wasActive,
 }) => {
-  const [{ data, error }, connect] = useConnect()
-  const [{ data: accountData }] = useAccount()
-  const provider = useProvider()
-
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [isUserRegistered, setIsUserRegistered] = useState(false)
+
+  const handleOnAccountConnected = () => {
+    if (!isUserRegistered) {
+      setIsModalVisible(true)
+    }
+  }
+
+  const { data: accountData } = useAccount()
+  const provider = useProvider()
+  const { error, connect, connectors, isConnected } = useConnect({
+    onConnect: handleOnAccountConnected,
+  })
+
+  const [connector, setConnector] = useState(connectors[Connector.INJECTED])
+
+  useEffect(() => {
+    setConnector(connector)
+  }, [isConnected])
 
   useEffect(() => {
     async function get() {
@@ -55,14 +69,6 @@ const Card = ({
       get()
     }
   }, [accountData?.address, provider])
-
-  const handleOnClickConnect = () => {
-    connect(data.connectors[Connector.INJECTED]).then((result) => {
-      if (!result.error && !isUserRegistered) {
-        setIsModalVisible(true)
-      }
-    })
-  }
 
   const cardVariants = {
     initial: { y: 10 * (index - currentCard), opacity: 1 },
@@ -133,7 +139,7 @@ const Card = ({
                   initial="initial"
                   animate={revealAnimateState}
                   sx={{ position: 'absolute' }}>
-                  {data.connected && isUserRegistered && (
+                  {isConnected && isUserRegistered && (
                     <Flex onClick={revealCallback}>
                       <span
                         className="reveal-answer"
@@ -142,25 +148,29 @@ const Card = ({
                       </span>
                     </Flex>
                   )}
-                  {data.connected && !isUserRegistered && (
+                  {isConnected && !isUserRegistered && (
                     <Web3Control
                       descriptionText="Register to reveal"
                       buttonText="Register"
-                      isDisabled={!data.connectors[Connector.INJECTED].ready}
+                      isDisabled={!connector.ready}
                       onClickButton={() => setIsModalVisible(true)}
                     />
                   )}
-                  {!data.connected && (
+                  {!isConnected && (
                     <Web3Control
                       descriptionText="Connect wallet to reveal"
                       buttonText="Metamask"
-                      isDisabled={!data.connectors[Connector.INJECTED].ready}
-                      onClickButton={handleOnClickConnect}>
-                      {error && error.message && <div>Failed to connect</div>}
+                      isDisabled={!connector.ready}
+                      onClickButton={() => {
+                        connect(connector)
+                      }}>
+                      {error?.message && (
+                        <div sx={styles.connectError}>Failed to connect</div>
+                      )}
                     </Web3Control>
                   )}
                 </motion.div>
-                {data.connected && isUserRegistered && (
+                {isConnected && isUserRegistered && (
                   <motion.div
                     variants={answerCopyVariant}
                     initial="initial"
@@ -233,6 +243,9 @@ const styles = {
     overflow: 'hidden',
     transformOrigin: 'bottom',
     boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+  },
+  connectError: {
+    textAlign: 'center',
   },
   connectText: {
     textAlign: 'center',

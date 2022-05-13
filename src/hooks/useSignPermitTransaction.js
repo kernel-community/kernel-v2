@@ -13,7 +13,7 @@ const types = {
 }
 
 const useSignPermitTransaction = ({ provider, address }) => {
-  const [, signMessage] = useSignTypedData()
+  const { signTypedDataAsync } = useSignTypedData()
 
   return async ({ nonce, expiry }) => {
     const { chainId } = await provider.getNetwork()
@@ -32,7 +32,7 @@ const useSignPermitTransaction = ({ provider, address }) => {
       allowed: true,
     }
 
-    const { data: message } = await signMessage({
+    const { data: message } = await signTypedDataAsync({
       domain,
       types,
       value,
