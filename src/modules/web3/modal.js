@@ -13,8 +13,8 @@ import { Icon } from '@makerdao/dai-ui-icons'
 
 const Web3 = ({ setIsVisible }) => {
   const provider = useProvider()
-  const [{ data: accountData }] = useAccount()
-  const [{ data: signer }] = useSigner()
+  const { data: accountData } = useAccount()
+  const { data: signer } = useSigner()
   const signTransaction = useSignPermitTransaction({
     provider,
     address: accountData?.address,
