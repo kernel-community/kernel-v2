@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+import { useState, useEffect } from 'react'
 
 import ProgressBar from './ProgressBar'
 import Audio from './Audio'
@@ -41,14 +43,14 @@ const AudioPlayer = ({ src }) => {
   }
 
   return (
-    <div style={styles.container}>
+    <div sx={styles.container}>
       <Audio src={src} />
       <PlayControl
         isPlaying={isPlaying}
         handleOnClick={handleOnClickPlayControl}
       />
-      <div style={styles.rightContainer}>
-        <div style={styles.listenCTA}>Listen to this article</div>
+      <div sx={styles.rightContainer}>
+        <div sx={styles.listenCTA}>Listen to this article</div>
         <ProgressBar
           currentTime={currentTime}
           duration={duration}
@@ -66,10 +68,10 @@ const styles = {
     flexDirection: 'row',
     marginBottom: '3rem',
     overflow: 'hidden',
-    padding: '1rem 3rem 1rem 1rem',
+    padding: ['1rem 1rem 1rem 0', '1rem 1rem 1rem 0', '1rem 3rem 1rem 1rem'],
   },
   listenCTA: {
-    fontSize: '1.5rem',
+    fontSize: [ '1rem', '1rem', '1.5rem'],
   },
   rightContainer: {
     flexGrow: 10,

@@ -1,4 +1,5 @@
-import React from 'react'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { format, addSeconds } from 'date-fns'
 
 const ProgressBar = ({ currentTime, duration, onTimeUpdate }) => {
@@ -43,12 +44,12 @@ const ProgressBar = ({ currentTime, duration, onTimeUpdate }) => {
   }
 
   return (
-    <div style={styles.container}>
-      <span style={styles.timeText}>{formatDuration(currentTime)}</span>
+    <div sx={styles.container}>
+      <span sx={styles.timeText}>{formatDuration(currentTime)}</span>
       <div id="progressBar" style={barStyle} onMouseDown={handleBarInteraction}>
-        <span style={knobStyle} />
+        <span sx={knobStyle} />
       </div>
-      <span style={styles.timeText}>{formatDuration(duration)}</span>
+      <span sx={styles.timeText}>{formatDuration(duration)}</span>
     </div>
   )
 }
@@ -80,7 +81,7 @@ const styles = {
     width: '16px',
   },
   timeText: {
-    fontSize: '1.5rem',
+    fontSize: ['.8rem', '.8rem', '1.5rem'],
   },
 }
 
