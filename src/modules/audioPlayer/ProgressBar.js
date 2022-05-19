@@ -82,7 +82,7 @@ const styles = {
   },
   timeText: {
     fontSize: ['.8rem', '.8rem', '1.5rem'],
-    width: '10%'
+    width: '10%',
   },
 }
 
