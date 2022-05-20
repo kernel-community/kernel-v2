@@ -52,7 +52,7 @@ Whether the learner claims their fee back as is (choosing not to become a token 
 
 What is the incentive for minting LEARN, then? It's twofold: you now hold a token of membership in an epistemic community, and the LEARN contract ensures programmatically that less LEARN is minted as more collateral collects in it. **Note:** this is not a guarantee that the price will always increase, as there is a two-sided market and people can always burn LEARN and claim back the underlying collateral. 
 
-If a learner “falls off”, the fee continues to earn yield until all checkpoints are passed, after which they can claim back the original fee, while all yield is returned to the course creator.
+If a learner “falls off”, the fee continues to earn yield until the course duration is passed, after which they can claim back the original fee, while all yield is returned to the course creator.
 
 </Process>
 
@@ -62,11 +62,11 @@ The course remains totally free, though additional features to enhance learning 
 
 ## 3. Technique
 
-All that is required to introduce economic incentives into Matuschak and Nielsen’s mnemonic medium is two new contracts on Ethereum: the Kernel Factory, and the Learning Curve. The Factory is used to create any new course. These courses need not be based on spaced repetitive prompts. All that is required to launch a new course is a “fee”, a number of “checkpoints” at which learners can claim or mint a portion of the fee, a "url" where the course lives and an address for its creator where yield earned on staked fees can be sent.
+All that is required to introduce economic incentives into Matuschak and Nielsen’s mnemonic medium is two new contracts on Ethereum: DeSchool, and the Learning Curve. The Factory is used to create any new course. These courses need not be based on spaced repetitive prompts. All that is required to launch a new course is a “fee”, a "duration" in blocks for the course to run, a "url" where the course lives and an address for its creator where yield earned on staked fees can be sent.
 
-The Factory accepts the fee when any learner registers and locks it in a low-risk yield-bearing protocol. It then returns the fee to the learner if they choose to claim it back at a checkpoint or the end of the course. Alternatively, it sends the fee to the Learning Curve, which mints LEARN (an ERC20 token) and returns that to the learner. If a learner has not completed after the specified period, it still allows them to claim the fee back, and ensures the yield is always returned to the creator. 
+DeSchool accepts the fee when any learner registers and locks it in a low-risk yield-bearing protocol. It then returns the fee to the learner if they choose to claim it back after the duration of the course. Alternatively, it sends the fee to the Learning Curve, which mints LEARN (an ERC20 token) and returns that to the learner. Once the duration of the course is passed, without any assessment, learners may claim their fee back, while DeSchool ensures the yield is always returned to the creator. 
 
-In fact, the Factory has not notion of a "completed" course, because we believe education is moving away from assessment and examination and toward contributions and open source attribution. We're not interested in testing people, which would always necessarily require some kind of privileged role in the contract itself. We're only interested in the sort of general template that can exist indefinitely and continue to provide value to as great a variety of educational models as possible.
+In fact, DeSchool has no other notion of a "completed" course, because we believe education is moving away from assessment and examination and toward contributions and open source attribution. We're not interested in testing people, which would always necessarily require some kind of privileged role in the contract itself. We're only interested in the sort of general template that can exist indefinitely and continue to provide value to as great a variety of educational models as possible.
 
 The Learning Curve mints LEARN according to a [price curve which increases linearly as a function of the total collateral locked](https://docs.google.com/spreadsheets/d/1hjWFGPC_B9D7b6iI00DTVVLrqRFv3G5zFNiCBS7y_V8/edit?usp=sharing). This means, as time progresses and more collateral is locked as more people take the course, the price of each LEARN increases. This provides an incentive for those who believe in the model, and our course content, to seed the curve early on and mint LEARN at lower prices. Anyone can mint LEARN. Anyone can send LEARN to the contract, which it “burns” as it returns the underlying collateral. This creates the conditions required for a viable secondary market. 
 

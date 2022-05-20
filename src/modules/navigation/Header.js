@@ -33,7 +33,6 @@ const ColorModeToggles = () => {
             p: '2px',
             bg: colorMode !== 'default' ? 'transparent' : 'primary',
             color: colorMode !== 'default' ? 'text' : 'onBackgroundAlt',
-
             minWidth: '32px',
             minHeight: '32px',
             cursor: 'pointer',
