@@ -1,35 +1,11 @@
 /** @jsx jsx */
 import { Children, Fragment, useState, useEffect } from 'react'
-import { jsx, Flex, Text, Box } from 'theme-ui'
+import { jsx, Flex } from 'theme-ui'
 import { useConnect, useAccount, useProvider } from 'wagmi'
-import { Button } from '@modules/ui'
 import { motion } from 'framer-motion'
 import { Connector } from '@src/course/connect'
 import { isRegistered } from '@src/course/contracts'
-import Web3Modal from '../web3/modal'
-
-const Web3Control = ({
-  children,
-  onClickButton,
-  buttonText,
-  descriptionText,
-  isDisabled,
-}) => {
-  return (
-    <div>
-      <Box sx={{ padding: '0.5rem' }}>
-        <Text sx={styles.connectText}>{descriptionText}</Text>
-      </Box>
-      <Button
-        sx={{ marginX: 'auto' }}
-        disabled={isDisabled}
-        onClick={onClickButton}>
-        {buttonText}
-      </Button>
-      {children}
-    </div>
-  )
-}
+import { Modal as Web3Modal, Button as Web3Button } from '@src/modules/web3'
 
 const Card = ({
   children,
@@ -149,7 +125,7 @@ const Card = ({
                     </Flex>
                   )}
                   {isConnected && !isUserRegistered && (
-                    <Web3Control
+                    <Web3Button
                       descriptionText="Register to reveal"
                       buttonText="Register"
                       isDisabled={!connector.ready}
@@ -157,7 +133,7 @@ const Card = ({
                     />
                   )}
                   {!isConnected && (
-                    <Web3Control
+                    <Web3Button
                       descriptionText="Connect wallet to reveal"
                       buttonText="Metamask"
                       isDisabled={!connector.ready}
@@ -167,7 +143,7 @@ const Card = ({
                       {error?.message && (
                         <div sx={styles.connectError}>Failed to connect</div>
                       )}
-                    </Web3Control>
+                    </Web3Button>
                   )}
                 </motion.div>
                 {isConnected && isUserRegistered && (

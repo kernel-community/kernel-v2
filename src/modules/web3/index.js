@@ -1,1 +1,4 @@
-export { default as Web3 } from './modal'
+import Modal from './modal'
+import Button from './button'
+
+export { Modal, Button }
