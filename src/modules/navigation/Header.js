@@ -1,20 +1,20 @@
-/** @jsx jsx */
+import React, { Fragment, useEffect, useRef } from 'react'
+import { Box, Flex, useColorMode } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
+import { Link } from '@modules/navigation'
+import { useNavigation } from '@modules/navigation/context'
+import { useTranslation } from '@modules/localization'
+import Search from '@modules/search'
+import theme from '@src/gatsby-plugin-theme-ui/'
 
-import {Fragment, useEffect, useRef} from 'react';
-import {jsx, Box, Flex, useColorMode} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
-import {Link} from '@modules/navigation';
-import {useNavigation} from '@modules/navigation/context';
-import {useTranslation} from '@modules/localization';
-import Search from '@modules/search';
-import theme from '@src/gatsby-plugin-theme-ui/';
+var lastScroll = 0 //<- Last scroll top of window. Defined outside because we don't want to re-render for scrolling.
+var delta = 5 //<- Rate of change in scroll needed to hide the header.
 
-var lastScroll = 0; //<- Last scroll top of window. Defined outside because we don't want to re-render for scrolling.
-var delta = 5; //<- Rate of change in scroll needed to hide the header.
-var isShowingMenu = false; //<- For document  event listeners to know if the menu is being shown or not.
+/* eslint-disable no-unused-vars */
+var isShowingMenu = false //<- For document  event listeners to know if the menu is being shown or not.
 
 const ColorModeToggles = () => {
-  const [colorMode, setColorMode] = useColorMode();
+  const [colorMode, setColorMode] = useColorMode()
 
   return (
     <Fragment>
@@ -23,7 +23,7 @@ const ColorModeToggles = () => {
           display: ['none', 'none', 'inline-block'],
           height: '32px',
           width: '32px',
-          mr: '21px'
+          mr: '21px',
         }}>
         <Icon
           size={'32px'}
@@ -33,17 +33,16 @@ const ColorModeToggles = () => {
             p: '2px',
             bg: colorMode !== 'default' ? 'transparent' : 'primary',
             color: colorMode !== 'default' ? 'text' : 'onBackgroundAlt',
-
             minWidth: '32px',
             minHeight: '32px',
             cursor: 'pointer',
             '&:hover': {
-              bg: colorMode !== 'default' ? 'background' : ''
-            }
+              bg: colorMode !== 'default' ? 'background' : '',
+            },
           }}
           onClick={() => {
             if (colorMode !== 'default') {
-              setColorMode('default');
+              setColorMode('default')
             }
           }}
         />
@@ -53,7 +52,7 @@ const ColorModeToggles = () => {
         sx={{
           display: ['none', 'none', 'inline-block'],
           height: '32px',
-          width: '32px'
+          width: '32px',
         }}>
         <Icon
           size={'32px'}
@@ -68,22 +67,22 @@ const ColorModeToggles = () => {
             cursor: 'pointer',
             '&:hover': {
               bg: colorMode !== 'dark' ? 'surfaceDark' : '',
-              color: colorMode !== 'dark' ? 'background' : 'onPrimary'
-            }
+              color: colorMode !== 'dark' ? 'background' : 'onPrimary',
+            },
           }}
           onClick={() => {
             if (colorMode !== 'dark') {
-              setColorMode('dark');
+              setColorMode('dark')
             }
           }}
         />
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-const HeaderNav = ({headerLinks, hideMenu}) => {
-  const {locale, t} = useTranslation();
+const HeaderNav = ({ headerLinks, hideMenu }) => {
+  const { locale, t } = useTranslation()
 
   return (
     <Fragment>
@@ -96,7 +95,7 @@ const HeaderNav = ({headerLinks, hideMenu}) => {
           color: 'onBackgroundAlt',
           letterSpacing: '0.3px',
           width: '52px',
-          height: '52px'
+          height: '52px',
         }}>
         <div>
           <Icon name="kernel_icon_color" color="primary" size={'52px'} />
@@ -109,8 +108,8 @@ const HeaderNav = ({headerLinks, hideMenu}) => {
           ml: [3, 3, '56px'],
           alignItems: 'center',
           justifyContent: 'center',
-          '& > a': {fontSize: '16px', p: 2, textAlign: 'center'},
-          '& > a:not(:last-child)': {mr: '1.4vw'}
+          '& > a': { fontSize: '16px', p: 2, textAlign: 'center' },
+          '& > a:not(:last-child)': { mr: '1.4vw' },
         }}>
         <Link
           to={`/${locale}/`}
@@ -120,7 +119,7 @@ const HeaderNav = ({headerLinks, hideMenu}) => {
             textDecoration: 'none',
             fontWeight: 'normal',
             letterSpacing: '0.3px',
-            color: 'text'
+            color: 'text',
           }}>
           {t('Home')}
         </Link>
@@ -129,18 +128,18 @@ const HeaderNav = ({headerLinks, hideMenu}) => {
           hideExternalIcon
           sx={{
             fontWeight: 'normal',
-            flexShrink: 0
+            flexShrink: 0,
           }}>
           {t('Love')}
         </Link>
-        {headerLinks.map(({url, title}, index) => (
+        {headerLinks.map(({ url, title }, index) => (
           <Link
             to={url}
             hideExternalIcon
             key={`header-link-${index}`}
             sx={{
               fontWeight: 'normal',
-              flexShrink: 0
+              flexShrink: 0,
             }}>
             {t(title)}
           </Link>
@@ -149,84 +148,80 @@ const HeaderNav = ({headerLinks, hideMenu}) => {
           to={'/blog'}
           sx={{
             fontWeight: 'normal',
-            flexShrink: 0
+            flexShrink: 0,
           }}>
           {t('Blog')}
         </Link>
       </Flex>
     </Fragment>
-  );
-};
+  )
+}
 
 const Header = () => {
-  const headerContainer = useRef(null);
-  const {
-    headerLinks,
-    mobileNavOpen,
-    showMobileMenu,
-    hideMobileMenu
-  } = useNavigation();
+  const headerContainer = useRef(null)
+  const { headerLinks, mobileNavOpen, showMobileMenu, hideMobileMenu } =
+    useNavigation()
 
-  const breakpoints = theme.breakpoints.slice(0, -1); //NOTE(Rejon): The last element of the break point array SHOULD be infinity.
+  const breakpoints = theme.breakpoints.slice(0, -1) //NOTE(Rejon): The last element of the break point array SHOULD be infinity.
 
   const onMenuClick = () => {
     if (mobileNavOpen) {
-      hideMobileMenu(lastScroll);
+      hideMobileMenu(lastScroll)
     } else {
-      showMobileMenu();
+      showMobileMenu()
     }
 
     // eslint-disable-next-line
-    isShowingMenu = !mobileNavOpen;
-  };
+    isShowingMenu = !mobileNavOpen
+  }
 
   const hideMenu = () => {
     if (mobileNavOpen) {
       // eslint-disable-next-line
-      isShowingMenu = false;
-      hideMobileMenu();
+      isShowingMenu = false
+      hideMobileMenu()
     }
-  };
+  }
 
   useEffect(() => {
     const onScroll = () => {
       if (headerContainer.current && !mobileNavOpen) {
         const inMobileRange = breakpoints.some(
           (n) => window.innerWidth <= parseInt(n)
-        );
+        )
 
         if (inMobileRange) {
-          const headerHeight = headerContainer.current.offsetHeight;
-          const currentScroll = window.scrollY;
+          const headerHeight = headerContainer.current.offsetHeight
+          const currentScroll = window.scrollY
 
           //Scroll must be more than the delta.
-          if (Math.abs(lastScroll - currentScroll) <= delta) return;
+          if (Math.abs(lastScroll - currentScroll) <= delta) return
 
           //If you scroll down AND our scroll top is greater than our header,
           //hide it.
           if (currentScroll > lastScroll && currentScroll > headerHeight) {
-            headerContainer.current.classList.add('hide-nav');
+            headerContainer.current.classList.add('hide-nav')
           } else {
             //We've scrolled up OR our scrollTop is less than the header.
-            headerContainer.current.classList.remove('hide-nav');
+            headerContainer.current.classList.remove('hide-nav')
           }
 
-          lastScroll = currentScroll;
+          lastScroll = currentScroll
         } else {
           //Render the header as normal without the "show/hide logic"
-          headerContainer.current.classList.remove('hide-nav');
+          headerContainer.current.classList.remove('hide-nav')
         }
       }
-    };
+    }
 
     if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll)
 
       return () => {
-        window.removeEventListener('scroll', onScroll);
-      };
+        window.removeEventListener('scroll', onScroll)
+      }
     }
-  }, [breakpoints, mobileNavOpen]);
+  }, [breakpoints, mobileNavOpen])
 
   return (
     <Box
@@ -240,8 +235,8 @@ const Header = () => {
         transform: 'translateY(0px)',
         top: 0,
         '&.hide-nav': {
-          transform: 'translateY(-190px)'
-        }
+          transform: 'translateY(-190px)',
+        },
       }}>
       <Flex
         sx={{
@@ -253,10 +248,10 @@ const Header = () => {
           px: [3, '30px', '22px'],
           py: '19px',
           alignItems: 'center',
-          '& a': {color: 'text', textDecoration: 'none'},
-          '& a.external-link > svg': {display: 'none'},
+          '& a': { color: 'text', textDecoration: 'none' },
+          '& a.external-link > svg': { display: 'none' },
           '& a:hover': {
-            textDecoration: 'none'
+            textDecoration: 'none',
           },
           '&::after': {
             content: '""',
@@ -267,8 +262,8 @@ const Header = () => {
             background:
               'linear-gradient(90deg, rgba(115,115,125,0.1) 0%, rgba(115,115,125,1) 50%, rgba(115,115,125,0.1) 100%)',
             position: 'absolute',
-            bottom: 0
-          }
+            bottom: 0,
+          },
         }}>
         <HeaderNav headerLinks={headerLinks} hideMenu={hideMenu} />
         <Flex
@@ -278,7 +273,7 @@ const Header = () => {
             alignItems: 'center',
             letterSpacing: '0.3px',
             color: 'onBackgroundAlt',
-            flexDirection: 'row'
+            flexDirection: 'row',
           }}>
           <Search
             collapse
@@ -291,7 +286,7 @@ const Header = () => {
               fontFamily: 'body',
               letterSpacing: '0.3px',
               display: 'inline-block',
-              fontSize: '15px'
+              fontSize: '15px',
             }}
           />
 
@@ -306,7 +301,7 @@ const Header = () => {
             color: 'currentColor',
             cursor: 'pointer',
             ml: '1rem',
-            display: ['initial', 'initial', 'none']
+            display: ['initial', 'initial', 'none'],
           }}
         />
       </Flex>
@@ -324,16 +319,16 @@ const Header = () => {
             opacity: 0,
             transformOrigin: 'center',
             transform: 'scaleX(0)',
-            transition: 'all .1s cubic-bezier(0.65, 0, 0.35, 1)'
+            transition: 'all .1s cubic-bezier(0.65, 0, 0.35, 1)',
           },
           '&.visible::after': {
             opacity: 1,
             transform: 'scaleX(1)',
-            transition: 'all .5s cubic-bezier(0.65, 0, 0.35, 1)'
-          }
+            transition: 'all .5s cubic-bezier(0.65, 0, 0.35, 1)',
+          },
         }}></Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

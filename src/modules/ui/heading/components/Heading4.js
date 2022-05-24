@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
-import {jsx} from 'theme-ui';
-import {Text} from 'theme-ui';
+import { jsx } from 'theme-ui'
+import { Text } from 'theme-ui'
 
 export default function Heading4(props) {
   return (
@@ -23,12 +23,12 @@ export default function Heading4(props) {
           fontSize: 7,
           position: 'relative',
           left: '10px',
-          top: '-8px'
+          top: '-8px',
         },
-        '&:hover > .anchor-link': {opacity: 1},
-        '& > .anchor-link:hover': {opacity: 1, color: 'primary'}
+        '&:hover > .anchor-link': { opacity: 1 },
+        '& > .anchor-link:hover': { opacity: 1, color: 'primary' },
       }}
       {...props}
     />
-  );
+  )
 }

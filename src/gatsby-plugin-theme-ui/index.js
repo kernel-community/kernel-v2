@@ -1,31 +1,31 @@
-/* eslint-disable import/no-anonymous-default-export */
-import React from 'react';
-import {icons as themeIcons} from '@makerdao/dai-ui-icons';
-import {icons as brandingIcons} from '@makerdao/dai-ui-icons-branding';
-import maker from '@makerdao/dai-ui-theme-maker';
+import React from 'react'
+import { icons as themeIcons } from '@makerdao/dai-ui-icons'
+import { icons as brandingIcons } from '@makerdao/dai-ui-icons-branding'
+import maker from '@makerdao/dai-ui-theme-maker'
 
 const prismPreset = {
   color: 'codeText',
   backgroundColor: 'codeBG',
   '.selector, .attr-name, .string, .char, .builtin, .inserted': {
-    color: 'primaryEmphasis'
+    color: 'primaryEmphasis',
   },
   // comments and characters like <, =>, (), etc
   '.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url': {
-    color: 'codeText'
+    color: 'codeText',
   },
   '.comment': {
     fontStyle: 'italic',
-    color: 'primaryMuted'
+    color: 'primaryMuted',
   },
   // class names, functions and numbers
-  '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .maybe-class-name, .regex, .important, .variable': {
-    color: 'secondary'
-  },
+  '.property, .tag, .boolean, .number, .constant, .symbol, .deleted, .function, .class-name, .maybe-class-name, .regex, .important, .variable':
+    {
+      color: 'secondary',
+    },
 
   // keywords like const, return
   '.atrule, .attr-value, .keyword': {
-    color: 'primaryEmphasis'
+    color: 'primaryEmphasis',
   },
 
   fontSize: 3,
@@ -34,8 +34,8 @@ const prismPreset = {
   overflow: 'auto',
   p: 3,
   mt: 0,
-  borderRadius: '4px'
-};
+  borderRadius: '4px',
+}
 
 export default {
   ...maker, //<- Your default theme.
@@ -56,7 +56,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 20 20'
+      viewBox: '0 0 20 20',
     },
     kernel_icon: {
       path: (
@@ -67,7 +67,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 212 212'
+      viewBox: '0 0 212 212',
     },
     kernel_icon_color: {
       path: (
@@ -86,7 +86,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 212 210'
+      viewBox: '0 0 212 210',
     },
     kernel_logo: {
       path: (
@@ -117,7 +117,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 266.9 90.6'
+      viewBox: '0 0 266.9 90.6',
     },
     minus: {
       path: (
@@ -128,7 +128,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 20 20'
+      viewBox: '0 0 20 20',
     },
     moon: {
       path: (
@@ -137,11 +137,10 @@ export default {
             fillRule="evenodd"
             clipRule="evenodd"
             d="M2.28169 13.032C5.28246 14.5482 9.03909 14.0528 11.5459 11.546C14.0528 9.03911 14.5481 5.28247 13.032 2.28171C13.771 2.65508 14.4641 3.15043 15.0815 3.76778C18.2057 6.89197 18.2057 11.9573 15.0815 15.0815C11.9573 18.2057 6.89196 18.2057 3.76777 15.0815C3.15042 14.4641 2.65506 13.771 2.28169 13.032Z"
-            fill="currentColor"
           />
         </g>
       ),
-      viewBox: '0 0 20 20'
+      viewBox: '0 0 20 20',
     },
     sun: {
       path: (
@@ -154,7 +153,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 20 20'
+      viewBox: '0 0 20 20',
     },
     github: {
       path: (
@@ -165,7 +164,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 136 133'
+      viewBox: '0 0 136 133',
     },
     clipboard: {
       path: (
@@ -176,7 +175,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     folder: {
       path: (
@@ -187,7 +186,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     forum: {
       path: (
@@ -198,7 +197,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     globe: {
       path: (
@@ -209,7 +208,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     laptop: {
       path: (
@@ -220,7 +219,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     pencil: {
       path: (
@@ -231,7 +230,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     people: {
       path: (
@@ -242,7 +241,7 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
+      viewBox: '0 0 48 48',
     },
     wrench: {
       path: (
@@ -253,8 +252,8 @@ export default {
           />
         </g>
       ),
-      viewBox: '0 0 48 48'
-    }
+      viewBox: '0 0 48 48',
+    },
   }, //<- Icon package
   colors: {
     ...maker.colors, //<- Deconstruct maker.colors so default colors aren't lost.
@@ -342,8 +341,8 @@ export default {
         flashCardAnswerBG: '2e2949',
         flashText: '#fff',
         flashCorrectBG: '#00EC9F',
-        flashWarningBG: '#FFBA44'
-      }
+        flashWarningBG: '#FFBA44',
+      },
     },
 
     statusBG: '#291A42',
@@ -354,17 +353,17 @@ export default {
     calloutSecondaryBorder: '#F5B13D',
 
     codeBG: '#4D4968',
-    codeText: '#FFFFFF'
+    codeText: '#FFFFFF',
   },
   text: {
     text: {
       ...maker.text.text,
       color: 'text',
-      marginBottom: '24px'
+      marginBottom: '24px',
     },
     heading: {
       ...maker.text.heading,
-      color: 'text'
+      color: 'text',
     },
     h1: {
       fontSize: ['48px', '48px', '48px'],
@@ -373,7 +372,7 @@ export default {
       fontFamily: 'heading',
       color: 'text',
       marginTop: '48px',
-      marginBottom: '32px'
+      marginBottom: '32px',
     },
     h2: {
       fontSize: '32px',
@@ -382,7 +381,7 @@ export default {
       fontFamily: 'heading',
       color: 'text',
       marginTop: '48px',
-      marginBottom: '24px'
+      marginBottom: '24px',
     },
     h3: {
       fontSize: '24px',
@@ -391,7 +390,7 @@ export default {
       fontFamily: 'heading',
       color: 'text',
       marginTop: '16px',
-      marginBottom: '16px'
+      marginBottom: '16px',
     },
     h4: {
       fontSize: '20px',
@@ -400,42 +399,41 @@ export default {
       fontFamily: 'heading',
       color: 'text',
       marginTop: '8px',
-      marginBottom: '8px'
+      marginBottom: '8px',
     },
     largeText: {
       fontSize: '18px',
       fontWeight: 'normal',
       letterSpacing: '0.3px',
-      fontFamily: 'heading'
+      fontFamily: 'heading',
     },
     smallText: {
       fontSize: '14px',
       lineHeight: '17px',
-      letterSpacing: '0.3px'
-    }
+      letterSpacing: '0.3px',
+    },
   },
   shadows: {
     high: '0px 2px 17px rgba(35, 21, 54, 0.46)',
     raised: '0px 2px 15px rgba(35, 21, 54, 0.15)',
-    float: '0px 2px 10px rgba(35, 21, 54, 0.05)'
+    float: '0px 2px 10px rgba(35, 21, 54, 0.05)',
   },
   radii: {
     ...maker.radii,
-    round: '32px'
+    round: '32px',
   },
   fonts: {
     serif: 'Miriam Libre',
     sanserif: 'Libre Franklin',
-    body:
-      'Libre Franklin, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif',
+    body: 'Libre Franklin, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif',
     heading:
-      'Miriam Libre, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif'
+      'Miriam Libre, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif',
   },
   styles: {
     ...maker.styles,
     root: {
       ...maker.styles.root,
-      color: 'textMuted'
+      color: 'textMuted',
     },
     a: {
       color: 'link',
@@ -443,14 +441,14 @@ export default {
       textDecoration: 'none',
       transition: 'all .1s ease',
       '&.active': {
-        color: 'linkAlt'
+        color: 'linkAlt',
       },
       '&:hover': {
-        color: 'linkAlt'
+        color: 'linkAlt',
       },
       '&:hover > svg': {
-        color: 'linkAlt'
-      }
+        color: 'linkAlt',
+      },
     },
     Link: {
       color: 'link',
@@ -459,22 +457,22 @@ export default {
       transition: 'all .1s ease',
       '&.active': {
         color: 'linkAlt',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
       },
       '&:hover': {
-        color: 'linkAlt'
+        color: 'linkAlt',
       },
       '&:hover > svg': {
-        color: 'linkAlt'
-      }
+        color: 'linkAlt',
+      },
     },
     pre: {
-      ...prismPreset
+      ...prismPreset,
     },
     code: {
       ...prismPreset,
-      background: 'none'
-    }
+      background: 'none',
+    },
   },
 
   buttons: {
@@ -496,21 +494,21 @@ export default {
         bg: 'primaryEmphasis',
         textDecoration: 'none',
         color: 'onPrimary',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:active': {
         color: 'onPrimary',
         textDecoration: 'none',
         boxShadow: 'raised',
         bg: 'primaryEmphasis',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:disabled': {
         bg: 'primaryMuted',
         color: 'textMuted',
         pointerEvents: 'none',
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     },
     secondary: {
       variant: 'buttons.primary',
@@ -519,20 +517,20 @@ export default {
       '&:hover': {
         textDecoration: 'none',
         bg: 'secondaryEmphasis',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:active': {
         color: 'onPrimary',
         textDecoration: 'none',
         boxShadow: 'raised',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:disabled': {
         bg: 'secondaryMuted',
         color: 'muted',
         pointerEvents: 'none',
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     },
     outline: {
       variant: 'buttons.primary',
@@ -544,21 +542,21 @@ export default {
         color: 'textMuted',
         textDecoration: 'none',
         bg: 'primaryMuted',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:active': {
         color: 'textMuted',
         textDecoration: 'none',
         bg: 'primaryMuted',
         boxShadow: 'raised',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:disabled': {
         borderColor: 'muted',
         color: 'muted',
         pointerEvents: 'none',
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     },
     primarySmall: {
       variant: 'buttons.primary',
@@ -567,7 +565,7 @@ export default {
       fontSize: '10px',
       letterSpacing: '1px',
       textTransform: 'uppercase',
-      lineHeight: '12px'
+      lineHeight: '12px',
     },
     outlineSmall: {
       variant: 'buttons.outline',
@@ -576,19 +574,19 @@ export default {
       fontSize: '10px',
       letterSpacing: '1px',
       textTransform: 'uppercase',
-      lineHeight: '12px'
+      lineHeight: '12px',
     },
     icon_primary: {
-      variant: 'buttons.primary'
+      variant: 'buttons.primary',
     },
     icon_secondary: {
-      variant: 'buttons.secondary'
+      variant: 'buttons.secondary',
     },
     icon_outline: {
-      variant: 'buttons.outline'
+      variant: 'buttons.outline',
     },
     icon_outlineSmall: {
-      variant: 'buttons.outlineSmall'
+      variant: 'buttons.outlineSmall',
     },
     text: {
       variant: 'buttons.primary',
@@ -598,24 +596,24 @@ export default {
       '&:hover': {
         color: 'primaryEmphasis',
         textDecoration: 'none',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:active': {
         color: 'primary',
         textDecoration: 'none',
-        transition: '.1s ease'
+        transition: '.1s ease',
       },
       '&:disabled': {
         color: 'mutedAlt',
         pointerEvents: 'none',
-        cursor: 'not-allowed'
-      }
+        cursor: 'not-allowed',
+      },
     },
     textSmall: {
-      variant: 'buttons.text'
+      variant: 'buttons.text',
     },
     icon_text: {
-      variant: 'buttons.text'
-    }
-  }
-};
+      variant: 'buttons.text',
+    },
+  },
+}

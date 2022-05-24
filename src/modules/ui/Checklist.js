@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import {Children} from 'react';
-import {Box, Flex, jsx} from 'theme-ui';
+import { Children } from 'react'
+import { Box, Flex, jsx } from 'theme-ui'
 
-const Checklist = ({children}) => {
-  const _Children = Children.toArray(children);
+const Checklist = ({ children }) => {
+  const _Children = Children.toArray(children)
 
   return (
     <Flex
@@ -16,7 +16,7 @@ const Checklist = ({children}) => {
         border: '1px solid',
         borderColor: 'muted',
         bg: 'background',
-        borderRadius: '4px'
+        borderRadius: '4px',
       }}>
       {_Children.map((child, index) => (
         <Flex
@@ -25,7 +25,7 @@ const Checklist = ({children}) => {
           sx={{
             mb: '24px',
             color: 'textMuted',
-            '&:last-of-type': {mb: 0}
+            '&:last-of-type': { mb: 0 },
           }}>
           <Box
             sx={{
@@ -35,19 +35,19 @@ const Checklist = ({children}) => {
               borderRadius: '4px',
               border: '1px solid',
               borderColor: 'textMuted',
-              mr: '14px'
+              mr: '14px',
             }}></Box>
           <Box
             sx={{
               flex: 1,
-              '& > *:only-child, & > *:only-child > *': {m: 0}
+              '& > *:only-child, & > *:only-child > *': { m: 0 },
             }}>
             {child}
           </Box>
         </Flex>
       ))}
     </Flex>
-  );
-};
+  )
+}
 
-export default Checklist;
+export default Checklist

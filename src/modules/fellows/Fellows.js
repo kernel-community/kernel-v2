@@ -1,7 +1,7 @@
-import React from 'react';
-import {Flex, Text, Image, Grid, Button} from 'theme-ui';
+import React from 'react'
+import { Flex, Text, Image, Grid, Button } from 'theme-ui'
 
-const originalArray = require('../../../content/fellows.json');
+const originalArray = require('../../../content/fellows.json')
 
 const Fellows = () => {
   return (
@@ -12,7 +12,7 @@ const Fellows = () => {
         flexDirection: 'column',
         backgroundColor: 'surfaceAlt',
         borderRadius: 'medium',
-        marginX: ['2rem', '2rem', '0rem']
+        marginX: ['2rem', '2rem', '0rem'],
       }}>
       <Flex>
         <Grid
@@ -31,7 +31,7 @@ const Fellows = () => {
             borderRadius: '0.5rem',
             scrollBehavior: 'smooth',
             scrollbarWidth: 'none',
-            webkitScrollbarWidth: 'none'
+            webkitScrollbarWidth: 'none',
           }}>
           {originalArray.fellows.map((fellow, index) => (
             <Flex
@@ -40,29 +40,29 @@ const Fellows = () => {
                 flexDirection: 'column',
                 ':hover': {
                   cursor: 'pointer',
-                  color: 'primary'
+                  color: 'primary',
                 },
                 minWidth: [60, 100],
                 maxWidth: [60, 100],
                 minHeight: [60, 150],
-                maxHeight: [60, 150]
+                maxHeight: [60, 150],
               }}
               onClick={() => {
-                window.open(fellow.url, '_blank');
+                window.open(fellow.url, '_blank')
               }}>
               <Image
                 src={fellow.image}
                 sx={{
                   borderRadius: '100%',
                   marginX: 'auto',
-                  marginBottom: '0.5rem'
+                  marginBottom: '0.5rem',
                 }}
               />
 
               <Text
                 sx={{
                   textAlign: 'center',
-                  fontSize: ['0.8rem', '1rem']
+                  fontSize: ['0.8rem', '1rem'],
                 }}>
                 {fellow.name}
               </Text>
@@ -76,12 +76,12 @@ const Fellows = () => {
           marginBottom: ['-1rem', '1rem'],
           marginTop: ['0rem', '1rem'],
           textColor: 'callout',
-          visibility: ['hidden', 'visible']
+          visibility: ['hidden', 'visible'],
         }}>
         <Button
           variant="outlineSmall"
           onClick={() => {
-            document.getElementById('fellowContainer').scrollLeft -= 600;
+            document.getElementById('fellowContainer').scrollLeft -= 600
           }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ const Fellows = () => {
         <Button
           variant="outlineSmall"
           onClick={() => {
-            document.getElementById('fellowContainer').scrollLeft += 600;
+            document.getElementById('fellowContainer').scrollLeft += 600
           }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ const Fellows = () => {
         </Button>
       </Flex>
     </Flex>
-  );
-};
+  )
+}
 
-export default Fellows;
+export default Fellows
