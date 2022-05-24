@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react'
 
-import { Heading1, Heading2, Heading3, Heading4, Heading5 } from ".";
+import { Heading1, Heading2, Heading3, Heading4, Heading5 } from '.'
 
 export default function Heading({ level, ...props }) {
   switch (level) {
     case 5:
-      return <Heading5 {...props} />;
+      return <Heading5 {...props} />
     case 4:
-      return <Heading4 {...props} />;
+      return <Heading4 {...props} />
     case 3:
-      return <Heading3 {...props} />;
+      return <Heading3 {...props} />
     case 2:
-      return <Heading2 {...props} />;
+      return <Heading2 {...props} />
     default:
-      return <Heading1 {...props} />;
+      return <Heading1 {...props} />
   }
 }

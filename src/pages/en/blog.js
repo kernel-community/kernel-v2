@@ -1,131 +1,132 @@
 /** @jsx jsx */
 
-import queryString from 'query-string';
-import {navigate} from 'gatsby';
-import {BlogCard, BlogResult} from '@modules/blog';
-import {useTranslation} from '@modules/localization';
-import {Link, MobileNav} from '@modules/navigation';
-import {Button, Select} from '@modules/ui';
-import {useLocation} from '@reach/router';
-import {getBlogPostTypeFromPath} from '@utils';
-import {graphql} from 'gatsby';
-import {useEffect, useState} from 'react';
-import {Flex, jsx} from 'theme-ui';
+import queryString from 'query-string'
+import { navigate } from 'gatsby'
+import { BlogCard, BlogResult } from '@modules/blog'
+import { useTranslation } from '@modules/localization'
+import { Link, MobileNav } from '@modules/navigation'
+import { Button, Select } from '@modules/ui'
+import { useLocation } from '@reach/router'
+import { getBlogPostTypeFromPath } from '@utils'
+import { graphql } from 'gatsby'
+import { useEffect, useState } from 'react'
+import { Flex, jsx } from 'theme-ui'
 
-const postsPerPage = 4;
+const postsPerPage = 4
 
-const BlogHome = ({data}) => {
-  const {search} = useLocation();
-  const {t, locale} = useTranslation();
+const BlogHome = ({ data }) => {
+  const { search } = useLocation()
+  const { t, locale } = useTranslation()
 
-  const initialSection = queryString.parse(search).section || null;
+  const initialSection = queryString.parse(search).section || null
   const [types] = useState(
     data.allMdx.edges
-      .map(({node}) => getBlogPostTypeFromPath(node.fileAbsolutePath))
+      .map(({ node }) => getBlogPostTypeFromPath(node.fileAbsolutePath))
       .filter((value, index, self) => {
-        return self.indexOf(value) === index && value !== null;
+        return self.indexOf(value) === index && value !== null
       })
-  );
+  )
 
   const initialSectionExists =
-    types.length > 0 ? types.indexOf(initialSection) !== -1 : false; //NOTE(Rejon): Checks if the section provided in query string actually exists.
+    types.length > 0 ? types.indexOf(initialSection) !== -1 : false //NOTE(Rejon): Checks if the section provided in query string actually exists.
 
   const latestPosts =
     initialSection !== null && initialSectionExists
       ? data.allMdx.edges
           .filter(
-            ({node}) =>
+            ({ node }) =>
               getBlogPostTypeFromPath(node.fileAbsolutePath) === initialSection
           )
           .slice(0, 3)
       : types.length > 0
       ? types.map((type) =>
           data.allMdx.edges.find(
-            ({node}) => getBlogPostTypeFromPath(node.fileAbsolutePath) === type
+            ({ node }) =>
+              getBlogPostTypeFromPath(node.fileAbsolutePath) === type
           )
         )
-      : data.allMdx.edges.slice(0, 3);
+      : data.allMdx.edges.slice(0, 3)
 
   const [sectionData, setSectionData] = useState({
     type: initialSectionExists ? initialSection : null,
     allPosts:
       initialSection !== null && initialSectionExists
         ? data.allMdx.edges.filter(
-            ({node}) =>
+            ({ node }) =>
               getBlogPostTypeFromPath(node.fileAbsolutePath) === initialSection
           )
         : data.allMdx.edges.filter(
-            ({node}) =>
+            ({ node }) =>
               latestPosts.find((fNode) => node.id === fNode.node.id) ===
               undefined
           ),
     latestPosts,
-    currentPage: 0
-  });
+    currentPage: 0,
+  })
 
   const availableLanguages = data.allSitePage.nodes.map(
-    ({path}) => path.split('/')[1]
-  );
+    ({ path }) => path.split('/')[1]
+  )
 
-  const onSelectChange = ({value, label}) => {
+  const onSelectChange = ({ value }) => {
     //Update local storage on switch
     if (typeof window !== 'undefined') {
-      localStorage.setItem('locale', value.split('/')[1]);
+      localStorage.setItem('locale', value.split('/')[1])
     }
 
-    navigate(value);
-  };
+    navigate(value)
+  }
 
   useEffect(() => {
     //Update the data and local type if we click one of the category tags via link
     if (initialSection !== null && sectionData.type !== initialSection) {
-      setBlogCategory(initialSection);
+      setBlogCategory(initialSection)
     }
     //If we go back to the blog index page without query params, but our state isn't up to spec, update it.
     else if (initialSection === null && sectionData.type !== null) {
-      setBlogCategory(null);
+      setBlogCategory(null)
     }
-  }, [initialSection]);
+  }, [initialSection])
 
   //Whether to show pagination button or not.
   const showNextButton =
-    (sectionData.currentPage + 1) * postsPerPage < sectionData.allPosts.length;
+    (sectionData.currentPage + 1) * postsPerPage < sectionData.allPosts.length
 
   const setBlogCategory = (cat = null) => {
-    let allPosts = [...data.allMdx.edges]; //Spread it so we don't edit the original data.
-    let latestPosts = [];
+    let allPosts = [...data.allMdx.edges] //Spread it so we don't edit the original data.
+    let latestPosts = []
 
     if (cat === null) {
       //User clicked "Home"
       latestPosts =
         types.length > 0
           ? types.map((type) =>
-              allPosts.find(({node}, index) => {
+              allPosts.find(({ node }, index) => {
                 const hasType =
-                  getBlogPostTypeFromPath(node.fileAbsolutePath) === type;
+                  getBlogPostTypeFromPath(node.fileAbsolutePath) === type
 
                 if (hasType) {
-                  allPosts.splice(index, 1);
+                  allPosts.splice(index, 1)
                 }
 
-                return hasType;
+                return hasType
               })
             )
-          : allPosts.splice(0, 3);
+          : allPosts.splice(0, 3)
     } else {
       allPosts = data.allMdx.edges.filter(
-        ({node}) => getBlogPostTypeFromPath(node.fileAbsolutePath) === cat
-      ); //allBlogPosts of a specific type
-      latestPosts = allPosts.splice(0, 3);
+        ({ node }) => getBlogPostTypeFromPath(node.fileAbsolutePath) === cat
+      ) //allBlogPosts of a specific type
+      latestPosts = allPosts.splice(0, 3)
     }
 
     setSectionData({
       type: cat,
       allPosts,
       latestPosts,
-      currentPage: 0
-    });
-  };
+      currentPage: 0,
+    })
+  }
 
   return (
     <Flex
@@ -134,7 +135,7 @@ const BlogHome = ({data}) => {
         alignItems: 'center',
         mt: [0, 0, '128px'],
         width: '100%',
-        px: ['22px', '22px', '12.3%']
+        px: ['22px', '22px', '12.3%'],
       }}>
       {availableLanguages.length > 1 && (
         <div
@@ -142,20 +143,20 @@ const BlogHome = ({data}) => {
             width: '100%',
             mt: 4,
             mb: '42px',
-            display: ['block', 'block', 'none']
+            display: ['block', 'block', 'none'],
           }}>
           <Select
             onChange={onSelectChange}
             options={availableLanguages.map((loc) => {
               return {
                 value: `/${loc}/blog`,
-                label: t('Language', null, null, loc)
-              };
+                label: t('Language', null, null, loc),
+              }
             })}
             aria-label={t('Blog_Language_Selector')}
             value={{
               value: `/${locale}`,
-              label: t('Language')
+              label: t('Language'),
             }}
           />
         </div>
@@ -167,7 +168,7 @@ const BlogHome = ({data}) => {
           fontWeight: 500,
           fontSize: '48px',
           mb: ['66px', '50px', '50px'],
-          textAlign: 'center'
+          textAlign: 'center',
         }}>
         {t('Community_Blog')}
       </h1>
@@ -176,9 +177,9 @@ const BlogHome = ({data}) => {
         sx={{
           mb: ['70px', '70px', '98px'],
           '& > *:not(:last-child)': {
-            mr: '64px'
+            mr: '64px',
           },
-          display: ['none', 'flex', 'flex']
+          display: ['none', 'flex', 'flex'],
         }}>
         <Link
           sx={{
@@ -187,8 +188,8 @@ const BlogHome = ({data}) => {
             transition: 'all .16s',
             fontWeight: 400,
             '&:hover': {
-              color: 'linkAlt'
-            }
+              color: 'linkAlt',
+            },
           }}
           partiallyActive={false}
           activeClassName={'null'}
@@ -205,8 +206,8 @@ const BlogHome = ({data}) => {
               fontWeight: 400,
               textTransform: 'capitalize',
               '&:hover': {
-                color: 'linkAlt'
-              }
+                color: 'linkAlt',
+              },
             }}
             to={`/blog?section=${type}`}
             key={`blogPost-type-${index}`}
@@ -221,9 +222,9 @@ const BlogHome = ({data}) => {
           justifyContent: 'space-evenly',
           width: '100%',
           mb: [0, '80px', '80px'],
-          flexDirection: ['column', 'row', 'row']
+          flexDirection: ['column', 'row', 'row'],
         }}>
-        {sectionData.latestPosts.map(({node}, index) => (
+        {sectionData.latestPosts.map(({ node }, index) => (
           <BlogCard isLatest {...node} key={`blog-card-latest-${index}`} />
         ))}
       </Flex>
@@ -231,17 +232,17 @@ const BlogHome = ({data}) => {
       <Flex
         sx={{
           width: '100%',
-          justifyContent: 'space-around'
+          justifyContent: 'space-around',
         }}>
         <Flex
           sx={{
             flexDirection: 'column',
             flex: 1,
-            mb: '48px'
+            mb: '48px',
           }}>
           {sectionData.allPosts
             .slice(0, postsPerPage * (1 + sectionData.currentPage))
-            .map(({node}, index) => (
+            .map(({ node }, index) => (
               <BlogResult {...node} key={`blog-result-${index}`} />
             ))}
         </Flex>
@@ -250,14 +251,14 @@ const BlogHome = ({data}) => {
           sx={{
             pt: '24px',
             ml: '12.3%',
-            display: ['none', 'none', 'initial']
+            display: ['none', 'none', 'initial'],
           }}>
-          <p sx={{textTransform: 'uppercase'}}>{t('LANGUAGES')}</p>
+          <p sx={{ textTransform: 'uppercase' }}>{t('LANGUAGES')}</p>
 
           <ul
             sx={{
               listStyleType: 'none',
-              p: 0
+              p: 0,
             }}>
             {availableLanguages.map((loc, index) => (
               <li key={`available-blog-lang-${index}`}>
@@ -270,16 +271,16 @@ const BlogHome = ({data}) => {
         </div>
       </Flex>
       {showNextButton && (
-        <div sx={{mb: ['50px', '50px', '114px']}}>
+        <div sx={{ mb: ['50px', '50px', '114px'] }}>
           <Button
             outline
             icon="plus"
-            sx={{mr: 0}}
+            sx={{ mr: 0 }}
             onClick={() => {
               setSectionData({
                 ...sectionData,
-                currentPage: sectionData.currentPage + 1
-              });
+                currentPage: sectionData.currentPage + 1,
+              })
             }}>
             {t('See_More_Posts')}
           </Button>
@@ -287,8 +288,8 @@ const BlogHome = ({data}) => {
       )}
       <MobileNav blogData={types} />
     </Flex>
-  );
-};
+  )
+}
 
 //NOTE(Rejon): Change the name of this query when adding new locales!!!
 //		       ie. BlogHomeQueryEN -> BlogHomeQueryES
@@ -317,6 +318,6 @@ export const query = graphql`
 			}
 		}
 	}
- `;
+ `
 
-export default BlogHome;
+export default BlogHome

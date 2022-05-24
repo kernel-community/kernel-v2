@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import {Button as ThemedButton, Text, jsx} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
-import isNil from 'lodash/isNil';
+import { Button as ThemedButton, Text, jsx } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
+import isNil from 'lodash/isNil'
 
-import {Link} from '@modules/navigation';
+import { Link } from '@modules/navigation'
 
 const Button = ({
   to,
@@ -15,7 +15,6 @@ const Button = ({
   small,
   disabled,
   children,
-  inline,
   icon,
   sx,
   hideExternalIcon,
@@ -34,11 +33,11 @@ const Button = ({
       : text
       ? 'text'
       : 'primary'
-  }${small ? 'Small' : ''}`;
+  }${small ? 'Small' : ''}`
 
-  const internal = /^\/(?!\/)/.test(href) || /^\/(?!\/)/.test(to);
+  const internal = /^\/(?!\/)/.test(href) || /^\/(?!\/)/.test(to)
 
-  const willHaveIcon = icon || (!internal && !hideExternalIcon && !small);
+  const willHaveIcon = icon || (!internal && !hideExternalIcon && !small)
 
   if (isNil(to) && isNil(href)) {
     return (
@@ -50,7 +49,7 @@ const Button = ({
           p: willHaveIcon ? '13px 32px' : '',
           display: 'flex',
           alignItems: 'center',
-          '& > *': {display: 'inline-block', mb: '0 !important'} //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
+          '& > *': { display: 'inline-block', mb: '0 !important' }, //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
         }}
         {...otherProps}>
         {willHaveIcon && (
@@ -61,7 +60,7 @@ const Button = ({
             sx={{
               ml: '2px',
               mr: '.5em',
-              verticalAlign: 'middle'
+              verticalAlign: 'middle',
             }}
           />
         )}
@@ -69,12 +68,12 @@ const Button = ({
         <Text
           sx={{
             verticalAlign: willHaveIcon ? 'middle' : '',
-            fontFamily: 'Miriam Libre'
+            fontFamily: 'Miriam Libre',
           }}>
           {children}
         </Text>
       </ThemedButton>
-    );
+    )
   }
 
   return (
@@ -87,7 +86,7 @@ const Button = ({
         display: 'inline-block',
         cursor: disabled ? 'not-allowed' : '',
         fontWeight: '500',
-        ...sx
+        ...sx,
       }}>
       <ThemedButton
         className="button"
@@ -97,7 +96,7 @@ const Button = ({
           p: willHaveIcon ? '13px 32px' : '',
           display: 'flex',
           alignItems: 'center',
-          '& > *': {mb: '0 !important'} //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
+          '& > *': { mb: '0 !important' }, //NOTE(Rejon): I use important here because we don't want child elements to dictate margins
         }}
         {...otherProps}>
         {willHaveIcon && icon && (
@@ -108,7 +107,7 @@ const Button = ({
             sx={{
               ml: '2px',
               mr: '.5em',
-              verticalAlign: 'middle'
+              verticalAlign: 'middle',
             }}
           />
         )}
@@ -116,7 +115,7 @@ const Button = ({
         <Text
           sx={{
             verticalAlign: willHaveIcon ? 'middle' : '',
-            fontFamily: 'Miriam Libre'
+            fontFamily: 'Miriam Libre',
           }}>
           {children}
         </Text>
@@ -128,12 +127,12 @@ const Button = ({
             size={'20px'}
             sx={{
               ml: '.5em',
-              verticalAlign: 'middle'
+              verticalAlign: 'middle',
             }}
           />
         )}
       </ThemedButton>
     </Link>
-  );
-};
-export default Button;
+  )
+}
+export default Button

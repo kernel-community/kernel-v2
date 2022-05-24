@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import {Fragment} from 'react';
-import {Link as GatsbyLink} from 'gatsby';
-import {jsx, Link as ThemeLink} from 'theme-ui';
-import {Icon} from '@makerdao/dai-ui-icons';
+import { Fragment } from 'react'
+import { Link as GatsbyLink } from 'gatsby'
+import { jsx, Link as ThemeLink } from 'theme-ui'
+import { Icon } from '@makerdao/dai-ui-icons'
 
-import {useTranslation} from '@modules/localization';
+import { useTranslation } from '@modules/localization'
 
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and // pass it only to GatsbyLink
@@ -16,43 +16,42 @@ const Link = ({
   partiallyActive,
   hideExternalIcon,
   href,
-  gaProps,
   onClick,
   ...other
 }) => {
-  const {locale} = useTranslation();
-  let linkHref = to || href;
+  const { locale } = useTranslation()
+  let linkHref = to || href
 
   //Check if the link has a # at the front.
   //If it does, append it to the end our current pages url for "to".
-  const isAnchor = /^[#]/.test(linkHref);
+  const isAnchor = /^[#]/.test(linkHref)
 
   if (isAnchor && typeof window !== 'undefined') {
     return (
       <GatsbyLink
         to={`${window.location.pathname}${linkHref}`}
-        sx={{variant: 'styles.a'}}
+        sx={{ variant: 'styles.a' }}
         {...other}>
         {children}
       </GatsbyLink>
-    );
+    )
   }
 
   // Tailor the following test to your environment.
   // This assumes that any internal link (intended for Gatsby)
   // will start with exactly one slash, and that anything else is external.
-  const internal = /^\/(?!\/)/.test(linkHref);
+  const internal = /^\/(?!\/)/.test(linkHref)
 
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {
-    const hasLocale = /^\/([\w]{2})\//.test(linkHref);
+    const hasLocale = /^\/([\w]{2})\//.test(linkHref)
     //If it doesn't have the locale specified use the current locale.
     //NOTE(Réjon): While I could also check if it has a locale and if it exists,
     //             I think it could mess with the expectations of how links work.
     //             If an invalid locale is passed, then it should go to a 404 page, unless the team specifies otherwise.
     //NOTE(Rejon): There's no slash in this string because CCs will write the md with a starting slash.
     if (!hasLocale && linkHref) {
-      linkHref = `/${locale}${linkHref}`;
+      linkHref = `/${locale}${linkHref}`
     }
 
     return (
@@ -64,10 +63,10 @@ const Link = ({
         partiallyActive={
           partiallyActive || (linkHref !== `/${locale}/` ? true : null)
         }
-        sx={{variant: 'styles.a'}}
+        sx={{ variant: 'styles.a' }}
         onClick={() => {
           if (onClick !== null && onClick !== undefined) {
-            onClick();
+            onClick()
           }
         }}
         {...other}>
@@ -81,7 +80,7 @@ const Link = ({
                 sx={{
                   verticalAlign: 'middle',
                   top: '-2px',
-                  position: 'relative'
+                  position: 'relative',
                 }}
               />
             )}`}
@@ -89,12 +88,12 @@ const Link = ({
         )}
         {children}
       </GatsbyLink>
-    );
+    )
   }
 
   ///HTTPS/HTTP checks
   if (!/^(https)?:\/\//i.test(linkHref)) {
-    linkHref = linkHref.replace(/^http?:\/\//, 'https://');
+    linkHref = linkHref.replace(/^http?:\/\//, 'https://')
   }
 
   return (
@@ -115,7 +114,7 @@ const Link = ({
             sx={{
               verticalAlign: 'middle',
               top: '-2px',
-              position: 'relative'
+              position: 'relative',
             }}
           />
         </Fragment>
@@ -125,10 +124,10 @@ const Link = ({
         <Icon
           name="increase"
           className="increase"
-          sx={{top: '2px', position: 'relative', ml: '2px'}}
+          sx={{ top: '2px', position: 'relative', ml: '2px' }}
         />
       )}
     </ThemeLink>
-  );
-};
-export default Link;
+  )
+}
+export default Link
