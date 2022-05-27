@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { Children, Fragment, useState, useEffect } from 'react'
 import { jsx, Flex } from 'theme-ui'
-import { useConnect, useAccount, useProvider } from 'wagmi'
+import { useConnect, useAccount } from 'wagmi'
 import { motion } from 'framer-motion'
 import { Connector } from '@src/course/connect'
-import { isRegistered } from '@src/course/contracts'
+import { useIsRegistered } from '@src/course/contracts'
 import { Modal as Web3Modal, Button as Web3Button } from '@src/modules/web3'
+import { useNotifications } from '@src/modules/notifications/context'
 
 const Card = ({
   children,
@@ -16,19 +17,19 @@ const Card = ({
   revealCallback,
   wasActive,
 }) => {
+  const { queueNotification } = useNotifications()
   const [isModalVisible, setIsModalVisible] = useState(false)
-  const [isUserRegistered, setIsUserRegistered] = useState(false)
-
-  const handleOnAccountConnected = () => {
-    if (!isUserRegistered) {
-      setIsModalVisible(true)
-    }
-  }
 
   const { data: accountData } = useAccount()
-  const provider = useProvider()
-  const { error, connect, connectors, isConnected } = useConnect({
-    onConnect: handleOnAccountConnected,
+  const { data: isRegistered } = useIsRegistered(accountData?.address)
+
+  const { connect, connectors, isConnected } = useConnect({
+    onConnect: () => {
+      setIsModalVisible(!isRegistered)
+      queueNotification('success', 'Connected!')
+    },
+    onError: (error) =>
+      queueNotification('error', 'Error conncecting wallet', error.message),
   })
 
   const [connector, setConnector] = useState(connectors[Connector.INJECTED])
@@ -36,15 +37,6 @@ const Card = ({
   useEffect(() => {
     setConnector(connector)
   }, [isConnected])
-
-  useEffect(() => {
-    async function get() {
-      setIsUserRegistered(await isRegistered(accountData.address, provider))
-    }
-    if (accountData?.address && provider) {
-      get()
-    }
-  }, [accountData?.address, provider])
 
   const cardVariants = {
     initial: { y: 10 * (index - currentCard), opacity: 1 },
@@ -115,7 +107,7 @@ const Card = ({
                   initial="initial"
                   animate={revealAnimateState}
                   sx={{ position: 'absolute' }}>
-                  {isConnected && isUserRegistered && (
+                  {isConnected && isRegistered && (
                     <Flex onClick={revealCallback}>
                       <span
                         className="reveal-answer"
@@ -124,7 +116,7 @@ const Card = ({
                       </span>
                     </Flex>
                   )}
-                  {isConnected && !isUserRegistered && (
+                  {isConnected && !isRegistered && (
                     <Web3Button
                       descriptionText="Register to reveal"
                       buttonText="Register"
@@ -139,14 +131,11 @@ const Card = ({
                       isDisabled={!connector.ready}
                       onClickButton={() => {
                         connect(connector)
-                      }}>
-                      {error?.message && (
-                        <div sx={styles.connectError}>Failed to connect</div>
-                      )}
-                    </Web3Button>
+                      }}
+                    />
                   )}
                 </motion.div>
-                {isConnected && isUserRegistered && (
+                {isConnected && isRegistered && (
                   <motion.div
                     variants={answerCopyVariant}
                     initial="initial"

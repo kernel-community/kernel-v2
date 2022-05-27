@@ -1,36 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import { useAccount, useProvider, useSigner } from 'wagmi'
+import React from 'react'
+import { useAccount, useProvider } from 'wagmi'
 import { Flex, Text, Box, Button } from 'theme-ui'
 import { add, getUnixTime } from 'date-fns'
 import { useSignPermitTransaction } from '../../hooks'
 import {
-  getDaiNonce,
-  getScholarshipAvailable,
-  permitAndRegister,
-  registerScholar,
+  KERNEL_COURSE_ID,
+  useGetDaiNonce,
+  useIsScholarshipAvailable,
+  usePermitAndRegister,
+  useRegisterScholar,
 } from '@src/course/contracts'
 import { Icon } from '@makerdao/dai-ui-icons'
 
 const Web3 = ({ setIsVisible }) => {
   const provider = useProvider()
   const { data: accountData } = useAccount()
-  const { data: signer } = useSigner()
+  const { data: scholarshipAvailable } = useIsScholarshipAvailable()
+  const { data: nonce } = useGetDaiNonce(accountData?.address)
+  const { write: registerScholar } = useRegisterScholar()
+  const { write: permitAndRegister } = usePermitAndRegister()
   const signTransaction = useSignPermitTransaction({
     provider,
     address: accountData?.address,
   })
-
-  const [scholarshipAvailable, setIsScholarshipAvailable] = useState(false)
-
-  useEffect(() => {
-    const fetchScholarshipStatus = async () => {
-      setIsScholarshipAvailable(await getScholarshipAvailable(provider))
-    }
-
-    if (accountData?.address && provider) {
-      fetchScholarshipStatus()
-    }
-  }, [accountData?.address, provider])
 
   const handleDimissModal = () => {
     setIsVisible(false)
@@ -39,19 +31,20 @@ const Web3 = ({ setIsVisible }) => {
   const handleDAIPermitAndRegister = async () => {
     const expirationTime = add(new Date(), { minutes: 30 })
     const expiry = getUnixTime(expirationTime)
-    const nonce = await getDaiNonce(accountData?.address, provider)
 
     const { v, r, s } = await signTransaction({
       nonce,
       expiry,
     })
 
-    await permitAndRegister(signer, nonce, expiry, v, r, s)
+    await permitAndRegister({
+      args: [KERNEL_COURSE_ID, nonce, expiry, v, r, s],
+    })
   }
 
   const handleOnClickRegister = async () => {
     if (scholarshipAvailable) {
-      await registerScholar(signer)
+      await registerScholar()
     } else {
       await handleDAIPermitAndRegister()
     }

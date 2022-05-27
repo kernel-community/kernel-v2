@@ -1,18 +1,19 @@
 /** @jsx jsx */
 
 import { Flex, jsx } from 'theme-ui'
-import { useConnect } from 'wagmi'
+import { useConnect, useAccount } from 'wagmi'
 
 import { Heading } from '@modules/ui/heading'
 import { ConnectButton, RedemptionConnector } from '@src/modules/redemptionPage'
 
 const RedeemPage = () => {
   const { isConnected } = useConnect()
+  const { data: accountData } = useAccount()
 
   return (
     <Flex sx={styles.container}>
       <Heading level={1}>Redeem</Heading>
-      {isConnected && <RedemptionConnector />}
+      {isConnected && <RedemptionConnector address={accountData?.address} />}
       {!isConnected && <ConnectButton />}
     </Flex>
   )

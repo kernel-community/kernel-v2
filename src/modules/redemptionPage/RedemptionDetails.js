@@ -1,15 +1,15 @@
 /** @jsx jsx */
 
 import { Flex, jsx } from 'theme-ui'
-import { useConnect, useProvider, useBlockNumber, useSigner } from 'wagmi'
+import { useConnect, useBlockNumber } from 'wagmi'
 import { useEffect, useState } from 'react'
 
 import { Button as Web3Button } from '@src/modules/web3'
 import { Connector } from '@src/course/connect'
 import {
-  getBlockRegistered,
-  getCourseLength,
-  redeemDeposit,
+  useGetBlockRegistered,
+  useGetCourseLength,
+  useRedeemDeposit,
 } from '@src/course/contracts'
 
 const isRedemptionTime = (currentBlockNumber, redemptionBlockNumber) => {
@@ -20,7 +20,9 @@ const getTimeUntilRedemptionText = (
   currentBlockNumber,
   redemptionBlockNumber
 ) => {
-  if (isRedemptionTime(currentBlockNumber, redemptionBlockNumber)) {
+  if (!redemptionBlockNumber || redemptionBlockNumber === 0) {
+    return 'No deposit found for the current address'
+  } else if (isRedemptionTime(currentBlockNumber, redemptionBlockNumber)) {
     return 'You can redeem your deposit now'
   } else {
     const averageBlockTimeInDays = 14 / 60 / 60 / 24
@@ -38,38 +40,21 @@ const getTimeUntilRedemptionText = (
 }
 
 const RedemptionDetails = ({ address }) => {
-  const provider = useProvider()
-  const { data: signer } = useSigner()
+  const { write: redeemDeposit } = useRedeemDeposit()
   const { data: currentBlockNumber } = useBlockNumber({ watch: true })
   const { connectors } = useConnect()
 
   const [connector] = useState(connectors[Connector.INJECTED])
-  const [blockRegistered, setBlockRegistered] = useState(0)
-  const [courseLength, setCourseLength] = useState(0)
   const [canRedeemDeposit, setCanRedeemDeposit] = useState(false)
+
+  const { data: blockRegistered } = useGetBlockRegistered(address)
+  const courseLength = useGetCourseLength()
 
   const redemptionBlockNumber = blockRegistered + courseLength
   const timeUntilRedemptionText = getTimeUntilRedemptionText(
     currentBlockNumber,
     redemptionBlockNumber
   )
-
-  useEffect(() => {
-    const retrieveBlockRegistered = async () => {
-      const blockNumber = await getBlockRegistered(address, provider)
-      setBlockRegistered(blockNumber || 0)
-    }
-
-    const retrieveCourseLength = async () => {
-      const lengthOfCourse = await getCourseLength(provider)
-      setCourseLength(lengthOfCourse || 0)
-    }
-
-    if (address && provider) {
-      retrieveBlockRegistered()
-      retrieveCourseLength()
-    }
-  }, [address, provider])
 
   useEffect(() => {
     if (currentBlockNumber && blockRegistered) {
@@ -80,7 +65,7 @@ const RedemptionDetails = ({ address }) => {
   }, [blockRegistered, currentBlockNumber])
 
   const handleOnPressRedeem = async () => {
-    await redeemDeposit(signer)
+    await redeemDeposit()
   }
 
   return (
