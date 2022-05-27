@@ -21,6 +21,83 @@ export const isRegistered = async (learner, provider) => {
   return res
 }
 
+export const hasStakeInCourse = async (provider) => {
+  const { chainId } = await provider.getNetwork()
+
+  const deSchoolContract = new Contract(
+    addresses(chainId).deSchool,
+    abis.deSchool,
+    provider
+  )
+  let res = false
+  try {
+    res = !!(await deSchoolContract.isDeployed(KERNEL_COURSE_ID))
+  } catch (err) {
+    // throws an error if either the learner is not registered or if the courseId does not exist
+    /** */
+  }
+  return res
+}
+
+export const getBlockRegistered = async (learner, provider) => {
+  const { chainId } = await provider.getNetwork()
+
+  const deSchoolContract = new Contract(
+    addresses(chainId).deSchool,
+    abis.deSchool,
+    provider
+  )
+
+  let res
+  try {
+    res = await deSchoolContract.getBlockRegistered(learner, KERNEL_COURSE_ID)
+  } catch (err) {
+    // throws an error if either the learner is not registered or if the courseId does not exist
+    /** */
+  }
+  return res
+}
+
+export const getCourseLength = async (provider) => {
+  const { chainId } = await provider.getNetwork()
+
+  const deSchoolContract = new Contract(
+    addresses(chainId).deSchool,
+    abis.deSchool,
+    provider
+  )
+
+  let res
+  try {
+    res = await deSchoolContract.courses(KERNEL_COURSE_ID)[1]
+  } catch (err) {
+    // throws an error if either the learner is not registered or if the courseId does not exist
+    /** */
+  }
+  return res
+}
+
+export const redeemDeposit = async (signer) => {
+  const chainId = await signer.getChainId()
+
+  const deSchoolContract = new Contract(
+    addresses(chainId).deSchool,
+    abis.deSchool,
+    signer
+  )
+
+  let res
+
+  try {
+    res = !!(await deSchoolContract.redeem(KERNEL_COURSE_ID))
+  } catch (err) {
+    // throws an error if either the learner is not registered or if the courseId does not exist
+    /** */
+  }
+
+  return res
+}
+
 export const getDaiNonce = async (learner, provider) => {
   const { chainId } = await provider.getNetwork()
 
