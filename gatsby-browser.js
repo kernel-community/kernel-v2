@@ -4,6 +4,7 @@ import { TranslationProvider } from '@modules/localization'
 
 import Layout from '@modules/layouts/site_layout'
 import { NavigationProvider } from '@modules/navigation'
+import NotificationProvider from '@modules/notifications/context'
 import { Provider, createClient } from 'wagmi'
 import { connectors, provider, connectorStorageKey } from '@src/course/connect'
 //Load our Primsjs css and Fonts
@@ -24,6 +25,8 @@ export const wrapRootElement = ({ element }) => (
 
 export const wrapPageElement = ({ element, props }) => (
   <NavigationProvider>
-    <Layout {...props}>{element}</Layout>
+    <NotificationProvider>
+      <Layout {...props}>{element}</Layout>
+    </NotificationProvider>
   </NavigationProvider>
 )
