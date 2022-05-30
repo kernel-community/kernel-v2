@@ -1,0 +1,202 @@
+---
+title: Securité
+order: 3
+description: Une collection très soignée des meilleurs outils de sécurité pour les contrats intelligents actuellement disponibles.
+image: /images/shares/learn.png
+---
+
+# Bonnes pratiques de sécurité
+
+Kernel, c'est être prudent, dans tous les sens du terme. En ce qui concerne le code que nous écrivons, cela signifie d'abord la sécurité, puis le travail d'équipe. Vous trouverez ci-dessous les meilleures ressources de sécurité que nous connaissons pour vous aider à vous assurer que vos contrats suivent les meilleures pratiques et respectent les dernières normes de l'industrie.
+
+## Outils
+
+<Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
+
+<Chocolate sx={{marginBottom: '1.5rem'}}>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**Boîte à outils Trail of Bits**
+
+L'un des cabinets d'audit les mieux établis et les plus respectés possède une boîte à outils pour garantir des normes de sécurité élevées.
+
+_H/T Matt Solomon. Check out <Link to="https://medium.com/coinmonks/ethereum-security-analysis-tools-an-introduction-and-comparison-1096194e64d5">his article</Link> for more._
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://github.com/crytic/eth-security-toolbox">
+  Secure
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**Détecter les contrats pas si intelligents**
+
+Deux référentiels utiles pour comprendre les modèles vulnérables utilisés par les contrats pas si intelligents et pour <Link to="https://github.com/crytic/slither/tree/master/tests/detectors"/> détecter diverses vulnérabilités potentielles.
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://github.com/crytic/not-so-smart-contracts">
+  Detect
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**MythX**
+
+Un autre outil Consensys utile et facile à intégrer avec des frameworks, en particulier comme Truffle. Trouvez un code utile, parmi beaucoup d'autres choses, <Link to="https://www.notion.so/Module-2-Automated-Tooling-22b7b1513dd247d685616d55e27b6877">ici</Link>.
+
+<Button sx={{ alignSelf: 'flex-start', mt: 'auto' }} to="https://mythx.io/">
+  Analyse
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**VS Code Solidity Auditeur**
+
+Un plugin VS Code pratique et utile pour auditer vos contrats intelligents pendant que vous travaillez.˝
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://github.com/ConsenSys/vscode-solidity-auditor">
+  Audit
+</Button>
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
+## Praxis
+
+Là où la pratique et la théorie se rencontrent. Ces pratiques, listes et méthodes indiquées ci-dessous ne sont pas tout à fait des outils au sens de la section ci-dessus, mais elles sont très, très utiles.
+
+<Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
+
+<Chocolate sx={{marginBottom: '1.5rem'}}>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**Liste de contrôle Secureum**
+
+Une liste de contrôle claire et concise dont tout développeur ou audit sérieux a besoin pour son travail. Écrit par notre propre Rajeev Gopalakrishna.
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://secureum.substack.com/p/smart-contract-security-101-secureum">
+  Check
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**Meilleures pratiques de Consensys**
+
+Un ensemble détaillé d'instructions pour écrire du code sécurisé.
+
+_H/T Nazzareno Massari_
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://consensys.github.io/smart-contract-best-practices/">
+  Learn
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**Test de mutation**
+
+Une introduction aux tests de mutation par le mentor de Security Track, Joran Honig. Vous pouvez trouver une explication détaillée <Link to="https://github.com/JoranHonig/publications/blob/master/practical_mutation_testing_for_smart_contracts.pdf">ici</Link>.
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://joranhonig.nl/introduction-into-mutation/">
+  Mutate
+</Button>
+
+</Flex>
+
+</Chocolate>
+
+</Box>
+
+## Alertes
+
+La sécurité a autant à voir avec l'information qu'avec la gestion des risques. Nous recommandons ces publications pour vous aider à rester au courant des dernières nouvelles, des développements et des idées de l'industrie (sans avoir à passer toutes vos journées à traquer CT - bien que cela puisse aussi avoir son utilité).
+
+<Box sx={{backgroundColor:'primaryMuted', borderRadius:'12px', padding:'1rem', display:'flex', marginBottom: '1rem', flexDirection:'column', flexWrap:'wrap'}}>
+
+<Chocolate sx={{marginBottom: '1.5rem'}}>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**BlockThreat**
+
+Les dernières informations sur les menaces, les vulnérabilités, les outils de sécurité et les événements liés à la blockchain et à la crypto-monnaie.
+
+<Button
+  sx={{ alignSelf: 'flex-start', mt: 'auto' }}
+  to="https://blockthreat.substack.com/">
+  Learn
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**samczsun**
+
+Le meilleur blog pour voir comment ne pas écrire de contrats intelligents et découvrir toutes les différentes façons dont votre code pourrait tomber en production.
+
+<Button sx={{ alignSelf: 'flex-start', mt: 'auto' }} to="https://samczsun.com/">
+  Tremble
+</Button>
+
+</Flex>
+
+<Flex sx={{position:'relative', flexDirection: 'column'}}>
+
+<Icon size={'40px'} name="open_in_new_tab" />
+
+**Rekt**
+
+Le dark web journalisme DeFi.
+
+<Button sx={{ alignSelf: 'flex-start', mt: 'auto' }} to="https://www.rekt.news">
+  Learn
+</Button>
+
+</Flex>
+
+</Chocolate>
+
+</Box>
