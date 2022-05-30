@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---content-fr-start-faq-mdx",
+    "path": "/fr/start/faq/",
+    "result": {"pageContext":{"frontmatter":{"title":"FAQ","description":"Foire Aux Questions sur Kernel","order":3,"featuredImage":"images/shares/listening-stories.png"},"locale":"fr","pagePath":"/fr/start/faq/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

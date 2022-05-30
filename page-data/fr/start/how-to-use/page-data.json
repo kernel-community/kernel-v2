@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---content-fr-start-how-to-use-mdx",
+    "path": "/fr/start/how-to-use/",
+    "result": {"pageContext":{"frontmatter":{"title":"Guide","order":1,"description":"Qu'est-ce que Kernel et comment utiliser pleinement cet environnement d'apprentissage continu.","featuredImage":"images/shares/learn.png"},"locale":"fr","pagePath":"/fr/start/how-to-use/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

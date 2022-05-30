@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---content-fr-resources-security-mdx",
+    "path": "/fr/resources/security/",
+    "result": {"pageContext":{"frontmatter":{"title":"Securité","order":3,"description":"Une collection très soignée des meilleurs outils de sécurité pour les contrats intelligents actuellement disponibles.","image":"/images/shares/learn.png"},"locale":"fr","pagePath":"/fr/resources/security/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

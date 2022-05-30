@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-resources-research-mdx",
     "path": "/en/resources/research/",
-    "result": {"pageContext":{"frontmatter":{"title":"Research","order":4,"hideLanguageSelector":true,"description":"A curated list of research areas, topics and connections for those less interested in products and more interested in the frontiers of human knowledge.","image":"/images/shares/learn.png"},"locale":"en","pagePath":"/en/resources/research/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"Research","order":4,"description":"A curated list of research areas, topics and connections for those less interested in products and more interested in the frontiers of human knowledge.","image":"/images/shares/learn.png"},"locale":"en","pagePath":"/en/resources/research/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}

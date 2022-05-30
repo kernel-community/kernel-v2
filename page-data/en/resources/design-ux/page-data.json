@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-resources-design-ux-mdx",
     "path": "/en/resources/design-ux/",
-    "result": {"pageContext":{"frontmatter":{"title":"Design & UX","order":1,"hideLanguageSelector":true,"description":"A highly curated list of design and UX tools made or recommended by our community.","image":"/images/shares/listening-stories.png"},"locale":"en","pagePath":"/en/resources/design-ux/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"Design & UX","order":1,"description":"A highly curated list of design and UX tools made or recommended by our community.","image":"/images/shares/listening-stories.png"},"locale":"en","pagePath":"/en/resources/design-ux/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
