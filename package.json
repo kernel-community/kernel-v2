@@ -43,7 +43,7 @@
     "gatsby-transformer-json": "^3.14.0",
     "gatsby-transformer-remark": "^4.11.0",
     "gatsby-transformer-sharp": "^3.14.0",
-    "html-react-parser": "^1.4.6",
+    "html-react-parser": "^1.4.14",
     "immer": "^9.0.12",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
