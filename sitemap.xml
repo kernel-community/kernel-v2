@@ -42,6 +42,7 @@
 <url> <loc>https://kernel.community/en/build/dance/glossary/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/dance/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/dance/inspiration/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/build/dance/sati/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/decentralized-ai/analogue-imaginings/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/decentralized-ai/generative-adversaries/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/decentralized-ai/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -177,7 +178,6 @@
 <url> <loc>https://kernel.community/en/track-gaming/module-6/curated/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-6/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/x-genesis/collected/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://kernel.community/en/track-gaming/x-genesis/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/conversation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/money-language/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -187,6 +187,7 @@
 <url> <loc>https://kernel.community/en/guiding/writers/recipes/components/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/recipes/icons/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/recipes/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/track-gaming/x-genesis/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/blog/Editorial/constituting-consensus/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/blog/Editorial/launching-kb3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/blog/Editorial/summer-of-love/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
