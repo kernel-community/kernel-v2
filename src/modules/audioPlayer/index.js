@@ -50,7 +50,7 @@ const AudioPlayer = ({ src }) => {
         handleOnClick={handleOnClickPlayControl}
       />
       <div sx={styles.rightContainer}>
-        <div sx={styles.listenCTA}>Listen to this article</div>
+        <div sx={styles.listenCTA}>Listen</div>
         <ProgressBar
           currentTime={currentTime}
           duration={duration}
