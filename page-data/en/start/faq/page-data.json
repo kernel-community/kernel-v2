@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-start-faq-mdx",
     "path": "/en/start/faq/",
-    "result": {"pageContext":{"frontmatter":{"title":"FAQs","description":"Frequently Asked Questions about Kernel","order":3,"featuredImage":"images/shares/listening-stories.png"},"locale":"en","pagePath":"/en/start/faq/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"FAQs","description":"Frequently Asked Questions about Kernel","order":4,"featuredImage":"images/shares/listening-stories.png"},"locale":"en","pagePath":"/en/start/faq/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
