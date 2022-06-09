@@ -57,8 +57,8 @@
 <url> <loc>https://kernel.community/en/build/games/infinite/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/games/patterns/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/games/recordings/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://kernel.community/en/build/nfteasy/character-types/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/games/value/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/build/nfteasy/character-types/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/nfteasy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/nfteasy/long-life-libraries/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/nfteasy/perma-network-culture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
