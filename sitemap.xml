@@ -90,6 +90,7 @@
 <url> <loc>https://kernel.community/en/conversation/hospitality/deep-response/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/conversation/hospitality/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/engineers/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/guiding/engineers/navigation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/engineers/search/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/engineers/translation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/free-learn/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -103,7 +104,6 @@
 <url> <loc>https://kernel.community/en/guiding/writers/how-to/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/translation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://kernel.community/en/guiding/engineers/navigation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/learn/module-0/conversation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/learn/module-0/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/learn/module-0/money-language/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
