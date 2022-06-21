@@ -21,6 +21,9 @@ const AudioPlayer = ({ src }) => {
 
   useEffect(() => {
     const audio = document.getElementById(playerId)
+    if(!audio) {
+      return
+    }
 
     const setAudioData = () => {
       setDuration(audio.duration)
