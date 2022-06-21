@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 import ProgressBar from './ProgressBar'
 import Audio from './Audio'
@@ -11,9 +12,15 @@ const AudioPlayer = ({ src }) => {
   const [currentTime, setCurrentTime] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [clickedTime, setClickedTime] = useState()
+  const [playerId, setPlayerId] = useState()
 
   useEffect(() => {
-    const audio = document.getElementById('audio')
+    const uuid = uuidv4()
+    setPlayerId(`audio-${uuid}`)
+  }, [])
+
+  useEffect(() => {
+    const audio = document.getElementById(playerId)
 
     const setAudioData = () => {
       setDuration(audio.duration)
@@ -36,7 +43,7 @@ const AudioPlayer = ({ src }) => {
       audio.removeEventListener('loadeddata', setAudioData)
       audio.removeEventListener('timeupdate', setAudioTime)
     }
-  }, [isPlaying, clickedTime])
+  }, [playerId, isPlaying, clickedTime])
 
   const handleOnClickPlayControl = () => {
     setIsPlaying(!isPlaying)
@@ -44,7 +51,7 @@ const AudioPlayer = ({ src }) => {
 
   return (
     <div sx={styles.container}>
-      <Audio src={src} />
+      <Audio src={src} playerId={playerId} />
       <PlayControl
         isPlaying={isPlaying}
         handleOnClick={handleOnClickPlayControl}
