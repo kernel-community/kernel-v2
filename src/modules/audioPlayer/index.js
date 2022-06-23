@@ -21,7 +21,7 @@ const AudioPlayer = ({ src }) => {
 
   useEffect(() => {
     const audio = document.getElementById(playerId)
-    if(!audio) {
+    if (!audio) {
       return
     }
 
