@@ -158,6 +158,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "phillipsheldrake",
+      "name": "Phillip Sheldrake",
+      "avatar_url": "/images/fellows/phillipsheldrake.png",
+      "profile": "https://twitter.com/Sheldrake/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 6,
