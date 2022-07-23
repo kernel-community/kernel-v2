@@ -1,0 +1,175 @@
+---
+title: Ethereum
+order: 4
+hideLanguageSelector: true
+description: Un breve resumen de una de las primeras charlas públicas de Vitalik Buterin sobre Ethereum, de DevCon 1 en Londres.
+featuredImage: images/shares/giving.png
+---
+
+# 💡 La idea
+
+<Video src="https://www.youtube-nocookie.com/embed/gjwr-7PgpN8" />
+
+## ¿Cómo encaja en Kernel?
+
+Este video de Devcon 1 contiene muchas gemas de conocimiento sobre las ideas detrás de Ethereum; ¿por qué podría ser interesante e importante tener un entorno Turing completo compartido al que cualquiera pueda acceder y programar?; ¿y cuál era (y es) la visión? Es especialmente útil mirar hacia atrás y preguntar qué ideas originales hemos logrado implementar y dónde se puede mejorar todavía. Este video ha sido seleccionado para ayudarte a profundizar su comprensión (más técnica) de:
+
+<Process>
+
+Valor
+
+Confianza 
+
+Incentivos 
+
+Resistencia a la censura 
+
+(¡No solo!) dinero y discurso 
+
+</Process>
+
+## Resumen
+
+Este video es la génesis de la analogía entre la calculadora (Bitcoin) y el teléfono inteligente (Ethereum) y
+una demostración del poder de la generalidad...
+
+> "En lugar de tener un protocolo diseñado en torno a un conjunto muy pequeño de casos de uso, 
+simplemente creas un **sistema operativo de propósito general** y dejas que las personas construyan 
+lo que quieran como aplicaciones encima de él".
+
+Ethereum es un blockchain con algunas characterísticas únicas:
+
+- Lenguaje de secuencias de comandos Turing-completo incorporado: esencialmente un híbrido entre arquitecturas 
+de máquinas virtuales estándar, secuencias de comandos de Bitcoin y "algunas otras cosas". 
+- Todo el mundo puede escribir programas en este script o bien, lenguaje de alto nivel que se compilan a este script, 
+tomar estos scripts compilados, ponerlos en transacciones y enviarlos al blockchain.
+La transacción se confirma y obtiene una cuenta especial en esa dirección. 
+- Las cuentas contractuales y las cuentas de propiedad externa tienen **los mismos privilegios**.
+- Cualquiera puede crear una aplicación, con las reglas que sea. Y cualquiera persona puede interactuar con esa 
+aplicación, es decir, puedes hacer NameCoin en 10 líneas de código...
+
+El estado se define como un valor clave que asigna direcciones a objetos de cuenta. Cada objeto de cuenta tiene un 
+"nonce" (un número o valor que solo se puede usar una vez) y un saldo. Las cuentas de contrato también incluyen un hash de código y un árbol con raíz de almacenamiento. Luego, 
+Vitalik analiza cómo funcionan las transacciones con detalles importantes de bajo nivel para que podamos construir una 
+imagen conceptual completa en las próximas semanas. 
+
+> "En realidad, puedes pensar en Ethereum como un sistema bastante simple. Puedes pensar en el estado como 
+una base de datos, y puedes pensar en cada uno de estos contratos como programas que están 
+sentados en una computadora, **excepto la computadora se distribuye masivamente a nivel mundial. En realidad, 
+es una red altamente segura respaldada por decenas de miles de computadoras en todo el mundo.** Es audaz 
+porque es importante".
+
+Sin embargo, esto plantea "El problema Halting". Si tienes un lenguaje de secuencias de comandos general, entonces, ¿qué impide que alguien escriba un programa que no finaliza (o se pare / halt), ocupando todos los recursos de la computadora e impidiendo que alguien más lo use? Vitalik explica cómo resuelve esto con "gas": una tarifa que se cobra por cada paso computacional que debe realizar la computadora, donde hay un límite de pasos computacionales posibles por bloque.
+
+<Flash>
+
+<Card>
+
+P: El estado de Ethereum se define como un...?
+
+R: valor clave que asigna direcciones a objetos de cuenta.
+
+</Card>
+
+</Flash>
+
+### Economía Virtual
+
+Esto significa que no hay un límite *técnico* sobre lo que se puede poner en el campo `datos` 
+de una transacción, pero hay uno *económico*, ya que cuantos más datos incluyas, más caro 
+se vuelve. Fue un gas 68 adicional por cada byte de datos que incluyiste en ese momento, aunque 
+es posible que haya cambiado ahora.  
+
+> 💡 Ejercicio para el lector: ¿cómo dirías cuál es el precio del gas por byte actualmente?
+
+Vitalik consiguientemente analiza algunas de las complejidades en torno a `v`, `r` y `s` de la criptografía de curva 
+elíptica, y cómo `v` es un campo adicional que se usa para la recuperación de claves públicas. También proporciona 
+más información sobre recibos y registros y por qué los registros son más baratos y permiten un acceso eficiente 
+de clientes ligeros. Aunque suene aburrido, este es el corazón de cómo construimos 
+herramientas resistentes a la censura.
+
+<Flash>
+
+<Card>
+
+P: ¿Cómo evitamos que se pare un blockchain con un script completo de Turing?
+
+R: Cobrando "gas" por cada paso computacional y limitando la cantidad de gas consumido por bloque.
+
+</Card>
+
+</Flash>
+
+A continuación una descripción de la **Máquina Virtual Ethereum**:
+
+- Stack: hasta 1024 campos de 32 bytes.
+- Memoria: solo una matriz de bytes que se expande infinitamente, pero cuanto más expande la matriz de bytes,
+más gas que tienes que pagar. **La mayoría de los límites no son estáticos, son económicos y verás
+esta idea una y otra vez.**
+- Almacenamiento: permanente para contratos. Puedes leer y escribir en él.
+- Variables de entorno: la Máquina Virtual puede acceder al número del bloque, el tiempo, la dificultad de extracción, el bloque anterior
+hash, etc.
+- Registros: almacenamiento de sólo agregar en un bloque específico, no en el estado.
+- Subllamada: código de operación por el cual Máquina Virtual puede llamar a otros contratos.
+
+Vitalik analiza la codificación ABI (interfaz binaria de aplicación) y RLP (prefijo de longitud recursiva) "para personas que 
+son fanáticos de la teoría de conjuntos". Puede parecer aburrido, pero es una demostración de la cultura primitiva y de cómo 
+piensan realmente las personas que construyeron todo esto. Continúa con una explicación de los algoritmos de memoria dura 
+para la minería y por qué fueron una innovación; enfatiza el tiempo de bloqueo rápido (17s); y analiza "tíos", que resuelven 
+las tasas obsoletas de bloqueos que surgen debido a la latencia de la red. Vale la pena escucharlo por el contexto cultural, 
+pero 23:50 - 28:57 ahora está un poco desactualizado.
+
+Comprender cómo esta elección particular de estructura de datos nos permite expresar sucintamente 
+el estado compartido revela por qué la intimidad con los detalles técnicos de bajo nivel permite construir 
+una imagen conceptual integral de cómo se une todo y el tipo significados que la tecnología 
+puede crear. 
+
+¿Qué tipo de significado exactamente? Bueno, [el lenguaje en sí está compuesto de estructuras profundas en forma de árbol](https://www.goodreads.com/book/show/5755.The_Language_Instinct). Son estos patrones combinatorios básicos, pero extraordinariamente poderosos, los que permiten a los seres humanos muy jóvenes aprender y utilizar un fenómeno casi infinitamente complejo con tanta facilidad, incluso cuando sus cerebros aún se están desarrollando. Más prosaicamente, cada palabra es un árbol, con sus raíces rastreando a través de un sinfín de otras palabras, idiomas y personas, y sus ramas alcanzando cualquier número de interpretaciones únicas en tiempos y contextos aún por descubrir. El lenguaje es el único sistema [lógicamente descentralizado](https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274) que tenemos, por lo que tiene sentido que las estructuras de datos que informan los próximos sistemas lógicamente descentralizados que co-creamos reflejen eso en el corazón de cómo comunicamos valor actualmente.
+
+### Computación generalizada
+
+Si eres menos técnico que Vitalik (vamos, al igual que casi todos nosotros) y te preguntas qué significa todo esto 
+realmente. Bueno, el punto crítico es esta noción de un **sistema operativo de propósito general**: una 
+máquina virtual monolítica distribuida en todo el mundo que es compartida por todos, que no es propiedad de 
+nadie y que no se puede apagar sin también apagar Internet. Con Bitcoin, 
+puedes transportar 12 palabras mágicas en su cabeza a través de cualquier frontera del 
+mundo, deletrearlas en una máquina conectada a Internet y tener acceso inmediato al valor. 
+
+Ahora, existe la posibilidad de que puedes reducir no solo el valor monetario, sino 
+también la _computación generalizada_. Es decir, su mnemónica de 12 o 24 palabras podría ser su sistema operativo personal completo, 
+al que se podría acceder desde cualquier lugar. Deje de pensar en las computadoras como una pantalla en la que escribe cosas desde un teclado. 
+Comience a ver el mundo en sí mismo como un patio de juegos infinitamente programable, cuyo acceso solo requiere unas pocas palabras mágicas 
+que cualquier persona, en cualquier lugar, puede crear cuando aprende los conceptos básicos de un nuevo orden de lenguaje.
+
+<Flash>
+
+<Card>
+
+R: Las 12 o 24 palabras que se utilizan para generar tu clave privada y otorgarle acceso a blockchain se denominan \_\_\_\_\_\_\_\_.
+
+A: Mnemotécnicas.
+
+</Card>
+
+</Flash>
+
+
+### Kaizen and el principio de substracción 
+
+También vale la pena entender la [filosofía de la Fundación Ethereum](https://ethereum.foundation/philosophy/), ya que funciona con dos fascinantes opuestos complementarios.
+
+<List>
+
+<Link to="https://youtu.be/R7FjX0GEiAM?t=110">
+La charla por excelencia de DevCon IV
+</Link>
+
+</List>
+
+El término 改善 (que se pronuncia "kaizen", significa "mejorar continuamente") fué usado por primera vez en Japón después de la Segunda Guerra Mundial, mayoritarimente promovido por negocios americanos y profesores de gestión de calidad, y encontró su apogeo en "The Toyota Way". Así que no es un término con una gran historia, pero es uno que podemos recuperar combinándolo con su opuesto, lo que Aya Miyaguchi llama "El principio de la substracción". 
+
+Arraigada en la filosofía Zen, la Fundación Ethereum tiene como objetivo "hacerse pequeño"; hacer al no hacer; y tratar de importar menos. Al restar consistentemente de su propia importancia e influencia, entonces la mejora continua que todos deseamos ver ocurre en la capacidad y habilidad de la comunidad. Es elegante y simple.
+
+> Buscamos mejorar continuamente a las personas que nos rodean, humillándonos y entregando poder en cada oportunidad, sin eludir la responsabilidad. 
+
+Encantados, poco a poco nos encontramos sin hacer nada, siendo felices. 
