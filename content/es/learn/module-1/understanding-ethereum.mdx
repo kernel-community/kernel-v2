@@ -115,9 +115,12 @@ hash, etc.
 Vitalik analiza la codificación ABI (interfaz binaria de aplicación) y RLP (prefijo de longitud recursiva) "para personas que 
 son fanáticos de la teoría de conjuntos". Puede parecer aburrido, pero es una demostración de la cultura primitiva y de cómo 
 piensan realmente las personas que construyeron todo esto. Continúa con una explicación de los algoritmos de memoria dura 
-para la minería y por qué fueron una innovación; enfatiza el tiempo de bloqueo rápido (17s); y analiza "tíos", que resuelven 
-las tasas obsoletas de bloqueos que surgen debido a la latencia de la red. Vale la pena escucharlo por el contexto cultural, 
-pero 23:50 - 28:57 ahora está un poco desactualizado.
+para la minería y por qué fueron una innovación; enfatiza el tiempo de bloqueo rápido (17s); y analiza "tíos", que resuelven las tasas obsoletas de bloqueos que surgen debido a la latencia de la red. Vale la pena escucharlo por el contexto cultural, pero 23:50 - 28:57 ahora está un poco desactualizado.
+
+Vitalik destaca que los intentos de un árbol Merkle son "una construcción que permite pruebas compactas y 
+eficientemente verificables de que una transacción en particular se incluyó en un bloque en particular". 
+Sin embargo, no se trata solo de transacciones en el árbol Merkle; también es el estado: es decir, ese almacenamiento 
+árbol trie del que hablamos anteriormente en el objeto de la cuenta.
 
 Comprender cómo esta elección particular de estructura de datos nos permite expresar sucintamente 
 el estado compartido revela por qué la intimidad con los detalles técnicos de bajo nivel permite construir 
@@ -135,7 +138,7 @@ nadie y que no se puede apagar sin también apagar Internet. Con Bitcoin,
 puedes transportar 12 palabras mágicas en su cabeza a través de cualquier frontera del 
 mundo, deletrearlas en una máquina conectada a Internet y tener acceso inmediato al valor. 
 
-Ahora, existe la posibilidad de que puedes reducir no solo el valor monetario, sino 
+Ahora, existe la posibilidad de reducir no solo el valor monetario, sino 
 también la _computación generalizada_. Es decir, su mnemónica de 12 o 24 palabras podría ser su sistema operativo personal completo, 
 al que se podría acceder desde cualquier lugar. Deja de pensar en las computadoras como una pantalla en la que escribe cosas desde un teclado. 
 Comienza a ver el mundo en sí mismo como un patio de juegos infinitamente programable, cuyo acceso solo requiere unas pocas palabras mágicas 
