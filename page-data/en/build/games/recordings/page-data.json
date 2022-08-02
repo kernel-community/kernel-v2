@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---content-en-build-games-recordings-mdx",
     "path": "/en/build/games/recordings/",
-    "result": {"pageContext":{"frontmatter":{"title":"On Reccord","order":4,"hideLanguageSelector":true,"featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/build/games/recordings/"}},
+    "result": {"pageContext":{"frontmatter":{"title":"On Record","order":4,"hideLanguageSelector":true,"featuredImage":"images/shares/learn.png"},"locale":"en","pagePath":"/en/build/games/recordings/"}},
     "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
