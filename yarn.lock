@@ -12690,10 +12690,10 @@ react-side-effect@^2.1.0:
   resolved "https://registry.npmjs.org/react-side-effect/-/react-side-effect-2.1.1.tgz"
   integrity sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
 
-react-smooth-collapse@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/react-smooth-collapse/-/react-smooth-collapse-2.1.1.tgz#76ba43ca153114ca31538fbbfb0237af20adab35"
-  integrity sha512-6B/GKRpc6mJXjH6k9w36nATnlUMgmSHHUZfBXfE7JlUzv84Cz14hDS9P0KG3b4WKu0jx38jHJRVeJolAaE459w==
+react-smooth-collapse@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-smooth-collapse/-/react-smooth-collapse-2.1.2.tgz#65bec660e0432ddc45af5f2deeaef8ddd25741b2"
+  integrity sha512-Wq3NUBisI7Gycj4z7GVGTQyI2bfZSJ1UTSZNzGC3H3hysdRW+uHve3TJyQDFd6gDaXljPQy3u8zNuXZ8NzuptQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     prop-types "^15.6.0"
