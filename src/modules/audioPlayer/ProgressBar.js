@@ -3,10 +3,10 @@ import { jsx } from 'theme-ui'
 import { format, addSeconds } from 'date-fns'
 
 const ProgressBar = ({ currentTime, duration, onTimeUpdate, playerId }) => {
-  const percentProgress = (currentTime / duration) * 100
+  const percentProgress = (currentTime / duration || 0) * 100
 
   const formatDuration = (duration) => {
-    const durationTime = addSeconds(new Date(0), duration)
+    const durationTime = addSeconds(new Date(0), duration || 0)
     return format(durationTime, 'mm:ss')
   }
 
@@ -18,7 +18,7 @@ const ProgressBar = ({ currentTime, duration, onTimeUpdate, playerId }) => {
     const barWidth = bar.offsetWidth
     const clickPositionInPage = e.pageX
     const clickPositionInBar = clickPositionInPage - barStart
-    const timePerPixel = duration / barWidth
+    const timePerPixel = (duration || 0) / barWidth
     return timePerPixel * clickPositionInBar
   }
 
