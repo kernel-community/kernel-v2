@@ -62,7 +62,7 @@
     "remark-slug": "^6.1.0",
     "sharp": "^0.30.7",
     "theme-ui": "^0.14.7",
-    "use-immer": "^0.6.0",
+    "use-immer": "^0.7.0",
     "uuid": "^8.3.2",
     "wagmi": "^0.2.6",
     "window-or-global": "^1.0.1"
