@@ -148,7 +148,7 @@ const Card = ({
                     transition: 'all .2s ease',
                   }}>
                   {' '}
-                  Reveal the answer
+                  Reveal reminder
                 </span>
               </motion.div>
               <motion.div
