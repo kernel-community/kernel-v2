@@ -73,6 +73,7 @@
 <url> <loc>https://kernel.community/en/build/nfteasy/woulds-tries/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/open-data/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/open-data/transact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/build/open-data/transcend/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/open-data/transfinity/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/outsmarting-contracts/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/build/outsmarting-contracts/lifting-the-veil/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -194,6 +195,7 @@
 <url> <loc>https://kernel.community/en/track-gaming/x-genesis/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/conversation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/es/learn/module-0/money-language/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/play-of-pattern/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/purpose/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/es/learn/module-0/trust/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -204,7 +206,6 @@
 <url> <loc>https://kernel.community/en/guiding/writers/recipes/components/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/recipes/icons/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/recipes/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://kernel.community/es/learn/module-0/money-language/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/blog/Editorial/constituting-consensus/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/blog/Editorial/launching-kb3/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/blog/Editorial/signature-stories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
