@@ -191,7 +191,9 @@ const Footer = () => {
                 </ul>
               </li>
               <li>
-                <span sx={{ fontWeight: 'bold' }}>{t('Technical Care', 'Footer')}</span>
+                <span sx={{ fontWeight: 'bold' }}>
+                  {t('Technical Care', 'Footer')}
+                </span>
                 <ul>
                   <li>
                     <Link hideExternalIcon to={'/guiding/privacy'}>
