@@ -200,6 +200,11 @@ const Footer = () => {
                       {t('Privacy Policy', 'Footer')}
                     </Link>
                   </li>
+                  <li>
+                    <Link hideExternalIcon to={'/guiding/terms-of-service'}>
+                      {t('Terms of Service', 'Footer')}
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
