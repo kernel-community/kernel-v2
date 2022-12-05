@@ -16,6 +16,10 @@ yarn
 yarn start
 ```
 
+**Codespace**
+
+We have also created a codespace for this repository, which you should be able to use by clicking the green `Code` button above and following the codespace tab to run this directly in your browser with everything automatically set up.
+
 Check out the `guiding` directory under `content/en` for everything you need to know about how to work with this site, from a cheatsheet and component palette, to detail about how translations, search, and navigation are handled.
 
 ## Roadmap
