@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---content-pr-learn-index-mdx",
+    "path": "/pr/learn/",
+    "result": {"pageContext":{"frontmatter":{"header":true,"headerOrder":1,"title":"Learn","description":"Learn how to build a better web, together.","keywords":"kernel, web3, learn, people, together","featuredImage":"images/kernel_heart.png","hideBreadcrumbs":true,"hideLanguageSelector":true},"locale":"pr","pagePath":"/pr/learn/"}},
+    "staticQueryHashes": ["221863732","2367353373","263894237","2744905544","63159454"]}
