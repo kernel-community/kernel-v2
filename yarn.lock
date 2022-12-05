@@ -2981,10 +2981,10 @@
   dependencies:
     "@theme-ui/css" "0.14.7"
 
-"@theme-ui/prism@^0.12.0":
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.12.0.tgz#90a8e6e40365cabe9f7b140619c14264c0a490e6"
-  integrity sha512-QaS1l8f85KJhbkInygF+/f/3DWqcVCfvF9md4uJ2Hg8igguCJz+hYzycb6ZycZWQWq/kx0ucc81bwb+9KpvQfA==
+"@theme-ui/prism@^0.14.7":
+  version "0.14.7"
+  resolved "https://registry.yarnpkg.com/@theme-ui/prism/-/prism-0.14.7.tgz#ccd045b4c414c723a77d1b5978fc4d4f516e167c"
+  integrity sha512-+QeaYSdkHvmVHMdkSKf/g0bGfxWyX1BqC4PzYOTWXowsTnWRPa6AEACDz6uOCJ2+Z2qp0Of4GRQjT+2sXnvN5Q==
   dependencies:
     prism-react-renderer "^1.1.1"
 
