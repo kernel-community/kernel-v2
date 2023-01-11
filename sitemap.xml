@@ -117,7 +117,6 @@
 <url> <loc>https://kernel.community/en/guiding/guides/interviews/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/guides/juntos/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/guides/mentors/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://kernel.community/en/guiding/guides/relating-kernel/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/frontmatter/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/how-to/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/guiding/writers/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -175,6 +174,12 @@
 <url> <loc>https://kernel.community/en/learn/module-7/perfection/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/learn/module-7/scale-ability/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/learn/module-7/the-gift/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/learn/module-metta/beautiful-homes/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/learn/module-metta/build-native-altars/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/learn/module-metta/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/learn/module-metta/relating-kernel/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/learn/module-metta/school-sucks/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kernel.community/en/learn/module-metta/start-small/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-0/crafted/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-0/curated/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://kernel.community/en/track-gaming/module-0/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
