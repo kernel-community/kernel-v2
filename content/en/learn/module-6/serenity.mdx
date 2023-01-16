@@ -10,7 +10,7 @@ featuredImage: images/shares/giving.png
 
 We have finally reached the tranquil waters of Ethereum 2.0 (also known as “Serenity”). It's been many years in the making, and it appears we still have some way to go yet. 
 
-In fact, coming up with the right wording for the previous sentence was quite a challenge, because Kernel aims for “evergreen” content which will still be accurate and relevant at least a decade from now. As we will shortly see, this is an aspiration we share with the Eth2 Design Rationale.
+In fact, coming up with the right wording for the previous sentence was quite a challenge, because Kernel aims for “evergreen” content which will still be accurate and relevant at least a decade from now. As we will shortly see, this is an aspiration we share with the Ethereum 2.0 Design Rationale.
 
 You might wonder, are we saying that we will “still have some way to go” ten years from now? We certainly hope so. The desire for enclosure, for a certain and definitive end state which can be encapsulated as a “product” and consumed by the wider culture is a peculiarly modern phenomenon. 
 
@@ -39,7 +39,7 @@ Nancy Scheibner
 
 <Box>
 
-**Eth2 Design Rationale**
+**Ethereum 2.0 Design Rationale**
 
 ![Design Rationale](/images/ethereum.png)
 
@@ -100,15 +100,15 @@ Full light-client **verifiability**: a client should be able to gain assurance t
 
 In our [very first note](/learn/module-0/play-of-pattern), we made the point that our way of thinking and solving problems always has to do with trade-offs. The trade-off between complexity and functionality is a deep one. Ethereum developers have taken the approach of splitting the network into “layers” in order to make better trade-offs between complexity and the functionality we need to build a global computing fabric that everyone can use. 
 
-The core idea is that we keep the “bottom layer” or “Layer 1” as simple as possible: it just process critical or high-value transactions that require global agreement. This adheres to the first, second and fourth principle above. Then, we move more complex processes–which cost more to run and may not need everyone in the world to agree on them right now–to other layers further up, often called “Layer 2”. 
+The core idea is that we keep the “bottom layer” or “Layer 1” as simple as possible: it just processes critical or high-value transactions that require global agreement. This adheres to the first, second, and fourth principle above. Then, we move more complex processes–which cost more to run and may not need everyone in the world to agree on them right now–to other layers further up, often called “Layer 2”. 
 
-There are many different kinds of “Layer 2” options, which make different trade-offs depending on what they are optimising. All the complexity gets moved here–and understanding all the different approaches can be daunting–but a diversity of approaches to processing different people’s different needs and use cases is required to give us all the “sufficiency” we need, as well as providing “defence in depth” in a different kind of way.
+There are many different kinds of “Layer 2” options, which make different trade-offs depending on what they are optimising. All the complexity gets moved here–and understanding all the different approaches can be daunting–but a diversity of approaches to processing different people’s different needs and use cases is required to give us all “sufficiency”, as well as providing “defence in depth” in a different kind of way.
 
 <Flash>
 
 <Card>
 
-Prompt: What are the five principles of the Eth2 Design Rationale?
+Prompt: What are the five principles of the Ethereum 2.0 Design Rationale?
 
 Simplicity, stability, sufficiency, defense, verifiability.
 
@@ -179,7 +179,7 @@ Penalties.
 
 <Card>
 
-Prompt: This solves the conflict of interest between miners and users, because Eth2 validators and Eth2 users are more likely to be what?
+Prompt: This solves the conflict of interest between miners and users, because Ethereum 2.0 validators and Ethereum 2.0 users are more likely to be what?
 
 The same people. 
 
@@ -189,10 +189,10 @@ The same people.
 
 ### Proving Stake
 
-Ethereum 2.0 uses a slashing mechanism where a validator that is detected to have misbehaved can be penalized: in the best case by only about 1%, but in the worst case by up to its entire security deposit. This raises the cost of an attack such that we achieve the defender's advantage described above and overcome the validator's incentive to validating each transaction without checking it fully (as this is less expensive computationally).
+Ethereum 2.0 uses a slashing mechanism where a validator that is detected to have misbehaved can be penalized: in the best case by only about 1%, but in the worst case by up to its entire security deposit. This raises the cost of an attack such that we achieve the defender's advantage described above without creating an incentive for validators to validate each transaction without checking it fully (as this is less expensive computationally).
 
 In the Ethereum 2.0 Design Rationale, Vitalik describes why "Casper the Friendly Finality Gadget" was chosen - it was the simplest Proof of Stake consensus algorithm available at the time - and how other options continue to be explored. He highlights the problem of "supernodes" and why 
-sharding is better: less centralization risk, more censorship resistance, and better long-term scalability. Critically, he then considers the security models of any system we choose, and how it operates not just under the "honest majority" model (where 51% of the validators are assumed to be trustworthy), but also the "uncoordinated rational majority" and "worst-case" models. Assuming the worst-case, the question remains:
+sharding is better: less centralization risk, more censorship resistance, and better long-term scalability. Critically, he then considers the security models of any system we choose, and how it operates not just under the "honest majority" model (where 51% of the validators are assumed to be trustworthy), but also the "uncoordinated rational majority" and "worst-case" models. Assuming the worst case, the question remains:
 
 - Can we force an attacker to have to pay a very high cost to break the chain’s guarantees?
 - What guarantees can we unconditionally preserve?
@@ -338,17 +338,17 @@ False! We can now program collective rewards without sacrificing decentralizatio
 
 ### Technicalities
 
-Vitalik then discusses some of the technical choices favored in the design, like BLS signatures (which are easy to aggregate) and SSZ (a simpler serialization suite which aligns with the principle of **simplicity**). If you're interested, we recommend going directly to the Rationale for these details. [This twitter thread](https://twitter.com/LuozhuZhang/status/1579845478920749060) does an excellent job of providing an overview of the development of Eth2 consensus and the associated research if you want more history and detail than can be found in the Design Rationale itself.
+Vitalik then discusses some of the technical choices favored in the design, like BLS signatures (which are easy to aggregate) and SSZ (a simpler serialization suite which aligns with the principle of **simplicity**). If you're interested, we recommend going directly to the Rationale for these details. [This twitter thread](https://twitter.com/LuozhuZhang/status/1579845478920749060) does an excellent job of providing an overview of the development of Ethereum 2.0 consensus and the associated research if you want more history and detail than can be found in the Design Rationale itself.
 
 ### The Positive Sum
 
-What is Eth2? Well, we said it already: our generation's elder game of economic penalties. These penalties are the game mechanics we use to reveal a [unique kind of truth](/learn/module-5/reveal-the-universe/#the-value-of-truth): it is possible to build - and asymmetrically defend and maintain - an explicitly prosocial, global, and ownerless system that provably benefits all the people who choose to use it. The benefits of encoding penalties extend to all layers of this game, including our ability to <Link to="https://twitter.com/VitalikButerin/status/1294461236680130560">use coordination costs to our advantage</Link>.
+What is Ethereum 2.0? Well, we said it already: our generation's elder game of economic penalties. These penalties are the game mechanics we use to reveal a [unique kind of truth](/learn/module-5/reveal-the-universe/#the-value-of-truth): it is possible to build - and asymmetrically defend and maintain - an explicitly prosocial, global, and ownerless system that provably benefits all the people who choose to use it. The benefits of encoding penalties extend to all layers of this game, including our ability to <Link to="https://twitter.com/VitalikButerin/status/1294461236680130560">use coordination costs to our advantage</Link>.
 
 Welcome. Most of us are [friends](/learn/module-5/prosocial-value/#friendship) here. The alternatives are more expensive.
 
 ### Further resources
 
-These few links are intended for those who wish to understand more technicalities and begin developing on, or building tools for, Eth2.
+These few links are intended for those who wish to understand more technicalities and begin developing on, or building tools for, Ethereum 2.0.
 
 <List>
 
@@ -366,7 +366,7 @@ Ethos.dev
 
 <Link to="https://ethereumstudymaster.com/courses/ethereum-2-0-studymaster-program/">
 
-Eth2 Studymaster
+Ethereum 2.0 Studymaster
 
 </Link>
 
