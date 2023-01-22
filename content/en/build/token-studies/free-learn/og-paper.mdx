@@ -1,11 +1,13 @@
 ---
-order: 4
-title: Learning Curve
+order: 3
+title: OG Paper
 hideLanguageSelector: true
 featuredImage: images/shares/giving.png
 ---
 
-# FreeLearn
+# Free Learn Paper
+
+_Please note that the design and motivation have changed since this was first written in 2021. It is presented here for historical purposes, so that you may see the way token designs change over time, when approached with care and the kind of "long now" research, testing, discussion, and improvement for which we advocate in the realm of token design._
 
 <Aligner center>
 
@@ -25,7 +27,7 @@ featuredImage: images/shares/giving.png
 
 ## 1. Introduction
 
-We have built the first version of an open source syllabus for a better web. We have had 800+ Fellows go through the course, testing it, improving it, and building their own projects based on what they learned over the 8 weeks in which each course runs. This has resulted in 100+ new projects and companies formed to work on various aspects of “web 3”, and over $40M raised. While there are many great blockchain courses, we are comfortable that Kernel offers the broadest content and does so in a unique way: all of it is [open source](https://github.com/kernel-community/kernel) and freely available to anyone, anywhere. We charge not for access to knowledge, but for the privilege to participate in the community behind the syllabus. 
+We have built the first version of an open source syllabus for a better web. We have had 800+ Fellows go through the course, testing it, improving it, and building their own projects based on what they learned over the 8 weeks in which each course runs. This has resulted in 100+ new projects and companies formed to work on various aspects of “web 3”, and over $40M raised. While there are many great blockchain courses, we are comfortable that Kernel offers the broadest content and does so in a unique way: all of it is [open source](https://github.com/kernel-community/kernel-v2) and freely available to anyone, anywhere. We charge not for access to knowledge, but for the privilege to participate in the community behind the syllabus. 
 
 There are two pieces in the syllabus itself which inform the rest of this paper: one which describes [wealth as a mnemonic](/learn/module-2/shelling-out/#communicative-wealth), and an essay on the [mnemonic medium](/learn/module-3/remember/#the-mnemonic-medium). In the first piece, Nick Szabo quotes Richard Dawkins who wrote, “money is a formal token of delayed reciprocal altruism”. Szabo uses this idea to develop a theory of collectibles built around closed loops of mutually beneficial trades. Critically, these collectibles act as intergenerational containers not just for wealth, but for **memory**: wampum shells are valuable in and of themselves, but the way they are arranged on a belt or necklace encodes narrative information about a treaty or event or previous owner which moves along with it, increasing its value over time and amortizing the cost of transport and trade. The mnemonic medium is not just about better memory, cognition, and creativity: it must _also_ be about delayed reciprocal altruism and the wealth of intergenerational knowledge and value which we all stand to inherit if we can build tools to more fully and carefully consult the human record.
 
@@ -34,7 +36,6 @@ Matuschak and Nielsen understand this, but lack a viable economic solution. The 
 It’s a fascinating claim, but they themselves identify the same old issue with such work: funding. Their struggle is primarily cultural, because what the development of transformative tools for thought requires is a combination of the best parts of modern product practice with the best parts of modern research culture. However, a tool which will transform the thinking of a civilization cannot be owned: it must be a **pattern used by humanity**, in the same sense as language is. It has to be a public good, but where can we find the money to fund the development of a public praxis and core set of ideas powerful enough to shift the thinking patterns of civilization? Our submission: in the same place it’s always been stored — the mnemonics themselves.
 
 > "There’s a general principle here: good tools for thought arise mostly as a byproduct of doing original work on serious problems [...] Furthermore, the problems themselves are typically of intense personal interest to the problem-solvers. They’re not working on the problem for a paycheck; they’re working on it because they desperately want to know the answer."
-
 
 ## 2. Flow
 
@@ -62,11 +63,11 @@ The course remains totally free, though additional features to enhance learning 
 
 ## 3. Technique
 
-All that is required to introduce economic incentives into Matuschak and Nielsen’s mnemonic medium is two new contracts on Ethereum: DeSchool, and the Learning Curve. The Factory is used to create any new course. These courses need not be based on spaced repetitive prompts. All that is required to launch a new course is a “fee”, a "duration" in blocks for the course to run, a "url" where the course lives and an address for its creator where yield earned on staked fees can be sent.
+All that is required to introduce economic incentives into Matuschak and Nielsen’s mnemonic medium is two new contracts on Ethereum: DeSchool, and the Learning Curve. DeSchool is used to create any new course. These courses need not be based on spaced repetitive prompts. All that is required to launch a new course is a “fee”, a "duration" in blocks for the course to run, a "url" where the course lives and an address for its creator where yield earned on staked fees can be sent.
 
 DeSchool accepts the fee when any learner registers and locks it in a low-risk yield-bearing protocol. It then returns the fee to the learner if they choose to claim it back after the duration of the course. Alternatively, it sends the fee to the Learning Curve, which mints LEARN (an ERC20 token) and returns that to the learner. Once the duration of the course is passed, without any assessment, learners may claim their fee back, while DeSchool ensures the yield is always returned to the creator. 
 
-In fact, DeSchool has no other notion of a "completed" course, because we believe education is moving away from assessment and examination and toward contributions and open source attribution. We're not interested in testing people, which would always necessarily require some kind of privileged role in the contract itself. We're only interested in the sort of general template that can exist indefinitely and continue to provide value to as great a variety of educational models as possible.
+In fact, DeSchool has no other notion of a "completed" course, because we believe education is moving away from assessment and examination and [toward participation](/learn/module-metta/school-sucks/#certified-confusion) and open source attribution. We're not interested in testing people, which would always necessarily require some kind of privileged role in the contract itself. We're only interested in the sort of general template that can exist indefinitely and continue to provide value to as great a variety of educational models as possible.
 
 The Learning Curve mints LEARN according to a [price curve which increases linearly as a function of the total collateral locked](https://docs.google.com/spreadsheets/d/1hjWFGPC_B9D7b6iI00DTVVLrqRFv3G5zFNiCBS7y_V8/edit?usp=sharing). This means, as time progresses and more collateral is locked as more people take the course, the price of each LEARN increases. This provides an incentive for those who believe in the model, and our course content, to seed the curve early on and mint LEARN at lower prices. Anyone can mint LEARN. Anyone can send LEARN to the contract, which it “burns” as it returns the underlying collateral. This creates the conditions required for a viable secondary market. 
 
@@ -81,4 +82,3 @@ We have extended Matuschak and Nielsen’s mnemonic medium by applying a cryptoe
 1. Andy Matuschak and Michael A. Nielsen, “How can we develop transformative tools for thought?”, [https://numinous.productions/ttft](https://numinous.productions/ttft), San Francisco (2019).
 2. Andy Matuschak and Michael A. Nielsen, “Quantum Computing for the Very Curious”, [https://quantum.country/qcvc](https://quantum.country/qcvc), San Francisco (2019).
 3. Nick Szabo, “Shelling Out”, [https://nakamotoinstitute.org/shelling-out/](https://nakamotoinstitute.org/shelling-out/), (2002).
-
