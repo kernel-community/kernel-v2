@@ -7,7 +7,7 @@ featuredImage: images/shares/giving.png
 
 ## The Learning Curve
 
-Any good spec starts with a picture:
+Most good specs start with a picture:
 
 <Aligner center>
 
@@ -27,7 +27,7 @@ The following specifies a set of contracts capable of supporting free online edu
 
 Student debt and underpaid teachers are two pivotal problems of our age. While an abundance of information exists online, especially in the open source world, we cannot simply make all resources free, as that ensures teachers become even more undervalued than they currently are. There must be some way of using programmable money to both erase student debt, while ensuring educators receive due recompense for the critical role they play in society.
 
-These contracts present exactly one such solution. An epistemic community of learners who choose to mint (increasingly valuable) LEARN tokens at the end of their course, rather than just claim their original stake back, is the emergent result.
+These contracts present exactly one such solution. An epistemic community of learners who choose to mint (increasingly valuable) LEARN tokens at the end of their course, rather than just claim their original stake back, is one possible emergent result.
 
 ## Specification
 
@@ -72,7 +72,7 @@ Anyone can create a course. There are no privileged roles here. The only expecta
 > **uint256 _courseId** - the course which the scholarships apply to;   
 > **uint256 _amount** - the amount, in DAI, to be locked in a Yearn vault for perpetual scholarships;   
 
-Anyone can create scholarships for any course. All you need to do is lock up DAI in a yearn vault and specify for which course you'd like to open scholarships. The number of scholarships your DAI provides is calculated by dividing the amount provided by the specific course stake. The idea is that any learner can then register for the course as a scholar. Once they have completed the course - i.e. the duration of the course specified in number of blocks has passed - a new learner can then register with the same scholarship. Please read [here](/guiding/free-learn/learnings/#perpetual-scholarships) for more information.
+Anyone can create scholarships for any course. All you need to do is lock up DAI in a yearn vault and specify for which course you'd like to open scholarships. The number of scholarships your DAI provides is calculated by dividing the amount provided by the specific course stake. The idea is that any learner can then register for the course as a scholar. Once they have completed the course - i.e. the duration of the course specified in number of blocks has passed - a new learner can then register with the same scholarship. Please read [here](/build/token-studies/free-learn/learnings/#perpetual-scholarships) for more information.
 
 </Accordion>
 
@@ -90,7 +90,7 @@ Anyone can create scholarships for any course. All you need to do is lock up DAI
 > **bytes32 s**  
 
 
-This method uses te `permit()` functionality associated with DAI to approve the DeSchool contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `createScholarships()` and have it operate as expected.
+This method uses the `permit()` functionality associated with DAI to approve the DeSchool contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `createScholarships()` and have it operate as expected.
 
 </Accordion>
 
@@ -541,7 +541,7 @@ The same reasoning applies as above: it is helpful to track LEARN created and de
 
 Where does this magic constant come from? We were inspired by Uniswap's constant product formula and the simplicity it represents. While our setup is slightly different, we need some constant which defines the slope of the linearly increasing price function for LEARN. We do not think it possible, in principle, to model this with complete certainty. All we can do is ask increasingly precise questions about the kinds of outcome we might wish to see, especially in terms of how many LEARN will be minted by the course stake, if the learner chooses that option. 
 
-We set `k = 10000` because this means that 1M DAI must be locked as collateral before your course stake for the initial KERNEL course mints just 1 LEARN, an important psychological fact if nothing else.
+We set `k = 10000` because this means that 1M DAI must be locked as collateral before 100 DAI mints just 1 LEARN, an important psychological fact if nothing else.
 
 ## Rationale
 

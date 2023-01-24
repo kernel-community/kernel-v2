@@ -8,10 +8,10 @@ featuredImage: images/shares/learn.png
 
 # 🏗️ Inventing on Principle
 
-The five principles outlined in [Serenity](learn/module-6/serenity/#principled-layers) are very useful 
+The five principles outlined in [Serenity](/learn/module-6/serenity/#principled-layers) are very useful 
 technical guidelines for designing complex systems. However, they are not personal principles
  and have nothing to say about our motivation as human beings for wanting to build out and 
- participate in the Eth2 economic elder game.
+ participate in the Ethereum 2.0 economic elder game.
 
 We'll turn to Bret Victor to help us think about how we might meaningfully merge our technical 
 practice with a personal principle so as to live response-ably: cultivating both an *awareness* 
@@ -32,7 +32,7 @@ important and necessary and right and using that to guide what you do."
 ## Brief
 
 This is a talk in three parts: Bret describes his own principle, then describes some other 
-people who have lived principled lives, and then uses both previous sections to illustrate how 
+people who have lived principled lives, and finally uses both previous sections to illustrate how 
 you can find and follow your own principle.
 
 ### Immediate Creation
@@ -48,29 +48,17 @@ grow. Thus, his principle is:
 
 What this means is that, when you're making something and you make a change or a decision, you 
 need to see its effect directly and instantaneously. Nothing should be hidden: creators need to 
-see what they're doing. The first place where this principle is violated is **coding.**
+see what they're doing. One place where this principle is violated is **coding.**
 
-Specifically, we edit code in a text editor, see what it looks like; then make some changes, 
-compile and run it again and see the effect of that new change. **Most of the time is spent 
-working in a text editor blindly**, without an immediate connection to the output.
+Specifically, we edit code in a text editor, compile it, run it and go see what it looks like; then make some changes, compile and run it again and check the effect of that new change. Most of our time is spent working in a text editor, blindly, without an immediate connection to the output.
 
-The first step is to link the two together seamlessly in one environment. Then, we can start 
-thinking of ways to change our work other than typing new code. Bret demonstrates this by 
-"dialling" numbers up and down with a simple ctrl + click mechanism, allowing you to explore the 
-space and pick the magnitude which feels best to you artistically, without needing to go 
-through each possible number manually. He demonstrates how this simple change allowed him to 
-discover a means for animating the blossoms he would never have otherwise known about.
+The first step needed is to link the code and the output together seamlessly in one environment. Then, we can start thinking of ways to change our work other than typing new code. Bret demonstrates this by "dialling" numbers up and down in the code editor with a simple ctrl + click mechanism, and having the effect directly reflected in the running program. This allows you to explore the space and pick the magnitude which feels best to you artistically, without needing to go through each possible number manually. He demonstrates how this simple change allowed him to discover a means of animation he would never have otherwise known about.
 
 > "So much of creation is discovery. And you can't discover anything if you can't see what 
 you're doing [...] Having an immediate connection allows ideas to surface, and develop, in 
 ways which were not before possible."
 
-There's still a problem though: I have the picture, and I have the code, but I have to 
-maintain *the mapping between the two* in my head to make sense of things. This time, 
-option + click allows us both to see which line draws what piece of the picture, but also what 
-each pixel in the picture corresponds to in the code. It turns out this is also useful for 
-navigation, **allowing us to make changes as quickly as we think of them**, which is critical 
-to the creative process.
+There's still a problem though: I have the animated output, and I have the code, but I have to maintain the mapping between the two in my head to make sense of things. Bret solves this by introducing an option to click on one part of the picture to see which line of code it corresponds to. As it turns out, this is also useful for navigation, **allowing us to make changes as quickly as we think of them**, which is critical to the creative process.
 
 > 💡 There are thoughts we can't think: we need our tools to help us discover them.
 
@@ -96,15 +84,14 @@ Thoughts we can't think in isolation.
 
 #### Interactivity
 
+Another concept that poses difficulty to the coder/creator is time.
+
 > "If you have a process in time, and you want to see changes immediately; you have to map time 
 to space [...] Creators need to be able to see what they're doing. If you're designing 
 something embedded in time, you need to be able to see across time, otherwise you're designing 
 blind."
 
-In the tree example, there is no state: no sense of time or interactivity. Bret shows a 
-platform game which has all the features of the tree example above, but also can be paused 
-at any point and rewound - in this case to adjust the *future trajectory* of a character's 
-jump so they end up in exactly the right place without unnecessary fuss for the creator.
+In Bret’s first example, there was no state: no sense of time or interactivity. Next, he shows a platform game which has all the features of his previous example, but which may also be paused at any point and rewound—for instance to adjust the future trajectory of a character's jump so they end up in exactly the right place without unnecessary fuss for the creator
 
 > "As I was designing this, I noticed that it's fun to play with gravity. I bet you could make 
 an entire game from that one mechanic. In fact, you could probably make a game from fiddling 
@@ -112,7 +99,7 @@ with any single line of code here as a way of [exploring possibly rich mechanics
 
 #### Abstract Algorithms
 
-Bret talks about binary search and demonstrates how the code for such an algorithm gives no 
+Bret then talks about binary search and demonstrates how the code for such an algorithm gives no 
 immediate sense of what it does.
 
 > "You have to 'play computer' and simulate in your head what each line of code will do. To a 
@@ -120,33 +107,24 @@ large extent, the people who we consider to be good software developers are just
 who are good at playing computer. But if we're writing our code *on a computer*, why are we 
 simulating what a computer would do rather than just having it do it and show us!?"
 
-In particular, he uses this example to show how easy and intuitive it is to find different 
-kinds of bugs - both simple ones like having an invalid array index, and non-trivial ones 
-where the range within which we're searching becomes distorted and never returns anything 
-usable. This is "what it looks like to write an algorithm without a blindfold on."
+In particular, he uses this example to show how easy and intuitive it could be, given the proper tools, to find different kinds of bugs—both simple ones like accidentally using an invalid array index, and non-trivial ones where the range within which we're searching becomes distorted and never returns anything usable. This is, he says, "what it looks like to write an algorithm without a blindfold on."
 
-Our current conception of what a program is - a list of textual definitions that you hand to 
-a compiler - is derived from languages made in the 1950's when we were still using punch-cards. 
-None of these languages, or the machines they ran on, were interactive - and this assumption is 
-still with us today, even though the media has changed drastically. People still think REPLs 
-are "interactive programming" because that was the best you could do on a teletype!
+Our current conception of what a program is—a list of textual definitions that you hand to a compiler—is derived from languages made in the 1950's when we were still using punch-cards. None of these languages, or the machines they ran on, were interactive—and this assumption is still with us today, even though the media has changed drastically. People still think using a REPL amounts to "interactive programming" because that was the best you could do on a teletype!
 
 #### Golden Rules
 
-We can demonstrate with programming and software, but *the principle itself has to do with any 
-kind of creation*. Bret shows an electric circuit to illustrate the breadth of what he has in 
-mind.
+We can illustrate what we are hinting at here with programming and software, but **the principle itself has to do with any kind of creation**. Bret shows an electric circuit to illustrate the breadth of what he has in mind.
 
 In electric circuit design, we are mostly interested in the data associated with the variables, 
 and yet traditional tools and environments confine us to static representations we must then 
-simulate in our heads. He uses this to present **the two golden rules of information design:**
+simulate in our heads. Bret uses this to present **the two golden rules of information design:**
 
 1. Show the data.
 2. Show comparisons.
 
 Here's the really mind-blowing piece: instead of the representation of a circuit being made 
 out of "little squiggly symbols", **it is made out of data**. The symbols exist because they 
-were appropriate for the medium of pencil and paper, but when you have a new medium, you have 
+were appropriate for the medium of pencil and paper, but when you have a new medium, you need 
 to rethink your representations to give creators more immediate connections to what they are 
 creating.
 
@@ -168,10 +146,7 @@ It feels like an injustice, and I feel it is my responsibility to do something.
 > Not opportunity: **responsibility**.
 
 Bret is not trying to convince you to take up his principle, but rather to highlight that the 
-words he is using - "responsibility", "injustice", "moral wrong" - aren't the words you 
-generally hear in a technical field. Things in social fields like censorship, gender 
-discrimination, environmental degradation are all recognized as moral wrongs, yet we lack this 
-tenor in our technical creations.
+words he is using - "responsibility", "injustice", "moral wrong" - aren't words you generally hear in a technical field. Social concepts like censorship, gender discrimination, environmental degradation are all recognized as moral wrongs, yet we lack this tenor in our technical creations.
 
 > "The purpose of this talk is to tell you that activists are not limited to social causes. 
 As a technologist, you can recognize a wrong in the world, you can have a vision for what a 
@@ -196,8 +171,8 @@ By inventing.
 
 In the late 70's at Xerox Parc, Larry Tesler and his colleagues thought that personal 
 computing - which was not considered feasible by anyone else - had huge potential to change 
-how people thought and lived. At the time, software interfaces were designed around **modes**. <Link to="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/">Vim still famously does this</Link>. 
-By pioneering the concept of software user studies, he observed that the complexity of modes 
+how people thought and lived. At the time, software interfaces were designed around so-called "**modes**". <Link to="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/">Vim still famously does this</Link>. 
+By pioneering the concept of software user studies, Tesler observed that the complexity of modes 
 was a barrier that many people, even with training, couldn't cross. This was therefore a 
 threat to his dream of personal computers.
 
@@ -211,7 +186,7 @@ the phonograph. Edison stumbled over the technology for audio recording and buil
 novelty, but **he didn't have any cultural intent**, whereas what Larry did was entirely a 
 reaction to a particular cultural context.
 
-Can you begin to see why we have placed such [emphasis](/learn/module-1/joyful-subversion/#shifting-the-nature-of-work) 
+This is why we have placed such [emphasis](/learn/module-1/joyful-subversion/#shifting-the-nature-of-work) 
 on [breaking](/learn/module-3/time/#media-environments) down 
 our [culturally conditioned](/learn/module-3/humility/#brief) [modes](/learn/module-3/intention/) [of](/learn/module-4/art/) [thinking](/learn/module-5/listening-stories/)? 
 It's also not entirely accurate to say that Larry "solved the problem" of modeless text 
@@ -237,16 +212,9 @@ of invention for the sake of patents. This is not a point of relative impacts, j
 **motivation** and **approach**. Both Stanton and Tesler recognized an invisible wrong, 
 envisioned a world without that wrong, and dedicated themselves to fighting for a principle."
 
-This applies to many other seminal figures in the history of computer science. Doug Engelbart 
-(who championed the idea of interactive computing) is best known for inventing the mouse, but 
-he really came up with an entirely new way to work with knowledge. His explicit goal was to 
-enable humankind to solve the world's urgent problems. He had a vision of **knowledge 
-workers using complex, powerful information tools to harness their collective intelligence**.
+This applies to many other seminal figures in the history of computer science. Doug Engelbart (who championed the idea of interactive computing) is best known for inventing the mouse, but he really came up with an entirely new way to work with knowledge. His explicit goal was to **[enable humankind to solve the world's urgent problems](https://youtu.be/sG3PWet8fDk)**. He had a vision of **knowledge workers using complex, powerful information tools to [harness their collective intelligence](https://youtu.be/Rns8_e2JiKw)**.
 
-Or Alan Kay, whose goal was "to amplify human reach and bring new ways of thinking to a 
-faltering civilization that desperately needed it." His approach was through children: if 
-programming is a form of basic literacy, then kids will grow up to be adults who have developed 
-new means for critical thought, and we'll have more enlightened societies. 
+Or Alan Kay, whose goal was "**to amplify human reach and bring new ways of thinking to a faltering civilization that desperately needed it**." His approach was to work through children: if programming is regarded as a form of basic literacy, then kids will grow up to be adults who have developed new means for critical thought, and we'll have more enlightened societies. 
 
 ### Specific Insight
 
@@ -255,7 +223,7 @@ that you *can*. That this is an option which is available to you, though it is n
 you'll hear about often [...] Instead the world will try to make you define yourself by a 
 skill."
 
-We are conditioned to have a major in college, or a job title in our career. This can be 
+We are conditioned to centre our efforts around a major in college, or a job title in our career. This can be 
 worthwhile, and if you want to spend your life pursuing excellence by practicing a skill, 
 you can do that. That is the path of the craftsmen: the most common path. There's also the 
 path of the problem solver, typified by entrepreneurship or academic research, which is about 
@@ -287,11 +255,9 @@ Because principled living is really a form of [self-discovery](/learn/module-4/s
 
 </Flash>
 
-Confining yourself to practicing just one skill can make it difficult to get the broad range 
-of experience which seems so valuable to doing principled work. Finally, a principle can't 
-just be any old thing you believe in, like "make software simpler". These are nice thoughts, 
-but are too vague to be directly actionable. Larry Tesler liked simplicity, but he had this 
-**specific nugget of insight** that no person should be trapped in a mode.
+Confining yourself to practicing just one skill can make it difficult to get the broad range of experience which seems so valuable to doing principled work. 
+
+Finally, a principle can't just be any old thing you believe in, like "make software simpler". This is a nice thought, but is too vague to be directly actionable. Larry Tesler liked simplicity, but he had this **specific nugget of insight** that no person should be trapped in a mode.
 
 > If your principle provides you with a specific insight, it will guide you, and you will 
 always know if what you're doing is right. 

@@ -1,0 +1,198 @@
+---
+order: 8
+title: Honour
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Honour: A Social Credit System
+
+<Aligner center>
+
+<Box sx={{textAlign: 'justify', width: '70%'}}>
+
+We propose a peer-to-peer system of social credit. It is open, permissionless, and can be deployed on any EVM-compatible blockchain. The system assumes minimal structure. By virtue of four weird rules, we can invert how we represent money, in order to cultivate more healthy communal use. In short, entities hold this money as a liability that simultaneously grants access to high-bandwidth, authentic communication channels by which ongoing and lively relationships may be established.
+
+</Box>
+
+</Aligner>
+
+_Note: in this case, the [original Google Doc](https://docs.google.com/document/d/1mdWJhBFrGx0OBJbx5fceLZSEI1zvkVuJhQwgVhpxOas/edit?usp=sharing) is more revealing, because you get to see the ongoing conversations. This system is not yet in production._
+
+<Aligner center>
+
+<Flex sx={{alignItems: 'center'}}>
+  
+  <Button to='https://github.com/kernel-community/honour' secondary inline>
+    Audit the code
+  </Button>
+
+</Flex>
+
+</Aligner>
+
+## Money Made Weird
+
+The word “weird” can be traced to “_wyrd_”, meaning destiny. To call someone “weird” is to say they are destined: their presence has that strange and sometimes unsettling sense of something greater. To make something weird is to wire it to reach its destination, knowing well that each thing is destined for the origin from whence it emerged. 
+
+Weird is the way back home.
+
+More practically, money originates from [local networks of social credit](/learn/module-2/debt/#communal-credit). Being a measure of what we value in relationship with others, money was made as it was needed and forgiven once the obligation it represented was fulfilled. We propose here a kind of money which recalls this. With one simple twist, we can undo our [reward-oriented hierarchy](/learn/module-7/no-paradigm/#the-reward-oriented-hierarchy): **holding money is a measure of obligation, not wealth**.
+
+Great humorists like Rabelais<sup>1</sup>, and great humanitarians like Gandhi and Mandela, all worked by **inversion**. Hold up what everyone takes for granted and reveal its cracks, and the people will laugh. Face what everyone fears and reveal it as the ground of liberation, and the people will love. Gandhi and Mandela were actually imprisoned in the same place in South Africa. That building is now the constitutional court.
+
+The single idea that underpins the reward-oriented hierarchy is this: _money must be earned_. This ideology makes us believe that our value is measured by how much we have and control. Even people who think money shouldn’t be earned, but given (as in UBI), still operate in the same paradigm: money is an asset; a good thing to have.
+
+Money is really an **obligation**; a promise to return in due course what you have been given. Most [modern money](/learn/module-2/banking/#banks-and-shadows) is created from debt anyway. What if we represented this [more truthfully](/learn/module-2/engineering)? What does it look like if having money is not a good thing, but a measure of your promises<sup>2</sup>?
+
+## De-Sign
+
+<Process>
+
+All HON are the same.
+
+HON are created only when I accept another’s proposal.
+
+I can forgive as much HON as I currently hold.
+
+HON are non-transferrable.
+
+</Process>
+
+The system is instantiated by means of [two, simple contracts](https://github.com/kernel-community/honour). One adapts the ERC20 token standard by removing any ability to transfer, or approve other accounts to transfer on your behalf. This contract is responsible for creating and destroying HON, and tracking the balance associated with each account. The other contract holds the logic for proposing and forgiving HON, which is done via two simple mappings<sup>3</sup>.
+
+## Implications
+
+<InfoBlock>
+
+"The overall goal is: [show a lot of truth](/learn/module-5/reveal-the-universe), with minimum contrivance" - Jonathan Blow
+
+</InfoBlock>
+
+Firstly, when money is a liability, you don’t pay when buying goods or receiving a service, you take on more tokens. This is always consensual: the provider proposes an obligation, in HON, and you accept it in order to get the goods. To emphasise the strangeness here: buying stuff _increases_ your balance, rather than decreasing it. Your account balance is a good proxy for your reputation, because the bigger it is, the _less_ creditworthy you are. 
+
+Transactions either create new HON, or the proposer can ask the recipient to forgive some of the existing HON of the proposer. Money is created as needed and, when it is not needed, it is forgiven back out of our shared reality. All transactions are [consensual and prosocial](/learn/module-5/prosocial-value/#prosocial-value-patterns).
+
+This does not mean the goal when using the system is to keep a zero balance. One way of defining “community” is as a group of people who are all a little bit indebted to each other. Having tokens is useful for communicating facts (which are [just values-in-time](https://www.youtube.com/watch?v=-6BsiVyC1kM&t=1207s)); for [teaching and learning based on said values](/learn/module-5); and for [establishing common knowledge](/learn/module-5/the-peoples-narrative/#common-knowledge) about trust and association. 
+
+For instance, you may need to accept some HON to join a community using a token-gated chat room. This is a marvellous thing! Now, you get access to the community, but you are incentivised to connect with someone you can serve so they will help you forgive some HON, rather than to speculate on the future value of the token and how it might be used to govern others (an ideology which manages to merge tyranny and market capitalism efficiently).
+
+In old communities, _you never paid people back the exact value they had given you_. To do this was to signify an end to the relationship. Being in debt, or being owed something, is a good reason to go on talking, visiting, arguing, and loving one another. Similarly, anyone with a zero balance is no longer an active participant in the community.
+
+## Better Questions
+
+<Accordion>
+
+1. **What’s to stop people from just starting new accounts to accept more HON, or forgive themselves?**
+
+<Box>
+
+Nothing.
+
+Balance is a measure of creditworthiness. History is a measure of _trustworthiness_. You can spin up new accounts over and over, but each will be untrusted and will have a shorter [half-life](https://www.simpleliberty.org/files/And_Then_There_Were_None.pdf), because the communities you accept HON from will grow increasingly wise to common behavioural patterns. This has always been true and is the reason humans engage so readily in out-of-band communication, or gossip<sup>4</sup>.
+
+On the flip-side, accounts may not forgive more HON than they currently hold.
+
+Still, what’s to stop someone from just spinning up thousands of spoof accounts and establishing a botnet to generate seemingly rich balances and histories? Again, nothing. But remember that the point of holding HON is to enable access to high-bandwidth, authentic communication channels. You need to be _in the community, talking with others_. If you’re not, people are unlikely to accept the HON you propose, or forgive the HON you ask them to, no matter what your transaction history and balance look like.
+
+Moreover, if an account is forgiven by some account no-one else in that community has ever interacted with, then it is less likely that people will go on transacting with that account in the future, as it can be labelled risky-in-context. All of these metrics:
+
+1. which accounts a given account has accepted HON from,
+2. whom they have forgiven and been forgiven by,
+3. how “close” those accounts are to your own transactional network,
+
+can be shown in the interface in order to enable individuals to make more informed choices about whom to accept/trust, whom to forgive, and what kinds of responsibility they are willing to bear.
+
+</Box>
+
+</Accordion>
+
+<Accordion>
+
+2. **What happens if I don’t accept someone’s proposal?**
+
+The person or business won’t let you walk out with their goods, or won’t provide the service again, as is ordinarily the case. More broadly, you are free to accept goods and services from whom you please, and to serve or provide for whom you please: the simplicity of the system enables us to enact trust for others, and responsibility for our own choices, in a more visceral, immediate, and free manner.
+
+</Accordion>
+
+<Accordion>
+
+3. **How are HON valued?**
+
+<Box>
+
+By mutual use. Just as the meaning of words is not decided by fiat but established by shared patterns of use, so is the value of HON. There is no peg, [TRFM](https://forum.makerdao.com/t/the-target-rate-feedback-mechanism-an-introduction/2319), or [PID](https://en.wikipedia.org/wiki/PID_controller) Controller. 
+
+HON is intended for lively community use, as you can’t transfer it: you can only accept more or forgive others some of their balance. Its design precludes authoritarian regime and rivalrous exchange. HON is technically fungible - one HON is just like another in the contract - but socially not. How you interpret the meaning of someone’s balance depends upon both quantity and quality: “value” includes context. 
+
+That said, it clearly will not be the only, or even the “best”, money available. It is just [one more alternative you can opt into](/learn/module-1/dreamers/#learning-the-language) if this kind of play interests you.
+
+</Box>
+
+</Accordion>
+
+<Accordion>
+
+4. **If there is no fixed or authoritative value, how will you bootstrap the network?**  
+
+By beginning it as an educational game in a community of care, and crafting compelling lore around its use and usefulness.
+
+</Accordion>
+
+<Accordion>
+
+5. **Can history-as-trust and non-transferability work with key rotation practices?**
+
+<Box>
+
+In short, not really. However, we can notice that key rotation has two primary uses. The first is good operational security, which can be achieved through a number of methods, not just rotation. In particular, we can achieve similar security properties through [sociality and community recovery mechanisms](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105763). The design space for these kind of solutions ought to be massively extended by ERC 4337, commonly called "Account Abstraction".
+
+The second use is strong anonymity guarantees, which this system cannot provide. HON is not meant to work like cash - it is intended to work within communities who prioritise care and healthy, diverse flows of information/value over rivalrous exchange.
+
+That said, HON doesn’t require “real” names, or strong links between your identity and your public key, which can remain effectively pseudonymous. What matters is how you interact, and with whom you communicate.
+
+</Box>
+
+</Accordion>
+
+<Accordion>
+
+6. **Are negative balances possible?**
+
+No. We are always indebted to life<sup>5</sup>, which is not ours, but given to us for a time.
+
+</Accordion>
+
+### Footnotes
+
+1. “He made the top and bottom change places, intentionally mixed the hierarchical levels in order to discover the core of the object’s concrete reality, to free it from its shell and to show its material bodily aspect - the real being outside all hierarchical norms and values” (Mikhail Bakhtin, _Rabelais and His World_, 403).
+2. "It is a question of the future, the question of the future itself, the question of a response, of a promise and of a responsibility for tomorrow. The archive: if we want to know what this will have meant, we will only know in the times to come. Perhaps. Not tomorrow but [in the times to come](https://youtu.be/Oohg3LZd898?t=1551), later on or perhaps never. A spectral messianicity is at work in the concept of the archive and ties it, like religion, like history, like science itself, to a very singular experience of the promise." - [Jacques Derrida](http://artsites.ucsc.edu/sdaniel/230/derrida_archivefever.pdf)
+3. "After his conversion, he lived the rest of his life in an entirely different economy--the nonsensical economy of grace, where two plus two equals a hundred and deficits are somehow an advantage" - Richard Rohr, writing about Francis of Assisi in _Eager to Love_
+4. Admittedly, gossip works well in physical localities, where people can warn their friends against those who do not reciprocate by virtue of their physical attributes. However, behavioural traits and memetic locality are approximately as difficult to change or spoof as physical location and attributes. We can leverage this to create authentic online communication channels which help encourage ongoing reciprocity and operate alongside the simple contracts.
+5. See below:
+
+<InfoBlock>
+
+<Box>
+
+_Love is reckless; not reason._  
+_Reason seeks a profit._  
+_Love comes on strong,_   
+_consuming herself, unabashed._  
+  
+_Yet, in the midst of suffering,_  
+_love proceeds like a millstone,_  
+_hard surfaced and straightforward._  
+  
+_Having died of self-interest,_  
+_she risks everything and asks for nothing._  
+_Love gambles away every gift God bestows._  
+  
+_Without cause God gave us Being;_  
+_Without cause, give it back again._  
+  
+Jalaluddin Rumi, **Masnavi VI**.
+
+</Box>
+
+</InfoBlock>
