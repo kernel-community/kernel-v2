@@ -488,6 +488,11 @@ exports.createPages = async ({ graphql, actions }) => {
     fromPath: '/en/build/zodiac/past-light/',
     toPath: `/${FALLBACK_LOCALE}/build/daos/past-light/`,
   })
+
+  createRedirect({
+    fromPath: '/en/build/token-studies/',
+    toPath: `/${FALLBACK_LOCALE}/tokens/token-studies/`,
+  })
 }
 
 exports.onCreatePage = async ({ page, actions }) => {
