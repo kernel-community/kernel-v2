@@ -493,6 +493,11 @@ exports.createPages = async ({ graphql, actions }) => {
     fromPath: '/en/build/token-studies/',
     toPath: `/${FALLBACK_LOCALE}/tokens/token-studies/`,
   })
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/',
+    toPath: `/${FALLBACK_LOCALE}/tokens/tokenomics/`,
+  })
 }
 
 exports.onCreatePage = async ({ page, actions }) => {
