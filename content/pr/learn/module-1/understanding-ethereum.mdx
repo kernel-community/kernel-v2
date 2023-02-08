@@ -1,0 +1,187 @@
+---
+title: Ethereum's
+order: 4
+description: A short summary of one of Vitalik Buterin's first public talks on Ethereum, taken from DevCon 1 in London.
+featuredImage: images/shares/giving.png
+---
+
+# 💡 The idea
+
+We now have some context for what verifiability is, where it comes from and the unique role it plays in securing our trade, and therefore trust, relationships. Critically, Szabo has made it clear how this self-same verifiability is the means by which we can understand the network within which trade (and trust) operate. Knowing this, we can turn to the founder of Ethereum - Vitalik Buterin - without making the mistake of thinking that he is talking about something new.
+
+Ethereum is a very old idea, dressed up in new clothes and a network that operates by virtue of encoded light, rather than clay seals.
+
+<Video src="https://www.youtube-nocookie.com/embed/gjwr-7PgpN8" />
+
+## How does this fit into Kernel?
+
+This early video from Devcon 1 contains many gems of insight into the ideas behind Ethereum; why it might be interesting and important to have one, shared, Turing-complete environment which anyone can access and program; and what the vision was (and is). It's especially useful to look back and ask what of the original ideas we have succeeded in implementing, and where there are still opportunities for improvement. This video has been selected to assist you deepen your (more technical) understanding of:
+
+<Process>
+
+Value
+
+Trust
+
+Incentives
+
+Censorship resistance
+
+(Not just!) money and speech
+
+</Process>
+
+## Brief
+
+This video is the genesis of the calculator (Bitcoin) vs smartphone (Ethereum) analogy and a 
+demonstration of the power of generality...
+
+> "Instead of having a protocol that is designed around one very small set of use cases, you 
+just create a **general-purpose operating system** and you let people build whatever they want 
+as applications on top of it."
+
+Ethereum is a blockchain with a few unique features:
+
+- Built-in Turing-complete scripting language - essentially a hybrid between standard VM 
+architectures, Bitcoin script and a "few other things".
+- People can write programs in this script, or high level languages that compile down to this 
+script, take these compiled scripts, put them into transactions and send them to the blockchain. 
+The transaction gets confirmed and you get a special account at that address.
+- Contractual accounts and Externally Owned Accounts have the **same privileges**.
+- Anyone can create an application, with any rules. Anyone can then interact with that 
+application, i.e. you can do NameCoin in 10 lines of code...
+
+State is defined as a key value mapping addresses to account objects. Every account object has a 
+nonce and balance. Contract accounts also include a code hash and storage trie root. Vitalik 
+then discusses how transactions work - important low-level details for us to build a full 
+conceptual picture in the weeks ahead.
+
+> "You can actually think of it as being a fairly simple system. You can think of the state as 
+being a database, and you can think of each of these contracts as being programs that are 
+sitting on one computer, **except the computer is massively globally distributed. It's actually 
+a highly secure network backed by tens of thousands computers around the world.** It's bold 
+because it's important."
+
+However, this raises the spectre of "The Halting Problem". If you have a general scripting language, then what is to stop someone writing a program which does not terminate (or halt), taking up all the computer's resources and preventing anyone else from using it? Vitalik explains how this is solved by "gas": a fee charged for every computational step the computer must take, where there is a limit to computational steps possible per block.
+
+<Flash>
+
+<Card>
+
+Prompt: Ethereum's state is defined as a...?
+
+key value mapping addresses to account objects.
+
+</Card>
+
+</Flash>
+
+### Virtual Economy
+
+This means there is no *technical* limit on what can be put in the `data` field of a 
+transaction, but there is an *economic* one, as the more data you include, the more expensive 
+it becomes. It was an extra 68 gas for every byte of data you include at that time, though it 
+may have changed now. 
+
+> 💡 Exercise for the reader: how would you tell what the gas price per byte currently is?
+
+Vitalik then discusses some of the intricacies around `v`, `r`, and `s` from elliptic curve 
+cryptography, and how `v` is an extra field used for public key recovery. He also provides 
+further information on receipts and logs and why logs are cheaper and allow for efficient 
+light-client access. Although it may sound boring, this is the heart of how we build 
+censorship-resistant tools.
+
+<Flash>
+
+<Card>
+
+Prompt: How do we prevent a blockchain with a Turing-complete script from halting?
+
+By charging "gas" for every computational step and limiting the amount of gas consumed per block.
+
+</Card>
+
+</Flash>
+
+This is followed by a description of the **Ethereum Virtual Machine**. To understand what [virtualization](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=948908) is, let's take a few steps back before looking at the EVM's specific architecture. 
+
+The word “computer” simply means a calculating machine (and the very [first computers](https://mjosefweber.medium.com/the-first-computers-were-human-and-mostly-women-b0d9bbff5a98) were [women](https://www.sciencemuseum.org.uk/objects-and-stories/women-computing), mostly working for the military or NASA). Modern computers are what Alan Turing called “automatic machines”, which we now know simply as Turing machines. A Turing machine is an abstract computational device devised to investigate the limits of what can be calculated. Practically, a Turing machine is an infinite length tape divided into squares with one symbol per square which tells the reader whether to go forward, backwards, or to stay put. Don't bother too much about the tape: Turing machines are an idea, a mental construct, which [allow us to investigate what it is possible, in principle, to calculate](/learn/module-7/perfection/) (given that we also know maths itself is incomplete).
+
+The truly fantastic thing is that Turing actually built a physical version of his abstract idea, and he did so to crack Enigma during World War II (interestingly, the reason he was able to is because [fascist language always contains the seeds of its own destruction](/learn/module-7/no-paradigm/#the-inertia-of-language): in this case, the phrase _Heil Hitler_ was a major contributing factor to Germany's defeat). Apart from the fascinating history, this is a fantastical fact because – due to the simplicity of the actual idea of a Turing machine – for any computable algorithm, a Turing machine capable of implementing that algorithm's logic can be constructed.
+
+This means computers can be used to build computers, which gets us very close to the sort of self-replicating pattern we perceive in RNA. We can write an algorithm which specifies a computer, and then implement that as software in another computer. The first people to do this were IBM researchers in the 1970's who were looking to investigate resource consumption and needed to partition their machines to do so properly. That led to the birth of virtual machines, which are software that emulate a computer, running on other computers. 
+
+The Ethereum Virtual Machine is one such instance. What is fascinating about it in the context of all this history is that it is a “singleton” (sometimes called “monolithic”). That is, it is one, single virtual machine, running on thousands of different, distributed computers. This is interesting because, not only does it allow us to investigate the limits of what it is possible to calculate, it does so in a way which keeps us always in agreement about the current state of affairs. It achieves this by virtue of the following architecture, described more succinctly by Vitalik:
+
+<Process>
+
+**Stack**: up to 1024 32-byte fields.  
+
+**Memory**: just an infinitely expanding byte array, but the more you expand the byte array, the more gas you have to pay. _Most of the limits aren't static, they're economic and you'll see this idea again and again._  
+
+**Storage**: permanent for contracts. You can read and write to it.  
+
+**Environment variables**: the VM can access block number, time, mining difficulty, previous block hash etc.  
+
+**Logs**: append-only storage in a specific block, not in state. Vitalik has since acknowledged that including logs was a mistake and that he values simplicity now, having experienced first-hand [the problems of complexity in production](https://twitter.com/vitalikbuterin/status/1477402770231676929).  
+
+**Sub-calling**: opcodes by which VM can itself call other contracts.  
+
+</Process>
+
+### Strong [Roots](https://www.youtube.com/watch?v=FPAih_MD-aU)
+
+Vitalik then discusses ABIs (application binary interface) and RLP (recursive length prefix) encoding "for people who are set theory geeks". It may seem boring, but it is a demonstration of the early culture and how the people who built all this stuff really think. He follows this with an explanation of memory-hard algorithms for mining and why they were an innovation; emphasises the fast block time (17s); and discusses "uncles", which solve the stale rates of blocks that arise due to network latency. It's worth listening to for cultural context, but 23:50 - 28:57 is now a bit outdated.
+
+Vitalik makes the critical point that merkle tries are "a construction that allows for compact, efficiently-verifiable proofs that a particular transaction was included in a particular block." It's not just transactions in the Merkle trie though; it's the state too: i.e. that storage trie root we talked about in the account object earlier.
+
+This particular choice of data structure allows us to succinctly express shared state, because we can have all sorts of transactional data (represented in the bottom row below) “rolled up” into a single hash, called the “merkle root”, as demonstrated here:
+
+![Merkle Trie - Level Up Coding](/images/mod1-img/merkle-trie.png)
+
+* Source: [Level Up Coding](https://levelup.gitconnected.com/merkle-trees-e4fdaeaa3094)
+
+This image reveals why intimacy with low-level technical details allows one to build a comprehensive conceptual picture of how it all ties together, and what meanings any technology can be used to build.
+
+What kinds of meaning exactly? Well, [language itself is composed out of tree-like deep structures](https://www.goodreads.com/book/show/5755.The_Language_Instinct). It is these basic, but extraordinarily powerful, combinatorial patterns which allow very young human beings to learn and use an almost infinitely complex phenomenon with such ease, even as their brains are still developing. 
+
+More prosaically, every word is a tree, with its roots tracing through endless other words and languages and people, and its branches reaching into any number of unique interpretations in times and contexts yet to be discovered. Language is the only [logically decentralized](https://medium.com/@VitalikButerin/the-meaning-of-decentralization-a0c92b76a274) system we have, so it makes sense that the data structures which inform the next logically decentralized systems we co-create mirror that at the heart of how we currently communicate value.
+
+### Generalised Compute
+
+So, you're less technical than Vitalik (i.e. all of us) and are wondering what this all really means? Well, the critical point is this notion of a **general purpose operating system** - one, monolithic virtual machine distributed across the world which is shared by everyone, owned by no-one and which can't be turned off without also turning off the internet. With Bitcoin, you can carry 12 magical words in your head across any border in the world, incant them into an internet-connected machine and have immediate access to value. 
+
+Now, there is the possibility that you could pull down not just monetary value, but _generalised computation_. That is, your 12 or 24-word mnemonic could be your entire personal OS, which would be accessible from anywhere. Stop thinking of computers as a screen into which you type things from a keyboard. Start seeing the world itself as an [infinitely programmable playground](https://dyeing.thebluebook.co.za/?stackedPages=%2Fsigned), access to which only requires a few magical words anyone, anywhere can create when they learn the basics of a new order of language.
+
+<Flash>
+
+<Card>
+
+Prompt: The 12 or 24 words used to generate your private key and grant you access to a blockchain is called a \_\_\_\_\_\_\_\_?
+
+Mnemonic.
+
+</Card>
+
+</Flash>
+
+
+### Kaizen and The Principle of Subtraction 
+
+It's also worth understanding the [Ethereum Foundation's philosophy](https://ethereum.foundation/philosophy/), as it works with two fascinating complementary opposites. 
+
+<List>
+
+<Link to="https://youtu.be/R7FjX0GEiAM?t=110">
+The Quintessential DevCon IV Talk
+</Link>
+
+</List>
+
+The term 改善 (pronounced "kaizen", meaning "continuous improvement") was first used in Japan after World War II, mostly promoted by American business and quality-management teachers, and found its apogee in "The Toyota Way". So it's not a term with a great history, but it is one we can reclaim by pairing it with its opposite, what Aya Miyaguchi calls "The Principle of Subtraction".
+
+Rooted in Zen philosophy, the Ethereum Foundation aims to "grow small"; to do by not doing; and to try and matter less. When consistently subtracting from your own importance and influence, then the continuous improvement we all wish to see happens in the community's capacity and capability. It's elegant and [simple](https://subconscious.substack.com/p/simple-seeds).
+
+> We seek to continuously improve the people around us by humbling ourselves and handing over power at every chance, without shirking responsibility.
+
+Delighted, we gradually find ourselves doing nothing, being happy.
