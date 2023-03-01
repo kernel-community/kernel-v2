@@ -74,7 +74,7 @@
     "eslint": "^7.25.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^13.1.2",
     "pre-commit": "^1.2.2",
     "prettier": "^2.8.0"
   },
