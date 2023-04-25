@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  kernel-community:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "unless-stopped"
+    environment:
+      VIRTUAL_HOST: "www.kernel.community,kernel.community"
+      LETSENCRYPT_HOST: "www.kernel.community,kernel.community"
+    networks: ["serve"]
+
+networks:
+  serve:
+    external: true
