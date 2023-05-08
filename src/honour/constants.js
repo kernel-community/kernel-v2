@@ -344,7 +344,7 @@ const abis = {
       "stateMutability": "view",
       "type": "function"
     }
-  ]`
+  ]`,
 }
 
 export { addresses, abis }

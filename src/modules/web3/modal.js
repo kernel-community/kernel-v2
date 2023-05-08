@@ -92,7 +92,7 @@ const styles = {
   honourButton: {
     borderRadius: '4px',
     fontWeight: 'bold',
-    margin: '0 auto'
+    margin: '0 auto',
   },
   stakeAmountText: {
     margin: 'auto',

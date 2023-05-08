@@ -15,9 +15,7 @@ const HonourConnector = ({ address }) => {
   } else {
     const bal = ethers.utils.formatEther(hasHonour)
     return (
-      <div>
-        {bal !== '0.0' ? <Content balance={bal} /> : <HonourButton />}
-      </div>
+      <div>{bal !== '0.0' ? <Content balance={bal} /> : <HonourButton />}</div>
     )
   }
 }

@@ -41,7 +41,6 @@ export const useHasHonour = (learner) => {
             "Couldn't fetch honour balance",
             error.message
           ),
-        select: (data) => ethers.BigNumber.toString()
       }
     )
   } else {

@@ -179,8 +179,6 @@ export default (props) => {
     contentWidthSubtract += 256
   }
 
-  console.log(sidenavData)
-
   return (
     <Fragment>
       {renderSidenav && (
