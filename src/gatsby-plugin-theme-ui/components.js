@@ -25,12 +25,11 @@ import Card from '@modules/flashcard/card'
 import Flash from '@modules/flashcard/flash'
 import AudioPlayer from '@modules/audioPlayer/'
 import { Aligner, Indent, Video, Sound } from '@modules/utility/'
+import { ConnectButton } from '@modules/pageMoneySpeech/'
 import { motion } from 'framer-motion'
 import { Box, Divider, Flex, Image, jsx, Text } from 'theme-ui'
 
 import { Heading } from '../modules/ui/heading'
-
-import { Web3 } from '@modules/web3'
 
 //Markdown Component overrides
 //Replace MDX html defaults with our custom implementation.
@@ -102,8 +101,8 @@ const Custom_Components = {
   BlogHome,
   Flash,
   Card,
-  Web3,
   AudioPlayer,
+  ConnectButton,
 }
 
 const overridesAndComponents = {

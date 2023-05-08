@@ -1,111 +1,41 @@
 import React from 'react'
-import { useAccount, useProvider } from 'wagmi'
+import { useEffect, useState } from 'react'
 import { Flex, Text, Box, Button } from 'theme-ui'
-import { add, getUnixTime } from 'date-fns'
-import { useSignPermitTransaction } from '../../hooks'
-import {
-  KERNEL_COURSE_ID,
-  useGetDaiNonce,
-  useIsScholarshipAvailable,
-  usePermitAndRegister,
-  useRegisterScholar,
-} from '@src/course/contracts'
 import { Icon } from '@makerdao/dai-ui-icons'
 
 const Web3 = ({ setIsVisible }) => {
-  const provider = useProvider()
-  const { data: accountData } = useAccount()
-  const { data: scholarshipAvailable } = useIsScholarshipAvailable()
-  const { data: nonce } = useGetDaiNonce(accountData?.address)
-  const { write: registerScholar } = useRegisterScholar()
-  const { write: permitAndRegister } = usePermitAndRegister()
-  const signTransaction = useSignPermitTransaction({
-    provider,
-    address: accountData?.address,
-  })
-
   const handleDimissModal = () => {
     setIsVisible(false)
   }
 
-  const handleDAIPermitAndRegister = async () => {
-    const expirationTime = add(new Date(), { minutes: 30 })
-    const expiry = getUnixTime(expirationTime)
+  // we should useEffect to tell the api the connected address so it can propose HON
+  // as soon as the learner opens the modal.
 
-    const { v, r, s } = await signTransaction({
-      nonce,
-      expiry,
-    })
-
-    await permitAndRegister({
-      args: [KERNEL_COURSE_ID, nonce, expiry, v, r, s],
-    })
+  const handleOnClickHonour = async () => {
+    // this should honour the HON just proposed by the api
   }
 
-  const handleOnClickRegister = async () => {
-    if (scholarshipAvailable) {
-      await registerScholar()
-    } else {
-      await handleDAIPermitAndRegister()
-    }
-
-    handleDimissModal()
-  }
-
-  if (accountData) {
-    return (
-      <Box sx={styles.modalOuterContainer}>
-        <Flex sx={styles.modalInnerContainer}>
-          <Flex sx={styles.dismissIconContainer}>
-            <div
-              style={styles.dismissIconClickTarget}
-              onClick={handleDimissModal}>
-              <Icon name="close" className="close" size="20px" />
-            </div>
-          </Flex>
-          <Text sx={styles.descriptionText}>
-            To reveal the answer, you need to register for our course.
-          </Text>
-
-          {scholarshipAvailable && (
-            <>
-              <Text sx={styles.descriptionText}>
-                There are currently scholarships available. <br /> <br />
-                Instead of having to make a deposit before registering for the
-                course, you may register for the scholarship instead
-              </Text>
-              <div style={{ height: '50px' }} />
-            </>
-          )}
-
-          {!scholarshipAvailable && (
-            <>
-              <Flex sx={{ flexDirection: 'column' }}>
-                <Text sx={styles.descriptionText}>
-                  You can do this by staking
-                </Text>
-                <Text sx={styles.stakeAmountText}>100 DAI</Text>
-              </Flex>
-              <Text sx={styles.descriptionText}>
-                You can claim this DAI back after{' '}
-                <Text sx={{ fontWeight: 'bold' }}>two months</Text>. You{' '}
-                <Text sx={{ fontWeight: 'bold' }}>learn for free</Text> and we
-                use the yield to keep the lights on.
-              </Text>
-            </>
-          )}
+  return (
+    <Box sx={styles.modalOuterContainer}>
+      <Flex sx={styles.modalInnerContainer}>
+        <Flex sx={styles.dismissIconContainer}>
+          <div
+            style={styles.dismissIconClickTarget}
+            onClick={handleDimissModal}>
+            <Icon name="close" className="close" size="20px" />
+          </div>
         </Flex>
-        <Flex sx={styles.CTAContainer}>
-          <Text sx={styles.learnMoreCTA}>Learn More.</Text>
-          <Button onClick={handleOnClickRegister} sx={styles.registerButton}>
-            Register
-          </Button>
-        </Flex>
-      </Box>
-    )
-  } else {
-    return null
-  }
+        <Text sx={styles.descriptionText}>
+          Please wait while we prepare some HON tokens for you...
+        </Text>
+      </Flex>
+      <Flex sx={styles.CTAContainer}>
+        <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
+          Honour
+        </Button>
+      </Flex>
+    </Box>
+  )
 }
 
 const styles = {
@@ -136,11 +66,6 @@ const styles = {
     cursor: 'pointer',
     padding: '15px',
   },
-  learnMoreCTA: {
-    color: '#fff',
-    textDecoration: 'underline',
-    justifySelf: 'end',
-  },
   modalInnerContainer: {
     width: '471px',
     height: '361px',
@@ -164,9 +89,10 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  registerButton: {
+  honourButton: {
     borderRadius: '4px',
     fontWeight: 'bold',
+    margin: '0 auto'
   },
   stakeAmountText: {
     margin: 'auto',
