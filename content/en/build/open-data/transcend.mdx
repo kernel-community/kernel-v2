@@ -1,0 +1,31 @@
+---
+title: Trans-Send
+order: 12
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Trans-Send
+
+> The bird a nest, the spider a web, man friendship" - [William Blake](https://youtu.be/N3WUpVH8-D8?t=4070)
+
+The purpose of this guild session is to illustrate that it is not just about how open data is, it is about what we can learn from working with that data in our local environments and then how we can enact what we learn in shared, public spaces. That is, it's not just about the data, it's about [what we can do with that which is given](/conversation/hospitality/deep-response/#freeing-civilization).
+
+We'll build on what we began last week, fetching some data about the price of ETH compared to USD from Dune. We'll also fetch price data from a Chainlink subgraph and compare the two sources. Having achieved this, we'll apply a toy predictive model to the data to figure out what is likely to happen to the price of ETH over the next hour. Once we have figured that out, we can use web3.py to trigger an on-chain transaction based on what we learn.
+
+It may seem that the structure of this session places too much significance on financial models, and naive ones at that. However, enacting the outcome of our models in an open and shared environment highlights the difference between what we're doing here and data science 101 courses where you might build a regression model for some stock. Even if you get good at that kind of thing, you still need to pass any trade you might wish to make through a broker, and it is only financial data which is created and used in those markets, assuming you can access them or afford a Bloomberg terminal. 
+
+Here, the same skills we're beginning to look at in this context may be applied broadly to any kind of data available on networks like Ethereum; there are no intermediaries; and there are even places like Ocean where you might trade the model itself: i.e. open distribution at each level. What is presented in this session is a representative example, intended to encourage more work on open data in addition to queries or subgraphs, specifically useful models which help us learn collectively how to model and improve the way we use what we have opened such that the [spirit of the gift](/learn/module-7/the-gift/#connection-circulation-spirit) continues to move well to empty places.
+
+## Open Plan
+
+1. We begin by reflecting on how far we've come: from the conceptual foundations of agalmics and that which is given, through turning Ethereum data into giant SQL tables which seem more familiar to traditional data scientists and what it all has to do with how we might foster friendship and better share valuable time with others.
+2. Christian and the good people at [component.fi](https://www.component.fi/) have prepared a repo for us to use, which you can find [here](https://github.com/Component-fi/devcon-6-workshop).
+3. We begin exploring this repo by looking at how to fetch data from both Dune and The Graph.
+4. We discuss differences in how this data is structured, what guarantees it comes with, what sorts of things you need to consider as you begin working with data in your own environments, exploring everything from trust to latency and a lot of ground between.
+5. Having fetched data, we look at the (naive) ARMA model implemented in this repo and what inights it yields about the price of ETH.
+6. Based on the predictions of our toy model, we discuss how we might then trigger a transaction on-chain using web3.py to enact what we have learned.
+
+## Recording
+
+<Video src="https://www.youtube-nocookie.com/embed/DmKmCJwMyJU"/>

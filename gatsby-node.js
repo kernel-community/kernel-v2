@@ -451,7 +451,52 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createRedirect({
     fromPath: '/en/guiding/contracts/',
-    toPath: `/${FALLBACK_LOCALE}/guiding/free-learn/`,
+    toPath: `/${FALLBACK_LOCALE}/build/token-studies/free-learn/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/daos-dragons/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/kb5-record/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/cosmic-reality/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/cosmic-reality/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/expanding-universe/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/expanding-universe/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/infinite-learning/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/infinite-learning/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/open-multiverse/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/open-multiverse/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/zodiac/past-light/',
+    toPath: `/${FALLBACK_LOCALE}/build/daos/past-light/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/token-studies/',
+    toPath: `/${FALLBACK_LOCALE}/tokens/token-studies/`,
+  })
+
+  createRedirect({
+    fromPath: '/en/build/tokenomics/',
+    toPath: `/${FALLBACK_LOCALE}/tokens/tokenomics/`,
   })
 }
 

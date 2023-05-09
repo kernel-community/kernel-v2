@@ -1,0 +1,572 @@
+---
+title: "Human Identity"
+authors: ["philipsheldrake"]
+keywords: "identity, web3, verbs, sovereignty, standards, code"
+description: "The diligent digital mediation and augmentation of human identity is our discipline’s foremost challenge."
+date: 2022-07-14
+image: "/images/blog_headers/1000platos-1914-14-800.png"
+recommend:
+  [
+    "blogPosts/en/blog/community/setting-prison-art-free",
+    "blogPosts/en/blog/Editorial/constituting-consensus",
+    "blogPosts/en/blog/community/free-learn",
+  ]
+---
+
+*Image © Marc Ngui. All rights reserved. Reproduced with permission.
+
+## Human identity: the number one challenge in computer science
+
+> ... if the modern ‘problem of identity’ was how to construct an identity and keep it solid and stable, the postmodern ‘problem of identity’ is primarily how to avoid fixation and keep the options open. (Bauman 2011)
+
+---
+
+Research funded by [the AKASHA Foundation](https://akasha.org/). Co-published by the AKASHA Foundation and [Kernel](/).
+
+With thanks to those who invested their time and expertise to comment on draft versions: Ian Grigg, Arno Laeven, Doc Searls, Will Abramson, Giulia Felappi, Stephen Farrugia, Tim Speelman, Emrys Schoemaker, Nicky Hickman, Nathan Schneider, Paula Berman, Andy Tudhope, Charles Blass.
+
+<Aligner center>
+
+<Button to='https://generative-identity.org/content/files/2022/07/Human-identity---the-number-one-challenge-in-computer-science.pdf' secondary inline>
+    Download PDF
+</Button>
+
+</Aligner>
+
+---
+
+## Abstract
+
+Human identity is essential and complex. It is essential to sense-making and cooperation and so then to the fundamental processes of human life. It is complex in its operations and so in its descriptions; it means different things to different people in different contexts.
+
+In light of the deep digitalization of our world, developments in computer science affect everyone. Many applications of computer science concern people and relationships, our interactions with each other and with digital technology, and with our cyborgian extension, and so I can only consider the diligent digital mediation and augmentation of human identity to be the discipline’s foremost challenge.
+
+Historic systemizations of identity have brought advantages and disadvantages, great benefits and grave harms, and I have this in mind when observing computer scientists currently developing protocols and technologies to systematize a narrow conceptualization of identity at scales and with a potential intensity never before contemplated let alone pursued. We need to have a deeper think about this.
+
+To help do just that, I present a categorisation of the conceptualizations of identity borrowing from (Bauman 2011; Fuller et al. 1970): noun-like and verb-like. The categorisation aims to portray the dangers of a singular digital-identity-as-a-thing approach as starkly and as succinctly as possible without demanding fluency in each and every conceptualization.
+
+This essay is a call for a significant and urgent interdisciplinary intervention with the adoption of an ecological perspective. Ecology is a branch of biology dedicated to the study of the relationships between living organisms, and in the widest sense entails the study of the interaction and survival of ideas and programs (Bateson 1979). I argue that the current mono-disciplinary digital identity programme will pollute the information ecology of human nature and human culture and cannot end well for anyone. That’s a fancy way to say I suspect there might be some groupthink in play here, and it’s perilous for the rest of us to rely on it.
+
+## Introduction
+
+Put starkly, many millions of people have been excluded, persecuted, and murdered with the assistance of prior identity architectures, and no other facet of information technology smashes into the human condition in quite the same way as digital identity (Sheldrake 2021a, e.g. Floridi 2016). This should give anyone involved in digital identity cause to consider the emergent (i.e. unplanned) consequences of their work.
+
+By definition, any questions regarding the technologization of human identity are questions of sociotechnology — involving the application of insights from the social sciences to design policies and programs (Bunge 1999) — rather than mere technology. It’s a question of designing for requisite variety (Ashby 1991) because human society is complex, and it’s a question of similarities and differences in the contextual perceivability and influence of similarities and differences. The technologization of human identity is a complex of embedded, embodied, extended, distributed and collective cognition (Smart et al. 2017), and when life is considered a trilogy of biological structure (autopoetic unit), environment, and cognition (Capra & Luisi 2014), the technologization of human identity is in fact a living process.
+
+We should design for psychological, sociological, and ecological health — self, culture, and nature — rather than mere process efficiency or convenience. Naturally, self and culture and nature are interrelated and interdependent, and when I refer to ecological health I'm talking about the resilience and flourishing of a web of life that includes us. Any design purview dedicated to health must then be equally expansive, demanding an interdisciplinary if not transdisciplinary (Stock & Burton 2011) approach.
+
+To contemplate the full gamut of conceptualizations of human identity is to entertain seeming contradictions. Identity is both stable and unstable, concrete and malleable, alike and different, within and without, singular and multiple, individual and collective, separate and connected, whole and partial, enduring and fleeting, relative and absolute, objective and subjective, cause and effect.
+
+Being so fundamental to the human condition and society, any and every discipline striving for deeper understanding of humanity necessarily builds, borrows, adapts, and assembles conceptualizations of identity to work into its own disciplinary contexts; philosophy, psychology, sociology, cultural studies, theology, anthropology, ecology, linguistics, history, political science, gender studies, human geography, archaeology, law, art, architecture, design, etc. One can also add economics to the list as the social science sloughs off its reputation for being the most insular academic pursuit. Noted as recently as 1999 (Camerer 1999), “economists routinely — and proudly — use models that are grossly inconsistent with findings from psychology.” Subsequently, “the inclusion of identity substantively changes conclusions of previous economic analysis.” (Akerlof & Kranton 2000)
+
+One might say that computer science is the most recent discipline to contemplate questions of identity. I will argue that it is accurate to call it the laggard. I do not refer to those social scientists drawn to investigate the effects of digital technologies on human identity, a rich field of study, but rather those immersed in the theory and practice of software architecture, protocol design, and their realisation in code. A qualitative assessment of their embrace of similar building, borrowing, adapting, and assembling, or more accurately lack of evidence thereof, indicates that, with very rare exception, they appear simply to adopt a mindset for encoding identity borrowed entirely from its earlier bureaucratic encoding. It would seem unlikely that lawmakers and bureaucrats had this imitation and expansion in mind when conceiving and operationalising personhood (of the human being) in the eyes of the state, not least in light of the automatic, unseen, and potentially more insidious nature of technical code in comparison to its legal forebear (Lessig 1999).
+
+The conceptualization of identity predominating computer science today does not accommodate the complexity nor symmathesy — contextual mutual learning through interaction (Bateson 2015) — of human identity as other disciplines conceptualise it working in the world. Most critically, this current mainstay of software architectures cannot be adapted to make such accommodations. It is not predicated on the digital augmentation of human identity, by which I mean the forming of digital technologies to best serve the human condition and societal well-being as described by those disciplines dedicated to such concerns. It is not predicated on the cyborgian expansion of human interactions and so relationships and so identity and so collective meaning- and sense-making (Bateson 1972; Wheatley & Kellner-Rogers 1998, Steigler 2010). Arguably, if it isn’t grounded in the pursuit of learning and meaning-making, it can’t even be considered the product of human-centred design (Giacomin 2014).
+
+Paradoxically in the context of information technology, digital identity is not premised on identity as informational form at all; rather, digital identity follows ‘habeo corpus, ergo sum’ rather than ‘cogito, ergo sum’. It is founded on mechanistic thinking, on industrialisation, on the bureaucratic, unitary and atomistic objectification of human bodies.
+
+**Digital identity today isn’t really human at all.**
+
+While advocates of an approach known as self-sovereign identity (SSI) make claims for its prioritisation of user security, privacy, individual autonomy and self-empowerment (Giannopoulou & Wang 2021), it is fundamentally a mutation carrying computer science’s false premise further into community. As it is widely regarded as the state of the art, as it is presented by its champions as the culmination of everything that came before, I will focus my critique on it rather than all variations, historic and contemporary, of digital identity.
+
+## In conversation
+
+Conversation always relies upon contexts. We work to grow shared understanding through conversation, through interaction, and the relationship between conversationalists forms and evolves in the process. The contextual relationship is immanent in such informational exchange (Bateson 1972).
+
+Identity, in what you might call a natural sense, is reciprocally defining and co-constitutive with relationships and information exchange (Wheatley & Kellner-Rogers 1996, 1998). Identities are immanent in contextual relationships, and relationships are immanent in information exchange. A person is a person through other persons (Birhane 2017).
+
+This observation moves our framing from monologism, in which individuals and societies are considered the analytical primes, to dialogism, which instead emphasises actions and interactions, including contextual discourse. Consequently, we should, “in the analysis of action and meaning, talk about individuals-in-dialogue-with-partners-and-contexts rather than individuals tout court.” (Linell 1998)
+
+In other words, the dots (the nodes, the people) don’t simply define the joins (the edges, the relationships) as Social Networking 101 might have it. We dot the joins in contextual information exchange just as much as we might be said to join the dots. The joins are the pathways for information exchange and transformation, for organising, and the expansion of organisational identity. Joins give the dots their meaning, their contextual relevance, their identity, just as dots give the information exchange direction and potency. I understand Grigg (2021) to reach similar conclusions through embedded research and practice.
+
+We may have different joins involving the ‘same’ (in the corporeal sense) person, but as the joins are contextual and the information exchanges are distinct, the person is informationally distinct, including to herself.
+
+We continually update our understanding of others, specifically the role the others play in the internal narratives we each maintain to help us make sense of the world. We update our contextualised understanding of our various selves in these storylines too, and sometimes a variant self is spawned, and now and then one fades with irrelevance.
+
+> The network self view envisions an enriched self and multiple possibilities for self-determination, rather than prescribing a particular way that selves ought to be. … Selves are not only ‘networked’, that is, in social networks, but are themselves networks. By embracing the complexity and fluidity of selves, we come to a better understanding of who we are and how to live well with ourselves and with one another. (Wallace 2021)
+
+Our identities, our selves, are formed through internal narratives; the internal narrative is informed by the interactions; the interactions are modulated by the identities (Schechtman 2011). This process is social, reciprocal, concurrent, and forever in flux, encompassing selves and groups, similarities and differences, enduring and fleeting qualities, indeed any information cognitionally useful in the formation and re-formation of identities as the sense-making capacity of every organising. Such capacity is inherently transcontextual i.e. contingent on the potentials through which contexts may juxtapose and meld to form a complex system (Bateson 2018).
+
+Foucault conceived of subjectivity, of self, as “a reality ontologically distinct from the body”; a form rather than a substance, “not primarily or always identical to itself” (Kelly 2013), not too dissimilar from qualities Simmel described over a century ago (Simmel 2009). The subject is self-constituted through practices devoid of enduring content, but undoubtedly subject to the culture and influenced by the social practices at any point in time. One has the capacity and propensity to change continuously, assuming multiple forms concurrently. After Foucault, Hall (1996) conceptualises late-modern identity negatively as not signalling the "stable core of the self, unfolding from beginning to end through all the vicissitudes of history without change." He regards identities as "fragmented and fractured; never singular but multiply constructed across different, often intersecting and antagonistic, discourses, practices and positions."
+
+Yet from personal experience in conversation with those who identify themselves as working in digital identity, such articulations of identity often startle because human identity often operates invisibly. We are hardly aware of it most of the time. In good part, it seems to be an innately subconscious process and patterning, as natural and as essential as breathing. It is fundamental to the facilities to organise and cooperate that have carried our species forward (Margulis & Sagan 1997), and is consequently very deeply ingrained.
+
+## The computer science approach
+
+In complete contrast, bureaucratic identity systems are a new invention, no more than mere centuries old in current continuous forms (Scott 1998). They are comparatively simple, readily apparent and front of mind. The documents and devices accompanying systems such as legal identity and IAM (identity and access management) (Witty et al. 2003) are often tangible, the associated processes are visible, and the lexicon is explicit: “passports please”; “username: password:”.
+
+There is a chasmic disconnect between the conceptualizations of identity that can only regard the unitary atomistic self as illusory and the everyday experience in which that illusion appears very real (Turkle 1999). Phrasing my personal experience differently, I find that many people working on digital identity today understand their undertaking solely in this bureaucratic context, even if they deny it, and they appear to operate therefore under the illusion that this somehow describes and supports our selves, culture, and nature, or at least has the qualities to do so.
+
+Identity has been defined in the context of identity management systems as “that set of permanent or long-lived temporal attributes associated with an entity”, and attributes defined as “a characteristic associated with an entity, such as an individual.” (Camp 2004) Eye colour and date of birth are examples of persistent attributes, and one’s address is an example temporary attribute. Long-lived attributes include social security numbers and passport numbers. An identifier distinguishes an entity within a specific namespace, and a personal identifier consists of those attributes associated with a person “that are difficult or impossible to alter”. A useful identifier offers a means to associate other attributes with the person, and the process of identification associates a personal identifier with an individual presenting attributes.
+
+Computer science may take solving the “problem of a global and universally trusted digital identity system — or, more specifically, lack of it,” as the ultimate goal (Bazarhanova & Smolander 2020). As for that namespace, the aspiration to create some sort of global namespace in which each unique human is represented uniquely crops up not infrequently amongst those delighted to have achieved the same for machines (Baier et al. 2003; “GlobaliD: Identity for everyone. Everywhere.” n.d.).
+
+For a discipline dedicated to the technological grappling with information, the informational qualities of complex human actions, interactions, relations, and minds are largely ignored in favour of a simplistic obsession with the corporeal. For example, “digital identity can be defined as the digital representation of the information known about a specific individual or organisation”, exemplified by reference to social security number and the idea of a “real world individual” (Bertino et al. 2009). Quite typically, Bertino et al do not entertain any conception of identity that isn’t directly related to corporeality. Even when psychological and sociological aspects are discussed (Rannenberg et al. 2009), digital identity is reduced to the representation of an atomized individual in a database, particularly pertaining to values associated to a set of attributes, perhaps because digital identity is or was considered to be a separable concern from identity ‘in real life’, as common parlance has it.
+
+Sullivan (2018) traces the roots of digital identity to the early uptake of information technology by the bureaucracy, by government services. In seeking to drive efficiencies and reduce fraud the idea of one-person-one-identity became and remains systemically essential, influencing adoption by the private sector in turn. Some nations — e.g. Austria, Belgium, Estonia — designed for the government to become the de facto identity provider, and Sullivan argues that such an outcome is inevitable whether by design or not. Laurent et al (2015) insist that the state needs to address problems such as tax evasion, information security, and online harassment, by intervening and defining “an adequate investigation, identification and sanction system.” Al-Kouri (2014) argues that a government initiated digital identity management system is a priority in supporting development of the digital economy. Governments appear to be responding (e.g. European Commission 2021, The Government of the United Kingdom 2021).
+
+Sullivan observes a pattern entailing the elision of identity contexts and transactional contexts, effectively investing transactions with legal personality. More prosaically, the pizza order becomes contingent upon the state’s recognition of personhood (legal identity). As and when transactions are integral to or a precursor to social community, such participation is also imbued with legal personality.
+
+Facebook’s controversial insistence on the use of ‘real names’ is well documented (e.g. Boyd 2011). While Facebook does not (yet) require proof of legal identity, Zoom, the proprietary video conferencing service provider, intends to introduce the capability for customers to link their legal identity to their Zoom profile (Zoomtopia 2021 Keynote 2021). “In the world of deep fakes and identity theft, it’s becoming increasingly important to verify the user’s identity.” The company believes we should “feel confident that the person at the other end is indeed who we think they are”, which corresponds to Facebook’s rationale (Grinberg 2014). It doesn’t take much imagination to envisage this becoming a social norm, especially should the Zoom application’s user interface clearly distinguish ‘authenticated people’ with an attractive graphical icon. Telegram, the popular cloud-based messaging system, describes a similar capability (“Introducing Telegram Passport” 2018), and one can easily imagine business models developing along the lines of ZoomID-as-a-service and Telegram-Passport-as-a-service. To be clear, online abuse is disgusting, but we must ensure that the medicine is not worse than the malady.
+
+I have referred to such pervasive consequences as creep (Sheldrake 2019a), but while the word is appropriate in conveying expansion into unexpected areas and rogue behaviour, it also conveys a slowness ill-suited to the speed with which such effects may leap from objects of academic interest to common, stubborn and distressing social outcomes soon enough. I will switch now to describing such consequences as pollution; a pollution of the information ecology of human nature and human culture. For the avoidance of any confusion, pollution is contextual; a thing or process may be both highly prized and a pollutant simultaneously subject to contexts, and the art then is to constrain its application accordingly. Everything depends on knowing how much; good is knowing when to stop (Morrison 1987).
+
+## Inherited property
+
+Despite a reputation in some parts to the contrary, distributed ledger technologies including blockchain are far from immune from such polluting effects. The powerful, unprecedented situational qualities that get people excited hold negative as well as positive potential. Mastery in realising positive effects demands equal mastery in appreciating and designing out the negative. I will attempt to throw some light on this complex by example.
+
+Given the transactional nature of the earliest applications of such technologies and legitimate concerns for their use in money laundering and other fraudulent activities, the intergovernmental Financial Action Task Force (FATF) has encouraged an industry-led response (Campbell-Verduyn & Hütten 2021) and, increasingly, a regulatory response from governments around the world (The Financial Action Task Force 2022). This includes the adoption by cryptocurrency exchanges of anti-money laundering processes including ‘know your customer’ (KYC) identification. This is reassuring in one context and concerning in many more others. While financial transacting is the first and currently preeminent application of such technologies, there are many other current and future applications of the same technology in which money laundering — and therefore legal identity in the context of money laundering — is irrelevant.
+
+Ethereum is one such technology, the largest of its kind at this time featuring smart contract functionality (Zheng et al. 2020). While it is common in my experience for technology practitioners to fail to define their working conceptualization of identity, Ethereum’s progenitor notes: “First of all, by identity, I mean attempts to identify properties of the physical human being that controls a particular cryptographic key.” (Buterin 2020) Additionally, he has championed the use of Ethereum keys for authentication to other systems (Things that matter outside of defi 2021); i.e. ‘Sign-in with Ethereum’ (Ryan 2021). Occasional collaborators of his (Immorlica et al. 2019) assert: “In an identity system, it is important that each individual corresponds to a single identity.” Siddarth et al (2020) state that “For blockchain networks to move from strictly providing financial services into enabling social and political applications, decentralized protocols for verifying unique human identities must be devised.”
+
+Such criteria appear to inherit and lean on computer science’s dominant conceptualization of identity, or else, where the goal may be described first and foremost in terms of a particular system of governance, they are, like computer science, heirs of the governing bureaucracy’s conceptualization. These declarations can only be valid then with qualifications. They are made solely in pursuit of digitalized democracy or some other social order that requires the system to strive for and maintain one-person-one-identifier; i.e. a system in which the bodily evaluation of persons is cardinal. It would then be more precise and advantageous to the health of the broader ecology, as we shall see, to increase the specificity of such declarations in order to design for contextual constraint. For example, the earlier quote (Immorlica et al. 2019) might then become: In a system designed for and constrained to the contexts of digitalized democracy or wealth distribution it is important that each individual is represented just once.
+
+For Gregory Bateson (1972), ecological understanding demands focus on the qualitative structure of contexts rather than the intensity of interaction. “Out of context, the best minds do the worst damage.” (Wes Jackson, as quoted in Berry 2009)
+
+## An ecological system
+
+Ecology is a branch of biology dedicated to the study of the relationships between living organisms, including humans, and their physical environment. It considers organisms at the individual, population, community, ecosystem, and biosphere levels. Ecological science is inherently multidisciplinary (Capra & Luisi 2014)
+
+While subjective, identification of the ecological system to which I refer here is not arbitrary (Cumming & Peterson, 2017). I identify it as digitally networked, mediated and augmented human life; necessarily including perceiving, thinking, and acting. The digital aspects of this system were once referred to as futuristic, and then as “always on”, and now digital technology is so embedded in and integral to quotidian systems, even ones that don’t immediately present themselves as digitalized, that such phrases denoting the presence or continuous application of digital technology no longer maintain descriptive power. This is an important context when considering how identity works in the world and might work in the future. We can no longer contemplate information technologies as separate from humanity, as merely tools used by humanity. We are digitalized (Bratton 2015; Floridi 2015).
+
+The suffix “-ome” is used to denote the object of a biological field of study (eg, genome, interactome, connectome, biome), and so “internetome” is a neologism taking the digital networking, mediation and augmentation of ourselves and our world as a biological field of study (Sheldrake 2021d).
+
+The word isn’t proffered merely for novelty’s sake but to encourage computer scientists to embrace interdisciplinary collaboration when grappling with living systems. In an internetome mindset, nobody starts with technological responses to immediate social, commercial, or bureaucratic goals. Rather, we first establish a common and deep understanding of life, of living processes, of human life and cognition and social mechanisms, of our inseparable interweave with other lifeforms and our physical environment, and conceive design challenges relating to the ecological system’s health, flourishing, generativity.
+
+My use of generativity relates to a desired state beyond sustainability that may be described in terms of participating as nature and embracing co-evolution of the whole system (Reed 2007). Generativity encompasses a system’s capacity to produce unprompted change driven by large, varied, and uncoordinated audiences, and in our context that system necessarily includes people, specifically the perceptual, cognitive and behavioural effects of integrating technology into our lives (Zittrain 2006). A technology can never be described as generative in some hypothetical isolation from its inevitable social contexts (Sheldrake 2021b).
+
+If the internetome is to develop generatively, digitally mediated and augmented human identity must be approached primarily for psychological, sociological, and ecological health. For brevity, I refer to this intention as generative identity (Sheldrake 2019a).
+
+## Decentralization, a means
+
+A decade ago, when centralized social platforms seemed unstoppable, many assumed that a single, unified user identity might be convenient, appropriate, and sufficient, even if that conflicted with a human-centred perspective (Farnham & Churchill 2011). Being open, decentralized, and incorruptible, Ethereum and similar technologies may be seen to offer similar benefits while holding the potential to address the corresponding concerns for concentrations of power, but that does not automatically translate to the enhancement of human agency or to a healthy ecological system more generally. Decentralization is a means to an end, not an end in itself (Schneider 2019). Advocacy for the application of distributed ledger technologies is only meaningful when its champions articulate the change they’re seeking to effect, necessarily inviting interdisciplinary perspectives, contributions and collaboration in the process.
+
+As with all complex adaptive systems, system properties other than the degree of (de)centralization are inevitably in play. For example, while the FATF’s work and the pursuit of digitalized democracy have legitimacy in their own contexts, their consequences are undesirable and illegitimate in other contexts shared by and important to exactly the same social groups; e.g. contexts entailing the nature of being human, good mental health, and the full expanse of healthy human relations and community. Attention is required at a fundamental layer, low in the stack as technical parlance has it, to enable the pursuit of legitimated higher-level initiatives without one such endeavour inevitably polluting the viability of another, or indeed of very many others (see Nottingham 2022). Such pollution leads, definitionally, to a system with damaging psychological and sociological effects, which in turn may lead to ecological collapse.
+
+The blockchain community develops and applies cryptographic primitives (Wang et al. 2019). Applications of such technology in human community are definitionally social, so we can ask — what might constitute 'sociotechnological primitives'? Assemblages of such primitives might be formed and reformed, forked and merged and forked again, to suit initiatives in respectful social (cultural) and bioregional (environmental) contexts in pursuing and sustaining a global harmony (Sheldrake 2020a) or, with rose-tinted glasses put aside, a plateau of intensity, “a situation of constant evolution and becoming in which conflict does not build, but is expressed and released.” (Deleuze and Guattari, as discussed by Shaw 2015)
+
+While I have found little discussion of autopoiesis and cognition amongst the identity digerati, the underlying preconditions and mechanisms for both are fundamental in the internetome and may only be ignored with traumatic consequences. While the evolution of the system will inevitably entail trial and error, of course, we might learn from our species’ recent history of simplistic and so catastrophic ecological interventions. Confusing a means for the ends is never going to be a good start.
+
+## I seem to be a verb
+
+> ... ‘identity’, though ostensibly a noun, behaves like a verb, albeit a strange one to be sure: it appears only in the future sense. Though all too often hypostasized as an attribute of a material entity, identity has the ontological status of a project and a postulate. (Bauman 2011)
+
+Computer scientists have joined a very small minority group adopting a category of conceptualizations of identity I call noun-like. Such conceptualizing treats identity as unchanging and not infrequently corporeal. I am a singular object. You are a different singular object. I am the same as the five year-old going to his first day at school. You are the same person today as the first day of your first job. This is the case irrespective of the system architecture. As the World Economic Forum notes accurately (2018), “Decentralized identity systems don’t depend on a single system owner or set of owners to establish and manage identities.” While this sentence sets out to describe a quality of decentralized systems, it also imparts that, centralized or decentralized, identities are things to be managed.
+
+Law adopts a noun-like approach to identity in coding society, although in making accommodations for the age of majority, circumstances of diminished responsibility, and freedom of thought, one might conclude it stretches a little further in adapting to the real world than our current digital infrastructure.
+
+On discussing identity in group situations I always ask how many times people have resorted to noun-like identity so far this century. The timespan purposefully starts at a time when one’s experiences of digital services extended perhaps to the noun-like login to the IT system at work, perhaps a personal email account, proof of ID at the bank branch or authentication at the ATM, the occasional need to produce a passport for international travel, the right to vote, and proof of ID to hire a car or secure a mortgage product. Outside of the digital context, estimates of the frequency with which noun-like identity is invoked mostly range between one and five dozen times a year at the turn of the century.
+
+Contrast this with the verb-like. Such conceptualizations consider identity to be dynamic, multiple, informational, temporary, contextual. Whereas the noun-like conceptualizations attach actions and interactions to actors, the verb-like recognise that identity is co-emergent with actions and interactions in contexts. The noun-like are functionally relational whereas the verb-like are co-emergently relational. The vast majority of disciplines (per the Introduction) for which human identity is a concern conceive it in a verb-like manner.
+
+In discussing verb-like identity I find people first gravitate to contemplating differences in years, contrasting one’s childhood and adulthood for example, as I did above. So-called life-changing events then pop into their thoughts such as rites of passage, marriage, parenthood, careers, relocations, hormonal changes. Someone they know changed radically. Someone else behaves quite differently in one situation from another. They may reflect on the cognitive decline of an older friend or relative, and eventually multiple contextual self-descriptions emerge, so-called narrative selves. On asking about the frequency with which the verb-like manifest, responses move quickly from claims for daily to hourly to recognition that we are discussing a continuous process. Eventually someone in the group notes that it’s happening right now in our conversation.
+
+Verb-like identity is essential to human life. The associated cognitive processes are at the heart of the human condition and human society. Nevertheless, modern life is increasingly pierced and pinned down by the persistent informational splinters of noun-like identity systems, and this is set to grow exponentially. Noun-like identity systems are ripe to penetrate the micro-interactions of everyday life, to pollute our lived experience, and yet from observation, too few people working on “bringing digital identity to market”, a turn of phrase that is entirely inappropriate in itself, recognise the potential malignancy of their inventions. Enabling the relentless spread of noun-like identity in general, and legal identity in particular, is presented as progress and indeed as necessary.
+
+Nevertheless, while they may not employ the categorizations of noun-like and verb-like, there are frequent references amongst those researching digital identity from a social sciences perspective to the associated phenomena. Here are four examples:
+
+> Digital identity can be understood as a continuum. At one end we find the ‘simpler’ or ‘narrow view’ where digital identity is ‘a collection of credentials online’ used in electronic transactions … In contrast, the other end of the spectrum is characterised as the ‘fundamental side’ or the ‘broader view’. Here digital identity is understood to be ‘the online representation of one’s self’ or ‘one’s representation in a digital space’. (Warburton 2010)
+
+> ... identity is always online. We are, in some ways, always performing ourselves online because even when we are nowhere near a digital communication device (which is now extremely rare), we leave traces all over the Internet … Identity and its online representation is therefore not something we switch off, move away from, or otherwise demarcate from the everyday practices of selfhood. (Cover 2015)
+
+> People have always had, and managed, multiple personal identities. … there is a tension between fixed identities within rigid systems and people’s shifting, dynamic lives. Identification systems in general and digital systems in particular make static aspects of people’s identity in ways that are often outside their control. (Bailur et al. 2017)
+
+> ... the recently proclaimed hopes in the development of digital identity could be both naïve and dangerous. Rather than just asking ourselves how we could digitize existing features of identity management, and corresponding financial transactions on a community or state level, we submit that truly useful and innovative digital identities need to be accompanied by some significant rethinking of the essential basics behind the organisation of the world. [... There is] a clear risk that when implemented at the global scale, such decentralized systems could be deeply harmful, reinforcing and amplifying the most repugnant aspects of contemporary citizenship. (Gstrein & Kochenov 2020)
+
+## Mind over matter
+
+“Mind is empty; it is no-thing. It exists only in its ideas, and these again are no-things.” As for ideas: the “smallest unit of mental process is a difference, or distinction, or news of a difference”, which aligns with the definition of information as “any difference that makes a difference.” (Bateson 1979) On the one hand then we have the bodily definition of a person, including her brain, a biological organ; and on the other hand, we have the informational nature of mind, a no-thing that isn’t bound by a corporeal entity by definition. For me, this distinction resolves the four perspectives expressed immediately above.
+
+<Aligner center>
+
+![Illustration of a brain with the words: Ceci n'est pas un esprit | This is not a mind.](/images/blog_headers/ceci-nest-pas-un-esprit.png)
+
+</Aligner>
+
+For any discussion on the whys and wherefores of digital identity, for any discussion about anything, we rely on a substantial corpus of information that cannot be said to be located anywhere per se; the ideas and meanings of “digital” for example, and “identity”. Such meanings are contextual; information situated within information. Anyone who has joined a well-established group can relate to this. While you may not use such words or refer to such concepts, as you ‘onboard’ you can reflect on the social nature of mind and consider mind as a mass noun. You will likely perceive a coherence of meaning- and sense-making amongst longer-serving team members that becomes less obvious as one’s membership endures; the distinction dissolves as your informational self coheres into and expands the collective mind.
+
+This observation is made during the expansion of the knowledge economy, i.e. the growing emphasis of knowledge-intensive work over labour-intensive work, of mind and thinking and conversation and creativity over physical presence and labouring by the hour.
+
+Now imagine two extremes of internetome. In one, systems at all scales individuate the body and so the blancmange of the organ sheltered by the skull. This vision entails digital inventories in which our corporeal beings are reduced to stock-keeping units, a systemic individuation that, through its coercive enrolment and manipulative constraining of verb-like identity, leads to abjectivity (Haque 2019), disindividuation (Steigler 2010), and the psychological effect of deindividuation (Reicher et al. 1995). One is one in various structural representations of populations, but one is “short-circuited”, one loses one’s self and social identity in such homogeneous and relentless programmatic regimentation. The social identity with which one is left is compulsory and so no real substitute for lost voluntary affiliation let alone replacement for more private selfhood.
+
+In the other internetome, the augmenting and amplifying of mind is treasured and perhaps adopted as a primary design goal. You might express it in terms of freedom of mind, freedom of thought, freedom of choice, freedom of assembly, imagination, love, spiritualism, social compute, collective meaning- and sense-making, and / or intelligence. By intensifying rich and diverse information flows, this future internetome retains the potential to flourish as a regenerative ecological system.
+
+I will refer to them as the degenerative internetome (noun-like, corporeal) and generative internetome (verb-like, mind) respectively.
+
+In his synthesis of life and mind, Thompson (2010) offers up a system description that applies equally here if you accept my assertion that the pursuit of generative identity is inseparable from and integral to digitalized life and mind. The incongruity of noun-like identity is visceral.
+
+> [E]verything is process all the way ‘down’ and all the way ‘up’, and processes are irreducibly relational – they exist only in patterns, networks, organisations, configurations, or webs. In the process view, ‘up’ and ‘down’ are context-relative terms used to describe phenomena of various scales and complexity. There is no base level of elementary entities to serve as the ultimate ‘emergent base’ on which to ground everything. Phenomena at all scales are not entities but relatively stable processes, and since processes achieve stability at different levels of complexity, while still interacting with processes at other levels, all are equally real and none has absolute ontological primacy.
+
+So long as humanity needs bureaucratic processes in their current form, even the most mundane of them can be accommodated in the generative internetome’s requisite variety. Generative identity processes can and will stabilise for sufficient duration.
+
+In the meantime, applications of noun-like identity must be kept as rare and distinct as they have been historically if we are to oscillate less violently around life’s equilibria. By dint of its innate facility for change, for co-evolution, the generative internetome is the only one of the two in which the Anthropocene can work out well for our species and those with which we share the planet. Tactically speaking, we must become masterful in working with verb-like conceptualizations in our digitalized life and remain deeply suspicious of the coding and application of the noun-like.
+
+## I’m told I’m self-sovereign
+
+Humans are social animals. Community, and more accurately cooperation, is essential to our surviving and thriving (Margulis & Sagan 1997; Nowak & Highfield 2011). Organising community entails governance at many scales, and we refer to the activities of governance as politics. All sociotechnology — relating to the technologization of human organising — is therefore political.
+
+Self-sovereign identity (SSI) is premised on simplistic political dogma. Just like all simplistic political dogma, it breaks as soon as sufficient pain is felt by sufficient numbers of people retaining the power to revolt. The SSI community, if I can refer to a group identity, believes that 'giving' Alice her 'self-sovereignty' frees her, when in fact it requires that she conforms to one particular political worldview. The system subsumes her and her networks, both internal and external.
+
+SSI emanates from the western states of the USA, a region not unfamiliar with the temptations of technosolutionism and the myths of the lone cowboy. For me, Weyl (2020) nails the context of the SSI community with his description of ALONE: Atomistic Liberalism and Objectivist Naive Epistemology.
+
+> Central to ALONE is a binary between Individuals, conceptualized as largely presocial, independent ultimate loci of value / preference / good / belief (well-being for short), and some global coordination device variously referred to as the social planner, objective truth, the modeler, the mechanism designer, the impartial observer, God or, most commonly and how I will refer to it, The State.
+
+Everything in between is secondary, a distraction that can either be automated away or ignored. All keen students of complex adaptive systems will share Weyl’s inevitable conclusion that "the ALONE model of the world is wildly naïve and inaccurate".
+
+The SSI community, emanating from and largely operating with the ALONE paradigm, sets out in good part to remove The State as the issuer of identity, but caught in the binary thinking characteristic of ALONE, replaces it with something less social, less easily governed, less accountable, less easily restrained and more insidious, in stark opposition to the social layers and norms and institutions and mechanisms integral to what might be referred to as high-trust societies and indeed the trust-based essence of all human community (Cook 2001; Fukuyama 1995; O’Hara & Hutton 2004). Renieris (2021) describes the SSI framework as based on the “neoliberal fallacy of individual choice & control.”
+
+My analysis is not predicated on either individualism or communitarianism. To Giddens (2014), social structure and personal agency are inseparable as two sides of the same coin. Structures may be constraining and may be enabling. The repeated actions of many individuals reproduce and indeed change the social structure, a structure defined in terms of rules and resources that enable such reproduction over time rather than as some dominating external force (Giddens, 1986; Giddens and Sutton, 2014). This pillar of contemporary sociological theory moves from dividing our object of study into separate, paired elements, to considering them interdependent, no longer separate or opposed; from a dualism to a duality (William A. Jackson 1999). In this sense, generative identity is neither individualistic nor communitarian; information has no scale.
+
+I have yet to come across a sociology reference in SSI literature (the sole dissenting chapter in the most recent and most comprehensive book on the topic is the exception; but then I wrote it (Sheldrake 2021a)). The SSI community’s sacred texts (Allen 2016; Cameron 2005) make no mention. They don’t just fall short of describing verb-like conceptualizations of human identity, they run counter to the understanding of most every other discipline with an interest in identity. In conversation (the Humanetics workshop series, Summer 2021), I believe that Allen now recognises as much himself. A more recent collaborative effort to distil key principles (“Principles of SSI” 2020) makes no material difference as far as the critique here goes.
+
+The paradox for those drawn to individualization and so-called self-sovereignty is that the ultimate qualities they seek, not least including and emanating from freedom of thought, cannot be found within systemic corporeal individuation but rather with systems that value and augment the cognitive essence of the human condition. This does not deny the salience of the body, quite the opposite. It situates the dignity of every single human being in the potential to make a difference with and through others: to sense, to think, to learn, to express, to assemble, to act, to love.
+
+## What do we mean by “digital”?
+
+Delving into the “digital identity” mind by reading its texts, watching its presentations, examining its architectures and protocols, and conversing, it’s clear that “digital” relates to computers, to software code, to databases, to the internet, to the web, and to information processed and transported by such machinery. To reflect on “digital identity” then is to consider some form of processing of digital information in digital systems that might be taken as representing an individual or claims made about an individual.
+
+Digital identity is also digital at a more fundamental level: “a signal is digital if there is discontinuity between it and alternative signals from which it must be distinguished. Yes and no are examples of digital signals.” (Bateson 1979)
+
+The digital is non-analogic. The information that my legal name is Philip Sheldrake is digital information without involving any modern technology. That it isn’t George Clooney is digital information. In the simplest terms, you won’t stumble upon a digitally technologized identification and authentication process for which the output is possibly or perhaps. I distinguish between the output of the process and any consequential conclusion. Levels Of Assurance for example (“Levels of assurance (LOAs)” 2019) maps the digital outputs of authentication processes to an ordinal scale.
+
+The analogue is non-digital. The brain is analogue. Mind is analogue. How my wife, my parents, my friends, my work colleagues, and the staff members at the local coffee shop ‘see’ me at any point in time in any given context and how I ‘see’ them is analogue. That none of them would confuse me for George Clooney is a digital conclusion to an analogue process, as are conclusions such as “I don’t trust Alice to watch my kids” and “I am first and foremost a Londoner” for example.
+
+How we each perceive and make sense of and interact in relationships in varying contexts is analogue. Noun-like conceptualizations of identity are digital by nature. Verb-like conceptualizations are analogue by nature.
+
+I feel the need here for analogy. I have employed a physics analogy previously, specifically relating to structural rigidity (Sheldrake 2020b, 2021a). This works for me as an engineer, but I’ve been looking for something that most everyone can see more clearly.
+
+I played 3D Monster Maze in 1981 courtesy of a 3.5MHz processor and 1 kilobyte of RAM. It’s a digital representation that is never going to be confused for the ‘real’ thing. These days, gaming with a Playstation or Xbox is a qualitatively different experience of course, but still not yet one that may be confused for reality, so to speak. Could we get there? I have not seen a compelling argument for why not, and digital reproduction of audio and video may already be said to be indistinguishable from reality, again so to speak.
+
+It takes a certain technological sophistication to have digital information perceived as analogue. In the far easier deterministic contexts, bitrate is a key system property. In non-deterministic contexts, requisite variety is a critical quantum.
+
+<Aligner center>
+
+![Grey pixelated screenshot of an early computer game featuring a Tyrannosaurus rex.](/images/blog_headers/3D-monster-maze.png "Figure 1: A screenshot of 3D Monster Maze courtesy of: [https://www.zx-gaming.co.uk/games/monstermaze/default.htm](https://www.zx-gaming.co.uk/games/monstermaze/default.htm)")
+
+</Aligner>
+
+So now the analogy. The 3D Monster Maze screenshot (Figure 1) is to our eyes as contemporary digital identity is to human identity, to our sense-making capacities. Analogously speaking, allowing noun-like digital identity to spread pervasively and encroach on domains in which we currently rely on verb-like mechanisms, as it is in fact designed to do, renders our sense-making ‘view’ of the world with similarly miserable and monotone resolution as for the Tyrannosaurus rex here. We all experience vision loss.
+
+Contemporary digital identity (including associated processes) is incredibly unsophisticated. It is Newtonian in painful contrast to the manifesting of verb-like conceptualizations of identity, in contrast to the rich complexity of our multiple, interpenetrating, social minds. It lacks fidelity. It lacks context. It lacks variety. It lacks restraint.
+
+As we are never required to opt into the SSI macro system, refusal, informed or otherwise, and it will mostly be otherwise, isn’t a choice. Rather, we each accept its gradual transaction-by-transaction introduction for its efficiency, for its convenience, encouraged by the privacy and agency enhancing claims made for it. Loss of vision is imperceptible at this micro level for the vast majority whose needs are perfectly accommodated by the code in that moment. Those for whom the loss proves problematic go unheard, or perhaps offered reassurance that this new system just needs time to bed in. Eventually however, inevitably, the majority will feel the ill effects as more contexts and applications are enveloped, in much the same way that it’s not uncommon to suffer a rare disease (“FAQs About Rare Diseases” 2021). The system will stumble on for years until widespread and compounding loss of resolution causes such individual and social harm that a reversal out of this identity system becomes the only response, a reversal requiring legislation in the absence of any other suitable governance of the decentralized technology. The legislation will necessarily phase in over years given the level of pollution; the code underpinning billions of quotidian activities must be revised.
+
+With this analogy I’m not saying that digitally mediated and augmented verb-like identity needs to look or feel exactly like the non-digitalized thing. We are talking more about our sense-making capacities than just our senses, and it is quite possible that appropriate technology in this respect feels different; it should feel comparatively amazing. I am saying that the sophistication of the systems we design to augment ourselves in this context, to extend ourselves, needs to correspond with and play to the astonishing qualities of mind. Whereas ‘backwards compatibility’ typically conveys interoperability with an older, less capable system, in our context the ‘legacy system’ is of a massively more powerful design. Compatibility may be pursued with attention to contexts, to variety, to restraint, to the interdisciplinary analysis of existing cultural patterns, and to the accretive development of social norms. Ultimately, any sufficiently advanced technology will be indistinguishable from Nature (Schroeder 2011).
+
+## I’m off vertex!
+
+I know from experience that talking in terms of ecology and systems, in terms of complexity and requisite variety, isn’t always a recipe for successful communication and knowledge building. It is necessary I believe, respectful in fact, but insufficient; hence my use of analogy. While it is always challenging to paint a picture of emergent outcomes from individual events, by definition, I will attempt to describe the vista here from the bottom up to throw more light on what I mean by loss of vision.
+
+“Verifiable credentials (VCs) are the very heart of SSI architecture.” (Chadwick & Burnett 2021) A credential makes one or more claims about its subject. It is digital in the full sense discussed above, and the claim may state anything. It could for example relate to an attribute (e.g. Alice is over 18), a relationship (e.g. Alice is Beth’s mother), or entitlement (e.g. Alice is licensed to drive). Each credential is issued by a single party, e.g. the driving licensing authority, and must be verifiable as the lexicon conveys. Historically, verifiable proof of being licensed to drive relies on a physical document. VCs replace the tangible document with intangible, cryptographically-enabled and programmable verifiability.
+
+The credential issuer, the credential holder, and the credential verifier may be regarded as each sitting on a vertex of a triangle. This triangle is referred to as a trust triangle because the verifier is said to be able to trust the process to act digitally, i.e. confirm or deny the verifiability of the credential (Chadwick & Burnett 2021; Reed et al. 2021). However, such labelling is disingenuous. Trust is a social quality. Trust has no meaning in deterministic situations (Cook 2001); you don’t need to trust that 2+2 will still equal 4 tomorrow, it just will. This cryptographically powered informational triangle in fact circumvents any need for the verifier to trust the holder.
+
+The frequency with which people need to trust each other declines as SSI use grows, which in turn changes the character of human relations, of community, of society. Today, we largely qualify each other contextually with a difficult to describe but deeply valuable fuzziness. Tomorrow, we, or more precisely our digital agents, quantify and filter non-contextually with exacting precision, with unforgiving recall, and with mindless programmatic dedication.
+
+Imagine now that you wish to convey some credential to a verifying party. You wish to be a credential holder as might (but might not) be accommodated by the systems of the would-be verifier and issuer. If your case is straightforward, then SSI may serve you well in this micro instance. You have a driving license. You do not have a criminal record. This is your legal identity. You got this grade in computer science. You are old enough to buy a beer. You own this property. You no longer own that car. You are married. You earn this much. You attend this church. Your parents went to this college. You donated this much to the party. You reported this many transgressions to the authorities. You have this facial profile. You have this gene, and definitely not that one.
+
+I have offered some examples there that clearly have ethical challenges in themselves when SSI does indeed work as intended; self-interest and system-interest are very much misaligned to the injury of both. Such uses can only really be denied by voluntary ethical governance, especially as laws proscribing SSI for specific purposes are nearly impossible to police by technical design. Nevertheless, there are deeper challenges including those that arise when the credentials and contexts you seek to present in the world don’t align with the way relevant verifiers and issuers have structured their systems.
+
+I do have a criminal record but please allow me to explain. I nearly got all the way to graduating with flying colours, but both my parents died in the final semester. I had a great reputation at my last job, it’s just that my line manager and I fell out at the end for reasons I cannot talk about. My former housemates rate me antisocial, but it’s nothing more than introversion. Yes, I struggle with punctuality, but please know that I’m also a carer. In summary, my life doesn’t coincide neatly with the precise digital location of “credential holder” in the system’s so-called “trust triangles”, and whether it does or does not, the “trust triangle” doesn’t trust me to offer context.
+
+“I’m off vertex!” and “I’m context denied!” could turn out to be modern-day cries of anguish equivalent to “I’m not a number! I’m a free man!” (Cox 2017)
+
+<Aligner center>
+
+![Clipart featuring two different t-shirt designs, each shown on a black t-shirt and a white t-shirt.](/images/blog_headers/t-shirts.png "If you feel the need to tell the world you're off vertex or context denied, download the graphics to use as you wish. The designs are public domain. It could be a fascinating conversation starter... well, in the right contexts. They come with no warranty as to identity effects.")
+
+</Aligner>
+
+<Aligner center>
+
+<Button to='https://generative-identity.org/human-identity-the-number-one-challenge-in-computer-science/#graphics-download' secondary inline>
+    Download the svg files
+</Button>
+
+</Aligner>
+
+---
+
+It’s easy to see the immediate transactional disadvantage here, but there is also an immediate psychological harm. These contexts are self-narrative. They are identity. They are identity being denied by the system. This in turn has immediate effects in society. Natural complex systems, not least human society, have never progressed by stepping neatly on the vertices of a set of predefined non-contextual triangular potentials.
+
+SSI has been described to me as “the most contextually-sensitive identity technology I know of” in contrast to my assertion that SSI cannot communicate context (Sheldrake 2021c). You won’t be surprised to learn that we’re both right in our different contexts. The first context is the rather low bar of identity technology, whereas mine is human society and nature, and what SSI sets out to do contextually is an utterly miserable substitute for contextually-sensitive non-technologized human relations. This may well be a criticism of the general datafication of human society, but SSI is positioned as a flag carrier, as a primary vector in this regard. The technology ignores contexts by design. Based on good intentions, technologists are encouraged and obligated to some extent to follow the data minimisation design principle per Fair Information Practices (Reidenberg 1999; Schwartz 2001), Privacy by Design (Bellotti & Sellen 1993; Langheinrich 2001), and associated regulations. Yet a system designed according to the data minimisation principle cannot take in any other information, and so cannot communicate context (the information ‘around’ the information), and so in turn may well frustrate any striving for justice for justice is necessarily contextual.
+
+If such effects impacted a small minority all the time, legitimate objections might be lodged today on exclusionary grounds, but it’s worse than that; we will all be off vertex and context denied on occasion. The fact that some will find themselves more regularly in this situation doesn’t become an issue so quickly because everyone else can say that we’re all feeling the bumps in the SSI road. Given the reflexivity of social identity, one can easily imagine lifestyles being rated and described in discriminating language based on which types are impacted more or less than others. Nevertheless, even if your lifestyle is rated “fully on vertex” and your context type “model citizen”, you and your communities are inseparable. As your communities suffer, you suffer.
+
+## Concluding
+
+Digital media was originally considered fertile territory for verb-like identity. Digital connectivity offered “new possibilities for experimenting with identity” to the extent that one might refer to the Internet as “an identity workshop.” (Turkle 2011) By the close of the 1990s “... there is no simple sense in which computers are causing a shift in notions of identity. It is, rather, that today’s life on the screen dramatizes and concretizes a range of cultural trends that encourage us to think of identity in terms of multiplicity and flexibility. … one can be many, and one usually is.” (Turkle 1999)
+
+Here in the 2020s however, if the development and implementation of digital identity follows its current trajectory, if we continue to consider ‘the digital’ separate from cognition, from mind, from living processes, if we continue to pollute our way towards a degenerative internetome, there is now unfortunately a very simple sense in which computers are causing a shift in notions of identity. Digitalized life is manifesting a noun-like conceptualization of identity at the cost of the operation of verb-like conceptualizations, and this is deeply concerning given that the latter describe the way the world works according to the considerable majority of disciplines with an interest in the matter, whereas the former relates to how information technology has been wielded to address inanimate objects.
+
+Digitalized life increasingly ties us to identifiers artificially separated from any kind of contextual co-emergence and reciprocity with information exchange in relationships, severely curtailing personal freedoms, both physical and psychological, and eroding long-serving social mechanisms. Personal choice will be eroded by the lifeless assimilation through cryptographic triangulation or the rejection of all things digital, both woefully inadequate at just the moment when large-scale generativity is required to rise up to global super-wicked problems together.
+
+Given that the working of our minds underpins most everything we hold dear about human life, the slow systemic substitution of digital identity in social contexts that currently invoke verb-like identity mechanisms is nothing short of reckless and unethical. There is only some very small solace in the fact that no-one can engineer this for others; they and their loved ones will be inflicted too. While discrimination (recognising distinction) is SSI’s functional purpose, this trauma is non-discriminatory because we are all human.
+
+Father and son Marshall and Eric McLuhan formulated four media laws in the form of questions, claiming them to apply universally to all media (Harman 2012; McLuhan & McLuhan 1988). The four questions offer an appropriate structure for concluding here.
+
+**Q1. What does the artefact enhance or intensify or make possible or accelerate?**
+
+SSI amplifies the volume of credential issuance and presentation, an explosion that could easily run up three or four magnitudes as associated frictions are eliminated, as all parties are drawn to process efficiency, and as reputational information in particular is quantified, delocalized, and decontextualized, disastrously. SSI accelerates the speed of issuance and presentation to be practically instantaneous, and weaves identifiers and claims programmatically and deeply into systems at all scales and of all degrees of (de)centralization. It makes secure (encrypted) messaging and data exchange pervasive, potentially to the detriment of social sense-making and so societal responsiveness.
+
+**Q2. If some aspect of a situation is enlarged or enhanced, simultaneously the old condition or unenhanced situation is displaced thereby. What is pushed aside or obsolesced?**
+
+SSI most obviously renders tangible credential documents and the corresponding face-to-face interactions redundant. It also reduces the frequency with which unverifiable claims are made and accepted on trust. On the contrary, absences of trustless verifiability may sow distrust with consequences for social cohesion. Decontextualization and cryptographic triangulation erodes self-narratives and freedoms to perceive, think, and act contextually.
+
+**Q3. What recurrence or retrieval of earlier actions and services is brought back and inheres in the new form?**
+
+SSI retrieves the original goals of bureaucracy as Max Weber described in 1920:
+
+> The fully developed bureaucratic apparatus compares with other organisations exactly as does the machine with non-mechanical modes of production. Precision, speed, knowledge of the files, continuity, discretion, unity, strict subordination, reduction of friction and material and personal costs — these are raised to the optimum point. (Weber 1978)
+
+Bureaucracy is no longer celebrated of course. Weber himself came to condemn it, and in line with my focus on generativity, Bennis (1965) observes: “It is the requirement of adaptability to the environment which leads to the predicted demise of bureaucracy ...”. Nevertheless, SSI revitalises bureaucracy with a twist; decentralization. Kafka would be astounded and all the more frustrated.
+
+**Q4. When pushed to the limits of its potential, the new form will tend to reverse what had been its original characteristics. What is the reversal potential of the new form?**
+
+No-one wants to achieve the opposite effect to the one they set out to achieve (Sheldrake 2019b). If I was trying to be funny, SSI reverses into System Sovereign Identity, aka Subsuming Structurated Identity. But it’s not funny.
+
+Computer scientists can ignore most every other discipline and look only to their society-coding cousins, the law profession, for design inspiration. They can ignore the fact that their code is potentially far more insidious than the code of their lawyerly colleagues. They can ignore legal scholars questioning historical assumptions, observing how “social structures, institutions, and powerful contextual forces renders this simplistic model of autonomous individualism almost mythical.” (Haney 2002) But they can only do so by also ignoring their profession’s ethical standards.
+
+In contemplating designing for its digital mediation and augmentation, we are just beginning to get real about the natural complexity of human identities immanent in contextual relationships immanent in information exchange. Currently, this involves the existing SSI community making some well-meaning attempts to identify specific problems and gaps and fix and fill them respectively (e.g. the Trust Over IP Foundation). These efforts will fail for as long as the founding principles prevail, and as McLuhan noted, humanity will begin to reflect the technology if computer science does not change course, as degenerative as that might be.
+
+If we are to deliver in contexts rarely even mentioned in relation to digital identity to date — psychological, sociological, and ecological health — a deep interdisciplinary review is imperative as a new foundation for a transdisciplinary design process.
+
+We can respect human dignity. We can nurture human flourishing. I believe we can develop the required sophistication together and go further still. In the processes of realising generative identity, the dominant structures of Web 2 social media crumble; to a certain extent the conditions that might constitute ‘decentralized social’ fall into place. We can help establish freedom of mind, human connection, and the conditions to explore as yet untapped collective intelligences; both of individuals within social contexts and of groups themselves.
+
+---
+
+## References
+
+Akerlof, G. A., & Kranton, R. E. (2000). Economics and Identity. The Quarterly Journal of Economics, 115(3), 715–753.
+
+Al-Khouri, A. M. (2014). Digital identity: Transforming GCC economies. Innovation, 16(2), 184–194.
+
+Allen, C. (2016, April 25). The Path to Self-Sovereign Identity [Blog]. Retrieved from [http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html](http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html)
+
+Ashby, W. R. (1991). Requisite Variety and Its Implications for the Control of Complex Systems. In G. J. Klir, Facets of Systems Science, Boston, MA: Springer US, pp. 405–417.
+
+Baier, T., Zirpins, C., & Lamersdorf, W. (2003). Digital identity: How to be someone on the net, 6.
+
+Bailur, S., Pon, B., & Schoemaker, E. (2017). Identities: New practices in a connected age, Caribou Digital.
+
+Bateson, G. (1972). Steps to an Ecology of Mind: Collected Essays in Anthropology, Psychiatry, Evolution, and Epistemology, University of Chicago Press.
+
+Bateson, G. (1979). Mind and nature: a necessary unity, 1st ed, New York: Dutton.
+
+Bateson, N. (2015). Symmathesy — A Word in Progress Proposing a New Word that Refers to Living Systems. Journal of the International Society for Systems Sciences–59th Meeting, 1(1), 1–22.
+
+Bateson, N. (2018, March 22). The Era of Emergency Relocation – A Transcontextual Perspective*. Retrieved from [https://norabateson.wordpress.com/2018/03/22/the-era-of-emergency-relocation-a-transcontextual-perspective/](https://norabateson.wordpress.com/2018/03/22/the-era-of-emergency-relocation-a-transcontextual-perspective/)
+
+Bauman, Z. (2011). From Pilgrim to Tourist – or a Short History of Identity. In Questions of Cultural Identity, London: SAGE Publications Ltd, pp. 18–36.
+
+Bazarhanova, A., & Smolander, K. (2020). The Review of Non-Technical Assumptions in Digital Identity Architectures. In Proceedings of the 53rd Hawaii International Conference on System Sciences, Hawaii, p. 10.
+
+Bellotti, V., & Sellen, A. (1993). Design for Privacy in Ubiquitous Computing Environments. In G. de Michelis, C. Simone, & K. Schmidt, eds., Proceedings of the Third European Conference on Computer-Supported Cooperative Work 13–17 September 1993, Milan, Italy ECSCW ’93, Dordrecht: Springer Netherlands, pp. 77–92.
+
+Bennis, W. (1965). Beyond bureaucracy. Trans-Action, 2(5), 31–35.
+
+Berry, W. (2009). Bringing It to the Table: On Farming and Food. Counterpoint Press.
+
+Bertino, E., Paci, F., & Shang, N. (2009). Digital Identity Protection - Concepts and Issues. In 2009 International Conference on Availability, Reliability and Security, p. lxix–lxxviii.
+
+Birhane, A. (2017, April 7). Descartes was wrong: ‘a person is a person through other persons’ | Aeon Ideas. Retrieved January 21, 2022, from [https://aeon.co/ideas/descartes-was-wrong-a-person-is-a-person-through-other-persons](https://aeon.co/ideas/descartes-was-wrong-a-person-is-a-person-through-other-persons)
+
+Boyd, D. (2011, August 4). “Real Names” Policies Are an Abuse of Power. Retrieved from [https://socialmediacollective.org/2011/08/04/real-names-policies-are-an-abuse-of-power/](https://socialmediacollective.org/2011/08/04/real-names-policies-are-an-abuse-of-power/)
+
+Bratton, B. H. (2015). The Stack: On Software and Sovereignty, MIT Press.
+
+Bunge, M. (1999). Social Science Under Debate: A Philosophical Perspective, University of Toronto Press.
+
+Buterin, V. (2020, January 17). Retrieved from [https://twitter.com/VitalikButerin/status/1217973600973537280](https://twitter.com/VitalikButerin/status/1217973600973537280)
+
+Camerer, C. (1999). Behavioral economics: Reunifying psychology and economics. Proceedings of the National Academy of Sciences, 96(19), 10575–10577.
+
+Cameron, K. (2005). The Laws of Identity. Retrieved August 14, 2019, from [https://docs.microsoft.com/en-us/previous-versions/dotnet/articles/ms996456(v%3dmsdn.10)](https://docs.microsoft.com/en-us/previous-versions/dotnet/articles/ms996456(v%3dmsdn.10))
+
+Camp, J. L. (2004). Digital identity. IEEE Technology and Society Magazine, 23(3), 34–41.
+
+Campbell-Verduyn, M., & Hütten, M. (2021). The Formal, Financial and Fraught Route to Global Digital Identity Governance. Frontiers in Blockchain, 4, 627641.
+
+Capra, F., & Luisi, P. L. (2014). The Systems View of Life: A Unifying Vision, Cambridge University Press.
+
+Chadwick, D. W., & Burnett, D. C. (2021). Chapter 27 Verifiable Credentials. In A. Preukschat & D. Reed, eds., Self-Sovereign Identity: Decentralized digital identity and verifiable credentials, Manning.
+
+Cook, K. (2001). Trust in Society, Russell Sage Foundation.
+
+Cover, R. (2015). Digital Identities: Creating and Communicating the Online Self, Academic Press.
+
+Cox, A. (2017). I Am (Not) A Number: Decoding The Prisoner, Oldcastle Books Ltd.
+
+European Commission. (2021, June 3). Commission proposes a trusted and secure Digital Identity. Retrieved July 6, 2022, from [https://ec.europa.eu/commission/presscorner/detail/en/ip212663](https://ec.europa.eu/commission/presscorner/detail/en/ip212663))
+
+FAQs About Rare Diseases | Genetic and Rare Diseases Information Center (GARD) – an NCATS Program. (2021, January 26). Retrieved October 14, 2021, from [https://rarediseases.info.nih.gov/diseases/pages/31/faqs-about-rare-diseases](https://rarediseases.info.nih.gov/diseases/pages/31/faqs-about-rare-diseases)
+
+Farnham, S. D., & Churchill, E. F. (2011). Faceted identity, faceted lives: social and technical issues with being yourself online. In Proceedings of the ACM 2011 conference on Computer supported cooperative work - CSCW ’11, Hangzhou, China: ACM Press, p. 359.
+
+Floridi, L. (2015). The Onlife Manifesto - Being Human in a Hyperconnected Era, Springer Nature. Retrieved from [https://www.academia.edu/9742506/TheOnlifeManifesto-BeingHumaninaHyperconnectedEra](https://www.academia.edu/9742506/TheOnlifeManifesto-BeingHumaninaHyperconnectedEra)
+
+Floridi, L. (2016). On Human Dignity as a Foundation for the Right to Privacy. Philosophy & Technology, 29(4), 307–312.
+
+Fukuyama, F. (1995). Trust: The Social Virtues and the Creation of Prosperity, Free Press.
+
+Giacomin, J. (2014). What Is Human Centred Design? The Design Journal, 17(4), 606–623.
+
+Giannopoulou, A., & Wang, F. (2021). Self-sovereign identity. Internet Policy Review, 10(2). Retrieved from [https://policyreview.info/glossary/self-sovereign-identity](https://policyreview.info/glossary/self-sovereign-identity)
+
+Giddens, A., & Sutton, P. W. (2014). Essential Concepts in Sociology, John Wiley & Sons.
+
+GlobaliD: Identity for everyone. Everywhere. (n.d.). Retrieved September 21, 2021, from [https://global.id/](https://global.id/)
+
+Grigg, I. (2021). Identity Cycle. Retrieved from [https://iang.org/identitycycle/identitycycle-3-20211118.pdf](https://iang.org/identitycycle/identitycycle-3-20211118.pdf)
+
+Grinberg, E. (2014, September 18). What counts as a “real name” on Facebook? [News]. Retrieved October 11, 2021, from [https://www.cnn.com/2014/09/16/living/facebook-name-policy/index.html](https://www.cnn.com/2014/09/16/living/facebook-name-policy/index.html)
+
+Gstrein, O. J., & Kochenov, D. (2020). Digital Identity and Distributed Ledger Technology: Paving the Way to a Neo-Feudal Brave New World? Frontiers in Blockchain, 0. doi:10.3389/fbloc.2020.00010
+
+Hall, S. (1996). Introduction: who needs identity? In Questions of cultural identity, Sage, pp. pp1-17.
+
+Haney, C. (2002). Making law modern: Toward a contextual model of justice. Psychology, Public Policy, and Law, 8(1), 3–63.
+
+Haque, U. (2019). ‘(Why) Technology Is Costing Us Agency’. Blog. Eudiamonia (blog). [https://eand.co/why-technology-is-costing-us-agency-24cefc84a751](https://eand.co/why-technology-is-costing-us-agency-24cefc84a751)
+
+Harman, G. (2012). Some Paradoxes of McLuhan’s Tetrad. Umbr(A), 1, 77–95.
+
+Immorlica, N., Jackson, M. O., & Weyl, E. G. (2019). Verifying Identity as a Social Intersection (SSRN Scholarly Paper No. ID 3375436), Rochester, NY: Social Science Research Network. Retrieved from [https://papers.ssrn.com/abstract=3375436](https://papers.ssrn.com/abstract=3375436)
+
+Kelly, M. G. E. (2013). Foucault, Subjectivity, and Technologies of the Self. A Companion to Foucault, 510–525.
+
+Langheinrich, M. (2001). Privacy by Design — Principles of Privacy-Aware Ubiquitous Systems. In G. D. Abowd, B. Brumitt, & S. Shafer, eds., Ubicomp 2001: Ubiquitous Computing, Berlin, Heidelberg: Springer, pp. 273–291.
+
+Laurent, M., Denouel, J., & Levallois-Barth, C. (2015). Chapter 1: Digital Identity. In Digital Identity Management, Elsevier.
+
+Lessig, L. (1999). Code and Other Laws of Cyberspace, Basic Books.
+
+Levels of assurance (LOAs). (2019), The World Bank. Retrieved from [https://id4d.worldbank.org/guide/levels-assurance-loas](https://id4d.worldbank.org/guide/levels-assurance-loas)
+
+Linell, P. (1998). Approaching Dialogue: Talk, interaction and contexts in dialogical perspectives, Vol. 3, Amsterdam: John Benjamins Publishing Company. doi:10.1075/impact.3
+
+Margulis, L., & Sagan, D. (1997). Microcosmos: Four Billion Years of Microbial Evolution, University of California Press.
+
+McLuhan, M., & McLuhan, E. (1988). Laws of Media: The New Science, University of Toronto Press.
+
+Morrison, Toni. 1987. Beloved. New York: Alfred A. Knopf Inc.
+
+Nottingham, M. (2022). Centralization and Internet Standards (Internet Draft No. draft-nottingham-avoiding-internet-centralization-01), Internet Engineering Task Force. Retrieved from [https://datatracker.ietf.org/doc/draft-nottingham-avoiding-internet-centralization](https://datatracker.ietf.org/doc/draft-nottingham-avoiding-internet-centralization)
+
+Nowak, M., & Highfield, R. (2011). SuperCooperators: Altruism, Evolution, and Why We Need Each Other to Succeed, Simon and Schuster.
+
+O’Hara, K., & Hutton, W. (2004). Trust: ..From Socrates to Spin, Duxford: Icon Books Ltd.
+
+Principles of SSI. (2020, December). Retrieved October 12, 2021, from [https://sovrin.org/principles-of-ssi/](https://sovrin.org/principles-of-ssi/)
+
+Rannenberg, K., Royer, D., & Deuker, A. (2009). The Future of Identity in the Information Society: Challenges and Opportunities, Springer Science & Business Media.
+
+Reed, B. (2007). Shifting from ‘sustainability’ to regeneration. Building Research & Information, 35(6), 674–680.
+
+Reed, D., Joosten, R., & Deventer, O. van. (2021). Chapter 2 The basic building blocks of SSI. In A. Preukschat & D. Reed, eds., Self-Sovereign Identity: Decentralized digital identity and verifiable credentials, Manning.
+
+Reicher, S. D., Spears, R., & Postmes, T. (1995). A Social Identity Model of Deindividuation Phenomena. European Review of Social Psychology, 6(1), 161–198.
+
+Reidenberg, J. R. (1999). Restoring Americans’ Privacy in Electronic Commerce Symposium - The Legal and Policy Framework for Global Electronic Commerce: A Progress Report. Berkeley Technology Law Journal, 51.
+
+Renieris, E. (2021, September 24). Elizabeth M. Renieris on Twitter. Retrieved from [https://twitter.com/hackylawyER/status/1441389508273049600](https://twitter.com/hackylawyER/status/1441389508273049600)
+
+Ryan, D. (2021). Sign-in with Ethereum RFP. Retrieved September 21, 2021, from [https://notes.ethereum.org/@djrtwo/sign-in-with-ethereum-RFP](https://notes.ethereum.org/@djrtwo/sign-in-with-ethereum-RFP)
+
+Schechtman, M. (2011). The Narrative Self. In S. Gallagher, ed., The Oxford Handbook of the Self, Oxford University Press, p. 15.
+
+Schneider, N. (2019). Decentralization: an incomplete ambition. Journal of Cultural Economy, 0(0), 1–21.
+
+Schroeder, K. (2011, November). The Deepening Paradox. Retrieved from [http://www.kschroeder.com/weblog/the-deepening-paradox](http://www.kschroeder.com/weblog/the-deepening-paradox)
+
+Schwartz, P. M. (2001). Beyond Lessig’s Code for Internet Privacy: Cyberspace Filters, Privacy Control and Fair Information Practices. SSRN Electronic Journal. doi:10.2139/ssrn.254849
+
+Scott, J. C. (1998). Seeing like a state: how certain schemes to improve the human condition have failed, New Haven: Yale University Press.
+
+Shaw, R. (2015). Bringing Deleuze and Guattari down to Earth through Gregory Bateson : plateaus, rhizomes and ecosophical subjectivity. Theory, Culture & Society., 32, 151–171.
+
+Sheldrake, P. (2019a, September 2). Generative identity — beyond self-sovereignty. Retrieved from [https://akasha.org/blog/2019/09/02/generative-identity-beyond-self-sovereignty](https://akasha.org/blog/2019/09/02/generative-identity-beyond-self-sovereignty)
+
+Sheldrake, P. (2019b, September 30). A call for interdisciplinarity — generative identity and the Internet Identity Workshop. Retrieved from [https://akasha.org/blog/2019/09/30/a-call-for-interdisciplinarity-generative-identity-and-the-internet-identity-workshop](https://akasha.org/blog/2019/09/30/a-call-for-interdisciplinarity-generative-identity-and-the-internet-identity-workshop)
+
+Sheldrake, P. (2020a, July 24). The Number 1 Challenge for Humanity - Cooperating at Scale, Part 1. Retrieved from [https://akasha.org/blog/2020/07/24/cooperating-at-scale-part-one](https://akasha.org/blog/2020/07/24/cooperating-at-scale-part-one)
+
+Sheldrake, P. (2020b, October 19). The dystopia of self-sovereign identity (SSI). Retrieved from [https://generative-identity.org/the-dystopia-of-self-sovereign-identity-ssi/](https://generative-identity.org/the-dystopia-of-self-sovereign-identity-ssi/)
+
+Sheldrake, P. (2021a). Chapter 33 SSI: our dystopian nightmare. In A. Preukschat & D. Reed, eds., Self-Sovereign Identity: Decentralized digital identity and verifiable credentials, Manning.
+
+Sheldrake, P. (2021b, January 7). The deficiency of the “Generative Self-Sovereign Internet.” Retrieved from [https://generative-identity.org/deficiency-of-the-generative-self-sovereign-internet/](https://generative-identity.org/deficiency-of-the-generative-self-sovereign-internet/)
+
+Sheldrake, P. (2021c, March 4). Towards a shared understanding of ‘digital identity’ — reflecting on conversations with Doc Searls and Drummond Reed. Retrieved from [https://generative-identity.org/towards-a-shared-understanding-of-digital-identity/](https://generative-identity.org/towards-a-shared-understanding-of-digital-identity/)
+
+Sheldrake, P. (2021d, July). Facets of the Internetome. Retrieved September 21, 2021, from [https://internetome.org/](https://internetome.org/)
+
+Siddarth, D., Ivliev, S., Siri, S., & Berman, P. (2020). Who Watches the Watchmen? A Review of Subjective Approaches for Sybil-Resistance in Proof of Personhood Protocols. Frontiers in Blockchain, 3, 590171.
+
+Simmel, G. (2009). Sociology: Inquiries into the Construction of Social Forms (2 vols.), Brill.
+
+Smart, P., Heersmink, R., & Clowes, R. W. (2017). The Cognitive Ecology of the Internet. In S. J. Cowley & F. Vallée-Tourangeau, eds., Cognition Beyond the Brain, Cham: Springer International Publishing, pp. 251–282.
+
+Stiegler, B. (2010). For a New Critique of Political Economy. Polity.
+
+Stock, P., & Burton, R. J. F. (2011). Defining Terms for Integrated (Multi-Inter-Trans-Disciplinary) Sustainability Research. Sustainability, 3(8), 1090–1113.
+
+Sullivan, C. (2018). Digital identity – From emergent legal concept to new reality. Computer Law & Security Review, 34(4), 723–731.
+
+The Government of the United Kingdom. (2021 February 11). The UK Digital Identity and Attributes Trust Framework. Policy paper.
+
+The Financial Action Task Force. 2022. Report on the State of Effectiveness and Compliance with the FATF Standards.
+
+Things that matter outside of defi. (2021). [Conference presentation], Paris, France. Retrieved from [https://youtu.be/oLsb7clrXMQ?t=1363](https://youtu.be/oLsb7clrXMQ?t=1363)
+
+Thompson, E. (2010). Mind in Life: Biology, Phenomenology, and the Sciences of Mind, Harvard University Press.
+
+Turkle, S. (1999). Cyberspace and Identity. Contemporary Sociology, 28(6), 643.
+
+Turkle, S. (2011). The Tethered Self: Technology Reinvents Intimacy and Solitude, 75, 23.
+
+Wallace, K. (2021, May 18). The self is not singular but a fluid network of identities – Kathleen Wallace | Aeon Essays. Retrieved June 6, 2021, from [https://aeon.co/essays/the-self-is-not-singular-but-a-fluid-network-of-identities](https://aeon.co/essays/the-self-is-not-singular-but-a-fluid-network-of-identities)
+
+Wang, L., Shen, X., Li, J., Shao, J., & Yang, Y. (2019). Cryptographic primitives in blockchains. Journal of Network and Computer Applications, 127, 43–58.
+
+Warburton, S. (Ed.). (2010). Digital Identity Matters. Rhizome awareness report., London: King’s College London.
+
+Weber, M. (1978). Economy and Society: An Outline of Interpretive Sociology. (G. Roth & C. Wittich, Eds.), University of California Press.
+
+Weyl, G. E. (2020, December 15). Why I am not a Market Radical. Retrieved from [https://www.radicalxchange.org/media/blog/why-i-am-not-a-market-radical/](https://www.radicalxchange.org/media/blog/why-i-am-not-a-market-radical/)
+
+Wheatley, M. J., & Kellner-Rogers, M. (1996). The Irresistible Future of Organizing. Retrieved from [https://www.margaretwheatley.com/wp-content/uploads/2014/12/The-Irresistible-Future-of-Organizing.pdf](https://www.margaretwheatley.com/wp-content/uploads/2014/12/The-Irresistible-Future-of-Organizing.pdf)
+
+Wheatley, M. J., & Kellner-Rogers, M. (1998). A simpler way., San Francisco, CA: Berrett-Koehler Publishers.
+
+William A. Jackson. (1999). Dualism, duality and the complexity of economic institutions. International Journal of Social Economics, 26(4), 545–558.
+
+Witty, R. J., Allan, A., Enck, J., & Wagner, R. (2003). Identity and Access Management Defined, 6.
+
+World Economic Forum. (2018). Identity in a Digital World: A new chapter in the social contract. Retrieved from [http://www3.weforum.org/docs/WEFINSIGHTREPORTDigital%20Identity.pdf](http://www3.weforum.org/docs/WEFINSIGHTREPORTDigital%20Identity.pdf)
+
+Zheng, Z., Xie, S., Dai, H.-N., … Imran, M. (2020). An overview on smart contracts: Challenges, advances and platforms. Future Generation Computer Systems, 105, 475–491.
+
+Zittrain, J. L. (2006). The Generative Internet. Harvard Law Review, 68.
+
+Zoomtopia 2021 Keynote. (2021). Retrieved from [https://www.youtube.com/watch?v=s2SBVnafMSI](https://www.youtube.com/watch?v=s2SBVnafMSI)
+
+---
+
+Human identity: the number one challenge in computer science.
+
+Philip Sheldrake.
+
+14th July 2022.
+
+Research funded by the AKASHA Foundation.
+
+Co-published by the AKASHA Foundation and the Kernel community.
+
+[https://akasha.org/](https://akasha.org/)
+
+[https://kernel.community/](/)
+
+[https://generative-identity.org/](https://generative-identity.org/)
+
+Copyright: [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)

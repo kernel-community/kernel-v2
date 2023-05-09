@@ -112,18 +112,6 @@ const HeaderNav = ({ headerLinks, hideMenu }) => {
           '& > a:not(:last-child)': { mr: '1.4vw' },
         }}>
         <Link
-          to={`/${locale}/`}
-          variant="nav"
-          onClick={hideMenu}
-          sx={{
-            textDecoration: 'none',
-            fontWeight: 'normal',
-            letterSpacing: '0.3px',
-            color: 'text',
-          }}>
-          {t('Home')}
-        </Link>
-        <Link
           to={'/love'}
           hideExternalIcon
           sx={{

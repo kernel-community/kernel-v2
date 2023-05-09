@@ -124,7 +124,7 @@ const Footer = () => {
             <ul>
               <li>
                 <span sx={{ mt: 0, fontWeight: 'bold' }}>
-                  {t('Start', 'Footer')}
+                  {t('About', 'Footer')}
                 </span>
 
                 <ul>
@@ -135,84 +135,9 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link hideExternalIcon to={'/start/how-to-use'}>
-                      {t('Guide', 'Footer')}
+                      {t('How to use this site', 'Footer')}
                     </Link>
                   </li>
-                  <li>
-                    <Link hideExternalIcon to={'/start/faq'}>
-                      {t('FAQs', 'Footer')}
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span sx={{ mt: 0, fontWeight: 'bold' }}>
-                  {t('Get Involved', 'Footer')}
-                </span>
-
-                <ul>
-                  <li>
-                    <Link hideExternalIcon to={'/learn'}>
-                      {t('Learn', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link hideExternalIcon to={'/track-gaming'}>
-                      {t('Play', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      hideExternalIcon
-                      to={'https://github.com/kernel-community/kernel-v2'}>
-                      {t('Contribute', 'Footer')}
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span sx={{ mt: 0, fontWeight: 'bold' }}>
-                  {t('Find', 'Footer')}
-                </span>
-
-                <ul>
-                  <li>
-                    <Link hideExternalIcon to={'/resources/'}>
-                      {t('Connect', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link hideExternalIcon to={'/resources/design-ux'}>
-                      {t('Create', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link hideExternalIcon to={'/resources/development'}>
-                      {t('Code', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link hideExternalIcon to={'/resources/security'}>
-                      {t('Caution', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link hideExternalIcon to={'/resources/culture'}>
-                      {t('Cogitate', 'Footer')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      hideExternalIcon
-                      to={'/resources/development/#the-unknown-path'}>
-                      {t('Conceal', 'Footer')}
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <span sx={{ fontWeight: 'bold' }}>{t('About', 'Footer')}</span>
-                <ul>
                   <li>
                     <Link hideExternalIcon to={'/start/principled-people'}>
                       {t('Principles', 'Footer')}
@@ -224,8 +149,60 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
+                    <Link hideExternalIcon to={'/start/faq'}>
+                      {t('FAQs', 'Footer')}
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span sx={{ mt: 0, fontWeight: 'bold' }}>
+                  {t('Participate', 'Footer')}
+                </span>
+
+                <ul>
+                  <li>
+                    <Link hideExternalIcon to={'/learn'}>
+                      {t('Learn', 'Footer')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link hideExternalIcon to={'/build'}>
+                      {t('Build', 'Footer')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link hideExternalIcon to={'/resources'}>
+                      {t('Resources', 'Footer')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      hideExternalIcon
+                      to={'https://github.com/kernel-community/services'}>
+                      {t('Contribute', 'Footer')}
+                    </Link>
+                  </li>
+                  <li>
                     <Link hideExternalIcon to={'/start/faq/#contact'}>
                       {t('Contact', 'Footer')}
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span sx={{ fontWeight: 'bold' }}>
+                  {t('Technical Care', 'Footer')}
+                </span>
+                <ul>
+                  <li>
+                    <Link hideExternalIcon to={'/guiding/privacy'}>
+                      {t('Privacy Policy', 'Footer')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link hideExternalIcon to={'/guiding/terms-of-service'}>
+                      {t('Terms of Service', 'Footer')}
                     </Link>
                   </li>
                 </ul>

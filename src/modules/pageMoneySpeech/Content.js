@@ -55,8 +55,13 @@ const Content = ({ balance }) => {
       </p>
       <p sx={styles.callout}>
         We believe that the problems that come from conventional money can be
-        resolved with open money systems
+        resolved with open money systems.
       </p>
+      <Process>
+        <Box>where conventional money is scarce and expensive, open money is sufficient and free.</Box>
+        <Box>where conventional money is created by central banks, open money is issued by us, as promises to redeem - <b>our money is our word</b>.</Box>
+        <Box>and where conventional money flows erratically in and out of our communities, creating dependencies that are harmful to the economy, society and nature, the new <Link to="/build/regeneration">complementary money re-circulates</Link>, enabling business and trade.</Box>
+      </Process>
       <Heading level={2}>Magic internet meaning</Heading>
       <p>
         Although they share a common language arising from the twin practices of{' '}
@@ -112,7 +117,7 @@ const Content = ({ balance }) => {
         without fear or favour.
       </p>
       <p>
-        The conp is determined not by legal interpretation, but by{' '}
+        The context is determined not by legal interpretation, but by{' '}
         <b>economics</b>. Rather than enshrining an ideal like &quot;free
         speech&quot; which we <i>agree is good</i>, certain behaviours we{' '}
         <i>agree to be malicious</i> are made prohibitively expensive. They are
@@ -157,7 +162,7 @@ const Content = ({ balance }) => {
       <Heading level={2}>The expanded view</Heading>
       <p>
         When we stop &quot;protecting&quot; free speech, but instead price any
-        speech act according to a set ofexplicit consensus rules we all agree to
+        speech act according to a set of explicit consensus rules we all agree to
         follow, the space of <b>meaningful communications</b> is greatly
         expanded.
       </p>

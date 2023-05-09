@@ -1,0 +1,135 @@
+---
+order: 4
+title: Dap.ps
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Dap.ps
+
+<InfoBlock>
+
+“Manifest plainness,  
+Embrace simplicity,  
+Reduce selfishness,  
+Have few desires.”  
+― Lao Tzu
+
+</InfoBlock>
+
+[Status](https://status.im) was one of the first companies to experiment with an Initial Coin Offering (ICO). As a part of this, they wrote a whitepaper which outlined various potential [utilities for the Status Network Token](https://status.im/snt-utility/), or SNT. I took on the task of building one such utility: a means of ranking DApps you could access through Status using transparent and fair economic code. 
+
+<Aligner center>
+
+<Flex sx={{alignItems: 'center'}}>
+  
+  <Button to='https://github.com/dap-ps/discover' secondary inline>
+    Inspect the code
+  </Button>
+
+</Flex>
+
+</Aligner>
+
+The system is designed to curate information in a simple and sybil-resistant way using a single smart contract. The goal is:
+
+<Aligner center>
+
+<Box sx={{textAlign: 'justify', width: '70%'}}>
+
+**Design an economic system for curating information with no single point of failure and no owner, where information which ranks highly is provably valuable to network stakeholders, while protecting against the rich.**
+
+</Box>
+
+</Aligner>
+
+> 💡 The rules are: whoever stakes the most tokens, ranks highest. However, the more you stake, the cheaper it is for other token holders to downvote you. 
+
+While the first use case was ranking DApps, this system can be applied to arbitrary information, from DApps, products and services; to stickers; extensions; social content and much more.
+
+## Rationale
+
+As a human, I simply want to know that the content which appears at the top of my interface is:
+
+1. Relevant to me, and
+2. Beneficial to the communities I care about.
+
+This means that I also need to be able to see easily:
+
+1. How that "relevance" was calculated
+2. How much it will cost me to effect information of which I approve/disapprove.
+
+Furthermore, because we know how much [political power is generated for those who control](https://www.aspenreview.com/article/2017/jaron-lanier%3A-beware-of-siren-servers%21/) 'relevance' and 'cost', it's important that no-one owns such systems and that they exist solely to serve the networks of which they are a part.
+
+> It's not "Don't be evil". It is "We cannot be evil. Here is the proof."
+
+## Economic Design
+
+<Process>
+
+Whoever stakes the most SNT ranks highest.
+
+The more SNT you stake, the cheaper it is to vote on your DApp.
+
+There are two kinds of votes: upvotes and downvotes.
+
+The SNT it costs to upvote is locked directly in the contract and adds to the DApp's ranking.
+
+The SNT it costs to downvote is sent directly back to the developer of the DApp. 
+
+The effect downvotes have on the ranking is proportional to how much is already staked on the DApp (i.e. it costs less to vote a well-funded DApp further down the rankings than it does to have the same effect on a less well-funded DApp).
+
+This is achieved by virtue of a simplified bonding curve.
+
+</Process>
+
+## Explanation
+
+In this design, **there is a cost to cast votes**. This may seem counterintuitive, but points to a critical insight. These systems - which have subsequently been called [hyperstructures](https://jacob.energy/hyperstructures.html) - need to work in the absence of any single point of failure or control, including the community. Too many people think that outsourcing critical and contentious actions or decisions to "the community" is enough to ensure decentralization.
+
+The simple truth is that such systems need to work even in the absence of community input. We outlined our goals above: (i) relevant to me and (ii) beneficial to the communities I care about. Even if no-one votes in this system, the fact that the DApp which ranks highest has locked the most SNT out of circulation (thereby decreasing supply) means that they have, quite literally and measurably, created the most value for the community of SNT holders. While relevance is a bit more subjective, we can see that - even when no-one votes - this simple game meets its economic objectives in a transparent and falsifiable way.
+
+The other aspect requiring explanation is the bonding curve. Most constructions like this accept one token in and mint another token based on the way the curve is parameterized. However, my thesis is that people do not wish to handle the overhead required by managing many different kinds of tokens, all with different rights, responsibilities and capabilities. Hence, this contract does mint "votes": they remain only as mathematical fictions used to determine the cost of voting.
+
+This means we can leverage what is actually interesting about bonding curves (i.e. that they are powerful ways to program money with incentives that would otherwise not be possible to create) without introducing mental overhead for people using the system: all they see is an upvote and a downvote button and a cost associated with each action, which is then directly reflected in the DApp they're voting on.
+
+## Mathematics
+
+The more SNT you stake, the more virtual "votes" can be created on your DApp, so the cheaper each vote becomes.
+
+This is possible to do because the ICO Status ran set the total amount of SNT that will ever be minted, so we can use this to calculate the (exponential) rate at which "votes" are created based on the SNT staked relative to the Total SNT ever minted.
+
+> **total_snt_minted = 68048701.74**
+
+I defined a critical concept, called the "ceiling", which is the % of Total SNT ever minted any one DApp can stake to rank. That is, there is a limit to how much SNT you can stake, defined in relation to the Total SNT that will ever exist. 
+
+The ceiling affects the shape of the curve the most, dictating both how much you can stake and the point at which diminishing returns become too punishing for rational actors (~600k SNT in below). Play with the toggle to see the effect choosing different values has on the axes and curves.
+
+<iframe width="100%" height="625" frameborder="0"
+  src="https://observablehq.com/embed/@andytudhope/embedded-discover@471?cells=viewof+percent_ceiling%2Cviewof+discover_curve"></iframe>
+
+It can be a difficult to imagine what the Votes Minted curve looks like relative to the SNT staked (and because it is cut off on desktop views when embedded). This is because the numbers go exponential very quickly in order to achieve the desired parabolic shape for the cost (in SNT) to downvote by 1%. Thinking in terms of what it costs to vote a DApp down by the **same  percentage** (rather than actual number) relative to how much SNT the DApp had staked on it was a revolutionary insight for me when designing this system. 
+
+## The Limits of Models
+
+That said, with the large values in the Votes Minted curve the question of, "What is the best value for the ceiling?" naturally arises, and is very difficult to reason through.
+
+This is because what a "good" ceiling is (given that the ceiling determines the cost of everything else) depends on factors which are external to the system and therefore exceed its capacity to integrate and encode. In particular, the price of SNT relative to the current dominant measure (USD) affects people's perceptions of what "a lot to stake" is or what "it's expensive/cheap to vote" actually means. There is no way to account for this in code on a blockchain, especially code which does not rely on an external oracle or price feed (which could be manipulated).
+
+I set out to design the contract (as I always do) such that it would not have an owner, nor require any kind of fancy access control system. However, given that the design led me to this notion of a ceiling, and I was able to prove to myself that there was no good way to predict what a "good" ceiling would be indefinitely into the future, I felt that it was necessary to create an "owner" role and give it the very specific and limited role of only being able to change the ceiling in the event that the price of SNT in USD terms (or whatever becomes the dominant measure hundreds of years from now) fluctuates drastically. 
+
+**This is ultimately a trade-off between technical security (maximized without any privileged role) and financial security (increased when the curve can respond to external factors and people's perception of what value is, and what is valuable).**
+
+Having covered the background necessary to understand what humility in design means at a practical level, we can now point out that there are some values of the ceiling which result in significantly lower values for Votes Minted. This is not significant enough, in my opinion, to fix the ceiling at a specific value forever (I don't trust my model that far), but those values do represent local minima for Votes Minted. Given the difficulties with maths in solidity, and the potential for overflows, it is these local minima which are most likely to be safer to implement in our contract, after which we can observe the effects and adjust if necessary.
+
+To the best of my knowledge, this is the only curve like it [in production on Ethereum](https://dap.ps). Furthermore, the contract and frontend are [entirely open source](https://github.com/dap-ps/discover), and you are welcome to fork them, adapt them, improve them and build your own curation systems in a provably fair, sybil-resistant, and transparent way that does not require identity systems premised on the ill-conceived notion of self-sovereignity. 
+
+<InfoBlock>
+
+**It's just programmable money all the way down, folks.**
+
+</InfoBlock>
+
+## Recording
+
+You can find a conversation hosted by some Kernel fellows to explore some of the ideas discussed above in greater details [here](https://www.youtube.com/watch?v=trDi4bkuWRI&list=PLDvDlOXF73njdKHA-hFQ8JdOcX4Heew1E&index=10).

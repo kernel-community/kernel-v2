@@ -2,21 +2,23 @@
 import { jsx } from 'theme-ui'
 import { format, addSeconds } from 'date-fns'
 
-const ProgressBar = ({ currentTime, duration, onTimeUpdate }) => {
-  const percentProgress = (currentTime / duration) * 100
+const ProgressBar = ({ currentTime, duration, onTimeUpdate, playerId }) => {
+  const percentProgress = (currentTime / duration || 0) * 100
 
   const formatDuration = (duration) => {
-    const durationTime = addSeconds(new Date(0), duration)
+    const durationTime = addSeconds(new Date(0), duration || 0)
     return format(durationTime, 'mm:ss')
   }
 
+  const progressBarId = `progressBar-${playerId}`
+
   const getTimeAtPosition = (e) => {
-    const bar = document.getElementById('progressBar')
+    const bar = document.getElementById(progressBarId)
     const barStart = bar.getBoundingClientRect().left
     const barWidth = bar.offsetWidth
     const clickPositionInPage = e.pageX
     const clickPositionInBar = clickPositionInPage - barStart
-    const timePerPixel = duration / barWidth
+    const timePerPixel = (duration || 0) / barWidth
     return timePerPixel * clickPositionInBar
   }
 
@@ -46,7 +48,10 @@ const ProgressBar = ({ currentTime, duration, onTimeUpdate }) => {
   return (
     <div sx={styles.container}>
       <span sx={styles.timeText}>{formatDuration(currentTime)}</span>
-      <div id="progressBar" style={barStyle} onMouseDown={handleBarInteraction}>
+      <div
+        id={progressBarId}
+        style={barStyle}
+        onMouseDown={handleBarInteraction}>
         <span sx={knobStyle} />
       </div>
       <span sx={styles.timeText}>{formatDuration(duration)}</span>
