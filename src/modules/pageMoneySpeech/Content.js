@@ -58,9 +58,23 @@ const Content = ({ balance }) => {
         resolved with open money systems.
       </p>
       <Process>
-        <Box>where conventional money is scarce and expensive, open money is sufficient and free.</Box>
-        <Box>where conventional money is created by central banks, open money is issued by us, as promises to redeem - <b>our money is our word</b>.</Box>
-        <Box>and where conventional money flows erratically in and out of our communities, creating dependencies that are harmful to the economy, society and nature, the new <Link to="/build/regeneration">complementary money re-circulates</Link>, enabling business and trade.</Box>
+        <Box>
+          where conventional money is scarce and expensive, open money is
+          sufficient and free.
+        </Box>
+        <Box>
+          where conventional money is created by central banks, open money is
+          issued by us, as promises to redeem - <b>our money is our word</b>.
+        </Box>
+        <Box>
+          and where conventional money flows erratically in and out of our
+          communities, creating dependencies that are harmful to the economy,
+          society and nature, the new{' '}
+          <Link to="/build/regeneration">
+            complementary money re-circulates
+          </Link>
+          , enabling business and trade.
+        </Box>
       </Process>
       <Heading level={2}>Magic internet meaning</Heading>
       <p>
@@ -162,8 +176,8 @@ const Content = ({ balance }) => {
       <Heading level={2}>The expanded view</Heading>
       <p>
         When we stop &quot;protecting&quot; free speech, but instead price any
-        speech act according to a set of explicit consensus rules we all agree to
-        follow, the space of <b>meaningful communications</b> is greatly
+        speech act according to a set of explicit consensus rules we all agree
+        to follow, the space of <b>meaningful communications</b> is greatly
         expanded.
       </p>
       <p>
