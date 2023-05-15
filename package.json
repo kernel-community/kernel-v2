@@ -12,11 +12,13 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@theme-ui/prism": "^0.14.7",
+    "@thirdweb-dev/react": "^3.11.11",
+    "@thirdweb-dev/sdk": "^3.10.14",
     "axios": "^1.2.0",
     "date-fns": "^2.29.3",
     "del": "^6.0.0",
     "dotenv": "^16.0.3",
-    "ethers": "^6.2.3",
+    "ethers": "^5",
     "framer-motion": "^6.5.1",
     "gatsby": "^3.14.6",
     "gatsby-image": "^3.11.0",
@@ -64,19 +66,20 @@
     "theme-ui": "^0.14.7",
     "use-immer": "^0.7.0",
     "uuid": "^9.0.0",
-    "wagmi": "^0.10.2",
     "window-or-global": "^1.0.1"
   },
   "devDependencies": {
     "@babel/eslint-plugin": "^7.19.1",
     "@babel/plugin-syntax-jsx": "^7.18.6",
+    "assert": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
     "lint-staged": "^13.1.2",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "stream": "^0.0.2"
   },
   "keywords": [
     "gatsby"
@@ -90,7 +93,8 @@
     "start": "npm run acrollout && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 0",
+    "postinstall": "export THIRDWEB_CLI_SKIP_INTRO=true && npx thirdweb generate --skip-update-check"
   },
   "pre-commit": [
     "format",
