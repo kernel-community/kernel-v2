@@ -1,14 +1,14 @@
 /** @jsx jsx */
 
 import { Flex, jsx } from 'theme-ui'
-import { useAddress } from "@thirdweb-dev/react";
+import { useAddress } from '@thirdweb-dev/react'
 import { Heading } from '@modules/ui/heading'
 import { Link } from '@modules/navigation'
 import { Pager } from '@modules/navigation/Pager'
 import { ConnectButton, HonourConnector } from '@src/modules/pageMoneySpeech'
 
 const PageMoneySpeech = () => {
-  const address = useAddress();
+  const address = useAddress()
   const sideNavData = {
     items: [
       {
