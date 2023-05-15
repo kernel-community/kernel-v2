@@ -15,7 +15,13 @@ const HonourConnector = ({ address }) => {
   } else {
     console.log(hasHonour)
     return (
-      <div>{hasHonour !== '0.0' ? <Content balance={hasHonour} /> : <HonourButton />}</div>
+      <div>
+        {hasHonour !== '0.0' ? (
+          <Content balance={hasHonour} />
+        ) : (
+          <HonourButton />
+        )}
+      </div>
     )
   }
 }

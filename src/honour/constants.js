@@ -22,7 +22,8 @@ export const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
 export const apiUrl = 'http://localhost:3000'
 
 // The subgraph url to fetch proposalIDs from
-export const graphUrl = 'https://api.studio.thegraph.com/query/24825/honour-goerli/0.1.1'
+export const graphUrl =
+  'https://api.studio.thegraph.com/query/24825/honour-goerli/0.1.1'
 
 const abis = {
   contract: `[

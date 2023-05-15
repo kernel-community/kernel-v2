@@ -12,20 +12,20 @@ const Web3 = ({ setIsVisible }) => {
   const { write: honourProposal } = useHonourProposal(proposalId)
 
   const handleDimissModal = () => {
-    setIsVisible(false);
-  };
+    setIsVisible(false)
+  }
 
-  const [proposalId, setProposalId] = useState();
-  const [askSuccess, setAskSuccess] = useState(false);
-  
+  const [proposalId, setProposalId] = useState()
+  const [askSuccess, setAskSuccess] = useState(false)
+
   // have the api propose HON as soon as the modal is visible
   const handleOnClickAsk = async () => {
     try {
       const response = await axios.post(apiUrl, null, {
         headers: {
           amount: 1,
-          address: account.address
-        }
+          address: account.address,
+        },
       })
       if (response.status === 200) {
         setAskSuccess(true)
@@ -52,9 +52,9 @@ const Web3 = ({ setIsVisible }) => {
         variables: {
           account: account.address,
         },
-      });
+      })
 
-      const { data } = response.data;
+      const { data } = response.data
       const proposal = data.proposeds[0] // We only want to honour the first proposal
       if (proposal) {
         setProposalId(proposal.proposalId)
@@ -80,21 +80,21 @@ const Web3 = ({ setIsVisible }) => {
           </div>
         </Flex>
         <Text sx={styles.descriptionText}>
-        {askSuccess
-          ? 'You can now click the button below to accept your new HON tokens.'
-          : 'HON is consensual. Ask for some, we\'ll prepare it, then you can accept it.'}
-      </Text>
+          {askSuccess
+            ? 'You can now click the button below to accept your new HON tokens.'
+            : "HON is consensual. Ask for some, we'll prepare it, then you can accept it."}
+        </Text>
       </Flex>
       <Flex sx={styles.CTAContainer}>
-      {askSuccess ?
-        <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
-          Honour
-        </Button>
-      :
-        <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
-          Ask
-        </Button>
-      }
+        {askSuccess ? (
+          <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
+            Honour
+          </Button>
+        ) : (
+          <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
+            Ask
+          </Button>
+        )}
       </Flex>
     </Box>
   )

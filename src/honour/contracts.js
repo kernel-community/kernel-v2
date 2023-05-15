@@ -62,11 +62,7 @@ export const useHonourProposal = (id) => {
       {
         args: [proposer, idBN],
         onError: (error) =>
-          queueNotification(
-            'error',
-            "Couldn't honour proposal",
-            error.message
-          ),
+          queueNotification('error', "Couldn't honour proposal", error.message),
       }
     )
   }
