@@ -12,7 +12,7 @@ const ConnectButton = () => {
   const [connector] = useState(connectors[Connector.INJECTED])
 
   return (
-    <Flex>
+    <Flex sx={styles.connect}>
       <Web3Button
         descriptionText="You will need a wallet to continue"
         buttonText="Connect"
@@ -23,6 +23,14 @@ const ConnectButton = () => {
       />
     </Flex>
   )
+}
+
+const styles = {
+  connect: {
+    margin: '0 auto',
+    textAlign: 'center',
+    display: 'inline',
+  },
 }
 
 export default ConnectButton

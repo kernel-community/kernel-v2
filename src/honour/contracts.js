@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useContractRead, useProvider } from 'wagmi'
+import { useContractRead, useContractWrite, useProvider } from 'wagmi'
 import { ethers } from 'ethers'
-import { addresses, abis } from './constants'
+import { addresses, abis, proposer } from './constants'
 
 import { useNotifications } from '@src/modules/notifications/context'
 
@@ -22,19 +22,19 @@ const useGetChainId = () => {
 }
 
 // function to fetch HON balance
-export const useHasHonour = (learner) => {
+export const useHasHonour = (address) => {
   const chainId = useGetChainId()
   const { queueNotification } = useNotifications()
 
-  if (learner) {
+  if (address) {
     return useContractRead(
       {
         addressOrName: addresses(chainId).honour,
-        contractInterface: abis.honour,
+        contractInterface: abis.contract,
       },
       'balanceOf',
       {
-        args: [learner],
+        args: [address],
         onError: (error) =>
           queueNotification(
             'error',
@@ -45,5 +45,29 @@ export const useHasHonour = (learner) => {
     )
   } else {
     return {}
+  }
+}
+
+export const useHonourProposal = (id) => {
+  const chainId = useGetChainId()
+  const { queueNotification } = useNotifications()
+  if (id !== undefined) {
+    const idBN = ethers.BigNumber.from(id)
+    return useContractWrite(
+      {
+        addressOrName: addresses(chainId).honour,
+        contractInterface: abis.contract,
+      },
+      'honour',
+      {
+        args: [proposer, idBN],
+        onError: (error) =>
+          queueNotification(
+            'error',
+            "Couldn't honour proposal",
+            error.message
+          ),
+      }
+    )
   }
 }

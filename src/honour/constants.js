@@ -15,8 +15,17 @@ const addresses = (chainId) => {
   }
 }
 
+// This is the pub key of the account in our api
+export const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
+
+// The api endpoint we're using
+export const apiUrl = 'http://localhost:3000'
+
+// The subgraph url to fetch proposalIDs from
+export const graphUrl = 'https://api.studio.thegraph.com/query/24825/honour-goerli/0.1.1'
+
 const abis = {
-  honour: `[
+  contract: `[
     {
       "inputs": [
         {

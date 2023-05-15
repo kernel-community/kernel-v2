@@ -1,18 +1,72 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useState } from 'react'
+import { useAccount } from 'wagmi'
 import { Flex, Text, Box, Button } from 'theme-ui'
 import { Icon } from '@makerdao/dai-ui-icons'
+import { useHonourProposal } from '../../honour/contracts'
+import { apiUrl, graphUrl } from '../../honour/constants'
 
 const Web3 = ({ setIsVisible }) => {
+  const { data: account } = useAccount()
+  const { write: honourProposal } = useHonourProposal(proposalId)
+
   const handleDimissModal = () => {
-    setIsVisible(false)
+    setIsVisible(false);
+  };
+
+  const [proposalId, setProposalId] = useState();
+  const [askSuccess, setAskSuccess] = useState(false);
+  
+  // have the api propose HON as soon as the modal is visible
+  const handleOnClickAsk = async () => {
+    try {
+      const response = await axios.post(apiUrl, null, {
+        headers: {
+          amount: 1,
+          address: account.address
+        }
+      })
+      if (response.status === 200) {
+        setAskSuccess(true)
+      } else {
+        console.error('Error proposing HON tokens', response)
+      }
+    } catch (error) {
+      console.error('Error fetching proposal ID:', error)
+    }
   }
 
-  // we should useEffect to tell the api the connected address so it can propose HON
-  // as soon as the learner opens the modal.
+  const getProposalId = async () => {
+    try {
+      const response = await axios.post(graphUrl, {
+        query: `
+          query GetProposals($account: Bytes!) {
+            proposeds(where: { receiver: $account }) {
+              id
+              proposer
+              proposalId
+            }
+          }
+        `,
+        variables: {
+          account: account.address,
+        },
+      });
+
+      const { data } = response.data;
+      const proposal = data.proposeds[0] // We only want to honour the first proposal
+      if (proposal) {
+        setProposalId(proposal.proposalId)
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
 
   const handleOnClickHonour = async () => {
-    // this should honour the HON just proposed by the api
+    await getProposalId()
+    honourProposal(proposalId)
   }
 
   return (
@@ -26,13 +80,21 @@ const Web3 = ({ setIsVisible }) => {
           </div>
         </Flex>
         <Text sx={styles.descriptionText}>
-          Please wait while we prepare some HON tokens for you...
-        </Text>
+        {askSuccess
+          ? 'You can now click the button below to accept your new HON tokens.'
+          : 'HON is consensual. Ask for some, we\'ll prepare it, then you can accept it.'}
+      </Text>
       </Flex>
       <Flex sx={styles.CTAContainer}>
+      {askSuccess ?
         <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
           Honour
         </Button>
+      :
+        <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
+          Ask
+        </Button>
+      }
       </Flex>
     </Box>
   )

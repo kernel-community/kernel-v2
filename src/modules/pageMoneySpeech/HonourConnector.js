@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { jsx } from 'theme-ui'
-
+import { useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 import { useHasHonour } from '@src/honour/contracts'
 import Content from './Content'
@@ -13,9 +13,9 @@ const HonourConnector = ({ address }) => {
   if (isLoading) {
     return <div>Loading...</div>
   } else {
-    const bal = ethers.utils.formatEther(hasHonour)
+    console.log(hasHonour)
     return (
-      <div>{bal !== '0.0' ? <Content balance={bal} /> : <HonourButton />}</div>
+      <div>{hasHonour !== '0.0' ? <Content balance={hasHonour} /> : <HonourButton />}</div>
     )
   }
 }
