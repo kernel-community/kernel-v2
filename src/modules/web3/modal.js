@@ -1,15 +1,23 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { useAccount, useSigner } from 'wagmi'
 import { Flex, Text, Box, Button, Spinner } from 'theme-ui'
 import { Icon } from '@makerdao/dai-ui-icons'
-import { useContract, useAddress } from '@thirdweb-dev/react'
-import { proposer, apiUrl, graphUrl, goerli, abi } from './constants'
+import { useNotifications } from '@src/modules/notifications/context'
+import { Contract } from 'ethers'
+import {
+  goerli,
+  abis,
+  apiUrl,
+  graphUrl,
+  proposer,
+} from '../../honour/constants'
 
-const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
-  const address = useAddress()
-  const contractAddress = goerli
-  const { contract } = useContract(contractAddress, abi.honour)
+const Web3 = ({ setIsVisible, onTransactionSuccess }) => {
+  const { data: account } = useAccount()
+  const { data: signer } = useSigner()
+  const { queueNotification } = useNotifications()
 
   const handleDimissModal = () => {
     setIsVisible(false)
@@ -25,25 +33,24 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
       const response = await axios.post(apiUrl, null, {
         headers: {
           amount: 1,
-          address: address,
+          address: account.address,
         },
       })
       if (response.status === 200) {
         setAskSuccess(true)
-        getProposalId() // we do this here because it always fails the first time...
         setLoading(false)
       } else {
-        // queueNotification(
-        //   'error',
-        //   "We can't prepare HON for you right now. Please try again later"
-        // )
+        queueNotification(
+          'error',
+          "We can't prepare HON for you right now. Please try again later"
+        )
         setLoading(false)
       }
     } catch (error) {
-      //   queueNotification(
-      //     'error',
-      //     "We can't prepare HON for you right now. Please try again later"
-      //   )
+      queueNotification(
+        'error',
+        "We can't prepare HON for you right now. Please try again later"
+      )
       setLoading(false)
       handleDimissModal()
     }
@@ -68,7 +75,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
             }
           `,
           variables: {
-            account: address,
+            account: account.address,
           },
         })
 
@@ -79,10 +86,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
           proposalId = proposal.proposalId
         }
       } catch (error) {
-        // queueNotification(
-        //   'error',
-        //   'There was an error. Please try again later.'
-        // )
+        queueNotification('error', 'There was an error with the subgraph.')
       }
 
       if (!proposalId) {
@@ -92,7 +96,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
     }
 
     if (!proposalId) {
-      // queueNotification('error', 'There was an error. Please try again later.')
+      queueNotification('error', 'There was an error. Please try again later.')
     }
 
     return proposalId
@@ -102,11 +106,12 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
     setLoading(true)
     const proposalId = await getProposalId()
     try {
-      await contract.call('honour', [proposer, proposalId])
+      const contract = new Contract(goerli, abis.honour, signer)
+      await contract.honour(proposer, proposalId)
       setLoading(false)
       onTransactionSuccess()
     } catch (error) {
-      //queueNotification('error', 'There was an error. Please try again later.')
+      queueNotification('error', 'There was an error. Please try again later.')
       setLoading(false)
       handleDimissModal()
     }
@@ -210,4 +215,4 @@ const styles = {
   },
 }
 
-export default HonModal
+export default Web3

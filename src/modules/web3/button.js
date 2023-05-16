@@ -3,7 +3,7 @@
 import { jsx, Text, Box } from 'theme-ui'
 import { Button } from '@modules/ui'
 
-const HonButton = ({
+const Web3Button = ({
   children,
   onClickButton,
   buttonText,
@@ -16,12 +16,7 @@ const HonButton = ({
         <Text sx={styles.connectText}>{descriptionText}</Text>
       </Box>
       <Button
-        sx={{
-          marginX: 'auto',
-          ':hover': {
-            backgroundColor: 'var(--theme-ui-colors-primary)',
-          },
-        }}
+        sx={{ marginX: 'auto' }}
         disabled={isDisabled}
         onClick={onClickButton}>
         {buttonText}
@@ -39,4 +34,4 @@ const styles = {
   },
 }
 
-export default HonButton
+export default Web3Button
