@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Box, Flex, jsx, Text } from 'theme-ui'
+import { Box, Flex, jsx } from 'theme-ui'
 import { Heading } from '@modules/ui/heading'
 import { Link } from '@modules/navigation/'
 import StatusBanner from '@modules/ui/StatusBanner'
@@ -11,21 +11,21 @@ import Callout from '@modules/ui/Callout'
 const Content = ({ balance }) => {
   return (
     <Flex sx={styles.container}>
-      <Text sx={styles.banner}>
+      <p sx={styles.banner}>
         You owe <b>{balance} HON</b>, which - in this context - means you can
         read on to learn more...
-      </Text>
+      </p>
       <StatusBanner>
         💡 &quot;Put your money where your mouth is!&quot;
       </StatusBanner>
-      <Text>
+      <p>
         A tamperproof, borderless, ownerless, global record is not just money
         and it&apos;s not just language. It&apos;s a new way of simultaneously
         ordering both which makes possible valuable, meaningful communication
         with anyone, anywhere, in any way we care to program it.
-      </Text>
+      </p>
       <Heading level={2}>Open Money</Heading>
-      <Text sx={styles.callout}>
+      <p sx={styles.callout}>
         <Link to="https://openmoney.org/top/omanifesto.html">Open moneys</Link>{' '}
         are virtual, personal and free. Any community, network, business can
         create their own free money - &quot;free&quot; as in free speech, free
@@ -33,16 +33,16 @@ const Content = ({ balance }) => {
         It&apos;s not something you get for nothing. Open money is money that
         must be earned to be respected. When you issue it, you are obliged to
         redeem it - <b>your money is your word</b>.
-      </Text>
-      <Text>
+      </p>
+      <p>
         We are all here in order to make money. The only difference is what kind
         of emphasis you place on that single word, &quot;make&quot;. Does it
         mean &quot;extract the most of someone&apos;s standard of value that you
         can get your hands on&quot;, or do you understand it more literally? We
         can actually <b>make</b> money: that is the primary capability web3
         endows us with. We only need to speak it into existence with integrity.
-      </Text>
-      <Text sx={styles.callout}>
+      </p>
+      <p sx={styles.callout}>
         Open money is flat money. It confers{' '}
         <Link to="/conversation/hospitality/#freeing-civilization">
           no power of one <b>over</b> another
@@ -52,11 +52,11 @@ const Content = ({ balance }) => {
         Physical things exist in space and time - which makes them limited - in
         number, mass, place. Virtual things don&apos;t exist and need not
         respect any such limits.
-      </Text>
-      <Text sx={styles.callout}>
+      </p>
+      <p sx={styles.callout}>
         We believe that the problems that come from conventional money can be
         resolved with open money systems.
-      </Text>
+      </p>
       <Process>
         <Box>
           where conventional money is scarce and expensive, open money is
@@ -77,7 +77,7 @@ const Content = ({ balance }) => {
         </Box>
       </Process>
       <Heading level={2}>Magic internet meaning</Heading>
-      <Text>
+      <p>
         Although they share a common language arising from the twin practices of{' '}
         <Link to="/learn/module-1/playdough-protocols/#faith-and-finance">
           faith and finance
@@ -87,21 +87,21 @@ const Content = ({ balance }) => {
         were clearly distinct before 2009. Consequently, there is confusion
         around the concept of &quot;free&quot; speech, because its definition
         shifts depending on the conp: story or money.
-      </Text>
-      <Text>
+      </p>
+      <p>
         However, programmable protocols that are intertwined with a shared
         record no-one owns are both stories <b>and</b> money. This collapses the
         distinction between narratives around which we organise and our record
         of societal debt. So, what happens to &quot;free&quot; speech?
-      </Text>
-      <Text>
+      </p>
+      <p>
         Meaningful communication is a balance between the fact that your{' '}
         <i>ability to speak</i> ought to be free, with the fact that you
         don&apos;t get to say whatever you please. Hence we enshrine freedom of
         speech as a constitutional good and implement error-handling for
         exceptions like hate speech and defamation.
-      </Text>
-      <Text>
+      </p>
+      <p>
         Protocols capable of processing valuable narratives, like Bitcoin and
         Ethereum, render such interpretive balancing acts unnecessary. Your
         ability to{' '}
@@ -113,24 +113,24 @@ const Content = ({ balance }) => {
         anything <i>meaningful</i> (i.e. state-changing) has a specific,
         well-defined economic cost, captured in transaction fees which accrue to
         the benefit of those who &quot;listen&quot; to what you have to say.
-      </Text>
-      <Text>
+      </p>
+      <p>
         In some sense, it is the <b>primary benefit</b> of this new order of
         econo-linguistic network we now communicate with: everyone is
         simultaneously free to speak <i>and</i> the cost of any kind of
         meaningful speech is well-defined everywhere. We are also provided with
         a clear definition of meaning: any speech act which changes the state of
         our shared record.
-      </Text>
+      </p>
       <Heading level={2}>Regulation vs expense</Heading>
-      <Text>
+      <p>
         In blockchains, speech and execution are <i>one and the same thing</i>{' '}
         and interpretation is deterministic. The protocol has the bare minimum
         of rules required for consensus, basically: you cannot double spend a
         token. Every peer processes every transaction which passes these rules
         without fear or favour.
-      </Text>
-      <Text>
+      </p>
+      <p>
         The context is determined not by legal interpretation, but by{' '}
         <b>economics</b>. Rather than enshrining an ideal like &quot;free
         speech&quot; which we <i>agree is good</i>, certain behaviours we{' '}
@@ -139,8 +139,8 @@ const Content = ({ balance }) => {
         that prevention is better than any cure. Vitalik touches on this in his{' '}
         <Link to="/learn/module-1/understanding-ethereum/">Devcon 1 talk</Link>{' '}
         and we&apos;ll return to it again and again.
-      </Text>
-      <Text>
+      </p>
+      <p>
         You can validate any kind of state transition you like in Eth2, but if
         it&apos;s provably malicious, your stake will get slashed.{' '}
         <Link to="/learn/module-6/serenity/#proving-stake">
@@ -149,14 +149,14 @@ const Content = ({ balance }) => {
         ensures that the only state transitions worth validating are those that
         maintain a meaningful consensus. It is a profound change in how we
         regulate expression.
-      </Text>
-      <Text>Again, it points at complementary opposites:</Text>
+      </p>
+      <p>Again, it points at complementary opposites:</p>
       <StatusBanner>
         💡{' '}
         <b>The most effective way to free meaning is to price it correctly.</b>
       </StatusBanner>
       <Heading level={2}>Math beats bureaucracy</Heading>
-      <Text>
+      <p>
         Pricing different kinds of speech appropriately, rather than trying to
         &quot;protect&quot; a culturally-conditioned ideal, has the second-order
         cybernetic effect of better securing public goods. For instance, SSTOREs
@@ -165,22 +165,22 @@ const Content = ({ balance }) => {
         Therefore, we agree upon a gas price that incentivizes developers to
         write contracts which store the minimum possible information required
         for state-changing, meaningful transactions.
-      </Text>
-      <Text>
+      </p>
+      <p>
         We could even say that, on freely accessible public blockchains, there
         is no such thing as free speech. There is only increasingly costly
         expression for increasingly complex kinds of meaning, with the
         incentives programmed such that the costs borne by the speaker are
         always provably more than those imposed on the community of listeners.
-      </Text>
+      </p>
       <Heading level={2}>The expanded view</Heading>
-      <Text>
+      <p>
         When we stop &quot;protecting&quot; free speech, but instead price any
         speech act according to a set of explicit consensus rules we all agree
         to follow, the space of <b>meaningful communications</b> is greatly
         expanded.
-      </Text>
-      <Text>
+      </p>
+      <p>
         You may think this unfairly favours the rich, but you&apos;d be wrong.
         We can <b>program</b> our shared ledger in any way we care to! If your
         program favours those already in power, it&apos;s because you lack
@@ -192,14 +192,14 @@ const Content = ({ balance }) => {
           modelled clearly the most optimal way
         </Link>{' '}
         to fund public goods.
-      </Text>
+      </p>
       <Callout>
         💡 When there is nothing to protect, we no longer need guards. Without
         guards, the digital world is not about captive audiences, but creative
         participation.
       </Callout>
       <Heading level={2}>Clarifying metaphors</Heading>
-      <Text>
+      <p>
         Money-as-a-programmable-protocol is &quot;spoken&quot; as hex-encoded
         data strings, which are run on and interpreted by a monolithic virtual
         machine which is everywhere and nowhere, so our metaphor can only go so
@@ -208,8 +208,8 @@ const Content = ({ balance }) => {
         free speech mentioned above and how they might be handled in a world
         which does not &quot;protect&quot; speech, but rather agrees communally
         on its cost.
-      </Text>
-      <Text>
+      </p>
+      <p>
         Hate speech (analogous to malicious behaviour or outright attacks on the
         network) can be more elegantly handled when you are required to have{' '}
         <Link to="/learn/module-6/serenity/#a-defenders-game">
@@ -219,11 +219,11 @@ const Content = ({ balance }) => {
         social norms, but executable software, that value is slashed{' '}
         <i>simultaneously</i> with your speech and you suffer provably more
         damage.
-      </Text>
-      <Text>
+      </p>
+      <p>
         Defamation comes in two flavours: per se (a statement that is obviously
         defamatory) and per quod (the defamatory implication must be proven).
-      </Text>
+      </p>
       <Process>
         <Box>
           <b>Per se</b> defamation can be more elegantly handled by{' '}
@@ -252,7 +252,7 @@ const Content = ({ balance }) => {
           yet to mature.
         </Box>
       </Process>
-      <Text>
+      <p>
         The (in)famous{' '}
         <Link to="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md">
           EIP-1559
@@ -268,8 +268,8 @@ const Content = ({ balance }) => {
           trade-offs
         </Link>{' '}
         and technical proof.
-      </Text>
-      <Text>
+      </p>
+      <p>
         More fundamentally, this new order of communication, akin to the
         appearance of language itself, is best demonstrated by the simple fact
         that you need only memorize 12 magical <b>words</b>, incant them into an
@@ -278,9 +278,9 @@ const Content = ({ balance }) => {
         reference to a newspaper headline in the genesis block of a network of
         timestamp servers (Satoshi&apos;s wording) which run money-as-a-protocol
         to make a permanent political statement. It is unprecedented.
-      </Text>
+      </p>
       <Heading level={2}>Further References</Heading>
-      <Text>
+      <p>
         Reimagining meaningful speech and how it is enacted on our shared
         records is already an important step towards a better web, but it is
         only one half of the picture. We&apos;ve claimed above that we require
@@ -293,7 +293,7 @@ const Content = ({ balance }) => {
           <i>The Listening Society</i>
         </Link>
         .
-      </Text>
+      </p>
       <Heading level={2}>Listen</Heading>
       <AudioPlayer src="https://kernel-audio.s3.amazonaws.com/M2E2+-+Speak.mp3" />
     </Flex>
