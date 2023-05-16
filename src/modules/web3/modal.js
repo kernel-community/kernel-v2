@@ -1,25 +1,28 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
-import { useAccount } from 'wagmi'
-import { Flex, Text, Box, Button } from 'theme-ui'
+import { useAccount, useSigner } from 'wagmi'
+import { Flex, Text, Box, Button, Spinner } from 'theme-ui'
 import { Icon } from '@makerdao/dai-ui-icons'
-import { useHonourProposal } from '../../honour/contracts'
-import { apiUrl, graphUrl } from '../../honour/constants'
+import { useNotifications } from '@src/modules/notifications/context'
+import { Contract } from 'ethers'
+import { goerli, abis, apiUrl, graphUrl, proposer } from '../../honour/constants'
 
-const Web3 = ({ setIsVisible }) => {
+const Web3 = ({ setIsVisible, onTransactionSuccess }) => {
   const { data: account } = useAccount()
-  const { write: honourProposal } = useHonourProposal(proposalId)
+  const { data: signer } = useSigner()
+  const { queueNotification } = useNotifications()
 
   const handleDimissModal = () => {
     setIsVisible(false)
   }
 
-  const [proposalId, setProposalId] = useState()
   const [askSuccess, setAskSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   // have the api propose HON as soon as the modal is visible
   const handleOnClickAsk = async () => {
+    setLoading(true)
     try {
       const response = await axios.post(apiUrl, null, {
         headers: {
@@ -29,44 +32,92 @@ const Web3 = ({ setIsVisible }) => {
       })
       if (response.status === 200) {
         setAskSuccess(true)
+        setLoading(false)
       } else {
-        console.error('Error proposing HON tokens', response)
+        queueNotification(
+          'error',
+          "We can't prepare HON for you right now. Please try again later"
+        )
+        setLoading(false)
       }
     } catch (error) {
-      console.error('Error fetching proposal ID:', error)
+      queueNotification(
+        'error',
+        "We can't prepare HON for you right now. Please try again later"
+      )
+      setLoading(false)
+      handleDimissModal()
     }
   }
 
   const getProposalId = async () => {
-    try {
-      const response = await axios.post(graphUrl, {
-        query: `
-          query GetProposals($account: Bytes!) {
-            proposeds(where: { receiver: $account }) {
-              id
-              proposer
-              proposalId
-            }
-          }
-        `,
-        variables: {
-          account: account.address,
-        },
-      })
+    let proposalId = null
+    let retryCount = 0
+    const maxRetries = 5
+    const retryDelay = 5000
 
-      const { data } = response.data
-      const proposal = data.proposeds[0] // We only want to honour the first proposal
-      if (proposal) {
-        setProposalId(proposal.proposalId)
+    while (!proposalId && retryCount < maxRetries) {
+      try {
+        const response = await axios.post(graphUrl, {
+          query: `
+            query GetProposals($account: Bytes!) {
+              proposeds(where: { receiver: $account }) {
+                id
+                proposer
+                proposalId
+              }
+            }
+          `,
+          variables: {
+            account: account.address,
+          },
+        })
+
+        const { data } = response.data
+        const proposals = data.proposeds
+        if (proposals && proposals.length > 0) {
+          const proposal = proposals[0]
+          proposalId = proposal.proposalId
+        }
+      } catch (error) {
+        queueNotification(
+          'error',
+          'There was an error with the subgraph.'
+        )
       }
-    } catch (error) {
-      console.error('Error:', error)
+
+      if (!proposalId) {
+        retryCount++
+        await new Promise((resolve) => setTimeout(resolve, retryDelay))
+      }
     }
+
+    if (!proposalId) {
+      queueNotification('error', 'There was an error. Please try again later.')
+    }
+
+    return proposalId
   }
 
   const handleOnClickHonour = async () => {
-    await getProposalId()
-    honourProposal(proposalId)
+    setLoading(true)
+    const proposalId = await getProposalId()
+    try { 
+        const contract = new Contract(
+            goerli,
+            abis.honour,
+            signer
+        )
+        await contract.honour(proposer, proposalId)
+        setLoading(false)
+        onTransactionSuccess()
+    } catch (error) {
+        queueNotification('error', 'There was an error. Please try again later.')
+        setLoading(false)
+        handleDimissModal()
+    }
+
+    
   }
 
   return (
@@ -88,11 +139,11 @@ const Web3 = ({ setIsVisible }) => {
       <Flex sx={styles.CTAContainer}>
         {askSuccess ? (
           <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
-            Honour
+            {loading ? <Spinner sx={styles.spinner} /> : <span>Honour</span>}
           </Button>
         ) : (
-          <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
-            Ask
+          <Button onClick={handleOnClickAsk} sx={styles.honourButton}>
+            {loading ? <Spinner sx={styles.spinner} /> : <span>Ask</span>}
           </Button>
         )}
       </Flex>
@@ -150,6 +201,9 @@ const styles = {
     backdropFilter: 'blur(10px)',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  spinner: {
+    color: '#fff',
   },
   honourButton: {
     borderRadius: '4px',

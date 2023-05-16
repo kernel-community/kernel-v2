@@ -1,32 +1,17 @@
-const addresses = (chainId) => {
-  switch (chainId) {
-    case 5:
-      return {
-        honour: '0x80c25Df6014253FE78f4Ec6258F73855dEe09A6c',
-      }
-    case 1337:
-      return {
-        honour: process.env.GATSBY_LOCAL_HONOUR_ADDRESS,
-      }
-    default:
-      return {
-        honour: '0x80c25Df6014253FE78f4Ec6258F73855dEe09A6c',
-      }
-  }
-}
+export const goerli = '0x80c25Df6014253FE78f4Ec6258F73855dEe09A6c'
 
 // This is the pub key of the account in our api
 export const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
 
 // The api endpoint we're using
-export const apiUrl = 'http://localhost:3000'
+export const apiUrl = 'https://propose.honour.community'
 
 // The subgraph url to fetch proposalIDs from
 export const graphUrl =
   'https://api.studio.thegraph.com/query/24825/honour-goerli/0.1.1'
 
 const abis = {
-  contract: `[
+  honour: `[
     {
       "inputs": [
         {
@@ -357,4 +342,4 @@ const abis = {
   ]`,
 }
 
-export { addresses, abis }
+export { abis }
