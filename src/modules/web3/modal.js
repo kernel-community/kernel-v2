@@ -104,7 +104,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
     setLoading(true)
     const proposalId = await getProposalId()
     try {
-      const tx = await contract.call('honour', [proposer, proposalId])
+      await contract.call('honour', [proposer, proposalId])
       setLoading(false)
       onTransactionSuccess()
     } catch (error) {
