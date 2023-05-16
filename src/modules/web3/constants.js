@@ -1,3 +1,13 @@
+// This is the pub key of the account in our api
+const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
+
+// The api endpoint we're using
+const apiUrl = 'http://localhost:3000'
+
+// The subgraph url to fetch proposalIDs from
+const graphUrl =
+  'https://api.studio.thegraph.com/query/24825/honour-goerli/0.1.1'
+
 const goerli = '0x80c25Df6014253FE78f4Ec6258F73855dEe09A6c'
 
 const abi = {
@@ -332,4 +342,4 @@ const abi = {
     ]`,
 }
 
-export { goerli, abi }
+export { proposer, apiUrl, graphUrl, goerli, abi }

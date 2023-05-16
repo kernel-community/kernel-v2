@@ -16,7 +16,12 @@ const HonButton = ({
         <Text sx={styles.connectText}>{descriptionText}</Text>
       </Box>
       <Button
-        sx={{ marginX: 'auto' }}
+        sx={{ 
+            marginX: 'auto', 
+            ':hover': {
+                backgroundColor: 'var(--theme-ui-colors-primary)'
+              } 
+        }}
         disabled={isDisabled}
         onClick={onClickButton}>
         {buttonText}

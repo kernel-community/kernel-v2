@@ -1,17 +1,123 @@
 import React from 'react'
-import { Flex, Text, Box, Button } from 'theme-ui'
+import axios from 'axios'
+import { useState } from 'react'
+import { Flex, Text, Box, Button, Spinner } from 'theme-ui'
 import { Icon } from '@makerdao/dai-ui-icons'
+import { useNotifications } from '@src/modules/notifications/context'
+import { useContract, useAddress } from '@thirdweb-dev/react'
+import { proposer, apiUrl, graphUrl, goerli, abi } from './constants'
 
-const HonModal = ({ setIsVisible }) => {
+const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
+  const address = useAddress()
+  const contractAddress = goerli
+  const { contract } = useContract(contractAddress, abi.honour)
+  const { queueNotification } = useNotifications()
+
   const handleDimissModal = () => {
     setIsVisible(false)
   }
 
-  // we should useEffect to tell the api the connected address so it can propose HON
-  // as soon as the learner opens the modal.
+  const [askSuccess, setAskSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  // have the api propose HON as soon as the modal is visible
+  const handleOnClickAsk = async () => {
+    setLoading(true)
+    try {
+      const response = await axios.post(apiUrl, null, {
+        headers: {
+          amount: 1,
+          address: address,
+        },
+      })
+      if (response.status === 200) {
+        setAskSuccess(true)
+        getProposalId() // we do this here because it always fails the first time...
+        setLoading(false)
+      } else {
+        queueNotification(
+            'error',
+            "We can't prepare HON for you right now. Please try again later"
+        )
+        setLoading(false)
+      }
+    } catch (error) {
+        queueNotification(
+            'error',
+            "We can't prepare HON for you right now. Please try again later"
+        )
+        setLoading(false)
+        handleDimissModal()
+    }
+  }
+
+  const getProposalId = async () => {
+    let proposalId = null
+    let retryCount = 0
+    const maxRetries = 5
+    const retryDelay = 5000
+  
+    while (!proposalId && retryCount < maxRetries) {
+      try {
+        const response = await axios.post(graphUrl, {
+          query: `
+            query GetProposals($account: Bytes!) {
+              proposeds(where: { receiver: $account }) {
+                id
+                proposer
+                proposalId
+              }
+            }
+          `,
+          variables: {
+            account: address,
+          },
+        });
+  
+        const { data } = response.data;
+        const proposals = data.proposeds;
+        if (proposals && proposals.length > 0) {
+          const proposal = proposals[0];
+          proposalId = proposal.proposalId;
+        }
+      } catch (error) {
+        queueNotification(
+            'error',
+            "There was an error. Please try again later."
+        )
+      }
+  
+      if (!proposalId) {
+        retryCount++;
+        await new Promise((resolve) => setTimeout(resolve, retryDelay));
+      }
+    }
+  
+    if (!proposalId) {
+        queueNotification(
+            'error',
+            "There was an error. Please try again later."
+        )
+    }
+  
+    return proposalId;
+  };
 
   const handleOnClickHonour = async () => {
-    // this should honour the HON just proposed by the api
+    setLoading(true)
+    const proposalId = await getProposalId()
+    try {
+        const tx = await contract.call("honour", [proposer, proposalId])
+        setLoading(false)
+        onTransactionSuccess()
+    } catch (error) {
+        queueNotification(
+            'error',
+            "There was an error. Please try again later."
+        )
+        setLoading(false)
+        handleDimissModal()
+    }  
   }
 
   return (
@@ -25,14 +131,30 @@ const HonModal = ({ setIsVisible }) => {
           </div>
         </Flex>
         <Text sx={styles.descriptionText}>
-          Please wait while we prepare some HON tokens for you...
+          {askSuccess
+            ? 'You can now click the button below to accept your new HON tokens.'
+            : "HON is consensual. Ask for some, we'll prepare it, then you can accept it."}
         </Text>
       </Flex>
       <Flex sx={styles.CTAContainer}>
-        <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
-          Honour
-        </Button>
-      </Flex>
+        {askSuccess ? (
+            <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
+            {loading ? (
+                <Spinner sx={styles.spinner} />
+            ) : (
+                <span>Honour</span>
+            )}
+            </Button>
+        ) : (
+            <Button onClick={handleOnClickAsk} sx={styles.honourButton}>
+            {loading ? (
+                <Spinner sx={styles.spinner} />
+            ) : (
+                <span>Ask</span>
+            )}
+            </Button>
+        )}
+        </Flex>
     </Box>
   )
 }
@@ -87,6 +209,9 @@ const styles = {
     backdropFilter: 'blur(10px)',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  spinner: {
+    color: '#fff',
   },
   honourButton: {
     borderRadius: '4px',
