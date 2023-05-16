@@ -17,7 +17,7 @@ const HonourConnector = ({ address }) => {
   const balance = data ? ethers.utils.formatEther(data) : null
 
   const handleTransactionSuccess = () => {
-    setTransactionSuccess(true);
+    setTransactionSuccess(true)
   }
   return (
     <div>

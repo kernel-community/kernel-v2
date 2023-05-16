@@ -36,18 +36,18 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
         setLoading(false)
       } else {
         queueNotification(
-            'error',
-            "We can't prepare HON for you right now. Please try again later"
+          'error',
+          "We can't prepare HON for you right now. Please try again later"
         )
         setLoading(false)
       }
     } catch (error) {
-        queueNotification(
-            'error',
-            "We can't prepare HON for you right now. Please try again later"
-        )
-        setLoading(false)
-        handleDimissModal()
+      queueNotification(
+        'error',
+        "We can't prepare HON for you right now. Please try again later"
+      )
+      setLoading(false)
+      handleDimissModal()
     }
   }
 
@@ -56,7 +56,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
     let retryCount = 0
     const maxRetries = 5
     const retryDelay = 5000
-  
+
     while (!proposalId && retryCount < maxRetries) {
       try {
         const response = await axios.post(graphUrl, {
@@ -72,52 +72,46 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
           variables: {
             account: address,
           },
-        });
-  
-        const { data } = response.data;
-        const proposals = data.proposeds;
+        })
+
+        const { data } = response.data
+        const proposals = data.proposeds
         if (proposals && proposals.length > 0) {
-          const proposal = proposals[0];
-          proposalId = proposal.proposalId;
+          const proposal = proposals[0]
+          proposalId = proposal.proposalId
         }
       } catch (error) {
         queueNotification(
-            'error',
-            "There was an error. Please try again later."
+          'error',
+          'There was an error. Please try again later.'
         )
       }
-  
+
       if (!proposalId) {
-        retryCount++;
-        await new Promise((resolve) => setTimeout(resolve, retryDelay));
+        retryCount++
+        await new Promise((resolve) => setTimeout(resolve, retryDelay))
       }
     }
-  
+
     if (!proposalId) {
-        queueNotification(
-            'error',
-            "There was an error. Please try again later."
-        )
+      queueNotification('error', 'There was an error. Please try again later.')
     }
-  
-    return proposalId;
-  };
+
+    return proposalId
+  }
 
   const handleOnClickHonour = async () => {
     setLoading(true)
     const proposalId = await getProposalId()
     try {
-        const tx = await contract.call("honour", [proposer, proposalId])
-        setLoading(false)
-        onTransactionSuccess()
+      const tx = await contract.call('honour', [proposer, proposalId])
+      setLoading(false)
+      onTransactionSuccess()
     } catch (error) {
-        queueNotification(
-            'error',
-            "There was an error. Please try again later."
-        )
-        setLoading(false)
-        handleDimissModal()
-    }  
+      queueNotification('error', 'There was an error. Please try again later.')
+      setLoading(false)
+      handleDimissModal()
+    }
   }
 
   return (
@@ -138,23 +132,15 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
       </Flex>
       <Flex sx={styles.CTAContainer}>
         {askSuccess ? (
-            <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
-            {loading ? (
-                <Spinner sx={styles.spinner} />
-            ) : (
-                <span>Honour</span>
-            )}
-            </Button>
+          <Button onClick={handleOnClickHonour} sx={styles.honourButton}>
+            {loading ? <Spinner sx={styles.spinner} /> : <span>Honour</span>}
+          </Button>
         ) : (
-            <Button onClick={handleOnClickAsk} sx={styles.honourButton}>
-            {loading ? (
-                <Spinner sx={styles.spinner} />
-            ) : (
-                <span>Ask</span>
-            )}
-            </Button>
+          <Button onClick={handleOnClickAsk} sx={styles.honourButton}>
+            {loading ? <Spinner sx={styles.spinner} /> : <span>Ask</span>}
+          </Button>
         )}
-        </Flex>
+      </Flex>
     </Box>
   )
 }

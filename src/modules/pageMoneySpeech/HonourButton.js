@@ -11,12 +11,15 @@ const HonourButton = ({ onTransactionSuccess }) => {
   const handleTransactionSuccess = () => {
     setIsModalVisible(false)
     onTransactionSuccess()
-  };
+  }
 
   return (
     <Flex>
       {isModalVisible && (
-        <HonModal setIsVisible={setIsModalVisible} onTransactionSuccess={handleTransactionSuccess} />
+        <HonModal
+          setIsVisible={setIsModalVisible}
+          onTransactionSuccess={handleTransactionSuccess}
+        />
       )}
       <HonButton
         descriptionText="You don't have any HON tokens"
@@ -28,4 +31,3 @@ const HonourButton = ({ onTransactionSuccess }) => {
 }
 
 export default HonourButton
-
