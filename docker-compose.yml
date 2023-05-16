@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: "unless-stopped"
+    expose:
+      - "8000"
     environment:
       VIRTUAL_HOST: "www.kernel.community,kernel.community"
       LETSENCRYPT_HOST: "www.kernel.community,kernel.community"

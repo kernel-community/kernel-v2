@@ -3133,9 +3133,9 @@
     "@paperxyz/sdk-common-utilities" "*"
 
 "@paperxyz/sdk-common-utilities@*":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@paperxyz/sdk-common-utilities/-/sdk-common-utilities-0.0.3.tgz#e37f202d7e0997231c037731ab0c01ea7f90f1c4"
-  integrity sha512-piBm+Pss5JrT7cOO5Bn9i+Mu2KHy2EOtMfv+BjsHc/HkAxVqx5kz76hughve2UgOJP18aI4cEU2vSiz56cOLgQ==
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@paperxyz/sdk-common-utilities/-/sdk-common-utilities-0.0.4.tgz#fe5a43f32e8f60e657056392fe4c6876374b3e98"
+  integrity sha512-MV7n0xFYxNPSQeYNWlWHx2jEnqxfOnkA6kl6GpbZFtx0tbupslIlsNRXq14q10LQ8c2cV1ichNvvxsgfjb5Ygw==
 
 "@pedrouid/environment@^1.0.1":
   version "1.0.1"
