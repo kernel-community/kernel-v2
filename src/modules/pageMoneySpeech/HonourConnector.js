@@ -10,14 +10,16 @@ import HonourButton from './HonourButton'
 
 const HonourConnector = ({ address }) => {
   const [transactionSuccess, setTransactionSuccess] = useState(false)
-  const { data } = useContractRead({
-    addressOrName: goerli,
-    contractInterface: abis.honour,
-  },
-  'balanceOf',
-  {
-    args: [address],
-  })
+  const { data } = useContractRead(
+    {
+      addressOrName: goerli,
+      contractInterface: abis.honour,
+    },
+    'balanceOf',
+    {
+      args: [address],
+    }
+  )
   const balance = data ? ethers.utils.formatEther(data) : null
 
   const handleTransactionSuccess = () => {

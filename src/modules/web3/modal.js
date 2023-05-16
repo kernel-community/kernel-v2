@@ -6,7 +6,13 @@ import { Flex, Text, Box, Button, Spinner } from 'theme-ui'
 import { Icon } from '@makerdao/dai-ui-icons'
 import { useNotifications } from '@src/modules/notifications/context'
 import { Contract } from 'ethers'
-import { goerli, abis, apiUrl, graphUrl, proposer } from '../../honour/constants'
+import {
+  goerli,
+  abis,
+  apiUrl,
+  graphUrl,
+  proposer,
+} from '../../honour/constants'
 
 const Web3 = ({ setIsVisible, onTransactionSuccess }) => {
   const { data: account } = useAccount()
@@ -80,10 +86,7 @@ const Web3 = ({ setIsVisible, onTransactionSuccess }) => {
           proposalId = proposal.proposalId
         }
       } catch (error) {
-        queueNotification(
-          'error',
-          'There was an error with the subgraph.'
-        )
+        queueNotification('error', 'There was an error with the subgraph.')
       }
 
       if (!proposalId) {
@@ -102,22 +105,16 @@ const Web3 = ({ setIsVisible, onTransactionSuccess }) => {
   const handleOnClickHonour = async () => {
     setLoading(true)
     const proposalId = await getProposalId()
-    try { 
-        const contract = new Contract(
-            goerli,
-            abis.honour,
-            signer
-        )
-        await contract.honour(proposer, proposalId)
-        setLoading(false)
-        onTransactionSuccess()
+    try {
+      const contract = new Contract(goerli, abis.honour, signer)
+      await contract.honour(proposer, proposalId)
+      setLoading(false)
+      onTransactionSuccess()
     } catch (error) {
-        queueNotification('error', 'There was an error. Please try again later.')
-        setLoading(false)
-        handleDimissModal()
+      queueNotification('error', 'There was an error. Please try again later.')
+      setLoading(false)
+      handleDimissModal()
     }
-
-    
   }
 
   return (

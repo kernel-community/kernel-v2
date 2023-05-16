@@ -19,7 +19,12 @@ const HonourButton = ({ onTransactionSuccess }) => {
 
   return (
     <Flex>
-      {isModalVisible && <Web3Modal setIsVisible={setIsModalVisible} onTransactionSuccess={handleTransactionSuccess} />}
+      {isModalVisible && (
+        <Web3Modal
+          setIsVisible={setIsModalVisible}
+          onTransactionSuccess={handleTransactionSuccess}
+        />
+      )}
       <Web3Button
         descriptionText="You don't have any HON tokens"
         buttonText="Get some!"
