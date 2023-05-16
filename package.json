@@ -14,7 +14,7 @@
     "@theme-ui/prism": "^0.14.7",
     "axios": "^1.2.0",
     "date-fns": "^2.29.3",
-    "del": "^6.0.0",
+    "del": "^7.0.0",
     "dotenv": "^16.0.3",
     "ethers": "^5.6.8",
     "framer-motion": "^6.5.1",
