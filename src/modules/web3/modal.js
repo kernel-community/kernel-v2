@@ -40,10 +40,10 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
         setLoading(false)
       }
     } catch (error) {
-    //   queueNotification(
-    //     'error',
-    //     "We can't prepare HON for you right now. Please try again later"
-    //   )
+      //   queueNotification(
+      //     'error',
+      //     "We can't prepare HON for you right now. Please try again later"
+      //   )
       setLoading(false)
       handleDimissModal()
     }
