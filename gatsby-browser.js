@@ -6,8 +6,6 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 import Layout from '@modules/layouts/site_layout';
 import {NavigationProvider} from '@modules/navigation';
 
-import NotificationProvider from '@modules/notifications/context'
-
 //Load our Primsjs css and Fonts
 import '@modules/layouts/global.css'; //<- Load in Prismjs css. Our custom styles have to be loaded this way cause Prismjs is blackboxed from our own code.
 
@@ -21,8 +19,6 @@ export const wrapRootElement = ({element}) => (
 
 export const wrapPageElement = ({element, props}) => (
   <NavigationProvider>
-    <NotificationProvider>
       <Layout {...props}>{element}</Layout>
-    </NotificationProvider>
   </NavigationProvider>
 );

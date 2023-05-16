@@ -24,6 +24,7 @@ import {
 import Card from '@modules/flashcard/card'
 import Flash from '@modules/flashcard/flash'
 import AudioPlayer from '@modules/audioPlayer/'
+import PageMoneySpeech from '@modules/pageMoneySpeech'
 import { Aligner, Indent, Video, Sound } from '@modules/utility/'
 import { motion } from 'framer-motion'
 import { Box, Divider, Flex, Image, jsx, Text } from 'theme-ui'
@@ -101,6 +102,7 @@ const Custom_Components = {
   Flash,
   Card,
   AudioPlayer,
+  PageMoneySpeech,
 }
 
 const overridesAndComponents = {

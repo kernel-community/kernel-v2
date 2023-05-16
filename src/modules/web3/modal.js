@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useState } from 'react'
 import { Flex, Text, Box, Button, Spinner } from 'theme-ui'
 import { Icon } from '@makerdao/dai-ui-icons'
-import { useNotifications } from '@src/modules/notifications/context'
 import { useContract, useAddress } from '@thirdweb-dev/react'
 import { proposer, apiUrl, graphUrl, goerli, abi } from './constants'
 
@@ -11,7 +10,6 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
   const address = useAddress()
   const contractAddress = goerli
   const { contract } = useContract(contractAddress, abi.honour)
-  const { queueNotification } = useNotifications()
 
   const handleDimissModal = () => {
     setIsVisible(false)
@@ -35,17 +33,17 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
         getProposalId() // we do this here because it always fails the first time...
         setLoading(false)
       } else {
-        queueNotification(
-          'error',
-          "We can't prepare HON for you right now. Please try again later"
-        )
+        // queueNotification(
+        //   'error',
+        //   "We can't prepare HON for you right now. Please try again later"
+        // )
         setLoading(false)
       }
     } catch (error) {
-      queueNotification(
-        'error',
-        "We can't prepare HON for you right now. Please try again later"
-      )
+    //   queueNotification(
+    //     'error',
+    //     "We can't prepare HON for you right now. Please try again later"
+    //   )
       setLoading(false)
       handleDimissModal()
     }
@@ -81,10 +79,10 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
           proposalId = proposal.proposalId
         }
       } catch (error) {
-        queueNotification(
-          'error',
-          'There was an error. Please try again later.'
-        )
+        // queueNotification(
+        //   'error',
+        //   'There was an error. Please try again later.'
+        // )
       }
 
       if (!proposalId) {
@@ -94,7 +92,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
     }
 
     if (!proposalId) {
-      queueNotification('error', 'There was an error. Please try again later.')
+      // queueNotification('error', 'There was an error. Please try again later.')
     }
 
     return proposalId
@@ -108,7 +106,7 @@ const HonModal = ({ setIsVisible, onTransactionSuccess }) => {
       setLoading(false)
       onTransactionSuccess()
     } catch (error) {
-      queueNotification('error', 'There was an error. Please try again later.')
+      //queueNotification('error', 'There was an error. Please try again later.')
       setLoading(false)
       handleDimissModal()
     }
