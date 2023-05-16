@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Flex, jsx } from 'theme-ui'
+import { Flex, jsx, Text } from 'theme-ui'
 import { useAddress } from '@thirdweb-dev/react'
 import { Heading } from '@modules/ui/heading'
 import { Link } from '@modules/navigation'
@@ -53,11 +53,11 @@ const PageMoneySpeech = () => {
       <Heading level={1} sx={styles.heading}>
         💸 Money and Speech
       </Heading>
-      <p>
+      <Text>
         This is a special post. Rather than talk about how blockchains can merge
         money and speech in proscial ways, we will illustrate it.
-      </p>
-      <p>
+      </Text>
+      <Text>
         We ask that you take on a very particular kind of token we have designed
         in order to read the contents of this lesson. The token is called &quot;
         <Link sx={styles.learnMoreCTA} to={'/tokens/token-studies/honour'}>
@@ -68,7 +68,7 @@ const PageMoneySpeech = () => {
         currencies we can create together really matters, because we can
         literally make money in ways which benefit the people we each care
         about.
-      </p>
+      </Text>
       {address ? <HonourConnector address={address} /> : <ConnectButton />}
       <Pager
         sidenavData={sideNavData}
