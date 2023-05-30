@@ -25,7 +25,7 @@ This case study is not meant to be an explanation of MakerDAO in general. For th
 
 [MakerDAO](https://makerdao.com) was created by people who perceived the need for a financial instrument that hedged against volatility in crypto markets. That is: if we measure the "price" of crypto in terms of US Dollars, then the "price" of crypto changes wildly and regularly. 
 
-If we choose the Dolllar as our measure, then we need a way to hold cryptocurrencies without being constantly exposed to abrupt changes in the market. We need a way to "peg" a token to the unit we choose to measure in - i.e. USD - without that way depending on a single group of people (as it does in the case of Tether). MakerDAO make this possible with the creation of DAI. The underlying idea is fairly simple: 
+If we choose the Dolllar as our measure, then we need a way to hold cryptocurrencies without being constantly exposed to abrupt changes in the market. We need a way to "peg" a token to the unit we choose to measure in - i.e. USD - without that way depending on a single group of people (as it does in the case of Tether). MakerDAO made this possible with the creation of DAI. The underlying idea is fairly simple: 
 
 <Process>
     
@@ -33,7 +33,7 @@ Lock up your ETH as "collateral" in a contract.
 
 That contract will issue you with DAI, but is programmed to be "overcollateralized": i.e. you always have to lock up more ETH than the DAI you'll get in return.
 
-A system of oracles (run by differen people) tells that contract what the current price of ETH is in terms of USD, and you have to make sure you maintain a healthly "collateralization ratio". Which means: if the price of ETH falls, you need to add more ETH; if the priceof ETH rises, you can claim more DAI for the same amount of collateral.
+A system of oracles (run by different people) tells that contract what the current price of ETH is in terms of USD, and you have to make sure you maintain a healthly "collateralization ratio". Which means: if the price of ETH falls, you need to add more ETH; if the price of ETH rises, you can claim more DAI for the same amount of collateral.
 
 If the price of DAI as it is traded on secondary markets rises above $1, anyone can lock their ETH up and create DAI for $1 in the contract, then sell it on the open market for a profit.
 
@@ -61,7 +61,7 @@ Remember, the tools and process for establishing a digital representation of a m
 
 ## Meet Your Maker
 
-So, what happens if the price of ETH falls 80% (which is has, more than once)? Surely a lot of people's positions will become undercollateralized? And what happens to the stability of the overall system of contracts in this case?
+So, what happens if the price of ETH falls 80% (which it has, more than once)? Surely a lot of people's positions will become undercollateralized? And what happens to the stability of the overall system of contracts in this case?
 
 Firstly, if your position drops below 150% collateralization - that is, if you have drawn more than two thirds of the current Dollar value of ETH you locked up - then you are liable to be liquidated and charged an automatic 13% penalty. This means the ETH you locked will be claimed by the system so that it remains solvent, along with an extra 13% fee to incentivize you to ensure this doesn't happen. If there is any ETH left over after 100% of your debt is repaid, plus the 13% fee, it is returned to you.
 
@@ -91,6 +91,6 @@ Some people took a look at all the above as it was unfolding and - together with
 
 They studied Maker's contracts, overhauled the assumtpions Maker built on, and created [RAI](https://reflexer.finance/), a token which is specifically designed to be "governance minimized". Rather than trying to peg RAI to a value that exists outside the blockchain, the developers did something simple and crazy: they pegged RAI to itself.
 
-What that actually means is explained next in this section. Suffice it here to say that it removes the needs to vote on lots of different collateralization ratios or debt ceilings, and so removes the need for a lot of what is described above. However, having a token "pegged to itself" is a non-intuitive idea when looked at from the perspective of our current collective psychology. Most people baulk at the idea or just gaze blankly at anyone trying to explain it and why you might want to do something like that at all.
+What that actually means is explained next in this section. Suffice it here to say that it removes the need to vote on lots of different collateralization ratios or debt ceilings, and so removes the need for a lot of what is described above. However, having a token "pegged to itself" is a non-intuitive idea when looked at from the perspective of our current collective psychology. Most people baulk at the idea or just gaze blankly at anyone trying to explain it and why you might want to do something like that at all.
 
 This is the fundamental trade-off at the heart of "stability". Is it stable in our shared perception, or in a mathematical model? How do such models and our collective perception interact? Over what time scales does such interaction occur? Are there narratives or story-tellers who can act as catalysts in such interactions? Are you one of these?
