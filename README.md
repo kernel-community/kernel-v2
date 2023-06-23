@@ -7,7 +7,7 @@ This repo hosts the code for a new type of online learning environment, which mi
 **Dependencies**
 
 1. Yarn
-2. Node v13 or higher (we recommend [nvm](https://github.com/nvm-sh/nvm))
+2. Node v14 (we recommend [nvm](https://github.com/nvm-sh/nvm))
 
 ```
 git clone https://github.com/kernel-community/kernel-v2.git
