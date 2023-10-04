@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---blog-posts-en-blog-editorial-kernel-returns-mdx",
+    "path": "/en/blog/Editorial/kernel-returns/",
+    "result": {"pageContext":{"frontmatter":{"title":"Kernel Returns","authors":["vsinghdothings"],"keywords":"kernel, block, new, learn, apply, community","description":"An open, peer-to-peer, lifelong network of humans building relationships one conversation at a time.","date":"2023-10-04T00:00:00.000Z","image":"/images/kernel_balance.png","recommend":["blogPosts/en/blog/Editorial/signature-stories","blogPosts/en/blog/community/free-learn","blogPosts/en/blog/Editorial/what-is-kernel"]},"locale":"en","pagePath":"/en/blog/Editorial/kernel-returns/"}},
+    "staticQueryHashes": ["1272206737","221863732","2367353373","2744905544","63159454"]}
