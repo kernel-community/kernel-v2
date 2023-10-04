@@ -14,19 +14,17 @@ import { useThemeUI } from 'theme-ui'
 function SEO({ description, lang, meta, title, keywords, url, featuredImage }) {
   const { theme } = useThemeUI()
 
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `
-  )
+    }
+  `)
 
   const metaDescription = description || site.siteMetadata.description
 

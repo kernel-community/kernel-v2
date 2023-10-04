@@ -13,7 +13,7 @@
     "@mdx-js/react": "^1.6.22",
     "@theme-ui/prism": "^0.14.7",
     "axios": "^1.2.0",
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "del": "^6.0.0",
     "dotenv": "^16.0.3",
     "ethers": "^5.6.8",
@@ -44,7 +44,7 @@
     "gatsby-transformer-remark": "^4.11.0",
     "gatsby-transformer-sharp": "^3.15.0",
     "html-react-parser": "^3.0.15",
-    "immer": "^9.0.15",
+    "immer": "^10.0.2",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
@@ -62,7 +62,7 @@
     "remark-slug": "^6.1.0",
     "sharp": "^0.31.1",
     "theme-ui": "^0.14.7",
-    "use-immer": "^0.7.0",
+    "use-immer": "^0.9.0",
     "uuid": "^9.0.0",
     "wagmi": "^0.3.5",
     "window-or-global": "^1.0.1"
@@ -76,7 +76,7 @@
     "eslint-plugin-react": "7.29.4",
     "lint-staged": "13.1.2",
     "pre-commit": "^1.2.2",
-    "prettier": "^2.8.4"
+    "prettier": "^3.0.3"
   },
   "keywords": [
     "gatsby"
