@@ -58,7 +58,7 @@
     "react-select": "^5.7.3",
     "react-smooth-collapse": "^2.1.2",
     "react-sticky-el": "^2.0.9",
-    "remark-frontmatter": "^3.0.0",
+    "remark-frontmatter": "^5.0.0",
     "remark-slug": "^6.1.0",
     "sharp": "^0.31.1",
     "theme-ui": "^0.14.7",
