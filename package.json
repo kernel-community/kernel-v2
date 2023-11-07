@@ -58,7 +58,7 @@
     "react-select": "^5.8.0",
     "react-smooth-collapse": "^2.1.2",
     "react-sticky-el": "^2.0.9",
-    "remark-frontmatter": "^5.0.0",
+    "remark-frontmatter": "^3.0.0",
     "remark-slug": "^6.1.0",
     "sharp": "^0.31.1",
     "theme-ui": "^0.14.7",
@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "@babel/eslint-plugin": "^7.19.1",
-    "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/plugin-syntax-jsx": "^7.22.5",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-react-app": "^6.0.0",
