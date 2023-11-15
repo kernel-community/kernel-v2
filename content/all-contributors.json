@@ -167,6 +167,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jesssun",
+      "name": "Jess Sun",
+      "avatar_url": "/images/fellows/Jess_Sun.png",
+      "profile": "https://twitter.com/heyjess_sun/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 6,
