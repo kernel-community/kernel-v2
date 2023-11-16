@@ -167,6 +167,33 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jesssun",
+      "name": "Jess Sun",
+      "avatar_url": "/images/fellows/Jess_Sun.png",
+      "profile": "https://twitter.com/heyjess_sun/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "aliya",
+      "name": "Aliya",
+      "avatar_url": "/images/fellows/Aliya.png",
+      "profile": "https://twitter.com/aliyajypsy/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "sidcode",
+      "name": "sidcode",
+      "avatar_url": "/images/fellows/sidcode.jpg",
+      "profile": "https://twitter.com/sidcode_/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 6,
