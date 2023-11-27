@@ -1,0 +1,104 @@
+---
+order: 1
+title: Maker Difference
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Maker and DAI
+
+<InfoBlock>
+
+**"Price is what you pay. Value is what you get."** - anon
+
+</InfoBlock>
+
+We have a [growing library](https://github.com/kernel-community/library/tree/main/Topic%20-%20DeFi/1%20-%20Basics) which seeks to seed more fertile conversations around what Decentralized Finance actually is, and what we can make it mean together through common use. Part of that begins with looking at the first organization which proved it was possible to create a digital representation of value on a blockchain that could track some value in the world beyond blockchains, without relying on any particular person or group.
+
+MakerDAO made the rest of DeFi possible, even if not technically, then certainly in terms of the imaginative possibilities it illuminated and the many "Ohhhh, snap!" moments a lot of developers experienced watching it all unfold.
+
+## Scope
+
+This case study is not meant to be an explanation of MakerDAO in general. For that, they have their [own documentation](https://docs.makerdao.com/). Unsurprisingly, it's technical and full of jargon. There is no clear "why", which is what we care about most at Kernel. So, this case study will attempt to discuss the "why" of MakerDAO and use that to illustrate some really innovative and educational aspects of how their system works.
+
+## What's in the Sausage?
+
+[MakerDAO](https://makerdao.com) was created by people who perceived the need for a financial instrument that hedged against volatility in crypto markets. That is: if we measure the "price" of crypto in terms of US Dollars, then the "price" of crypto changes wildly and regularly. 
+
+If we choose the Dolllar as our measure, then we need a way to hold cryptocurrencies without being constantly exposed to abrupt changes in the market. We need a way to "peg" a token to the unit we choose to measure in - i.e. USD - without that way depending on a single group of people (as it does in the case of Tether). MakerDAO made this possible with the creation of DAI. The underlying idea is fairly simple: 
+
+<Process>
+    
+Lock up your ETH as "collateral" in a contract. 
+
+That contract will issue you with DAI, but is programmed to be "overcollateralized": i.e. you always have to lock up more ETH than the DAI you'll get in return.
+
+A system of oracles (run by different people) tells that contract what the current price of ETH is in terms of USD, and you have to make sure you maintain a healthly "collateralization ratio". Which means: if the price of ETH falls, you need to add more ETH; if the price of ETH rises, you can claim more DAI for the same amount of collateral.
+
+If the price of DAI as it is traded on secondary markets rises above $1, anyone can lock their ETH up and create DAI for $1 in the contract, then sell it on the open market for a profit.
+
+If the price of DAI falls below $1, you can buy it on the market, exchange it for ETH, and redeem your position more cheaply than you would otherwise be able to. Both of these together are called "arbitrage trading" or "arbing".
+
+So, because the contract is programmed to give you DAI for your ETH, at a rate determined by the price it receives from the oracles, there is an incentive for people to "arb" DAI whenever it moves away from its peg. The more people do this, the more quickly the price will return to $1. 
+
+In this manner, we have a decentralized mechanism that anyone can use, the result of which is the maintenance of a "stablecoin": a digital token which tracks a unit of value that exists outside the specific order of events we all subscribe to on chain.
+
+</Process>
+
+## Why Be Stable?
+
+Stability is a genuinely rich phenomenon to explore, because it presupposes that there is something stable in the world of space and time. The US Dollar has lost 86% of its value since 1971 alone, so the irony of using it as a measure of "stability" is easy enough to establish.
+
+When Maker was being created, there was (and still is) endless discussion about using other pegs, like the Consumer Price Index (CPI) or other indices and/or baskets of assets or commodities which may be ideologically more neutral and/or proven to be less inflationary over time.
+
+For all the good theory in many of those debates, the facts of psychology play a seemingly primary role. We can point out the arbitrariness of the Dollar, or its inflationary nature, or the way it is governed by unelected bureaucrats, or the track record they have for handling complexity; but it doesn't change the fact that it is still the reserve currency of the world and that most people still use it to pay for what they perceive to be the most important goods and services in their lives.
+
+This is why token engineering, in the final analysis, is not primarily about code. It is about the **intergenerational cultural work being done to shift our collective perception** of what is most important; that is, to change our minds - collectively - about what and how we value.
+
+Clearly, doing all this work simply to peg a token back to the Dollar - a measure the hegemony of which we're collectively trying to break - is fraught with contradiction. However, it is also an understandable "stepping stone": a necessary compromise with the collective psychology of people alive today. 
+
+Remember, the tools and process for establishing a digital representation of a measure of value which exists beyond the chain itself have been created. **This is an incredible fact**. What that measure is rightly reflects what the majority of us value, and what we use _to measure value_. 
+
+## Meet Your Maker
+
+So, what happens if the price of ETH falls 80% (which it has, more than once)? Surely a lot of people's positions will become undercollateralized? And what happens to the stability of the overall system of contracts in this case?
+
+Firstly, if your position drops below 150% collateralization - that is, if you have drawn more than two thirds of the current Dollar value of ETH you locked up - then you are liable to be liquidated and charged an automatic 13% penalty. This means the ETH you locked will be claimed by the system so that it remains solvent, along with an extra 13% fee to incentivize you to ensure this doesn't happen. If there is any ETH left over after 100% of your debt is repaid, plus the 13% fee, it is returned to you.
+
+Nevertheless, a drop of 80% in the price of ETH relative to USD might create deeper problems than can be papered over by the liquidiation mechanism and fee above. In this case, there is a real risk that the overall system may become insolvent and DAI might permanently break its peg (given that investors might lose confidence in it and no longer be willing to make those arb trades which keep it at or around $1).
+
+If this does happen, there is another token - called MKR - which acts as a "lender of last resort". There was a set number of MKR in existence at first. If the overall system becomes undercollateralized, more MKR are printed, sold on the open market, and used to pay down any bad debt. The phrase "lender of last resort" is traditionally used to refer to Reserve Banks like the Federal Reserve, hence Maker is often referred to as "The Central Bank of the Internet".
+
+MKR is the governance token of the MakerDAO system. The fact that it also fulfills the economic function of "lender of last resort" is what makes MakerDAO truly remarkable. They remain one of the few organisations to create a token that plays a critical role in how the application itself functions. That is, if I hold MKR, I am **actually incentivized to make decisions in the interests of the protocol and therefore the people who use it** because, if I don't, I stand the chance of being diluted if MKR is printed to cover bad debt.
+
+MKR is used to [vote on critical parameters](https://vote.makerdao.com/) which effect how DAI works: the kinds of collateral that may be used; the collateralization ratio for the kinds agreed to be valid; the "debt ceiling" for each kind (i.e. how much of that particular kind of collateral the whole system can be exposed to); the DAI Stability Fee, which is essentially an interest rate on DAI that can be levied and various other factors. MKR is also used to pass on chain votes about who may fulfill certain roles within the DAO, what sort of compensation core teams get and how that is paid, and various other non-parameter but still-critical choices.
+
+## Making Good
+
+Fascinatingly, MakerDAO has evolved to [pay some of its contributors in MKR](https://mips.makerdao.com/mips/details/MIP40c3SP38), essentially as equity for [critical work](https://mips.makerdao.com/mips/details/MIP40c3SP25) on the protocol, or business development (which is critical because of how important liquidity is for the overall stability, resilience, and security of the system). They have implemented the first functional delegate system paid entirely by a DAO. If you would like to start learning more about this, head [here](https://forum.makerdao.com/search?q=delegation).
+
+_Full disclosure: the Maker forum is simultaneously a great example of a DAO operating at a scale that is changing how the world works, and a total dumpster fire. Keeping up with everything that happens there is a full time job. Learning how to use the different voting or "MIP" interfaces can be tough. Understanding the weird syntax that the contracts use takes months longer than studying any other contracts do. Navigating the history, the current state, the different factions, the risk analyses, the differet financial theories, the macro economic picture and everything else can be daunting._
+
+There is so much more to say about the intricacies of MakerDAO and how it has evolved over the years since its launch. When the protocol was launched, there was a Maker Foundation, a centralized group whose purpose was to care for the protocol until it was mature and had proven that it could run independently in an adversarial, volatile and unpredictable public environment. They came up with the term "[scientific governance](https://blog.makerdao.com/makerdao-governance-risk-framework-part-3/)" and - for the most part - shepherded the protocol well enough that they were able to [dissolve the Foundation fully](https://blog.makerdao.com/the-maker-foundation-focuses-on-its-dissolution/), and thereby make good on their promises of "gradual decentralization", as so many others are yet to do.
+
+One level deeper, the [Ds-Chief contract](https://docs.makerdao.com/smart-contract-modules/governance-module/chief-detailed-documentation), which is the core governance contract, implements a fascinating "slate" mechanism, which allows for any number of different kind of voting methodologies and was specifically created such that people could express multiple, ranked preferences on any given issue. 
+
+This mechanism created a headache for the product designers who worked at the initial Maker Foundation. They had to figure out how to create an interface which would be familiar enough to people such that they could use it to vote without any friction (low attendance already being a problem then), but which still provided at least some of the contractual affordances present in Ds-Chief. Moreover, there has been [active](https://forum.makerdao.com/search?q=ranked%20choice) [debate](https://forum.makerdao.com/t/research-driven-insights-about-dao-governance/12471) on the forum about what kind of voting mechanism is actually most democratic and/or representative; and how the theory might best be represented in a given voting interface.
+
+## Giving Up
+
+Some people took a look at all the above as it was unfolding and - together with the underlying contradiction of doing all this to peg a token to a unit of measure we fundamentally don't like - decided that it wasn't the best way to create a stable and effective hedge against volatile crypto markets.
+
+They studied Maker's contracts, overhauled the assumtpions Maker built on, and created [RAI](https://reflexer.finance/), a token which is specifically designed to be "governance minimized". Rather than trying to peg RAI to a value that exists outside the blockchain, the developers did something simple and crazy: they pegged RAI to itself.
+
+What that actually means is explained next in this section. Suffice it here to say that it removes the need to vote on lots of different collateralization ratios or debt ceilings, and so removes the need for a lot of what is described above. However, having a token "pegged to itself" is a non-intuitive idea when looked at from the perspective of our current collective psychology. Most people baulk at the idea or just gaze blankly at anyone trying to explain it and why you might want to do something like that at all.
+
+This is the fundamental trade-off at the heart of "stability". Is it stable in our shared perception, or in a mathematical model? How do such models and our collective perception interact? Over what time scales does such interaction occur? Are there narratives or story-tellers who can act as catalysts in such interactions? Are you one of these?
+
+## A Never-Ending story
+
+Of course, the people who built RAI are not the only ones involved in Maker, nor do they necessarily represent a majority opinion. In fact, it is likely that the are fewer and fewer majority opinions in Maker as time goes on, and this is likely a good thing for any decentralized protocol for money.
+
+One thing we have been very impressed by is the Strategic Finance initiatives begun at Maker (and radiating out into the rest of the DAO world). In particular, we really appreciate the work of [Steakhouse, who have created a genuinely cool way of accounting for these kinds of protocols](https://www.steakhouse.financial/projects/makerdao-ledger). The financial insights generated by this kind of work are critical to considering how to prioritise work in such decentralised organisations, as well as thinking more clearly about things like cost of capital and how that applies to any kind of capital allocation we engage in as collective groups.
+
+You can follow the work done by Steakhouse in various other places, too. We recommend going to the [ENS forums](https://discuss.ens.domains/t/ens-financial-reporting-by-steakhouse/16601) next if this kind of granular data analysis interests you. We are particularly impressed by the breadth and specificty of the [dune queries](https://github.com/duneanalytics/spellbook/blob/main/models/maker/ethereum/maker_ethereum_accounting.sql) they continue to create to track the flow of value in and around these kind of DAOs.

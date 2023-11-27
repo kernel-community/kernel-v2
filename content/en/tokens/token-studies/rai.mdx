@@ -1,0 +1,68 @@
+---
+order: 2
+title: The Money God
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# RAI and the Re-Flex
+
+<InfoBlock>
+
+<Box>
+
+**Principled-Based Thinking**
+
+<Aligner center>
+<Button to="https://vitalik.ca/general/2022/05/25/stable.html">
+    Read
+</Button>
+</Aligner>
+
+</Box>
+
+</InfoBlock>
+
+Kernel repeatedly describes [the various ways money can be imagined](/learn/module-4/self-enquiry/#further-references). To this list, [RAI](https://reflexer.finance/) adds another feature with the first sentence of [their whitepaper](https://raw.githubusercontent.com/reflexer-labs/whitepapers/master/English/rai-english.pdf): "Money is one of the most **powerful coordination mechanisms**".
+
+If you understand nothing else about a token that is "pegged to itself", this is what you should focus on. Ancient technology, language, and collective psychological symbols all serve one, essential end (in this version of the story): **getting human beings to coordinate with each other and the environment in which we all participate**. 
+
+Rather than add coordination overhead (otherwise known as 'governance'), RAI proposes a way to generate "stability" by using what are known as _reflex indexes_. This isn't so much a "peg" in the sense we used when describing DAI, as it is a means of dampening the volatility of your crypto without trying to fix the redemption price either by audited declaration (like USDC) or by relying on arbitrage traders (like DAI). Most importantly for this study, as Vitalik says in the link above, RAI shows us all a way in which
+
+> "The crypto space [can] move away from the attitude that it's okay to achieve safety by relying on endless growth."
+
+## Quickstart
+
+Getting RAI works in roughly the same way as [getting DAI](/build/token-studies/maker-difference/#whats-in-the-sausage): you lock ETH in a contract and can use that to redeem a certain amount of RAI. The contracts ensure your position is always over-collateralized (i.e. the value of ETH you lock must always be worth more than the value of RAI you can withdraw). The key difference is that ETH is the only kind of collateral accepted in the system, whereas Maker has expanded (by virtue of the governance process RAI is reacting against) to accept many different kinds of collateral.
+
+The criticism levelled at Maker by those behind RAI is that [the majority of collateral that now underlies DAI is USDC](https://daistats.com/#/), which is a "centralized" stablecoin created by Center (a consortium of people made up by Circle, Coinbase, and Bitmain). In this way, it introduces into a decentralzied protocol the same risks any centralized stablecoin has (i.e. that the audit of their underlying assets may be incorrect: we simply have to trust the auditors, which is no real improvement on trusting the Fed etc.).
+
+## Redemption
+
+Returning to the mechanics of RAI, we can ask, "What is a redemption price?" Simply put: it is the price at which you can get RAI for your ETH.
+
+In the case of DAI, the contracts themselves fix it at $1 (based on the price information they receive from their [oracle network](https://github.com/chronicleprotocol/oracles)). In the case of USDC, it is fixed at $1 by dint of Center's declaration: "you will always be able to redeem 1 USDC for $1" and is backed by our collective belief in the validity of the audits done on the underlying dollar reserves they hold.
+
+RAI is a different animal: the redemption price can change over time. It is really the internal system peg, but we don't care about what it is pegged to. The goal is not psychological comfort for the masses, it is algorithmic predictability irrespective of external market events. 
+
+In RAI, **stability means a balance between supply and demand**, rather than the maintenance of an external peg to some other measure of value. Most importantly, this design still achieves the core goal in a meaningful sense: _create a viable hedge against crypto volatility_. It is just doesn't assume that the hedge is something stable in the sense of "fixed" (as if the value of the USD were fixed in any way other than our own imaginary perception of it).
+
+The RAI developers make the simple point that a good hedge must only dampen volatility long enough for you to make informed, calm, and considered choices. This is exactly what RAI achieves, without all the angst and governance required to maintain a "fixed" peg.
+
+## What Can We Control?
+
+RAI adapts a framework called "[Control Theory](https://en.wikipedia.org/wiki/Control_theory)" which was formalised by Maxwell in 1868. Specifically, they forked the Maker contracts, stripped the governance, and added an "automatic rate setter" based on PIDCs, which stands for [Proportional Integral Derivate Controllers](https://en.wikipedia.org/wiki/PID_controller). These are control systems that include three terms: one which is proportional to the "error" created by feedback (this is the most significant and immediate way in which the controller changes how the system is tuned); one which is an integral of the error over time (a smaller effect which smooths out the historical behaviour of the system so that it doesn't just oscillate between increasingly large responses over time); and a derivate term which seeks to anticipate changes in the system and adjust the rate at which it responds, also smoothing its behaviour over time.
+
+RAI implements both the proportional and integral terms in its [contracts](https://github.com/reflexer-labs/geb), and applies them to this idea of a "redemption price", or internal system peg. The "error" is read from the current market price: i.e. what RAI is trading at on secondary markets. If the market price is above the redemption price, then the proportional term in the automatic rate setter increases the redemption price, creating a propotionally greater incentive to mint RAI and sell it on the open market for a profit. If the market price drops below the redemption price, the proportional term decreases the redemption price, creating a proportionally greater incentive to buy RAI on the open market, exchange it for ETH, and redeem your position for a profit in the contract itself.
+
+The integral term behaves something like system memory, as it stores the "error" of the last 30 days. It responds more slowly than the proportional term does, smoothing the behaviour of the internal system peg (or "redemption price"). It's worth repeating this: **stability in RAI means a balance between supply and demand**, rather than the maintenance of an external peg to some other measure of value.
+
+## Ungovernance
+
+The developers of RAI argue that extensive governance capabilities over systems like DAI are actually an "attack vector". That is, loosely organised groups of volunteers (even if they are paid) are easy to manipulate, infiltrate, and influence. In this manner, a decentralized system which relies on lots of human input can be twisted to serve ends that were never initially intended by the contract creators.
+
+The only actions which are governable in the RAI system are "external dependencies": the oracle system, the "saviours", the PI Controller parameters and certain, specific and limited update capabilities. 
+
+We recommend this talk from Fabio if you wish to gain further insight into (i) why people might think a system like this is interesting based on where they come from and what monetary conditions they have experienced and (ii) how RAI has performed since release and what the community has learnt as a result.
+
+<Video src="https://www.youtube-nocookie.com/embed/exTMCr7QeLY?start=3809" />

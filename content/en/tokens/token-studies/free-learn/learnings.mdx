@@ -1,0 +1,74 @@
+---
+order: 10
+title: Free Learnings
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Free Learn Learnings
+
+In the process of playing with all the necessary pieces for a careful deployment of the FreeLearn contracts, we have learnt a great deal more which we would like to reflect on and share.
+
+The world of mechanism design is _always_ multidisciplinary. This simple insight into the complex nature of incentives has been discussed online since at least [2011](https://www.gwern.net/Bitcoin-is-Worse-is-Better). Bitcoin is not only about distributed systems, or consensus algorithms, or cryptography, or digital money, or hash tables, or politics and central banking, or what people perceive as valuable. It is about all of them simultaneously. In order to span these domains - to create a secure and decentralised “peer-to-peer version of electronic cash” - it was, by necessity, **very ugly**. However, it is ugly in very specific ways:
+
+> “[What is interesting is] **how** Bitcoin is the worst-possible-thing. It's not the decentralized aspect of Bitcoin, it's _how Bitcoin is decentralised_: a cryptographer would have difficulty coming up with Bitcoin because the mechanism is so ugly and there are so many elegant features he wants in it. Programmers and mathematicians often speak of “taste”, and how they lead one to better solutions. A cryptographer's taste is for cryptosystems optimized for efficiency and theorems; it is not for systems optimized for virulence, for their sociological appeal.”
+
+Of course, beauty is in the eye of the beholder and many disagree with Gwern's assessment, but it remains a fascinating exploration.
+
+## Worse is Better, But How?
+
+When designing incentive mechanisms, it's not only the economic modelling that matters; or the cryptographic proofs; or the privacy and anonymity guarantees; or the sybil resistance; or the sociological and psychological appeal. It's all of them at the same time. Your trade-offs are not only economic: they need to be balanced by clear thinking in many other domains.
+
+Most people baulk at such a statement. It sounds very difficult, doesn't it? I get anxious just realising that I know nothing about at least three of the domains I listed above. But here's the simple, saving grace: don't try and design perfect systems. Actually, design the most naïve system you can and just ensure it makes good trade-offs across all the relevant domains of which you're aware.
+
+Now, instead of running off to five different online courses to learn skills I'm honestly not that interested in anyway, all I need to do is ask myself, “what are _good_ trade-offs?” And this, too, can be examined using a simple process. You have to know **why** you're doing something. Being able to state **why** clearly is the best possible thing you can do when designing mechanisms.
+
+> “While the security technology is very far from trivial, the “why” was by far the biggest stumbling block—nearly everybody who heard the general idea thought it was a very bad idea.” - Nick Szabo
+
+## Why Make Learning Free?
+
+Like Satoshi, we begin with a very simple truth: **student debt is iniquitous**. 
+
+Anyone should be able to learn what they want to and they should bear no cost other than the effort and attention required to learn. This is what makes education a _qualitatively different_ gift: it requires investment from those it is given to, but this investment ought not be a financial one. Like all true gifts, education necessitates a response in order to exist as gift: it calls up response-ability in those to whom it is given.
+
+But here's the rub: educators need to be valued too. This is the heart of all trade-offs in our design. It's why we ended up ensuring that all yield generated over the course of learning is assigned to the educators, rather than the neat incentive scheme we initially wrote to encourage learners to mint LEARN. The need for fair and sustainable compensation for educators is also the reason that paying people to learn seems dubious. It is a genuinely nice idea, but it makes questionable trade-offs psychologicaly, sociologically, and we have yet to see a scheme that is economically sustainable without constant external stimulus. 
+
+Before throwing too many stones from our glass house, there are still major questions left open (much like the underspecified Bitcoin whitepaper). We'll address two related points here:
+
+1. Is the yield enough to reward educators fairly?
+2. How much would students need to stake in order for the yield to cover, for instance, a year of university tuition (which is the same as asking how much needs to be staked to reward educators fairly and is this scheme not very capital inefficient)?
+
+At first glance, the answers seem to be: 
+
+1. No, FreeLearn still does not reward educators fairly; its primary goal is to eliminate student debt. 
+2. Too much capital would need to be locked up, even at relatively high APYs. We're using DAI as our stable coin and the Yearn DAI vault currently earns 2.52%. If your tuition fees are $25k a year, you would need to lock up 1M DAI to earn enough interest to pay that down. It's clearly not workable.
+
+### Perpetual Scholarships
+
+However, let's look a little more deeply at the second question, because it's **not actually students we expect to lock capital in the long term**. There are many philanthropists and educational funds in our world who are keen to donate money to “effective education”. The problem has always been: how do you define “effective”, who gets to define it, and how can we trust whatever reports they produce? It seems that outcomes-based schemes box learners in, kill creativity, and diminish our innate desire to keep learning throughout life. However, without measurable outcomes, how can one get funding and justify your method?
+
+It's a chicken and egg scenario which only results in more schools, less learning, and increasing debt. A quick aside: [verifiable credentials do not solve this either](/learn/module-metta/school-sucks/#certified-confusion).
+
+However, with FreeLearn, we can think of a very different approach. Simply put: philanthropists can stake large amounts of capital for a course of their choice. This capital is deployed to a vault, and the interest it earns is allocated to educators. If our kind philanthropist locks up 1M DAI, and the course fee is 100 DAI, then that will allow 10,000 students to study **at any one time**, while also ensuring the educator receives far more yield.
+
+The “at any one time” is in bold because it is important. Once those students have gone through the course, if the money remains staked, then others can take up and continue to benefit from these perpetual scholarships. As opposed to traditional scholarships, which are consumed at once, the _simple fact of the money being in these contracts rather than in a bank_ allows many people to learn on a perpetual basis.
+
+Of course, there is an opportunity cost for the philanthropist/fund here, and they do sacrifice the interest they earn. However, they can claim their principal back at any time, so this doesn't even amount to a donation in the old sense of the word. It illustrates clearly this fascinating point: **where money is dictates what we can learn collectively**.
+
+### A Creator Culture
+
+The first point - that living off yield is still not due recompense for educators - is more difficult to handle. This is because it is primarily a cultural issue and so requires a primarily sociopolitical solution. That is, **we need once more to cultivate cultures which value their educators and care-givers fairly**.
+
+This cultural struggle can of course be _assisted_ by our technical protocols, though they cannot substitute for it. One idea for reimagining how to value those who create the foundations of our society is retroactive funding. It's a simple notion: if a learner you have educated goes on to achieve great success, part of that should flow back to you.
+
+Technically speaking, all that is required is an onchain, immutable, verifiable record of who did what course. The FreeLearn contracts already provide this. Therefore, we have not adapted them further, because we feel that the retroactive funding should exist as its own contract. You can imagine it like a plugin which enriches the feature set these contracts already offer.
+
+The exact details of this plugin remain difficult to imagine for now. How much is a fair percentage to allocate to educators as a retroactive reward for the success of their students? How do we measure “success” at all? How can we implement this in a way which preserves privacy? Is it a program which is **enforced** or a responsibility that is **encouraged**? If the latter, how do we do that persuasively without manipulation?
+
+## Truth, Uncontrived
+
+The design space for this kind of work is infinite. In fact, it includes many different kinds of infinities. That is why we focus so much on **intention**: because it defines the starting point in these multiple infinities; and constantly clarify our **why**: because it defines the trajectory through possibility space that we trace as we try to decide what “good trade-offs” mean; and how to make them using the ugliest but most effective designs our limited minds can create.
+
+One last point we'd like to reflect on given our own experience since beginning to discuss and design FreeLearn more than a year ago is **patience**:
+
+> “The problem of timing nags at me,” Gwern writes, stating later that, “It may be that Bitcoin's greatest virtue is not its deflation, nor its microtransactions, but its viral distributed nature; it can wait for its opportunity.”

@@ -1,0 +1,86 @@
+---
+order: 7
+title: Restoring Justice
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Restoring Justice
+
+<InfoBlock>
+
+<Box>
+
+![Open](/images/projects/prisonart.png)
+
+<Aligner center>
+<Button to="https://github.com/PrisonArt/restore">
+    Inspect the Code
+</Button>
+</Aligner>
+
+</Box>
+
+</InfoBlock>
+
+<Process>
+
+What does justice mean to you?
+
+Is it possible to have a just society, unless we are all involved with justice?
+
+Can we advance the aims of [rehabilitative justice using a shared and common historical record](/learn/module-2/shelling-out/#resolution)?
+
+</Process>
+
+These are the three guiding questions of this case study. Before discussing the technicalities by virtue of which we have crafted a pattern for exploring this question more rigorously, I will begin by opening the field to the first question above.
+
+I have been shown a very simple map of the self in pursuit of my truth. There are two essential forces which push and pull this life: attraction and repulsion. I am pulled towards what I like or desire, and push away whatever I do not like or desire.
+
+Moving through life’s changes, it is possible to “groom” these two forces. The mechanism by which this happens is simply awareness. Only pay [attention](https://anthonywilsonpoetry.com/2019/01/24/the-notion-of-attention-in-memory-of-mary-oliver/): that is all this world ever really asks. In paying deeper and finer attention to the ways these forces manifest in my life, I can - through the course of my own experience - groom the force of attraction and cultivate **moderation**. I can groom the force of repulsion and cultivate **courage**. 
+
+When courage and moderation are birthed in the heart, then the seed of modesty may take root in my being. Modesty, given time, may bloom into wisdom. With the exercise and application of wisdom comes the flourishing of justice.
+
+<Aligner center>
+
+<Image src="/images/blog_headers/self_map.png"/>
+
+</Aligner>
+
+<InfoBlock>
+
+**What is justice? Seeing others as no different than myself. Knowing that what I do to others, I do to myself; that what is done to others, is done to me too. Justice is identity.**
+
+</InfoBlock>
+
+# Conducting Code
+
+How can we encode this simple map? The words above rely on metaphor and ambiguity: to write code is to strip all that away so that the written word may be executed. This is not a problem though, it is a great opportunity: our language no longer requires third-party _enforcement_. Our code no longer needs the threat of violence to run in a way which can affect society.
+
+So, how do we map the simple metaphors above to straightforward code which, when executed, exhibits the same kind of insight into what justice is and how we may restore it in ourselves and our societies? My suggestion is: use the standards which have emerged collectively and encode small, creative shifts to make them more suitable to our stated intention.
+
+The [pr1s0n.art contracts](https://github.com/PrisonArt/restore/tree/main/packages/hardhat-ts/contracts) attempt this. We adapted the Zora Auction house to run according to our needs and named it **Justice.sol**. We adapted the NounsDAO NFT contract, itself an adaptation of OpenZepellin’s ERC721 standard contract, and named it **Restore.sol**.
+
+We simply made a small schange to _how value flows throughout the system_. As illustrated below, when an auction closes, the buyer does not immediately receive the NFT. Rather, the NFT is locked in the Restore contract in a manner that ensures it can only be released to the buyer. The funds they spent to procure it are sent to a pr1s0n.art “payment” address, controlled by a 501(c)3 non-profit organization in Florida (for which all documents are kept [here](https://github.com/PrisonArt/transparency)).
+
+<Aligner center>
+
+<Image src="/images/blog_headers/pa_flow_of_funds.png"/>
+
+</Aligner>
+
+This NPO is responsible for exchanging the crypto into USD and paying the Legal Financial Obligations of the artist. The current system is so unjust that people are reincarcerated for failure to pay their debts upon release, creating a vicious cycle which was impossible to break until web3 came along. That said, these LFOs are most often paid to state departments, which creates a virtuous win-win game that has helped us to get this project all the way into production. Once paid, the NPO gathers the receipts into what is now being called an “[impact certificate](https://arweave.net/vMMzKyvqhN9khzLWZX1A0yEpMpy3qKPtOMgnIH-_1mQ)”.
+
+<Aligner center>
+
+<Image src="/images/blog_headers/impact_cert.png"/>
+
+</Aligner>
+
+This certificate is added back to the NFT simultaneous to the NFT being [transferred from Restore.sol to the buyer](https://github.com/PrisonArt/restore/blob/main/packages/hardhat-ts/contracts/Restore.sol#L75), using the additional `data` param in the `safeTransfer()` function from the ERC721 standard. In this manner, the aesthetic expression of inherent human dignity carried by the art, and the economic narrative of restorative justice verified within the transaction are **one and the same moment** in our shared record.
+
+We have not made major modifications to the ERC721 standard itself: we have simply used it in a manner which most suits our needs and intention. 
+
+[Our simple app](https://restore.pr1s0n.art/#/nfts) enables us to illuminate restorative stories, both social and financial. Holding any artwork made available here in the years to come is simultaneously a statement of principles, aesthetics, **and** economic action. 
+
+Restorative justice is not limited to those who have "served time": it is collective. Such financial narrative tools allow us to begin healing the separation we project between the incarcerated and ourselves, allowing us to recognise that - unless we are all involved with justice - it will never be fully realized.

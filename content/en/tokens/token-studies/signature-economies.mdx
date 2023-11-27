@@ -1,0 +1,164 @@
+---
+order: 6
+title: Signature Economies
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+# Signature Economies
+
+Signature Economies is an interactive essay intended to expand our understanding of ownership so that it includes reciprocity and care, rather than just control and possession. It works by virtue of two NFT contracts and is included in this token studies section in order to illustrate that token design need not limit itself to the realm of fungible items. Indeed, most things in the world are non-fungible.
+
+As discussed in the intro to this section, **token mechanisms are deeply contextual** and we hope to illustrate here just how true that is, even when utilising standard libraries and patterns used across the industry. Before reading the case study below, it may help you to simply go and experience the essay first-hand:
+
+<Aligner center>
+
+<Flex sx={{alignItems: 'center'}}>
+  
+  <Button to='https://sign.kernel.community' secondary inline>
+    Make your mark
+  </Button>
+
+</Flex>
+
+</Aligner>
+
+Our goal with Signature Economies is: **make media which illustrate how to play with public tools for good thought in manifold ways**. In particular, these ways ought to include the financial, but not be limited to it. 
+
+Again, our work emphasises an appreciation of context as critical to the long-term success of any token. This project is a particularly interesting case study in this regard because it explicitly resists reducing everything to finance, and seeks to create ways of using shared ledgers that do not depend upon (and create more) hyped-up narratives about how we can solve all the problems of the world. Rather, it asks at the level of both code and marketing: what might meaningful economies look like?
+
+In crafting this public [tool for thought](/learn/module-3/remember/), we have - out of necessity - made a few technical discoveries and innovations. The most important of these is discussed at length at the end of this article, from the "Highlight of the Show" section. The tl;dr of this method is:
+
+<Process>
+
+Run a single page react application which renders images based on info passed to it in the url. Put this app in IPFS (make it a single page app, otherwise use IPNS).  
+
+Override the tokenURI function of the ERC721 standard and return base64 encoded json directly from the contract.  
+
+When minting NFTs, store only the relevant info you will need to pass in the url to your app in IPFS, and craft this into the JSON you return whenever anyone calls the (overridden) tokenURI function above.  
+
+</Process>
+
+The code and the video below (at the very end) will give you the exact details.
+
+<Aligner center>
+
+<Flex sx={{alignItems: 'center'}}>
+  
+  <Button to='https://github.com/kernel-community/signature-economies' secondary inline>
+    Inspect the code
+  </Button>
+
+</Flex>
+
+</Aligner>
+
+<Video src="https://www.youtube-nocookie.com/embed/oBE8ToQS6CI" />
+
+## Free Signs
+
+To begin at the beginning, we needed some non-financial means of interacting with text significantly. We started with a fork of the [Declaration of Interdependence](https://www.interdependence.online/declaration), and so always had in mind some notion of “signing” the text permanently and meaningfully.
+
+What this entails in practice is crafting an Ethereum Signed Message of the whole text and storing it somewhere permanent so that it may be referenced as an ongoing part of the document’s shared history. If you do not submit the signed message to Ethereum itself, then it is free, though which account signed can still be verified by anyone as they know what the body of the message (i.e. the essay itself) is.
+
+What does “signing” mean in this context, though? Do I have to agree to the whole text? Does it make me a co-creator or co-beneficiary? Or is it more like a clap, or a like? 
+
+While it is certainly closer to endorsement than co-creation in our context, a signed message links permanently your public key to some data. We have always liked the analogy that your public key is like your home address (and can be shared), while your private key is like your front door key (don’t share it ever). If we extend this analogy, then signed messages are like what you choose to plant in your front garden. As opposed to claps, which can only be seen on Medium, every time someone passes your home on the chain, they’ll be able to see what you’re growing there, irrespective of the media in which they encounter it.
+
+The declaration was initially designed to use social verification, which we decided not to implement. You ought to be able to interact meaningfully with just a keypair: you do not need to reveal anything more about yourself than this if you do not wish to. Moreover, we changed the way these signatures are stored in Arweave so that they can be [more easily retrieved](https://github.com/kernel-community/signature-economies/blob/main/packages/dapp/src/utils/arweave.js#L70L77).
+
+## Sealing the Deal
+
+We have a [long-running interest in seals](/learn/module-1/playdough-protocols). Not only have they been used to ensure data integrity for more than 3,000 years; they are also the means by which we can trace trade networks and the concomitant ways in which trust has spread across the globe (i.e. the fact Sumerian seals are found in Mali signifies that a network existed between these places); as well as being directly linked to the development of writing.
+
+We wanted to design a token that is capable of extending integrity and trust into the interplanetary systems we now have available to us, in the same way that seals have always been both the method by which trade is secured and the trace by which we can track where the trade network spreads. The way we achieve this is on-chain and maximally simple, involving a neat way to put structured directories into Arweave.
+
+The seals themselves come in three different shapes, and the shape your seal takes is determined on-chain by the price you pay for it. This means that the explicitly financial mechanism which makes up this medium is also the method which allows for the most choice of the three possible interactions, because the price is left open to readers to specify. The more you pay, the more edges the seal has; moving from square to hexagonal to circular. Creating a seal is a public and verifiable commitment to a simple idea: free education matters, in the sense of both cost and autonomy.
+
+We were inspired by the [Rewilder](https://app.rewilder.xyz) team. However, when we looked at their contracts, we noticed that [they use their own api](https://github.com/maraoz/rewilder/blob/dapp/contracts/RewilderNFT.sol#L29) and became determined to do better. There are two ways immediately available for improving this. The first is to explore [IPNS](https://docs.ipfs.io/concepts/ipns/) in order to host metadata for all the potential NFTs in a more dynamic way. However, we knew of a simpler and far more delightfully hacky solution.
+
+You can upload entire directories to Arweave and, if you structure that directory in a clever way, you can access all kinds of metadata in a ‘dynamic’ fashion from the same permaweb link. You get all the benefits of an api, with none of the costs or security/impermanence issues.
+
+[Here is the directory](https://github.com/kernel-community/signature-economies/tree/main/packages/hardhat/assets/arweave-seals) we uploaded to Arweave. [Here it is](https://arweave.net/SuPXgNnLyr_X4FR-a9M3jTloVH9wZnN334g9ToxyNZU/) on Arweave. We simply use this link as the baseURI for the tokens, and then specify which subdirectory and JSON file to add to the original link for each specific token [depending on the msg.value](https://github.com/kernel-community/signature-economies/blob/main/packages/hardhat/contracts/SignatureFund.sol#L101) of the call used to mint that token.
+
+## Recurrent Seasons
+
+There’s one more important thing to note in [this contract](https://github.com/kernel-community/signature-economies/blob/main/packages/hardhat/contracts/SignatureFund.sol#L32). We know we could have made it much more gas efficient by storing the URI in a tokenURI() function that overrides the ERC721 standard, which would be view only. However, we want to be able to update the seals over time, which means pointing the baseURI for metadata to a different Arweave URL. It is therefore critical that we store the full string in each tokenURI, so that seals which have already been minted remain fixed, while new seals can be generated with a different season of images and text.
+
+This allows us to explore ongoing, sustainable, seasonal interaction with the contract and with the wider web3 community. It also allows us to play with limits and constraints which are not contrived. That is: there is no limit to the number of seals which can be minted, because 10000 PFP campaigns cultivate the kind of consumerist culture we find to be boring and distasteful.
+
+However, everyone’s time is limited. It is not limited by some human contrivance in a structure we have designed and created: it is limited in an existential way. Therefore, placing a time limit on how long these particular seals will be created allows us to generate the kind of motivation to mint you might see in other projects, with less unnecessary anxiety and FOMO. We say this because seasonality implies not only change, by **cyclicality**. It is entirely possible that this season of seals will one day become available again: it’s just not clear when and what will come between then and now.
+
+> When we cast these new networks as economies of sign rather than of ownership, then the game becomes one of actively finding more people able to respond, rather than extracting rent from my exclusive right to some artificially scarce series of bits.
+
+## Highlight of the Show
+
+Lastly, we needed some visually meaningful, implicitly financial means of interacting with the text which allows readers to make their own permanently significant mark. This is easy enough to write out in natural language, but opening up such a route within this new medium would prove surprisingly challenging.
+
+We were inspired by [Medium’s highlights](https://www.productboard.com/blog/how-medium-highlights-feature-changed-publishing/) and the manner in which those have been used both to foster a greater community of readers and writers sharing what they think and giving each other valuable feedback across different media, all of which increases total time reading.
+
+We knew we wanted to achieve something similar, except with more visual impact and using NFTs. We also knew that using NFTs would imply a cost for readers which would be helpful in mitigating spam, and so we wrote the initial contracts with an entirely open mint function. Anybody could call the mint function, provide it with any string, and it would create a NFT with the tokenURI set to that string. 
+
+We knew the web app could send strings which referred to images generated using the text, and that we could exclude all other NFTs not minted in this manner from the “[Soul Signs](https://sign.kernel.community/signatures)” page. There is a difference between _contractual reality_ (which everyone has access to and can do with as they please) and _social reality_ (in which we can present curated data most relevant to our community and context through various interface choices).
+
+This, at least, was what we presented to the wonderful developer who audited the contracts. With deep experience in the world of NFTs, this developer made the point that having an open and permissionless mint function was all well and good until a troll comes along and uses it to mint horrific and illegal content, which then results in your collection getting banned from secondary markets. 
+
+While such markets are not the major focus of our work, it would be a pity to have done all this only to get banned for someone else’s actions. In addition to this, we have implemented a [10% contract-wide royalty](https://github.com/kernel-community/signature-economies/blob/main/packages/hardhat/contracts/base/ERC2981ContractWideRoyalties.sol) for secondary sales of Signature NFTs, so getting banned from marketplaces will likely lose us some potentially useful revenue in the long term.
+
+## Better Ways of Being Open
+
+Initially, we discussed the possibility of only allowing the creator of the contract to mint Signature NFTs. However, this defeats the whole point of permissionless systems, and introduces a potentially catastrophic security breach if the keys for that creator account are ever compromised. 
+
+So, we decided to add a “signer” account to the contract, separate from the creator. Though anyone could call mint(), the signer account would have to sign any message sent to that function, which now included a data param for that signed message, and which would fail if it had not been signed correctly. Trying to have our cake and eat it too, we made sure that we could [set the signer account to 0x0](https://github.com/kernel-community/signature-economies/blob/cb38481ad4d5a21b32ff618abb3b92eede80e52a/packages/hardhat/contracts/SignatureNFT.sol#L86) if we wanted, in which case it would be equivalent to a purely public function. The thinking here was, “permissionless, but not unmoderated”.
+
+This seemed to be an OK solution: not wonderful, but workable given our time constraints.
+
+However, when we began working it into the web app, we saw how much unnecessary complexity this simple change at the contractual level added to the overall project. It required running a separate server somewhere which had the signer private key on it, then authenticating calls to that server, as well as the data in those calls, trying to obfuscate network requests made from the frontend (not really possible) and many other things which any “authentication” paradigm necessarily implies.
+
+It was a deep lesson in why passwords and privileged roles suck. [Richard Stallman](https://www.oreilly.com/openbook/freedom/ch07.html) was heard laughing loudly in the background of many of those late nights.
+
+We returned to the drawing board. We needed some way of minting NFTs which was flexible enough to accommodate reader’s choices, but constrained enough that trolls would not use it to get our collection banned. We knew we could not use any kind of privileged account. The thought of trying to use the same technique as is outlined above for Sealed NFTs did cross our minds, but the number of different combinations of characters in a 2124 word essay is well over 2 million using the most optimistic of counts, and crafting all of that metadata was too much.
+
+Instead, we decided that all we needed to record when readers minted a Signature NFT was the start and end indices of the characters they had chosen. We could then use these start and end numbers to somehow generate the beautiful image you now see. 
+
+However, we had already written the [p5.js script](https://github.com/kernel-community/signature-economies/blob/main/packages/dapp/src/components/HighlightModal/Canvas.js) which generates those images and had grown quite attached to it. The problem is: you can’t run p5.js onchain. At best, you can write a [room of infinite paintings](https://etherscan.io/address/0x4325ac3371f5526fb4190e5b426355c141b85018#code) using all sorts of svg sleight of hand. That, too, was not something we felt capable of doing. However, onchain svgs do use a trick we could leverage: a [tokenURI() override function](https://github.com/kernel-community/signature-economies/blob/main/packages/hardhat/contracts/SignatureNFT.sol#L114) that returns metadata directly from the contract using base64 encoded json. This resulted in a major
+
+<Aligner center>
+
+<Image src="/images/blog_headers/brainwave.jpg"/>
+
+</Aligner>
+
+We could take our p5.js script, turn it into a [little single page react app](https://github.com/kernel-community/signature-economies/tree/main/packages/metta-sign) that accepts start and end points in the url, [upload that app to IPFS](https://opensea.mypinata.cloud/ipfs/QmYHGGTbqwFtfLFhhAKojVbmJwkVMNyqrniG9HLL1PYpyD/#0-462), reference it [in the contract](https://github.com/kernel-community/signature-economies/blob/main/packages/hardhat/contracts/SignatureNFT.sol#L40) and _voila_! All we need to do is return metadata from the tokenURI() function which references the IPFS hash together with the start and end of the reader’s chosen highlight, and this little SPA will generate the image on demand. Moreover, we can be sure it will always be findable by that hash and so we have finally achieved our aim.
+
+To summarise, after many different explorations, each of which had different trade-offs and implications at different levels of the "stack", we settled on an open method that uses some clever contractual solutions to ensure that no-one has a privileged role in minting NFTs while making sure such minting stays strictly within the boundaries we have set and the intention we have crafted for this application. In the end, we have created a new means of producing "dynamic" NFTs that are stored immutably on-chain. For emphasis, the process is as simple as:
+
+<Process>
+
+Run a single page react application which renders images based on info passed to it in the url. Put this app in IPFS (hence single page, otherwise you need IPNS, which is more complex).  
+
+Override the tokenURI function of the ERC721 standard and return base64 encoded json directly from the contract.  
+
+When minting NFTs, store only the relevant info you will need to pass in the url to your app in IPFS.  
+
+</Process>
+
+> **We have a permissionless, open mint function which can only be used to mint Signature NFTs from the essay, and will produce them as dynamic images which nevertheless have a permanent and verifiable root.**
+
+## Signing Off With Gratitude
+
+One last consideration we spent endless hours on was, “which network do we deploy on?” This has become more and more of a challenge for many kinds of projects in the last few years, which we think is a wonderful thing. However, our own context made the choice quite simple. It was not about attention, liquidity, active users, or any other metric. It comes down to this incredibly personal and sentimental signature. The upgrade to Ethereum 2.0 was on the horizon and we wanted this project to sign off the last seven, beautiful years on Ethereum 1, and to serve as a statement of thanks and praise to all who have participated.
+
+We love you.
+
+It has been a pleasure to work on this. The Signature Economies have cultivated within many of us a greater [sense of care](/conversation/reciprocity) and patience, as well as an understanding of what it really means to [do memorable work](/learn/module3/remember/#memory-only-exists-when-distributed). We find ourselves looking back over the commit trail and all the many months of work, and finally beginning to resonate with some of the deeper words in the text itself. In particular:
+
+> Seek to improve the people around you by humbling yourself and handing over power at every chance, without shirking responsibility. Delighted, you will gradually find yourself doing nothing, being happy.
+
+We invite you, one and all, to [come and make eternally beautiful marks with us](https://sign.kernel.community).
+
+## Recording
+
+Below you can watch a junto hosted by a Kernel Fellow to explore some of the ideas above and their underlying intention:
+
+<Video src="https://www.youtube-nocookie.com/embed/yfQVevK0eI0" />

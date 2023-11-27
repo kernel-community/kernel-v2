@@ -193,6 +193,13 @@
         "image": "/images/projects/timeless.png"
       },
       { 
+        "name": "Zapper",
+        "url": "https://zapper.fi/",
+        "description": "A Web3 discoverability platform.",
+        "image": "/images/projects/zapper.png"
+      },
+
+      { 
         "name": "Akropolis",
         "url": "https://www.akropolis.io/",
         "description": "Earn DeFi yield on autopilot",

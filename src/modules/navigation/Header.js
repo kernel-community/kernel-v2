@@ -111,27 +111,6 @@ const HeaderNav = ({ headerLinks, hideMenu }) => {
           '& > a': { fontSize: '16px', p: 2, textAlign: 'center' },
           '& > a:not(:last-child)': { mr: '1.4vw' },
         }}>
-        <Link
-          to={`/${locale}/`}
-          variant="nav"
-          onClick={hideMenu}
-          sx={{
-            textDecoration: 'none',
-            fontWeight: 'normal',
-            letterSpacing: '0.3px',
-            color: 'text',
-          }}>
-          {t('Home')}
-        </Link>
-        <Link
-          to={'/love'}
-          hideExternalIcon
-          sx={{
-            fontWeight: 'normal',
-            flexShrink: 0,
-          }}>
-          {t('Love')}
-        </Link>
         {headerLinks.map(({ url, title }, index) => (
           <Link
             to={url}
@@ -151,6 +130,15 @@ const HeaderNav = ({ headerLinks, hideMenu }) => {
             flexShrink: 0,
           }}>
           {t('Blog')}
+        </Link>
+        <Link
+          to={'https://library.kernel.community'}
+          hideExternalIcon
+          sx={{
+            fontWeight: 'normal',
+            flexShrink: 0,
+          }}>
+          {t('Library')}
         </Link>
       </Flex>
     </Fragment>

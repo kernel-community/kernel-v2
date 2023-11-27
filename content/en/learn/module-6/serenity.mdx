@@ -8,25 +8,25 @@ featuredImage: images/shares/giving.png
 
 # 🦋 Serenity
 
-We have finally reached the tranquil waters of Eth2. It's been many years in the making, and it appears we still have some way to go yet. 
+We have finally reached the tranquil waters of Ethereum 2.0 (also known as “Serenity”). It's been many years in the making, and it appears we still have some way to go yet. 
 
-In fact, coming up with the right wording for the previous sentence was quite a challenge, because Kernel aims for “evergreen” content which will still be accurate and relevant at least a decade from now. As we will shortly see, this is an aspiration we share with the Eth2 Design Rationale on which the below brief is based.
+In fact, coming up with the right wording for the previous sentence was quite a challenge, because Kernel aims for “evergreen” content which will still be accurate and relevant at least a decade from now. As we will shortly see, this is an aspiration we share with the Ethereum 2.0 Design Rationale.
 
-You might wonder, are we saying that we will “still have some way to go yet” ten years from now? We certainly hope so. The desire for enclosure, for a certain and definitive end state which can be encapsulated as a “product” and consumed by the wider culture is a peculiarly modern phenomenon. 
+You might wonder, are we saying that we will “still have some way to go” ten years from now? We certainly hope so. The desire for enclosure, for a certain and definitive end state which can be encapsulated as a “product” and consumed by the wider culture is a peculiarly modern phenomenon. 
 
-We hope that Ethereum, and networks like it, are never really finished. We hope that people continue tinkering with them and playing with new ways of imagining how we might relate for as long as there are world machines and people using them to build new trust spaces. This is what traditional business people will never understand: it's not interesting to ship products using this kind of technology. What is truly fascinating is **the ongoing art of making possible**:
+We hope that Ethereum, and networks like it, are never really finished. We hope that people continue tinkering, playing with new ways of relating to one another for as long as there are world machines and people using them to build trust spaces. What is truly fascinating is not finished products to sell, but **the ongoing art of making possible**:
 
 <Aligner center>
 
 <Box>
 
-_And once those limits are understood_  
+_"And once those limits are understood_  
 _To understand that limitations no longer exist._  
 _Earth could be fair. And you and I must be free_  
 _Not to save the world in a glorious crusade_  
 _Not to kill ourselves with a nameless gnawing pain_  
 _But to practice with all the skill of our being_  
-_The art of making possible._  
+_The art of making possible."_  
   
 Nancy Scheibner 
 
@@ -39,7 +39,7 @@ Nancy Scheibner
 
 <Box>
 
-**Eth2 Design Rationale**
+**Ethereum 2.0 Design Rationale**
 
 ![Design Rationale](/images/ethereum.png)
 
@@ -61,76 +61,56 @@ What this [*means*](/learn/module-1/meaning/) for our networked species remains 
 
 ## Brief
 
-We’ll be taking a close look at Vitalik’s Design Rationale for Ethereum 2, which is the move to a Proof-of-Stake network that also greatly increases capacity by using “shards”. Don’t get intimidated by the technical jargon here: this has been included in the syllabus for two primary reasons:
+We’ll be taking a close look at Vitalik’s Design Rationale for Ethereum 2.0, which is the move to a Proof-of-Stake network that also greatly increases capacity by using “shards”. Don’t get intimidated by the technical jargon here: this has been included in the syllabus for two primary reasons:
 
 <Process>
 
-When discussing mechanism design and game mechanics which arise from revealing truth with least contrivance, we made the claim that “exploration of low-level primitives yields possibility”. We need to look at the primitives, but the intention is primarily to walk away with a better understanding of the possibilities they imply.  
+Previously, when discussing mechanism design and game mechanics which arise from revealing truth with least contrivance, we made the claim that “exploration of low-level primitives yields possibility”. We need to look at the primitives, but the intention is primarily to walk away with a better understanding of the possibilities they imply.  
 
-When discussing money and speech, we claimed that - with blockchains - the best way to protect free speech is to price it correctly. We don't enforce "the good" by legal fiat and deal with exceptions like libel and hate speech through human interpretation and violent enforcement; we define what is "bad" and set a price on it such that malicious expression is provably more expensive than its potential effects. Eth2 extends this idea greatly: it is our generation's elder game of economic penalties.
+When discussing money and speech, we claimed that - with blockchains - the best way to protect free speech is to price it correctly. We don't enforce "the good" by legal fiat and deal with exceptions like libel and hate speech through human interpretation and violent enforcement; we define what is "bad" and set a price on it such that malicious expression provably costs more than what may be gained from it. Ethereum 2.0 extends this idea greatly: it is our generation's elder game of economic penalties.
 
 </Process>
 
 
 ### Principled Layers
 
-Just as [we did for Kernel](/start/principled-people), Vitalik begins Eth2's 
-design rational with a series of core principles:
+Just as [we did for Kernel](/start/principled-people), Vitalik begins Ethereum 2.0's Design Rationale with a series of core principles:
 
 <Process>
 
-**Simplicity**: given the inherent complexity of such networks, this (i) minimizes 
-development costs, (ii) reduces the risk of unforeseen security issues, and (iii) helps 
-protocol designers to more easily convince users that parameter choices are legitimate. 
-When complexity is unavoidable to achieve a given level of functionality, the preference order 
-for where the complexity goes is: layer 2 protocols → client implementations → protocol spec.
+<Box>
 
-Long-term **stability**: the low levels of the protocol should ideally be built so that there 
-is no need to change them for a decade or longer.
+**Simplicity**: given the inherent complexity of blockchain networks, simplicity 
 
-**Sufficiency**: it should be possible to build *any class* of applications on top of the 
-protocol.
+- minimizes development costs,  
+- reduces the risk of unforeseen security issues, and  
+- helps protocol designers to more easily convince users that design choices are legitimate.  
 
-**Defense** in depth: the protocol should continue to work as well as possible under a 
-variety of possible security assumptions (network latency, fault count, the motivations of 
-users etc.)
+</Box>
 
-Full light-client **verifiability**: given some assumptions, a client verifying `O(c)` 
-data should be able to gain indirect assurance that all of the data in the full system is 
-available and valid, even under a 51% attack.
+Long-term **stability**: the lower levels of the protocol should ideally be built so that there is no need to change them for a decade or longer.
+
+**Sufficiency**: it should be possible to build *any class* of applications on top of the protocol.
+
+**Defense** in depth: the protocol should continue to work as well as possible under a variety of possible security assumptions (concerning network latency, fault count, the motivations of users etc.)
+
+Full light-client **verifiability**: a client should be able to gain assurance that all of the data in the system is available and valid, even under a 51% attack.
 
 </Process>
 
-In our [very first note](/learn/module-0/play-of-pattern), we made the point that our way of 
-thinking and solving problems _always_ has to do with trade-offs. The trade-off between 
-complexity and functionality is a deep one and goes to the heart of the debate about whether 
-we should be innovating on layer 1 or 2. The answer is "both", and you need to understand your 
-own context in order to best decide where on the spectrum your most optimal solution lies.
+In our [very first note](/learn/module-0/play-of-pattern), we made the point that our way of thinking and solving problems always has to do with trade-offs. The trade-off between complexity and functionality is a deep one. Ethereum developers have taken the approach of splitting the network into “layers” in order to make better trade-offs between complexity and the functionality we need to build a global computing fabric that everyone can use. 
 
-Vitalik calls this "<Link to="https://vitalik.ca/general/2019/12/26/mvb.html" >functional escape velocity</Link>": 
-we need layer 2 solutions to ensure **simplicity** and **long-term stability** by reducing 
-the complexity of the consensus layer; and we need layer 1 innovation in order to ensure 
-**sufficiency**. In practice, this means:
+The core idea is that we keep the “bottom layer” or “Layer 1” as simple as possible: it just processes critical or high-value transactions that require global agreement. This adheres to the first, second, and fourth principle above. Then, we move more complex processes–which cost more to run and may not need everyone in the world to agree on them right now–to other layers further up, often called “Layer 2”. 
 
-1. *Quasi-Turing-complete and richly-stateful code execution*, allowing robust L2 trust 
-solutions.
-2. *Scalable data availability and computation,* along with
-3. *Fast block times,* both of which ensure that L2 is not limited to channel and Plasma-like 
-techniques which are not general and suffer capital inefficiencies and/or mass-exit issues.
-
-There are other features deliberately left to L2: (i) privacy, (ii) high-level programming 
-languages, (iii) scalable state storage, and (iv) signature schemes, because these features 
-are all areas of rapid innovation, which tilts the trade-off towards ensuring we don't set 
-some solution in the stone of our protocol spec for an area likely to develop extensively 
-over the next 10 years.
+There are many different kinds of “Layer 2” options, which make different trade-offs depending on what they are optimising. All the complexity gets moved here–and understanding all the different approaches can be daunting–but a diversity of approaches to processing different people’s different needs and use cases is required to give us all “sufficiency”, as well as providing “defence in depth” in a different kind of way.
 
 <Flash>
 
 <Card>
 
-Q: What are the five principles of the Eth2 Design Rationale?
+Prompt: What are the five principles of the Ethereum 2.0 Design Rationale?
 
-A: Simplicity, stability, sufficiency, defense, verifiability.
+Simplicity, stability, sufficiency, defense, verifiability.
 
 </Card>
 
@@ -139,33 +119,34 @@ A: Simplicity, stability, sufficiency, defense, verifiability.
 ### A Defender's Game
 
 Bitcoin was a major innovation - it's almost like time-travelers came back to 2009 and dropped 
-it on an obscure mailing list for us to puzzle over. However
-, <Link to="https://www.gwern.net/Bitcoin-is-Worse-is-Better" >it is not elegant</Link> 
+it on an obscure mailing list for us to puzzle over. However, <Link to="https://www.gwern.net/Bitcoin-is-Worse-is-Better" >it is not elegant</Link> 
 and its consensus algorithm breaks one of the fundamental advantages cryptography provides: 
-**adversarial conflict should heavily favor defenders**. Sea steads are easier to destroy than 
-build, but an average person’s ECC keys are secure enough to resist even state-level actors.
+**adversarial conflict should heavily favor defenders**. Seasteads are easier to destroy than 
+build, but an average person’s keys are secure enough to resist even state-level actors.
 
 > Systems that consider themselves ideological heirs to the cypherpunk spirit should maintain 
 this basic property, and be much more expensive to destroy or disrupt than they are to use and 
 maintain.
 
 Proof of Work security can only come from block rewards, and incentives to miners can only 
-come from the risk of losing future block rewards. Proof of work necessarily operates on a 
-logic of massive power incentivized into existence by massive rewards. It's effective, but 
-inefficient. The cost of attack and cost of defense are at a 1:1 ratio, so there is no 
+come from the risk of losing future block rewards. That is to say, Proof of Work necessarily operates on a 
+logic of massive power incentivized into existence by massive rewards. This is effective, but 
+inefficient. The cost of attack and the cost of defense are at a 1:1 ratio, so there is no 
 **[defender’s advantage](https://www.daoistry.com/mindsets/defenders-advantage/)**.
 
-> Proof of stake breaks this symmetry by relying not on rewards for security, but rather 
-penalties [...] The “one-sentence philosophy” of proof of stake is thus not “security comes 
+> Proof of Stake breaks this symmetry by relying not on rewards for security, but rather 
+penalties [...] The “one-sentence philosophy” of Proof of Stake is thus not “security comes 
 from burning energy”, but rather “security comes from putting up economic value-at-loss”.
+
+Of course, the wise design of [penalties can be its own reward](/token/token-case-studies/#the-cost-of-decisions).
 
 <Flash>
 
 <Card>
 
-Q: What kind of actor does cryptography favour fundamentally?
+Prompt: What kind of actor does cryptography favour fundamentally?
 
-A: (individual) defenders.
+(individual) defenders.
 
 </Card>
 
@@ -176,32 +157,31 @@ platform, only to find that [advertising is intractable to platform solutions](/
 This is because the limited number of top spots on infinite-length shelves, and the crazy 
 amounts of revenue they generate, create a conflict of interest between Amazon and its users. 
 This kind of conflict can only be [solved with a **protocol**, not a platform](/learn/module-0/money-language/#open-protocols-and-a-network-of-value). 
-However, PoW protocols still have a comparable conflict of interests between miners and users. 
-Miners must pay for the massive power they are incentivized to use in securing a PoW network, 
-which creates both (i) consistent forced sellers in any market and (ii) skewed incentives 
-around, for instance, block sizes which lead to suboptimal outcomes for users of the network.
+However, Proof of Work protocols still have a similar conflict of interests between miners and users. 
+Miners must pay for the massive power they are incentivized to use in securing a Proof of Work network, 
+which creates both (i) consistent forced sellers in any market (miners must sell some amount of the tokens they earn as rewards in order to pay for hardware and power costs) and (ii) skewed incentives around, for instance, block sizes which lead to suboptimal outcomes for users of the network.
 
-Ensuring that anyone, even with entry-level hardware and a small amount of ETH, can act as a 
-validator and that the protocol relies on penalties rather than rewards, means that users and 
+Proof of Stake ensures that anyone, even with entry-level hardware and a relatively small amount of ETH, can act as a 
+validator and that the protocol relies on penalties rather than rewards. This means that users and 
 validators are more likely to be *the same people*, thus reducing conflict. Just as protocols 
 which define and encode what it means to cheat do not need to be [trusted](/learn/module-0/trust/), 
-protocols which define and encode penalties are **more likely to benefit all their users**. 
+protocols which define and encode penalties are **more likely to benefit all their users** than protocols which rely on rewards. 
 This is because encoding rewards creates inevitably skewed incentives that only accrue to the 
-subset of network participants who are best placed to game the system required to earn them.
+subset of network participants who are best placed to game the system.
 
 <Flash>
 
 <Card>
 
-Q: The cost of attacking or defending Proof of Work consensus is 1:1. Proof of Stake breaks this symmetry by relying on what, instead of rewards? 
+Prompt: The cost of attacking or defending Proof of Work consensus is 1:1. Proof of Stake breaks this symmetry by relying on what, instead of rewards? 
 
-A: Penalties.
+Penalties.
 
 </Card>
 
 <Card>
 
-Q: This solves the conflict of interest between miners and users, because Eth2 validators and Eth2 users are more likely to be what?
+Prompt: This solves the conflict of interest between miners and users, because Ethereum 2.0 validators and Ethereum 2.0 users are more likely to be what?
 
 The same people. 
 
@@ -211,26 +191,16 @@ The same people.
 
 ### Proving Stake
 
-Eth2 uses a slashing mechanism where a validator that is detected to have misbehaved can be 
-penalized: in the best case ~1%, but in the worst case up to its entire deposit. This raises 
-the cost of an attack such that we achieve the defender's asymmetry described above and 
-overcome the validator's dilemma, i.e. lazily validating everything without properly checking 
-each transaction.
+Ethereum 2.0 uses a slashing mechanism where a validator that is detected to have misbehaved can be penalized: in the best case by only about 1%, but in the worst case by up to its entire security deposit. This raises the cost of an attack such that we achieve the defender's advantage described above without creating an incentive for validators to validate each transaction without checking it fully (as this is less expensive computationally).
 
-Vitalik describes why Casper FFG was chosen - it was the simplest available at the time - and 
-how other options continue to be explored. He highlights the problem of "supernodes" and why 
-sharding is better: less centralization risk, more censorship resistance, and better long-term 
-scalability. Critically, he then considers the security models of any system we choose, and 
-how it operates not just under the "honest majority" model of 51% chains, but also the 
-*uncoordinated rational majority* and *worst-case* models. Assuming the worst-case, the 
-question remains:
+In the Ethereum 2.0 Design Rationale, Vitalik describes why "Casper the Friendly Finality Gadget" was chosen - it was the simplest Proof of Stake consensus algorithm available at the time - and how other options continue to be explored. He highlights the problem of "supernodes" and why 
+sharding is better: less centralization risk, more censorship resistance, and better long-term scalability. Critically, he then considers the security models of any system we choose, and how it operates not just under the "honest majority" model (where 51% of the validators are assumed to be trustworthy), but also the "uncoordinated rational majority" and "worst-case" models. Assuming the worst case, the question remains:
 
-- Can we force the attacker to have to pay a very high cost to break the chain’s guarantees?
+- Can we force an attacker to have to pay a very high cost to break the chain’s guarantees?
 - What guarantees can we unconditionally preserve?
 
 Slashing ensures the first condition, and Vitalik provides a detailed table of the guarantees 
-we can preserve with Proof of Stake systems 
-in <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Security-models" >this section</Link>. 
+we can preserve with Proof of Stake systems in <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Security-models">this section</Link>. 
 In a system designed around penalties, you need to distinguish between various types of 
 validator failure - most of which are benign (like simply being offline) - and only a few of 
 which are genuinely malicious. Critically, **it is the trade-off between different penalties** 
@@ -240,32 +210,32 @@ which informs how we structure rewards.
 
 <Card>
 
-Q: What kind of mechanism is used to ensure that attackers still pay a very high cost to break the chain's guarantees, assuming the worst-case model?
+Prompt: What kind of mechanism is used to ensure that attackers still pay a very high cost to break the chain's guarantees, assuming the worst-case model?
 
-A: Slashing (extra points if you said Casper the Friendly Finality Gadget).
+Slashing (extra points if you said Casper the Friendly Finality Gadget).
 
 </Card>
 
 </Flash>
 
-#### Aligning Incentives
+### Aligning Incentives
 
-Validators must attest to what they believe to be the head of the chain in each epoch. If they 
-do so, they earn a **base reward**, which is split into 5 parts described <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Base-rewards">here</Link>. There are two features to understand about this reward: how it prevents "<Link to="https://raw.githubusercontent.com/ethereum/research/master/papers/discouragement/discouragement.pdf">griefing</Link>", and how it is calculated. 
+In Ethereum 2.0, validators must attest to what they believe to be the head of the chain in each epoch, i.e. approximately every 6.5 minutes. If they 
+do so, they earn a **base reward**, which is split into 5 parts described <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Base-rewards">here</Link>. Rather than detailing all of these, we’ll focus here on two critical features of the reward: how it prevents "<Link to="https://raw.githubusercontent.com/ethereum/research/master/papers/discouragement/discouragement.pdf">griefing</Link>", and how it is calculated. 
 
 <Process>
 
 <Box>
 
-Griefing occurs when an attacker seeks to reduce other validators’ revenue, even at some 
+Griefing occurs when an attacker seeks to reduce other validators’ revenue, even at a 
 cost to themselves, in order to encourage the victims to drop out of the mechanism (either 
 so the attacker can get more revenue, or as part of a longer-term 51% attack). 
 
-> By multiplying the base reward **B** with **P** the portion of validators that agree, and penalizing any validator who doesn't with **−B**, we implement a **collective rewards scheme** where “if anyone performs better, everyone performs better”. This bounds the griefing factors in an optimal way and is the best example of [explicitly prosocial mechanism design](/learn/module-5/prosocial-value) we know of in any blockchain.
+By awarding any compliant validator with an amount corresponding to the base reward **B** multiplied by **P** (the portion of validators that agree) and penalising any validator who doesn't with **−B**, we implement a collective rewards scheme where “if anyone performs better, everyone performs better”. This bounds the griefing factors in an optimal way and is the best example of [explicitly prosocial mechanism design](/learn/module-5/prosocial-value) we know of in any blockchain.
 
 </Box>
 
-The **base reward** is proportional to the inverse square root of all deposits. This strikes a 
+The **base reward** is proportional to the inverse square root of all security deposits made by the validators of the system. This strikes a 
 compromise between a *fixed reward rate* and a *fixed total reward*. The first creates too much 
 uncertainty about both issuance and the total level of deposits; the second potentially 
 incentivizes griefing more than can be disincentivized by the collective scheme above. Again, 
@@ -277,33 +247,33 @@ mechanism design is *all about balancing trade-offs*.
 
 <Card>
 
-Q: Multiplying the base reward **B** with the portion of validators who agree, while only penalizing those who disagree with **-B** is what kind explicitly prosocial scheme?
+Prompt: Multiplying the base reward **B** with the portion of validators who agree, while only penalizing those who disagree with **-B** is what kind explicitly prosocial scheme?
 
-A: Collective rewards.
-
-</Card>
-
-<Card>
-
-Q: Making the base reward proportional to the inverse square root of all deposits strikes a balance between what two fixed quantities?
-
-A: Reward rate and total rewards.
+Collective rewards.
 
 </Card>
 
 <Card>
 
-Q: If the reward rate were fixed, it would create too much uncertainty about what two things?
+Prompt: Making the base reward proportional to the inverse square root of all deposits strikes a balance between what two fixed quantities?
 
-A: Total issuance and total deposits (i.e. how much ETH is created over time, and how much we can reasonably expect to be staked).
+Reward rate and total rewards.
 
 </Card>
 
 <Card>
 
-Q: If the total rewards were fixed, it would incentivize what kind of malicious behaviour?
+Prompt: If the reward rate were fixed, it would create too much uncertainty about what two things?
 
-A: Griefing.
+Total issuance and total deposits (i.e. how much ETH is created over time, and how much we can reasonably expect to be staked).
+
+</Card>
+
+<Card>
+
+Prompt: If the total rewards were fixed, it would incentivize what kind of malicious behaviour?
+
+Griefing.
 
 </Card>
 
@@ -312,7 +282,7 @@ A: Griefing.
 Rewards are designed this way *only as a result* of thinking about how to penalize 
 different kinds of undesirable validator behaviour. Now that we understand this premise, we 
 can check that the rewards fit our requirements by considering the **break-even uptime** for 
-any validator. If everyone is validating, you need only be online ~44.44% of the time. However, 
+any validator. It turns out that if everyone else is validating, you need only be online ~44.44% of the time. However, 
 if other validators are offline - say P = 2/3 - then you need to be online ~53.6% of the time.
 
 The incentives ensure that, as more validators go offline, the penalty for doing so is greater, 
@@ -329,44 +299,40 @@ preventing blocks from being finalized and
 
 <Card>
 
-Q: If everyone else is online, what percentage of time must I be online for to break even as a validator?
+Prompt: If everyone else is online, what percentage of time must I be online for to break even as a validator?
 
-A: ~44.4%. 
+~44.4%. 
 
 </Card>
 
 <Card>
 
-Q: If others start to go offline, does the break even uptime for validators increase or decrease?
+Prompt: If others start to go offline, does the break even uptime for validators increase or decrease?
 
-A: Increase (as there is a higher penalty if my being offline impacts the chain's ability to reach finality).
+Increase (as there is a higher penalty if my being offline impacts the chain's ability to reach finality).
 
 </Card>
 
 </Flash>
 
-So, we can handle elegantly the penalties for common and benign kinds of validator failures, 
-but what about actual attacks and/or malicious behaviour? If a validator is caught violating 
-the Casper FFG slashing condition
-, <Link to="https://github.com/ethereum/eth2.0-specs/blob/dev/specs/phase0/beacon-chain.md#proposer-slashings" >they get penalized</Link> 
-a portion of their deposit equal <Link to="https://github.com/ethereum/eth2.0-specs/blob/dev/specs/phase0/beacon-chain.md#slashings" >to three times</Link> 
-the portion of validators that were penalized around the same time.
+All of this means that we can handle elegantly the penalties for common and benign kinds of validator failures. But what about actual attacks and/or malicious behaviour? If a validator is caught violating 
+the Casper FFG slashing condition, <Link to="https://github.com/ethereum/eth2.0-specs/blob/dev/specs/phase0/beacon-chain.md#proposer-slashings" >they get penalized</Link> by a portion of their deposit equal <Link to="https://github.com/ethereum/eth2.0-specs/blob/dev/specs/phase0/beacon-chain.md#slashings" >to three times</Link> the portion of validators that were penalized around the same time. The reasoning behind this is:
 
 - A validator misbehaving is only really bad for the network if they misbehave at the same time 
 as many other validators, so it makes sense to punish them more in that case.
 - It heavily penalizes actual attacks, but applies very light penalties to single isolated 
 failures that are likely to be honest mistakes.
-- It ensures that smaller validators take on less risk than larger validators (in the normal 
-case, a large validator would be the only one failing at the same time as themselves).
-- It creates a disincentive against everyone joining the largest pool.
+- It ensures that single validators take on less risk than larger services (in the normal 
+case, a service running several validators would be the only one failing at the same time as themselves).
+- It creates a disincentive against everyone joining one single validator pool.
 
 <Flash>
 
 <Card>
 
-Q: True or false: the collective reward scheme of **B * P** incentivises validators to pool their resources?
+Prompt: True or false: the collective reward scheme of **B * P** incentivises validators to pool their resources?
 
-A: False! We can now program collective rewards without sacrificing decentralization.
+False! We can now program collective rewards without sacrificing decentralization.
 
 </Card>
 
@@ -374,77 +340,17 @@ A: False! We can now program collective rewards without sacrificing decentraliza
 
 ### Technicalities
 
-Vitalik then discusses some of the technical choices favored in the design, like BLS signatures 
-(which are easy to aggregate) and SSZ (a simpler serialization suite which aligns with the 
-principle of **simplicity**). We'll summarize very briefly here.
-
-<Process>
-
-**32 ETH** minimum deposits <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Why-32-ETH-validator-sizes" >strike a good balance</Link> 
-between decentralization / finality time / message overhead. This is a trade-off because the 
-size of deposits defines the total possible number of validators (smaller deposits = more 
-validators), which increases decentralization at the cost of message overhead, and potentially 
-finality time.
-
-Various techniques around **random sampling** for different committees are discussed, 
-including Verifiable Delay Functions and the 
-current <Link to="https://notes.ethereum.org/@vbuterin/rkhCgQteN?type=view#Shuffling" >swap-or-not</Link> 
-algorithm used to shuffle the validator set and assign responsibilities every epoch.
-
-The **LMD GHOST fork choice rule**, which incorporates information from all validators, 
-hundreds in each slot, making it extremely unlikely in the normal case that even a single 
-block will be reverted.
-
-<Box>
-
-The **beacon chain and shard structure** is described, along with reasons for not going with a different design, such as 
-1. Having distinct shard chains and linking them into the beacon chain more rarely. This was rejected to allow for fast (single-slot) base-layer cross-shard communication capability. See <Link to="https://notes.ethereum.org/@vbuterin/HkiULaluS" >here</Link> for more.
-2. Not having a beacon chain, and connecting shard chains to each other in some other structure. This was rejected to maintain **simplicity**. The hub-and-spoke beacon chain structure with a hierarchical fork choice is simpler to implement and reason about.
-
-</Box>
-
-The **proof of custody game**, which revolves around validators needing to produce "period sub-keys" 
-such that they can prove they were not lazily verifying data. This creates a disincentive so 
-as to overcome the validator's dilemma mentioned above.
-
-The **validator lifecycle**, which involves depositing, activating, exiting, withdrawing 
-and the reason for using a more convenient construction of "effective balance" for validators.
-
-Finally, Vitalik describes **fork choice rule** - because the ability to exit the network 
-at any stage is critical to the system's game theoretic equilibria.
-
-</Process>
-
-<Flash>
-
-<Card>
-
-Q: What three features does the 32 ETH validator deposit make a trade-off between?  
-
-A: Decentralization, finality time, and message overhead.
-
-</Card>
-
-<Card>
-
-Q: What principle of the Design Rationale dictated the choice of a beacon chain, rather than distinct shards connected in some other manner?
-
-A: Simplicity.
-
-</Card>
-
-</Flash>
+Vitalik then discusses some of the technical choices favored in the design, like BLS signatures (which are easy to aggregate) and SSZ (a simpler serialization suite which aligns with the principle of **simplicity**). If you're interested, we recommend going directly to the Rationale for these details. [This twitter thread](https://twitter.com/LuozhuZhang/status/1579845478920749060) does an excellent job of providing an overview of the development of Ethereum 2.0 consensus and the associated research if you want more history and detail than can be found in the Design Rationale itself.
 
 ### The Positive Sum
 
-What is Eth2? Well, we said it already: our generation's elder game of economic penalties. These penalties are the game mechanics we use to reveal a [unique kind of truth](/learn/module-5/reveal-the-universe/#the-value-of-truth): it is possible to build - and asymmetrically defend/maintain - an explicitly prosocial, global, and ownerless system that provably benefits all the people who choose to use it. The benefits of encoding penalties extend to all layers of this game, including our ability to <Link to="https://twitter.com/VitalikButerin/status/1294461236680130560" >use coordination costs to our advantage</Link>.
+What is Ethereum 2.0? Well, we said it already: our generation's elder game of economic penalties. These penalties are the game mechanics we use to reveal a [unique kind of truth](/learn/module-5/reveal-the-universe/#the-value-of-truth): it is possible to build - and asymmetrically defend and maintain - an explicitly prosocial, global, and ownerless system that provably benefits all the people who choose to use it. The benefits of encoding penalties extend to all layers of this game, including our ability to <Link to="https://twitter.com/VitalikButerin/status/1294461236680130560">use coordination costs to our advantage</Link>.
 
-Welcome. Most of us are [friends](/learn/module-5/prosocial-value/#friendship) here, 
-because the alternatives are more expensive.
+Welcome. Most of us are [friends](/learn/module-5/prosocial-value/#friendship) here. The alternatives are more expensive.
 
 ### Further resources
 
-These few links are intended for those who wish to understand more technicalities and begin developing on, or building tools for, Eth2.
+These few links are intended for those who wish to understand more technicalities and begin developing on, or building tools for, Ethereum 2.0.
 
 <List>
 
@@ -462,7 +368,7 @@ Ethos.dev
 
 <Link to="https://ethereumstudymaster.com/courses/ethereum-2-0-studymaster-program/">
 
-Eth2 Studymaster
+Ethereum 2.0 Studymaster
 
 </Link>
 

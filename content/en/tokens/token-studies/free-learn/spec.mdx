@@ -1,0 +1,556 @@
+---
+order: 11
+title: Technical Spec
+hideLanguageSelector: true
+featuredImage: images/shares/giving.png
+---
+
+## The Learning Curve
+
+Most good specs start with a picture:
+
+<Aligner center>
+
+<Image alt="Learning Curve Explainer" src="/images/FreeLearn_v3.png" />
+
+</Aligner>
+
+## Simple Summary
+
+A generalised template for online educational courses.
+
+## Abstract
+
+The following specifies a set of contracts capable of supporting free online educational environments for learners, while ensuring that educators are rewarded for the content they create. This standard allows for the creation of any kind of course and only expects educators to ensure learners can claim their stake back after some period of time.
+
+## Motivation
+
+Student debt and underpaid teachers are two pivotal problems of our age. While an abundance of information exists online, especially in the open source world, we cannot simply make all resources free, as that ensures teachers become even more undervalued than they currently are. There must be some way of using programmable money to both erase student debt, while ensuring educators receive due recompense for the critical role they play in society.
+
+These contracts present exactly one such solution. An epistemic community of learners who choose to mint (increasingly valuable) LEARN tokens at the end of their course, rather than just claim their original stake back, is one possible emergent result.
+
+## Specification
+
+### DeSchool
+
+This contract contains the logic for creating courses, creating scholarships, registering learners, and tracking whose money has gone where and how much of the initial stake can be redeemed at any given time. It includes interfaces to the Learning Curve, which is the contract responsible for accepting DAI and minting LEARN (or vice versa); to a Yearn Vault; to the Yearn Registry (which stores a pointer to the latest vault contracts); and to an ERC20 implementation that includes the `permit()` functionality necessary to ensure learners will only sign one transaction when registering for a course or redeeming their funds (rather than the approve-transact pattern we often see).
+
+#### Methods
+
+<Accordion>
+
+**constructor**
+
+> params:   
+> **address _stable** - the kind of token stakes are denominated in;  
+> **address _learningCurve** - the address of the contract containing the logic for minting & burning;  
+> **address _registry** - the yearn registry of vaults, where stakes are kept during study.
+
+DeSchool is constructed to be aware of only these three items essential to its correct functioning.
+
+</Accordion>
+
+<Accordion>
+
+**createCourse**
+
+> params:   
+> **uint256 _stake** - the amount of DAI to be locked for the duration of study;   
+> **uint256 _duration** - the number of blocks for which the course runs, after which learners can redeem, or mint from, their stake;      
+> **string calldata _url** - a simple "metadata" field to link any course to its frontend, useful for validation &amp; security, as well as future frontend displays;   
+> **address _creator** - the address to receive any yield generated when learners on this course choose not to mint LEARN.
+
+Anyone can create a course. There are no privileged roles here. The only expectation is that you define clearly when learners may redeem whatever it costs to take your course, as well as the digital location where your course will take place.
+
+</Accordion>
+
+<Accordion>
+
+**createScholarship**
+
+> params:   
+> **uint256 _courseId** - the course which the scholarships apply to;   
+> **uint256 _amount** - the amount, in DAI, to be locked in a Yearn vault for perpetual scholarships;   
+
+Anyone can create scholarships for any course. All you need to do is lock up DAI in a yearn vault and specify for which course you'd like to open scholarships. The number of scholarships your DAI provides is calculated by dividing the amount provided by the specific course stake. The idea is that any learner can then register for the course as a scholar. Once they have completed the course - i.e. the duration of the course specified in number of blocks has passed - a new learner can then register with the same scholarship. Please read [here](/build/token-studies/free-learn/learnings/#perpetual-scholarships) for more information.
+
+</Accordion>
+
+<Accordion>
+
+**permitCreateScholarships**
+
+> params: 
+> **uint256 _courseId**  
+> **uint256 _amount**  
+> **uint256 nonce**  
+> **uint256 expiry**  
+> **uint8 v**  
+> **bytes32 r**  
+> **bytes32 s**  
+
+
+This method uses the `permit()` functionality associated with DAI to approve the DeSchool contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `createScholarships()` and have it operate as expected.
+
+</Accordion>
+
+<Accordion>
+
+**registerScholar**
+
+> params:   
+> **uint256 _courseId** - the course in which we need to refresh scholarship slots;    
+
+Called before `permitandRegister` below if there are any scholarships available for this course. The idea here is that scholarships are handed out on a  first-come-first-serve basis. It is not about merit or outcome, both of which have their own problems. Because these scholarships are perpetual, we think that this approach is the most equitable.
+
+</Accordion>
+
+<Accordion>
+
+**withdrawScholarship**
+
+> params:   
+> **uint256 _courseId** - the course from which to withdraw scholarships;   
+> **uint256 _amount** - the amount, in DAI, to be withdrawn from a Yearn vault;   
+
+A method which allows whomever has funded scholarships to withdraw their principal at any time. This reduces the scholarshipTotal for that course (i.e. if you withdraw the whole amount, no new scholars can register), though anyone already registered remains so for the duration of the course.
+
+</Accordion>
+
+<Accordion>
+
+**batchDeposit**
+
+A function which can be called by anyone to take the current funds in DeSchool from what has been staked and move them into a Yearn vault. We need to document further the role played by keepers and strategies here, as well as potentially discuss the yRegistry.
+
+</Accordion>
+
+<Accordion>
+
+**register**
+
+> params: **uint256 _courseId**
+
+This method allows a learner to register for a course of their choice. It checks the stake associated with that course, accepts tokens amounting to that stake and registers the learner. The tokens are kept in the contract and assigned to the current batch. Once there are enough tokens in the batch to justify the gas costs of calling `batchDeposit()`, anyone may do so and add the current batch to the yearn vault. Note that simply calling this route will require two transactions - one to approve this contract to spend your DAI, and another to actually spend it.
+
+</Accordion>
+
+<Accordion>
+
+**permitAndRegister**
+
+> params: 
+> **uint256 _courseId**  
+> **uint256 nonce**  
+> **uint256 expiry**  
+> **uint8 v**  
+> **bytes32 r**  
+> **bytes32 s**  
+
+
+This method uses te `permit()` functionality associated with DAI to approve the DeSchool contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `register()` and have it operate as expected.
+
+</Accordion>
+
+<Accordion>
+
+**verify**
+
+> params:  
+> **address _learner**  
+> **uint256 _courseId**   
+  
+> returns: **bool completed**
+
+All courses are deployed with a duration in number of blocks. This is a helper function that checks if a learner is on a course, and if the duration of that course has passedsince the registered. If if has, then the learner can either `redeem()` or `mint()` their stake. It is public, so anyone may check it at any time.
+
+</Accordion>
+
+<Accordion>
+
+**redeem**
+
+> params: **uint256 _courseId**
+
+If a learner is redeeming rather than minting, it means they are simply requesting their initial stake back (whether they have completed the course or not). In this case, the method checks what proportion of `stake` (set when the course is deployed) must be returned and sends it back to the learner. Whatever yield they earned is allocated to the course creator, which they can choose to redeem at any point with another method described below.
+
+This contract contains no sense of "completing" a course based on some kind of examination or assessment, as we do not feel this is the direction in which modern education ought to trend. This method simply checks the period elapsed since `blockRegistered`. If this contains more blocks than `course.duration`, then the full `stake` can be returned and the yield sent to the course creator.
+
+</Accordion>
+
+<Accordion>
+
+**mint**
+
+> params: **uint256 _courseId**
+
+Handles learner minting new LEARN and checks via `verify()` what proportion of the stake to send to the Learning Curve. If `mint` is chosen, the yield earned is still assigned to the course creator to balance incentives for educators as best as possible. The total stake is returned directly to the learner in the form of LEARN tokens, and we feel that the shape and design of the Learning Curve is enough to incentivize many learners to choose this option. However, if they don't, this is not really a concern, as we see this as a long-term project and will be satisfied if the supply of LEARN grows very slowly.
+
+</Accordion>
+
+<Accordion>
+
+**withdrawYieldRewards**
+
+Transfers the amount of DAI that an address is eligible to withdraw. There may be yield from scholarships provided for their course, which is assigned as the scholarship is created and may be claimed at any time thereafter. There may also be yield from any learners who have registered in the case no scholarships are available. When the learner decides to redeem or mint their stake, this yield is assigned to the creator.  
+
+</Accordion>
+
+<Accordion>
+
+**isDeployed**
+
+> params: **uint256 _courseId**  
+
+> returns: **bool deployed**
+
+Simply checks whether a learner's staked has been deployed to a Yearn vault or not so that we know where to fetch the DAI they are either redeeming or minting and whether we need to check for any yield to assign to the course creator.
+
+</Accordion>
+
+<Accordion>
+
+**scholarshipAvailable**
+
+> params:  
+> **uint256 _courseId**   
+
+> returns: **bool**
+
+A helper function which returns whether there are any open scholarships for a given course.
+
+</Accordion>
+
+<Accordion>
+
+**getCurrentBatchTotal**
+
+> returns: **uint256**
+
+A helper get function which returns the total number of batches in our yearn vault.
+
+</Accordion>
+
+<Accordion>
+
+**getBlockRegistered**
+
+> params:  
+> **address learner**  
+> **uint256 _courseId**    
+
+> returns: **uint256**
+
+A helper get function which returns the block a given learner registered in.
+
+</Accordion>
+
+<Accordion>
+
+**getCurrentBatchId**
+
+> returns: **uint256**
+
+A helper get function which returns the current `batchId`.
+
+</Accordion>
+
+<Accordion>
+
+**getNextCourseId**
+
+> returns: **uint256**
+
+A helper get function which returns the current `courseId`.
+
+</Accordion>
+
+<Accordion>
+
+**getCourseUrl**
+
+> params: **uint256 _courseId**  
+
+> returns: **string memory**
+
+A helper get function which returns the URL associated with the `courseId` stored in the contract, mostly for security and independent verification/auditing purposes.
+
+</Accordion>
+
+<Accordion>
+
+**getYieldRewards**
+
+> params: **address redeemer**  
+
+> returns: **uint256**
+
+A helper get function which returns the current yieldRewards mapped to a given `creator` address, should any educator wish to claim some of their earnings at any point.
+
+</Accordion>
+
+#### Events
+
+<Accordion>
+
+**CourseCreated**
+
+> uint256 indexed courseId,    
+> uint256 stake,  
+> uint256 duration,  
+> uint256 url,  
+> uint256 creator  
+
+Likely the most important event in the long run, especially if we want to build a catalogue of courses, the URLs that they exist at, and the creator addresses which are receiving any yield. Tracking these events allows us to build a coherent and clear front-end for discovering the various courses using this standard.
+
+</Accordion>
+
+<Accordion>
+
+**ScholarshipCreated**
+
+> uint256 indexed courseId,  
+> uint256 scholarshipAmount,  
+> uint256 newScholars,  
+> uint256 scholarshipTotal
+> address scholarshipProvider,  
+> address scholarshipVault   
+> uint256 scholarshipYield  
+
+Another important event, intended to keep track of scholarships for different courses, who provided them, and the yield they're earning for the course creators.
+
+</Accordion>
+
+<Accordion>
+
+**ScholarRegistered**
+
+> uint256 indexed courseId,  
+> address scholar
+
+Useful for collecting offchain data for the total number of scholars ever registered on the coure. It is always possible to get the number of scholars currently registered by calling `deschool.courses(_courseId)[5]`, but the `scholars` number returned from that slot changes when scholarships are perpetuated, so is not an accurate historical record of total number of scholars ever registered.
+
+</Accordion>
+
+<Accordion>
+
+**ScholarshipWithdrawn**
+
+> uint256 scholarshipId,  
+> uint256 amountWithdrawn  
+
+Similar to ScholarRegistered, meant for keeping track accurately of scholarships for different courses, who has provided them and how much they have provided and withdrawn over time.
+
+</Accordion>
+
+<Accordion>
+
+**LearnerRegistered**
+
+> uint256 indexed courseId,  
+> address learner  
+
+Keep track of the addresses of learners and the courses they've signed up for.
+
+</Accordion>
+
+<Accordion>
+
+**StakeRedeemed**
+
+> uint256 courseId,  
+> address learner,  
+> uint256 amount  
+
+Useful for understanding which learners have redeemed how much for each course. This allows for two important things: understanding which courses learners are `redeeming` on rather than `minting`; and tracking how many learners (and how much of their original stake) are inactive in either the Vault or DeSchool.
+
+</Accordion>
+
+<Accordion>
+
+**LearnMintedFromCourse**
+
+> uint256 courseId,  
+> address learner,  
+> uint256 stableConverted,  
+> uint256 learnMinted  
+
+Tracked separately from `LearnMinted` events in the Learning Curve so it's easy to see how much of the total supply of LEARN comes directly from learners going through the courses on offer.
+
+</Accordion>
+
+<Accordion>
+
+**BatchDeposited**
+
+> uint256 batchId,  
+> uint256 batchAmount,  
+> uint256 batchYieldAmount  
+
+Tracked to make it easy to see how much DAI is in each batch in the vault, and how many yDAI are associated with it for redemption or minting purposes.
+
+</Accordion>
+
+<Accordion>
+
+**YieldRewardRedeemed**
+
+> address redeemer,    
+> uint256 YieldRewarded   
+
+Helpful to keep track of how much yield has been claimed/sent back to the course creator at any given point.
+
+</Accordion>
+
+### Learning Curve
+
+This contract contains the logic for minting and burning LEARN based on the collateral that is sent to it. Importantly, it is open to anyone, which is what allows secondary markets for LEARN to form easily. The more collateral locked, the less LEARN is minted, using an exponentially decaying function. This ensures that the price of LEARN - defined as the number in existence divided by the underlying collateral in this contract - increases linearly. Please see [this spreadsheet](https://docs.google.com/spreadsheets/d/1hjWFGPC_B9D7b6iI00DTVVLrqRFv3G5zFNiCBS7y_V8/edit?usp=sharing) for the source of the graphical depiction below.
+
+<Aligner center>
+
+<Image alt="Learn Curves" src="/images/learn-curves.png" />
+
+</Aligner>
+
+#### Methods
+
+<Accordion>
+
+**initialise**
+
+This is called only once, upon deployment, and is necessary for the maths to work. If we do not start at 1, then we end up with a DIV(0) error. The tokens are minted to the Learning Curve address itself, and so are unusable, as this seems most fair.
+
+</Accordion>
+
+<Accordion>
+
+**permitAndMint**
+
+> params: 
+> **uint256 _amount**  
+> **uint256 nonce**  
+> **uint256 expiry**  
+> **uint8 v**  
+> **bytes32 r**  
+> **bytes32 s**  
+
+
+This method uses te `permit()` functionality associated with DAI to approve the LearningCurve contract to spend DAI on the caller's behalf and to execute the transaction in a single call. It does this by attaching the signature - which can be constructed using `v`, `r`, and `s` - along with the nonce and expiry for that signature onto the call. Having this extra info enables us to then just call `mint()` and have it operate as expected.
+
+</Accordion>
+
+<Accordion>
+
+**mint**
+
+> params: **uint256 _wad** - the amount of DAI collateral to be swapped for LEARN
+
+This method allows anyone to mint LEARN tokens dependent on the amount of DAI they send. It is calculated according to the exponential decay above, which can be modelled with a natural logarithm. We use [this library](https://github.com/hifi-finance/prb-math/tree/main/contracts) to help us calculate it, as exponents on chain are challenging.
+
+</Accordion>
+
+<Accordion>
+
+**mintForAddress**
+
+> params: **address learner**; **uint256 _wad**
+
+This is the same as a normal mint, except that an address is passed in which the minted LEARN is sent to. This is necessary to allow for mints directly from a Course, where we want to learner to receive LEARN, not DeSchool. It can also be used to mint LEARN to an address other than the one contributing collateral, which could - for instance - prove useful for donations.
+
+</Accordion>
+
+<Accordion>
+
+**burn**
+
+> params: **uint256 _burnAmount** - how much underlying DAI the burner wishes to receive back.
+
+This function takes in some amount of LEARN to be burned, calculates how much underlying DAI collateral this corresponds to using the inverse operation of the natural logarithm decay function for minting - i.e. the natural exponent `e` - burns the LEARN and returns the DAI to the sender.  
+
+</Accordion>
+
+<Accordion>
+
+**e_calc**
+
+> params: **uint256 x** - some number to be used in the calculation of exponents for `burn` method calls.
+
+This function takes in some number `x`, divides it by the global constant `k` and returns the value of `e` raised to the power of that number. This is used for the reverse operation of minting LEARN, here called `burn`.  
+
+</Accordion>
+
+<Accordion>
+
+**doLn**
+
+> params: **uint256 x**
+
+An internal, pure helper function that uses the PRBMathUD60x18 contract to return the natural logarithm of any number `x` we pass to it.
+
+</Accordion>
+
+<Accordion>
+
+**getPredictedBurn**
+
+> params: **uint256 _burnAmount** - DAI to receive
+
+A helper function wich calculates the amount of underlying DAI collateral to return for some `_burnAmount` of LEARN tokens passed into it.
+
+</Accordion>
+
+<Accordion>
+
+**getMintableForReserveAmount**
+
+> params: **uint256 reserveAmount** - DAI to lock
+
+A helper function to check if the learner has enough DAI to get the desired LEARN tokens and ensure a successful `mint` transaction.
+
+</Accordion>
+
+#### Events
+
+<Accordion>
+
+**LearnMinted**
+
+> address indexed learner,  
+> uint256 amountMinted,  
+> uint256 daiDeposited
+
+It is likely helpful to distinguish between `LearnMintedFromCourse` and `LearnMinted` by anyone interacting directly with the LearningCurve as secondary markets become more established, so that we can tell how much LEARN in existence comes from learning, and how much comes from speculation on the value of the resulting epistemic community.
+
+</Accordion>
+
+<Accordion>
+
+**LearnBurned**
+
+> address indexed learner,   
+> uint256 amountBurned,  
+> uint256 daiReturned
+
+The same reasoning applies as above: it is helpful to track LEARN created and destroyed by learners going through courses, and by other people interacting directly with these contracts. We have nothing against speculation, as such people take real risks and provide the necessary liquidity for more efficient markets to form.
+
+</Accordion>
+
+#### Considerations
+
+##### "k" constant
+
+Where does this magic constant come from? We were inspired by Uniswap's constant product formula and the simplicity it represents. While our setup is slightly different, we need some constant which defines the slope of the linearly increasing price function for LEARN. We do not think it possible, in principle, to model this with complete certainty. All we can do is ask increasingly precise questions about the kinds of outcome we might wish to see, especially in terms of how many LEARN will be minted by the course stake, if the learner chooses that option. 
+
+We set `k = 10000` because this means that 1M DAI must be locked as collateral before 100 DAI mints just 1 LEARN, an important psychological fact if nothing else.
+
+## Rationale
+
+There are no special accounts or privileged roles in these contracts. There are no fees collected by a specific account. That is because we are very serious about building a **general template for online education** that cannot be co-opted and that both makes learning free, while also ensuring there are rewards available for educators.
+
+We are sure that there are even better ways to achieve this, and so have tried to outline in detail all our assumptions in order that this may be the beginning of a fruitful conversation about how programmable money might solve incentive problems surrounding the transfer of knowledge.
+
+The state of Ethereum will be around for a long, long time to come and so we are not here to get rich quickly, we are here to [play](/build/games/infinite) with this vastly expanded [temporal](/learn/module-3/time) [boundary](/learn/module-4/the-garden). We have not written this for ourselves, but as a work of love and devotion to those yet to come.
+
+Education is the [original gift](/learn/module-7/) and is especially interesting in gift-giving economies, because knowledge is given within a context that still demands effort and attention in order to be learned. Valuable knowledge may present itself for free, but it must be given attention and reflection in order to become personally meaningful. It is this paradox which makes educational gifts the seed around which a community crafting new value models can flourish. 
+
+> “A single flower blooms, and throughout the world it is spring”.

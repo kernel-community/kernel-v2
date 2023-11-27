@@ -12,15 +12,17 @@ featuredImage: images/shares/learn.png
 Nor grieve, dear heart,<br/>  
 nor fear the seeming.<br/>   
 Here is waking in the dreaming.<br/> 
+<br/>
+– [Abraham Merritt](http://gutenberg.net.au/ebooks06/0602001h.html) (adapted)
 </Aligner>  
 
-Is it possible to guard effectively against the inertia of language? Clearly, we cannot 
+Is it possible to guard effectively against the inertia of language? Arguably, we cannot 
 achieve this in natural language, but might we be able to develop a "perfect language" in 
 which I can say exactly what I mean, you can understand exactly what I meant, and I can be 
-sure you have understood it exactly? Many people have tried to answer this, so let's go on a 
+sure you have understood it exactly? Many people have tried to answer these questions, so let's go on a 
 [mathematical tour](https://tinyurl.com/shannon-math-comms) through universal languages and the incomplete search for linguistic perfection. 
 
-> The crucial point is that knowing this language would be like having a key to universal 
+> The crucial point is that knowing this [perfect] language would be like having a key to universal 
 knowledge. If you’re a theologian, it would bring you closer, very close, to God’s thoughts, 
 which is dangerous. If you’re a magician, it would give you magical powers. If you’re a 
 linguist, it would tell you the original, pure, uncorrupted language from which all languages 
@@ -58,8 +60,7 @@ this open-ended course. Thank you all, and we wish you a <Link to="https://unify
 
 ## Brief
 
-Gregory Chaitin discusses Umberto Eco's book *<Link to="https://www.goodreads.com/book/show/10513.The_Search_for_the_Perfect_Language">The Search for the Perfect Language</Link>*, and how it relates to some deep concepts in mathematics, coupled with a non-standard view on 
-intellectual history. He begins by asking,
+Gregory Chaitin begins his essay by discussing Umberto Eco's book *<Link to="https://www.goodreads.com/book/show/10513.The_Search_for_the_Perfect_Language">The Search for the Perfect Language</Link>*, and how it relates to some deep concepts in mathematics, coupled with a non-standard view on intellectual history. He starts by asking,
 
 > What is the perfect language? [... It is] the language whose structure directly expresses the 
 structure of the world, in which concepts are expressed in their <Link to="https://www.youtube.com/playlist?list=PL5ClmaG2tnPPFveZLH5lRrzV-Ndc3_Nli">direct, original</Link> format.
@@ -72,18 +73,18 @@ called the *calculus* *ratiocinator*, by which we can reduce reasoning to calcul
 thereby elide the need for opinionated arguments in favour of pure computation.
 
 It was this notion which led him to develop calculus. Leibniz's version was slightly different 
-from Newton's, in that his focus was specifically on the notation and formalism: i.e. how can 
+from Newton's, in that his focus was specifically on the notation and formalism: how can 
 we generate the most expressive power from the smallest set of meaningful symbols? His calculus 
-presents a fundamentally mechanistic approach to proof, as Leibniz saw clearly the importance of 
+presents a fundamentally mechanistic approach to proof, as he saw clearly the importance of 
 having a formalism that led you automatically to the answer.
 
 <Flash>
 
 <Card>
 
-Q: A perfect language is one whose words directly express the original what?
+Prompt: A perfect language is one whose words directly express the original what?
 
-A: Structure of the world.
+Structure of the world.
 
 </Card>
 
@@ -102,13 +103,13 @@ However, this leads to a contradiction, discovered by Bertrand Russell and now c
 Russell paradox: if we take the universal set - the set of everything - and then consider the 
 set of all subsets in it, then this set of all subsets must necessarily be bigger than the 
 universal set. But how can this be? The set of all subsets of the universal set can neither be 
-in itself nor not be in itself - which poses a problem for mathematicians who are not 
+contain itself nor not contain itself - which poses a problem for mathematicians who are not 
 theologically inclined.
 
 While this contradiction never bothered Cantor - who took the view that it’s paradoxical for a 
 finite being to try to comprehend a transcendent, infinite being, so paradoxes are fine - it 
 led Russell to expose numerous contradictions in mathematical reasoning. As a response to this, 
-another mathematician called David Hilbert developed a completely formal axiomatic theory, 
+another mathematician, David Hilbert, developed a formal axiomatic theory, 
 which is a modern version of Leibniz’s *characteristica universalis* and *calculus ratiocinator*.
 
 Axiomatic theories are written not in natural language, with its ambiguity and informal 
@@ -117,7 +118,7 @@ the rules of the game precisely.
 
 ### Empty In Completeness
 
-The dream that there is a finite set of axioms which allowed us, in principle, to deduce all 
+The dream that there is a finite set of axioms which would allow us, in principle, to deduce all 
 mathematical truth led to some truly beautiful work, in particular Zermelo–Fraenkel set theory 
 and von Neumann integers.
 
@@ -127,7 +128,7 @@ similar. Everything is sets, and every set is built out of the empty set. That�
 the empty set, and sets built starting with the empty set.
 
 However, Gödel and Turing showed in the 1930's that you can’t have a perfect language or a 
-formal axiomatic theory for all of mathematics because of incompleteness. Gödel began with the 
+formal axiomatic theory for **all** of mathematics because of 'incompleteness'. Gödel began with the 
 statement "This statement is unprovable" and proceeded to show how the paradox at the heart of 
 this (using <Link to="https://en.wikipedia.org/wiki/G%C3%B6del_numbering">Gödel numbering</Link>) reveals that we cannot capture all mathematical truth in any theory.
 
@@ -148,25 +149,25 @@ language in which every possible algorithm can be written.
 
 <Card>
 
-Q: What paradoxical statement did Gödel use to prove incompleteness?
+Prompt: What paradoxical statement did Gödel use to prove incompleteness?
 
-A: This statement is unprovable.
-
-</Card>
-
-<Card>
-
-A: Turing showed that incompleteness is actually an immediate corollary of what?
-
-Q: Uncomputability.
+This statement is unprovable.
 
 </Card>
 
 <Card>
 
-Q: Uncomputability shows that there are no perfect languages, though there are universal ones. A universal language is one in which what can be written?
+Turing showed that incompleteness is actually an immediate corollary of what?
 
-A: Every possible algorithm. 
+Prompt: Uncomputability.
+
+</Card>
+
+<Card>
+
+Prompt: Uncomputability shows that there are no perfect languages, though there are universal ones. A universal language is one in which what can be written?
+
+Every possible algorithm. 
 
 </Card>
 
@@ -200,7 +201,7 @@ which extend more deeply in the details of AIT than this brief will go.
 What's most relevant is how we can define programs in **self-delimiting ways**. That is, how 
 can we get our universal Turing machine **_U_** to know when a program has ended without adding 
 an extra symbol (i.e. just using 0 and 1, no blanks); or extra information about the size of 
-the program to the program itself, thereby making any computation less concise than the ideal.
+the program to the program itself, which would make any computation less concise than the ideal.
 
 A self-delimiting program is one which [knows when to stop](https://youtu.be/41b254BcMJM?t=640). This is an elegant and simple idea which is rather difficult to understand in practice but, as always, close observation of the world around us should unearth some clues in surprising places. The video linked above reveals how deeper understanding of such phenomena suggest ever more succinct universal languages, but open the door to - for instance - regenerative abilities and new medicine.
 
@@ -208,25 +209,25 @@ A self-delimiting program is one which [knows when to stop](https://youtu.be/41b
 
 <Card>
 
-Q: "Better" universal languages for computation are defined in terms of what linguistic feature? 
+Prompt: "Better" universal languages for computation are defined in terms of what linguistic feature? 
 
-A: Conciseness. 
-
-</Card>
-
-<Card>
-
-Q: Are the most expressive languages those with the biggest or smallest programs?
-
-A: Smallest. 
+Conciseness. 
 
 </Card>
 
 <Card>
 
-Q: The most efficient universal languages can be used to define programs in what kind of way?
+Prompt: Are the most expressive languages those with the biggest or smallest programs?
 
-A: Self-delimiting. 
+Smallest. 
+
+</Card>
+
+<Card>
+
+Prompt: The most efficient universal languages can be used to define programs in what kind of way?
+
+Self-delimiting. 
 
 </Card>
 
@@ -241,7 +242,7 @@ algorithms, not for mathematical reasoning. They are universal programming langu
 maximally expressive, maximally concise.
 
 What does this mean for the search for a perfect language? Well, it's a bit of a mixed bag. 
-Hilbert's formal axiomatic theory meant to establish all mathematical truth is necessarily 
+Hilbert's formal axiomatic theory—meant to establish all mathematical truth—is necessarily 
 incomplete, and all formal reasoning has been proven to have a limit. However, 
 
 > There are **perfect languages for computing**. We have universal Turing machines and 
@@ -255,13 +256,11 @@ results. Theoretically, it has shown that mathematics contains infinite irreduci
 and so there is no hope of finding a simple and elegant Theory of Everything like Hilbert 
 imagined. That dream turned out to be a golem, but
 
-> from the perspective of the Middle Ages, I would say that the perfect languages that we’ve 
-found have given us some magical, God-like power, which is that we can breathe life into some 
-inanimate matter. Observe that hardware is analogous to the body, and software is analogous to 
-the soul, and when you put software into a computer, this inanimate object comes to life and 
-creates virtual worlds.
+> from the perspective of the Middle Ages, I would say that the perfect languages that we’ve found have given us some magical, God-like power, which is that we can breathe life into some inanimate matter. Observe that hardware is analogous to the body, and software is analogous to the soul, and when you put software into a computer, this inanimate object comes to life and creates virtual worlds.
 
-Before you go, however, it is worth spending some time with the poets. T. S. Elliot once wrote:
+Importantly, [such power is limited](https://youtu.be/WV-naO9ULp8?t=1169) by both the imagination of the programmer and by physical reality: this [web of correlated interactions](/learn/module-metta/relating-kernel/). We may choose and work to accept with humour and love (i) our own limitations, (ii) the constraints of the environment within which we are embedded, and (iii) the affordances of our [interfaces](/learn/module-4/self-enquiry/#signature-performances) (those 'boundaries' between distinct yet coextensive bodies) with others. Only once we have sincerely engaged in this ongoing process can we begin to see clearly and with less hubris what it might mean to ["assemble infinities out of finiteness"](https://thesephist.com/posts/infinite/).
+
+On this note, it is worth spending some time with the poets before you go. T. S. Elliot once wrote:
 
 > "They constantly try to escape  
 From the darkness outside and within  
@@ -269,9 +268,9 @@ By dreaming of systems so perfect that no one will need to be good.
 But the man that is will shadow  
 The man that pretends to be."  
 
-This search for the perfect language is a beautiful one, but it is tempered always by the standard to which all language must be held, what [Marianne Brün](/learn/module-7/no-paradigm/#measured-art) calls "the imagery of human desire". When undertaking this search, it might help us to ask what the "breathtaking eloquence and simple terms" are which explain "what we, today, almost speechlessly have wanted so much". 
+This search for the perfect language is a beautiful one, but it is tempered always by the standard to which all language must be held: what [Marianne Brün](/learn/module-7/no-paradigm/#measured-art) calls "the imagery of human desire". When undertaking this search, it might help us to ask what "breathtaking eloquence and simple terms" explain "what we, today, almost speechlessly have wanted so much". 
 
-My suggestion is that it is simply to be good. Happily, [the language of the good is also a language of self-imposed limits](https://www.henryzoo.com/limits), which seeks perfect expression only as a means towards realizing a convivial life lived together in [the golden mean](https://www.themarginalian.org/2014/03/12/jack-kerouac-golden-eternity/). This golden mean, or middle path, is akin to the program of least complexity, because it requires no additional symbol, only a kind of rhythmic harmony; a balance of the whole.
+My suggestion is that what we want is simply to be good. Happily, [the language of the good is also a language of self-imposed limits](https://www.henryzoo.com/limits), which seeks perfect expression only as a means towards realizing a convivial life lived together in [the golden mean](https://www.themarginalian.org/2014/03/12/jack-kerouac-golden-eternity/). This golden mean, or middle path, is akin to the game of least complexity, because it requires no additional symbol, only a kind of rhythmic harmony; a balance of the whole.
 
 ### Many Worlds
 
