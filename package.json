@@ -57,7 +57,7 @@
     "react-process-string": "^1.2.0",
     "react-select": "^5.8.0",
     "react-smooth-collapse": "^2.1.2",
-    "react-sticky-el": "^2.0.9",
+    "react-sticky-el": "^2.1.0",
     "remark-frontmatter": "^3.0.0",
     "remark-slug": "^6.1.0",
     "sharp": "^0.31.1",
