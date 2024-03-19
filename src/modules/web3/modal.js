@@ -7,7 +7,7 @@ import { Icon } from '@makerdao/dai-ui-icons'
 import { useNotifications } from '@src/modules/notifications/context'
 import { Contract } from 'ethers'
 import {
-  goerli,
+  optimism,
   abis,
   apiUrl,
   graphUrl,
@@ -106,7 +106,7 @@ const Web3 = ({ setIsVisible, onTransactionSuccess }) => {
     setLoading(true)
     const proposalId = await getProposalId()
     try {
-      const contract = new Contract(goerli, abis.honour, signer)
+      const contract = new Contract(optimism, abis.honour, signer)
       await contract.honour(proposer, proposalId)
       setLoading(false)
       onTransactionSuccess()
