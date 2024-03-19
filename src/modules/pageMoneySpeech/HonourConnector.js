@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 import { useState } from 'react'
 import { ethers } from 'ethers'
 import { useContractRead } from 'wagmi'
-import { goerli, abis } from '../../honour/constants'
+import { optimism, abis } from '../../honour/constants'
 import Content from './Content'
 import HonourButton from './HonourButton'
 
@@ -12,7 +12,7 @@ const HonourConnector = ({ address }) => {
   const [transactionSuccess, setTransactionSuccess] = useState(false)
   const { data } = useContractRead(
     {
-      addressOrName: goerli,
+      addressOrName: optimism,
       contractInterface: abis.honour,
     },
     'balanceOf',
