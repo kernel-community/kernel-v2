@@ -73,7 +73,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react": "7.29.4",
     "lint-staged": "13.1.2",
     "pre-commit": "^1.2.2",
     "prettier": "^3.0.3"
