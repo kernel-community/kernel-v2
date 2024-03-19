@@ -1,4 +1,5 @@
 export const goerli = '0x80c25Df6014253FE78f4Ec6258F73855dEe09A6c'
+export const optimism = '0xB123B2d5C0932F2B13Fcf03763004f0800fF29dD'
 
 // This is the pub key of the account in our api
 export const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
