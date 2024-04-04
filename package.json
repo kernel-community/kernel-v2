@@ -41,7 +41,7 @@
     "gatsby-remark-responsive-iframe": "^4.11.0",
     "gatsby-source-filesystem": "^3.15.0",
     "gatsby-transformer-json": "^3.14.0",
-    "gatsby-transformer-remark": "^4.11.0",
+    "gatsby-transformer-remark": "^4.12.0",
     "gatsby-transformer-sharp": "^3.15.0",
     "html-react-parser": "^5.0.11",
     "immer": "^10.0.3",
@@ -63,7 +63,7 @@
     "sharp": "^0.31.1",
     "theme-ui": "^0.14.7",
     "use-immer": "^0.9.0",
-    "uuid": "^9.0.0",
+    "uuid": "^9.0.1",
     "wagmi": "^0.3.5",
     "window-or-global": "^1.0.1"
   },
