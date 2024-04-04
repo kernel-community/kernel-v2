@@ -2,7 +2,7 @@
 const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
 
 // The api endpoint we're using
-const apiUrl = 'https://propose.honour.community' 
+const apiUrl = 'https://propose.honour.community'
 
 // The subgraph url to fetch proposalIDs from
 const graphUrl = 'https://api.studio.thegraph.com/query/24825/honour/0.0.1'
