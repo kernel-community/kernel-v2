@@ -60,7 +60,7 @@
     "react-sticky-el": "^2.1.0",
     "remark-frontmatter": "^3.0.0",
     "remark-slug": "^6.1.0",
-    "sharp": "^0.31.1",
+    "sharp": "^0.33.4",
     "theme-ui": "^0.14.7",
     "use-immer": "^0.9.0",
     "uuid": "^9.0.1",
