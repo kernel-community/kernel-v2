@@ -5,7 +5,7 @@ const proposer = '0x4Daf7C338134C0Bf9aaB7C4D7dEa6e8418385c29'
 const apiUrl = 'https://propose.honour.community'
 
 // The subgraph url to fetch proposalIDs from
-const graphUrl = 'https://api.studio.thegraph.com/query/24825/honour/0.0.1'
+const graphUrl = 'https://api.studio.thegraph.com/query/24825/honour/version/latest'
 
 const goerli = '0x80c25Df6014253FE78f4Ec6258F73855dEe09A6c'
 const optimism = '0xB123B2d5C0932F2B13Fcf03763004f0800fF29dD'
