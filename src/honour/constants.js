@@ -9,7 +9,7 @@ export const apiUrl = 'https://propose.honour.community'
 
 // The subgraph url to fetch proposalIDs from
 export const graphUrl =
-  'https://api.studio.thegraph.com/query/24825/honour-goerli/0.1.1'
+  'https://api.studio.thegraph.com/query/24825/honour/version/latest'
 
 const abis = {
   honour: `[
