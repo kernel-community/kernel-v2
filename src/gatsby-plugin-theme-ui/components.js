@@ -29,7 +29,9 @@ import { ConnectButton } from '@modules/pageMoneySpeech/'
 import { motion } from 'framer-motion'
 import { Box, Divider, Flex, Image, jsx, Text } from 'theme-ui'
 
-import { Heading } from '../modules/ui/heading'
+
+import {Intro} from '@modules/landing'
+import {Heading1, Heading2, Heading3, Heading4, Heading5, Heading, Subtitle} from '@modules/ui/heading'
 
 //Markdown Component overrides
 //Replace MDX html defaults with our custom implementation.
@@ -103,6 +105,13 @@ const Custom_Components = {
   Card,
   AudioPlayer,
   ConnectButton,
+  Intro,
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Subtitle
 }
 
 const overridesAndComponents = {

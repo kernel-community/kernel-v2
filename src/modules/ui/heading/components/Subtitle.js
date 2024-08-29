@@ -8,7 +8,6 @@ export default function Subtitle(props) {
     <Text
       as="h3"
       sx={{
-        mb: '3',
         display: 'block',
         lineHeight: 'normal',
         fontSize: '4',
@@ -16,8 +15,6 @@ export default function Subtitle(props) {
         letterSpacing: '0.3px',
         fontFamily: 'sanserif',
         color: 'textMuted',
-        marginTop: '4',
-        marginBottom: '4',
         '& > .anchor-link': {
           opacity: 0,
           color: 'muted',

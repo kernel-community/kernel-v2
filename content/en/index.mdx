@@ -9,24 +9,41 @@ hideScrollCTA: true
 
 <InfoBlock>
   <Box>
-    # Building a better web together, block by block
-    Kernel is an open, peer-to-peer learning environment focused on building a better web.
-    <Flex sx={{alignItems: 'center'}}>
-      <Button to='https://apply.kernel.community' inline>
-        Applications open for KBX
-      </Button>
-      <Button to='/start/' outline inline>
-        About Kernel
-      </Button>
-    </Flex>
+
+<Heading1>
+Building a better web together, block by block
+</Heading1>
+
+Kernel is an open, peer-to-peer learning environment focused on building a better web.
+<Flex sx={{alignItems: 'center'}}>
+  <Button to='https://apply.kernel.community' inline>
+    Applications open for KBX
+  </Button>
+  <Button to='/start/' outline inline>
+    About Kernel
+  </Button>
+</Flex>
   </Box>
   <Image src="/images/kernel_lp.png" title="Welcome to Kernel" />
 </InfoBlock>
 
-
 <Aligner center>
-  <Fellows />
+
+<Flex sx={{
+  flexDirection: 'column',
+  flexGap: '2px',
+  alignItems: 'center',
+  justifyContent: 'center'
+}}>
+<Heading3>
+Celebrating 4 years of Kernel Blocks
+</Heading3>
+<Heading1>
+  Meet the Kernel Fellows
+</Heading1>
+</Flex>
 </Aligner>
+<Fellows />
 
 
 <InfoBlock>

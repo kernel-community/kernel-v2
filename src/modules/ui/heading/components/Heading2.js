@@ -8,7 +8,7 @@ export default function Heading2(props) {
     <Text
       variant="h2"
       sx={{
-        mb: '32px',
+        // mb: '32px',
         display: 'block',
         lineHeight: 'normal',
         fontSize: '32px',
@@ -16,8 +16,8 @@ export default function Heading2(props) {
         letterSpacing: '0.3px',
         fontFamily: 'heading',
         color: 'text',
-        marginTop: '48px',
-        marginBottom: '24px',
+        marginTop: '0px',
+        marginBottom: '0px',
         '& > .anchor-link': {
           opacity: 0,
           color: 'muted',

@@ -3,37 +3,44 @@
       {
         "name": "Richa Joshi",
         "url": "https://twitter.com/Riijo",
-        "image": "/images/fellows/Richa_Joshi.png" 
+        "image": "/images/fellows/Richa_Joshi.png" ,
+        "association": "Genesis"
       },
       {
         "name": "Simona Pop",
         "url": "https://twitter.com/Sim_Pop",
-        "image": "/images/fellows/Simona_Pop.jpg" 
+        "image": "/images/fellows/Simona_Pop.jpg",
+        "association": "Genesis"
       },
       {
         "name": "Tagan Horton",
         "url": "https://twitter.com/thetagan",
-        "image": "/images/fellows/Tagan.jpg" 
+        "image": "/images/fellows/Tagan.jpg",
+        "association": "Block 2"
       },
       {
         "name": "Paul Gadi",
         "url": "https://twitter.com/polats",
-        "image": "/images/fellows/Paul_Gadi.png" 
+        "image": "/images/fellows/Paul_Gadi.png",
+        "association": "Genesis"
       },
       {
         "name": "Angela Gilhotra",
-        "url": "https://twitter.com/angelagilhotra",
-        "image": "/images/fellows/Angela_GIlhotra.jpg" 
+        "url": "https://twitter.com/probablyangg",
+        "image": "/images/fellows/Angela_GIlhotra.jpg",
+        "association": "Genesis"
       },
       {
         "name": "Holly Grimm",
         "url": "https://twitter.com/hollygrimm",
-        "image": "/images/fellows/Holly-Grimm.jpg" 
+        "image": "/images/fellows/Holly-Grimm.jpg",
+        "association": "Block 2"
       },
       {
         "name": "En Canada",
         "url": "https://twitter.com/cult_leader_en",
-        "image": "/images/fellows/En_Canada.jpg" 
+        "image": "/images/fellows/En_Canada.jpg",
+        "association": "Block 2"
       },
       {
         "name": "Rebecca Mqamelo",
@@ -53,7 +60,8 @@
       {
         "name": "Nichanan Kesonpat",
         "url": "https://twitter.com/nichanank",
-        "image": "/images/fellows/Nichanan_Kesonpat.jpg" 
+        "image": "/images/fellows/Nichanan_Kesonpat.jpg",
+        "association": "Mentor"
       },
       {
         "name": "sidcode",
@@ -68,287 +76,287 @@
       {
         "name": "Rachel Black",
         "url": "https://twitter.com/RachBLondon",
-        "image": "/images/fellows/Rachel_Black.png" 
+        "image": "/images/fellows/Rachel_Black.png"
       },
       {
         "name": "Harsh Rajat",
         "url": "https://twitter.com/harshrajat",
-        "image": "/images/fellows/Harsh_Rajat.png" 
+        "image": "/images/fellows/Harsh_Rajat.png"
       },
       {
         "name": "Sebnem Rusitschka",
         "url": "https://twitter.com/sebnem",
-        "image": "/images/fellows/Sebnem_Rusitschka.jpg" 
+        "image": "/images/fellows/Sebnem_Rusitschka.jpg"
       },
       {
         "name": "Milensu Kapaipi",
         "url": "https://www.linkedin.com/in/milensu-kapaipi-6465701b/",
-        "image": "/images/fellows/Milensu_Kapaipi.png" 
+        "image": "/images/fellows/Milensu_Kapaipi.png"
       },
       {
         "name": "Ben Percifield",
         "url": "https://twitter.com/PenBercifield",
-        "image": "/images/fellows/Ben_Percifield.jpg" 
+        "image": "/images/fellows/Ben_Percifield.jpg"
       },
       {
         "name": "Juliette Chevalier",
         "url": "https://juliet.tech",
-        "image": "/images/fellows/Juliette_Chevalier.jpg" 
+        "image": "/images/fellows/Juliette_Chevalier.jpg"
       },
       {
         "name": "Liz Strong",
         "url": "https://twitter.com/iamlizendary",
-        "image": "/images/fellows/Liz_Strong.jpg" 
+        "image": "/images/fellows/Liz_Strong.jpg"
       },
       {
         "name": "Jenil Thakker",
         "url": "https://twitter.com/0xjenil",
-        "image": "/images/fellows/Jenil_Thakker.jpg" 
+        "image": "/images/fellows/Jenil_Thakker.jpg"
       },
       {
         "name": "Alisa Khieu",
         "url": "https://twitter.com/Ocarune",
-        "image": "/images/fellows/Alisa_Khieu.jpg" 
+        "image": "/images/fellows/Alisa_Khieu.jpg"
       },
       {
         "name": "Alex Masmej",
         "url": "https://twitter.com/AlexMasmej",
-        "image": "/images/fellows/Alex_Masmej.png" 
+        "image": "/images/fellows/Alex_Masmej.png"
       },
-      { 
+      {
         "name": "Rafaella Baraldo",
         "url": "https://twitter.com/RafaellaBaraldo",
-        "image": "/images/fellows/Rafaella_Baraldo.png" 
+        "image": "/images/fellows/Rafaella_Baraldo.png"
       },
       {
         "name": "Michael Keating",
         "url": "https://twitter.com/mbkeating",
-        "image": "/images/fellows/Michael_Keating.jpg" 
+        "image": "/images/fellows/Michael_Keating.jpg"
       },
       {
         "name": "Jo-Ann Hamilton",
         "url": "https://twitter.com/JAlexandrHamil",
-        "image": "/images/fellows/Joann_Hamilton.png" 
+        "image": "/images/fellows/Joann_Hamilton.png"
       },
       {
         "name": "Manuel Gonzalez Alzuru",
         "url": "https://twitter.com/ManuAlzuru",
-        "image": "/images/fellows/Manu.png" 
+        "image": "/images/fellows/Manu.png"
       },
       {
         "name": "Zsuzsanna Tasi",
         "url": "https://twitter.com/Artoftas",
-        "image": "/images/fellows/Zsuzsanna_Tasi.jpg" 
+        "image": "/images/fellows/Zsuzsanna_Tasi.jpg"
       },
       {
         "name": "Val Mack",
         "url": "https://twitter.com/valmacktweets",
-        "image": "/images/fellows/Val_Mack.jpg" 
+        "image": "/images/fellows/Val_Mack.jpg"
       },
       {
         "name": "Darrell Jones",
         "url": "https://twitter.com/darrelljonesiii",
-        "image": "/images/fellows/Darrell_Jones.jpg" 
+        "image": "/images/fellows/Darrell_Jones.jpg"
       },
       {
         "name": "Zayi Reyes",
         "url": "https://twitter.com/ZayiRey",
-        "image": "/images/fellows/Zayi_Reyes.jpg" 
+        "image": "/images/fellows/Zayi_Reyes.jpg"
       },
       {
         "name": "Pranay Walson",
         "url": "https://twitter.com/valsonay",
-        "image": "/images/fellows/Pranay_Walson.png" 
+        "image": "/images/fellows/Pranay_Walson.png"
       },
       {
         "name": "Eman Herawy",
         "url": "https://twitter.com/Eman_Herawy",
-        "image": "/images/fellows/Eman_Herawy.jpg" 
+        "image": "/images/fellows/Eman_Herawy.jpg"
       },
       {
         "name": "William Schwab",
         "url": "https://twitter.com/William94029369",
-        "image": "/images/fellows/William_Schwab.png" 
+        "image": "/images/fellows/William_Schwab.png"
       },
       {
         "name": "Veronica Coutts",
         "url": "https://twitter.com/Vonnie610",
-        "image": "/images/fellows/Veronica_Coutts.jpg" 
+        "image": "/images/fellows/Veronica_Coutts.jpg"
       },
       {
         "name": "Ben Lakoff",
         "url": "https://twitter.com/benlakoff",
-        "image": "/images/fellows/Ben_Lakoff.png" 
+        "image": "/images/fellows/Ben_Lakoff.png"
       },
       {
         "name": "Alexandra McCarroll",
         "url": "https://alexandra-mccarroll.medium.com/",
-        "image": "/images/fellows/Alexandra_McCarroll.png" 
+        "image": "/images/fellows/Alexandra_McCarroll.png"
       },
       {
         "name": "Nazariy Vavryk",
         "url": "https://twitter.com/AlgorithmicBot",
-        "image": "/images/fellows/Nazarivy_Vavryk.png" 
+        "image": "/images/fellows/Nazarivy_Vavryk.png"
       },
       {
         "name": "Sarah Hamburg",
         "url": "https://twitter.com/Shamburgularara",
-        "image": "/images/fellows/Sarah_Hamburg.jpg" 
+        "image": "/images/fellows/Sarah_Hamburg.jpg"
       },
       {
         "name": "Abe Uccello",
         "url": "https://twitter.com/AbrahamUccello",
-        "image": "/images/fellows/Abe_Uccello.jpg" 
+        "image": "/images/fellows/Abe_Uccello.jpg"
       },
       {
         "name": "Yuguang Ipsen",
         "url": "https://twitter.com/mvlfyg",
-        "image": "/images/fellows/Yuguang_Ipsen.jpg" 
+        "image": "/images/fellows/Yuguang_Ipsen.jpg"
       },
       {
         "name": "Richard Blythman",
         "url": "https://twitter.com/richardblythman",
-        "image": "/images/fellows/Richard_Blythman.jpg" 
+        "image": "/images/fellows/Richard_Blythman.jpg"
       },
       {
         "name": "Jasmine Wang",
         "url": "https://twitter.com/j_asminewang",
-        "image": "/images/fellows/Jasmine_Wang.jpg" 
+        "image": "/images/fellows/Jasmine_Wang.jpg"
       },
       {
         "name": "David Phelps",
         "url": "https://twitter.com/divine_economy",
-        "image": "/images/fellows/David_Phelps.jpg" 
+        "image": "/images/fellows/David_Phelps.jpg"
       },
       {
         "name": "Claudie Linke",
         "url": "https://twitter.com/claudie_linke",
-        "image": "/images/fellows/Claudie_Linke.jpg" 
+        "image": "/images/fellows/Claudie_Linke.jpg"
       },
       {
         "name": "Dilan Shah",
         "url": "https://twitter.com/dilan_shah",
-        "image": "/images/fellows/Dilan_Shah.jpg" 
+        "image": "/images/fellows/Dilan_Shah.jpg"
       },
       {
         "name": "Matt Stephenson",
         "url": "https://twitter.com/stephensonhmatt/",
-        "image": "/images/fellows/Matt_Stephenson.jpg" 
+        "image": "/images/fellows/Matt_Stephenson.jpg"
       },
       {
         "name": "Michelle Ma",
         "url": "https://twitter.com/musingsbymima",
-        "image": "/images/fellows/Michelle_Ma.jpg" 
+        "image": "/images/fellows/Michelle_Ma.jpg"
       },
       {
         "name": "Daanish Shabbir",
         "url": "https://twitter.com/danishabbir",
-        "image": "/images/fellows/Daanish.jpg" 
+        "image": "/images/fellows/Daanish.jpg"
       },
       {
         "name": "Yulia Babanova",
         "url": "https://twitter.com/yulia_eth",
-        "image": "/images/fellows/Yulia.jpg" 
+        "image": "/images/fellows/Yulia.jpg"
       },
       {
         "name": "Muhammad Hameed",
         "url": "https://twitter.com/youngrumi",
-        "image": "/images/fellows/Muhammad_Hameed.jpg" 
+        "image": "/images/fellows/Muhammad_Hameed.jpg"
       },
       {
         "name": "Anna Kryukova",
         "url": "https://twitter.com/AnnaAlexaK",
-        "image": "/images/fellows/Anna_Kryukova.jpg" 
+        "image": "/images/fellows/Anna_Kryukova.jpg"
       },
       {
         "name": "Divine Artis",
         "url": "https://twitter.com/tdevonartis",
-        "image": "/images/fellows/Divine_Artis.jpg" 
+        "image": "/images/fellows/Divine_Artis.jpg"
       },
       {
         "name": "Julian Traversa",
         "url": "https://twitter.com/TraversaJulian",
-        "image": "/images/fellows/Julian_Traversa.jpg" 
+        "image": "/images/fellows/Julian_Traversa.jpg"
       },
       {
         "name": "Sylvia R.",
         "url": "https://twitter.com/sylksie",
-        "image": "/images/fellows/Sylvia_R.jpg" 
+        "image": "/images/fellows/Sylvia_R.jpg"
       },
       {
         "name": "Martin Etzrodt",
         "url": "https://twitter.com/EtzrodtMartin",
-        "image": "/images/fellows/Martin_Etzrodt.jpg" 
+        "image": "/images/fellows/Martin_Etzrodt.jpg"
       },
       {
         "name": "Brittney Scott",
         "url": "https://twitter.com/b666s",
-        "image": "/images/fellows/Brittney_Scott.jpg" 
+        "image": "/images/fellows/Brittney_Scott.jpg"
       },
       {
         "name": "Matthew Scott Jones",
         "url": "https://twitter.com/WhiteRabbit_w3",
-        "image": "/images/fellows/Matthew_Scott_Jones.jpg" 
+        "image": "/images/fellows/Matthew_Scott_Jones.jpg"
       },
       {
         "name": "Kelsey Chen",
         "url": "https://twitter.com/kels_chen",
-        "image": "/images/fellows/Kelsey_Chen.jpg" 
+        "image": "/images/fellows/Kelsey_Chen.jpg"
       },
       {
         "name": "Jack Sanford",
         "url": "https://twitter.com/jack__sanford",
-        "image": "/images/fellows/Jack_Sanford.jpg" 
+        "image": "/images/fellows/Jack_Sanford.jpg"
       },
       {
         "name": "Paulo Almeida",
         "url": "https://twitter.com/pauloalmeidaeth",
-        "image": "/images/fellows/Paulo_Almeida.jpg" 
+        "image": "/images/fellows/Paulo_Almeida.jpg"
       },
       {
         "name": "Renee Maria Lee",
         "url": "https://twitter.com/lee0007",
-        "image": "/images/fellows/Renee_Maria_Lee.jpg" 
+        "image": "/images/fellows/Renee_Maria_Lee.jpg"
       },
       {
         "name": "Tim Courtney",
         "url": "https://twitter.com/timcourtney",
-        "image": "/images/fellows/Tim_Courtney.jpg" 
+        "image": "/images/fellows/Tim_Courtney.jpg"
       },
       {
         "name": "Elena Giralt",
         "url": "https://www.elenagiralt.com/",
-        "image": "/images/fellows/Elena_Giralt.jpg" 
+        "image": "/images/fellows/Elena_Giralt.jpg"
       },
       {
         "name": "Greg Becker",
         "url": "https://twitter.com/iamgregbecker",
-        "image": "/images/fellows/Greg_Becker.jpg" 
+        "image": "/images/fellows/Greg_Becker.jpg"
       },
       {
         "name": "bitsikka",
         "url": "https://twitter.com/bitsikka",
-        "image": "/images/fellows/bitsikka.jpg" 
+        "image": "/images/fellows/bitsikka.jpg"
       },
       {
         "name": "Stephanie Bazley",
         "url": "https://twitter.com/0xstephb",
-        "image": "/images/fellows/Stephanie_Bazley.jpg" 
+        "image": "/images/fellows/Stephanie_Bazley.jpg"
       },
       {
         "name": "Amarnath Jayanti",
         "url": "https://twitter.com/Amarnathjv",
-        "image": "/images/fellows/Amarnath.jpg" 
+        "image": "/images/fellows/Amarnath.jpg"
       },
       {
         "name": "Kyle Smith",
         "url": "https://twitter.com/bestape",
-        "image": "/images/fellows/Kyle_Smith.jpg" 
+        "image": "/images/fellows/Kyle_Smith.jpg"
       },
       {
         "name": "Guillermo Acuna",
         "url": "https://twitter.com/gjacuna",
-        "image": "/images/fellows/Guillermo_Acuna.jpg" 
+        "image": "/images/fellows/Guillermo_Acuna.jpg"
       },
       {
         "name": "Rich Blundell",
@@ -368,12 +376,12 @@
       {
         "name": "Denham Preen",
         "url": "https://twitter.com/DenhamPreen",
-        "image": "/images/fellows/Denham_Preen.png" 
+        "image": "/images/fellows/Denham_Preen.png"
       },
       {
         "name": "Nate Gosselin",
         "url": "https://twitter.com/nfrgosselin",
-        "image": "/images/fellows/Nate_Gosselin.jpg" 
+        "image": "/images/fellows/Nate_Gosselin.jpg"
       },
       {
         "name": "Julia Wu",
@@ -388,12 +396,12 @@
       {
         "name": "James Young",
         "url": "https://twitter.com/jamesyoung",
-        "image": "/images/fellows/James_Young.png" 
+        "image": "/images/fellows/James_Young.png"
       },
       {
         "name": "Kris Urbas",
         "url": "https://twitter.com/krzysu",
-        "image": "/images/fellows/Kris_Urbas.png" 
+        "image": "/images/fellows/Kris_Urbas.png"
       }
     ]
   }
