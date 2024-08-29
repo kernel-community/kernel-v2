@@ -16,7 +16,6 @@ const Fellows = () => {
         borderRadius: 'medium',
         marginX: ['2rem', '2rem', '0rem'],
       }}>
-
       <Flex>
         <Grid
           id="fellowContainer"
@@ -35,9 +34,8 @@ const Fellows = () => {
             scrollBehavior: 'smooth',
             scrollbarWidth: 'none',
             webkitScrollbarWidth: 'none',
-            alignContent: 'center'
+            alignContent: 'center',
           }}>
-
           {originalArray.fellows.map((fellow, index) => (
             <Flex
               key={index}
@@ -48,29 +46,35 @@ const Fellows = () => {
                 // minHeight: [60, 140],
                 // maxHeight: [60, 140],
                 height: '100%',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
               }}>
-                <Image
-                  src={fellow.image}
+              <Image
+                src={fellow.image}
+                sx={{
+                  borderRadius: '10%',
+                  marginX: 'auto',
+                  marginBottom: '0.5rem',
+                }}
+              />
+              <Flex sx={{ flexDirection: 'column', height: '100%' }}>
+                <Flex
                   sx={{
-                    borderRadius: '10%',
-                    marginX: 'auto',
-                    marginBottom: '0.5rem',
-                  }}
-                />
-                <Flex sx={{flexDirection: 'column', height: '100%'}}>
-                  <Flex sx={{flexDirection: 'row', alignItems: 'center', rowGap: '4px', justifyContent: 'space-between'}}>
-                    <Text variant='h4'>
-                      {fellow.name}
-                    </Text>
-                    <Text sx={{ ':hover': {cursor: 'pointer'} }} onClick={() => {window.open(fellow.url, '_blank')}}>
-                      <Icon size={3} name="xicon" />
-                    </Text>
-                  </Flex>
-                  <Subtitle>
-                  {fellow.association || "Fellow"}
-                  </Subtitle>
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    rowGap: '4px',
+                    justifyContent: 'space-between',
+                  }}>
+                  <Text variant="h4">{fellow.name}</Text>
+                  <Text
+                    sx={{ ':hover': { cursor: 'pointer' } }}
+                    onClick={() => {
+                      window.open(fellow.url, '_blank')
+                    }}>
+                    <Icon size={3} name="xicon" />
+                  </Text>
                 </Flex>
+                <Subtitle>{fellow.association || 'Fellow'}</Subtitle>
+              </Flex>
             </Flex>
           ))}
         </Grid>
