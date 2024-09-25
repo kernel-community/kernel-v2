@@ -28,8 +28,8 @@ const InfoBlock = ({ children }) => {
         alignItems: 'center',
         flexDirection: ['column', 'column', 'row'],
         width: '100%',
-        px: ['20px', '20px', '2%'],
-        py: ['60px', '60px', '72px'],
+        // px: ['20px', '20px', '2%'],
+        // py: ['60px', '60px', '72px'],
         textAlign: hasImage ? '' : 'center',
         '& > *': {
           width: ['100%', '50%', '50%'],
