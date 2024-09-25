@@ -2,7 +2,23 @@ import React from 'react'
 import { Flex, Grid } from 'theme-ui'
 
 const BigNumber = ({ children }) => {
-  return <div style={{ fontSize: '54px' }}>{children}</div>
+  return <div style={{ fontSize: '64px' }}>{children}</div>
+}
+
+const BigText = ({children}) => {
+  return <div style={{fontSize: '24px'}}>{children}</div>
+}
+
+const StatSection = ({children}) => {
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}>
+      {children}
+    </div>
+  )
 }
 
 const Stats = () => {
@@ -30,22 +46,22 @@ const Stats = () => {
             scrollbarWidth: 'none',
             width: '100%',
           }}>
-          <div>
+          <StatSection>
             <BigNumber>2057</BigNumber>
-            <div>Kernel Fellows</div>
-          </div>
-          <div>
+            <BigText>Kernel Fellows</BigText>
+          </StatSection>
+          <StatSection>
             <BigNumber>92</BigNumber>
-            <div>countries</div>
-          </div>
-          <div>
+            <BigText>countries</BigText>
+          </StatSection>
+          <StatSection>
             <BigNumber>200+</BigNumber>
-            <div>active projects</div>
-          </div>
-          <div>
+            <BigText>active projects</BigText>
+          </StatSection>
+          <StatSection>
             <BigNumber>$100MM</BigNumber>
-            <div>Raised by Kernel Fellows</div>
-          </div>
+            <BigText>Raised by Kernel Fellows</BigText>
+          </StatSection>
         </Grid>
       </Flex>
     </Flex>
