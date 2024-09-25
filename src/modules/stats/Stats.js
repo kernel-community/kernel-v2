@@ -5,17 +5,18 @@ const BigNumber = ({ children }) => {
   return <div style={{ fontSize: '64px' }}>{children}</div>
 }
 
-const BigText = ({children}) => {
-  return <div style={{fontSize: '24px'}}>{children}</div>
+const BigText = ({ children }) => {
+  return <div style={{ fontSize: '24px' }}>{children}</div>
 }
 
-const StatSection = ({children}) => {
+const StatSection = ({ children }) => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
       {children}
     </div>
   )
