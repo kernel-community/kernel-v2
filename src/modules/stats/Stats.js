@@ -1,12 +1,8 @@
 import React from 'react'
 import { Flex, Grid } from 'theme-ui'
 
-const BigNumber = ({children}) => {
-  return (
-    <div style={{fontSize: '54px'}}>
-      {children}
-    </div>
-  )
+const BigNumber = ({ children }) => {
+  return <div style={{ fontSize: '54px' }}>{children}</div>
 }
 
 const Stats = () => {
@@ -32,44 +28,28 @@ const Stats = () => {
             gridAutoFlow: 'column',
             scrollBehavior: 'smooth',
             scrollbarWidth: 'none',
-            width: '100%'
+            width: '100%',
           }}>
-            <div>
-              <BigNumber>
-                2057
-              </BigNumber>
-              <div>
-                Kernel Fellows
-              </div>
-            </div>
-            <div>
-              <BigNumber>
-                92
-              </BigNumber>
-              <div>
-                countries
-              </div>
-            </div>
-            <div>
-              <BigNumber>
-                200+
-              </BigNumber>
-              <div>
-                active projects
-              </div>
-            </div>
-            <div>
-              <BigNumber>
-                $100MM
-              </BigNumber>
-              <div>
-                Raised by Kernel Fellows
-              </div>
-            </div>
+          <div>
+            <BigNumber>2057</BigNumber>
+            <div>Kernel Fellows</div>
+          </div>
+          <div>
+            <BigNumber>92</BigNumber>
+            <div>countries</div>
+          </div>
+          <div>
+            <BigNumber>200+</BigNumber>
+            <div>active projects</div>
+          </div>
+          <div>
+            <BigNumber>$100MM</BigNumber>
+            <div>Raised by Kernel Fellows</div>
+          </div>
         </Grid>
       </Flex>
     </Flex>
   )
 }
 
-export default Stats;
+export default Stats

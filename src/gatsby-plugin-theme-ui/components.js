@@ -120,7 +120,7 @@ const Custom_Components = {
   Heading5,
   Subtitle,
   Stats,
-  LearnTable
+  LearnTable,
 }
 
 const overridesAndComponents = {

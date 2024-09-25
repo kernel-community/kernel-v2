@@ -1,1 +1,1 @@
-export {default as LearnTable} from "./learn-table";
+export { default as LearnTable } from './learn-table'
