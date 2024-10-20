@@ -19,7 +19,7 @@ module.exports = {
     description: `A care-full community of hearts and souls in web3.`,
     author: `Kernel Community Team`,
     copyright: '',
-    siteUrl: 'https://kernel.community/',
+    siteUrl: 'https://read.kernel.community/',
   },
   plugins: [
     'gatsby-plugin-theme-ui',
