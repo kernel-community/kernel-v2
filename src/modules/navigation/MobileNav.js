@@ -352,7 +352,7 @@ const MobileNav = ({ sidenavData, blogData }) => {
                 pt: '30px',
                 pb: '37px',
                 borderBottom: '1px solid',
-                borderColor: 'surfaceDark',
+                borderColor: 'primaryAlt',
                 alignItems: 'center',
                 cursor: 'pointer',
               }}
@@ -361,7 +361,7 @@ const MobileNav = ({ sidenavData, blogData }) => {
               <Text
                 variant="caps"
                 sx={{
-                  color: 'primary',
+                  color: 'linkAlt',
                   fontSize: ['14px', '3vw', null],
                   display: 'inline-block',
                   lineHeight: 'normal',
@@ -467,7 +467,7 @@ const MobileNav = ({ sidenavData, blogData }) => {
                       fontSize: ['7vw', '5vw', null],
                       textDecoration: 'none',
                       px: [3, '30px', null],
-                      color: 'primary',
+                      color: 'linkAlt',
                       display: 'block',
                       mb: 3,
                       pt: 'calc(2vh + 6px)',

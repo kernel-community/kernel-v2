@@ -272,7 +272,7 @@ export default {
     surfaceDark: '#4B5B33',
     muted: '#D0D3D7',
     link: '#4B5B33',
-    linkAlt: '#4B5B33',
+    linkAlt: '#FFF',
     mutedAlt: '#90969C',
     // mutedAlt: '',
     mutedDark: '#757087',
@@ -441,10 +441,10 @@ export default {
       textDecoration: 'none',
       transition: 'all .1s ease',
       '&.active': {
-        color: 'linkAlt',
+        textDecoration: 'underline',
       },
       '&:hover': {
-        color: 'linkAlt',
+        textDecoration: 'underline',
       },
       '&:hover > svg': {
         color: 'linkAlt',
@@ -456,11 +456,11 @@ export default {
       textDecoration: 'none',
       transition: 'all .1s ease',
       '&.active': {
-        color: 'linkAlt',
+        textDecoration: 'underline',
         fontWeight: 'bold',
       },
       '&:hover': {
-        color: 'linkAlt',
+        textDecoration: 'underline',
       },
       '&:hover > svg': {
         color: 'linkAlt',
