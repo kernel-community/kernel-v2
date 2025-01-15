@@ -1,0 +1,117 @@
+---
+title: Participate In
+order: 4
+hideLanguageSelector: true
+description: How can privacy help us align the long-term outcomes of both blockchains and AI?
+featuredImage: images/shares/learn.png
+---
+
+# Committed Participation
+
+<InfoBlock>
+
+<Box>
+
+![cryptoXai](/images/mod6-img/ether-love.webp)
+
+<Aligner center>
+<Button to="https://hackmd.io/D4kdO68tQw2zQ5pWjT81zw">
+    Research
+</Button>
+</Aligner>
+
+</Box>
+
+</InfoBlock>
+
+All the way back in Module 0, we saw that Bitcoin, as the first network-centric protocol for money, proposes a new “[architecture of participation](/learn/module-0/weird-ways)” which can be used to express different meanings for money that help humanity cooperate at scale.
+
+However, in order to make cooperation the most optimal play, we need to figure out how to align the interests of many agents, all with different economic goals. Our ability to do this has a limit, which is the speed at which we can be sure any agent’s commitment is credible. 
+
+In Ethereum, the speed of commitment  is roughly 12 seconds: the time it takes for your signed transaction (i.e. commitment) to make it into a block. Which raises the question: how do games which are played at speeds faster than 12 seconds (like trades on a centralized exchange, which occur every millisecond or less) influence games on Ethereum? 
+
+This question is what informs what we call “MEV”, which we will define later. The key point right now is that the question, “What happens in games played faster than we can ensure the commitment of any player is credible?” has a very wide application. It applies particularly to the work to “align” AI systems with human values, because the speed at which such systems compute responses is far faster than any human can verify their credibility.
+
+This convergence requires a unique brief. If it is too complex, skip for now and come back later. If it lights your fire, you could spend the rest of your fellowship exploring the implications outlined here.
+
+This is not about superficial token models. It’s also not about considering what you say to chatgpt and where it is stored and how it is used ([though that is necessary too](https://www.youtube.com/watch?v=y2bmFzbKPbs)). This is about crafting *foundational architectures* *of participation*: i.e. how we can all share in the most valuable games being played. Our core claim is this:
+
+> 💡 **Blockchains and LLMs require the nuanced application of privacy in order to secure optimal or “aligned” long-term outcomes when using these tools.**
+
+If this brief seems too complex, the high level question you can consider on your own terms and in your own language is: “**how can we enable both blockchains and LLMs to be allies of life**?” That is, how can these powerful technologies serve and further the ongoing process of life, rather than ending it or draining the resources required for its indefinite continuation?
+
+## Revelations
+
+The [Cypherpunk Manifesto](https://www.activism.net/cypherpunk/manifesto.html) defines privacy as “the power to selectively reveal oneself to the world”. Two things are notable about this. Firstly, privacy is defined [in terms of revelation](/learn/module-4/art), not obfuscation. This kind of complementary opposite will be very familiar by now. Secondly, privacy–just like this whole brief–is all about power.
+
+Selective revelation - the power to decide what should be shared with whom - is critical to both blockchains and LLMs, because it enables **accountability** while ensuring that the value communicated moves only between those for whom it is intended. 
+
+In the best case, privacy means that messages can move without being intercepted; blockchains enable value to flow without being intermediated; and LLMs enable access to knowledge without undue influence.
+
+In practice, however, our “private” systems often betray our messages. Our blockchains often install new and more hidden intermediaries, and our LLMs are all heavily influenced. But this is just proof of how each of these fields needs the insights and innovations of the others.
+
+Privacy is not about hiding stuff, but rather about ensuring the selective revelations required to prove that all commitments necessary to participate in a given protocol are kept, and can be verified only when necessary. Aligning adversarial agents on a blockchain, or LLMs that are more effective at any economic task than humans, depends on both economic cost and the way in which we constrain the information available to any given agent at particular times (privacy).
+
+On modern blockchains, sensitive trades are often never even sent to the public “mempool”, which is the unordered queue of transactions waiting to be included in the next block(s). They are sent to [private services](https://docs.flashbots.net/flashbots-protect/overview) which–at best–route the transactions to “searchers” and reveal only the information specified by the person submitting the transaction. These selective revelations are enough for searchers to make money off keeping the network efficient (executing arbitrage strategies known as “backruns”) but not to directly manipulate the trade itself (a “frontrun”).
+
+We’ve seen a crude version of this in LLMs like chatgpt, which limit the date up to which a given model has received data, mostly for practical reasons to do with training, but also so that it cannot respond in real time to the trending news or gossip. The deeper question is: what is the art of selective revelation that will make these models maximally useful and minimally biased, or unaligned with long-term human values we can credibly check for ourselves?
+
+## In Credible Computing
+
+Private RPCs are a temporary solution at best, because they reintroduce a trusted third party who is running the service. Some of the deeper research that’s been happening revolves around how we might use tools like “[credible commitments](https://hackmd.io/@sxysun/ccdwtf)” to align economic agents with diverse interests. 
+
+That is, I can write a simple contract that says, “If you defect, I will too, but if you cooperate, I will too.” This kind of commitment is credible because its code is deployed on a shared network where you can always verify yourself that it will do what it says it will. If you know for sure that I will defect if you do, it makes it less likely that you will, because you know the payoff is guaranteed to be lower for both of us. Therefore, these kinds of commitments “[warp](https://medium.com/@virgilgr/ethereum-is-game-changing-technology-literally-d67e01a01cf8)” the incentives of any game we can play, and can be used to encourage cooperation over defection.
+
+Game warping has deeper roots in decision theory, and ultimately ends up looking like “[strategy-proof computing](https://econcs.seas.harvard.edu/files/econcs/files/spc.pdf)”, which is the idea that we can build permissionless marketplaces for mechanisms that consistently find the optimal (which is generally the most cooperative) means of playing any game.
+
+The key insight here is that “the most optimal means of playing any game” is exactly that same idea whether it applies to how to order a set of transactions from adversarial and competing agents in a network, or how to align intelligence beyond the human. And there is nothing new about this either, because commitments and the proof they have been kept are the backbone of many ancient protocols for handling communication in the absence of shared values.
+
+The issue now is speed. On a blockchain, we cannot coordinate the outcome of any game played within a single block, because there is no guarantee about the order of transactions in that block until after it is mined. This is the “[speed of commitment](https://docs.google.com/presentation/d/1q_wmduMLr7IKkOPgWTWiYFfpgZNALFAah7ekB0I7X3o/edit?usp=drivesdk)” and–as we stated above–it is roughly 12 seconds on Ethereum today. Any games happening in less time than that (i.e. trades on a centralised exchange which move the price relative to what Uniswap quotes) cannot be interpreted/aligned in the context of the protocol. 
+
+While we lack the ability to interpret these fast games and therefore warp them cooperatively,  the *information* available to any agent is still possible to reason about, which is why privacy matters: it is the means by which we can limit what information is available to whom, such that we can realistically constrain misaligned games.
+
+## Trust the Constraints
+
+How exactly can we constrain LLMs with the judicious application of privacy? On a blockchain, we know that revealing to searchers what pair a user wants to trade on Uniswap, but not the direction or amount, constrains the game such that only “[backruns](https://x.com/bertcmiller/status/1679146534166994944)” are possible. However, no-one really knows what the equivalent for AI is right now. There are few [better questions](/learn/module-2/better-questions) you could work on today where you stand to make as big an impact.
+
+That said, we know it has to do with the creative application of cryptography and economic incentives in our computing systems such that they genuinely become strategy-proof, i.e. such that we can craft mathematical proofs that our systems cannot be gamed by intelligences operating at speeds beyond our ability to commit to any action credibly.
+
+This is why privacy ties the whole thing together: such proofs depend on the cryptoeconomic properties our systems have. [MEV research began with people trying to quantify the security of a program in economic terms](https://streameth.org/65a90bfc7932ebe436ba9375/watch?session=65b8f8dea5b2d09b88ec2076), which is a fascinating idea when applied to LLMs, because it gives us a whole different spin on interpretability, and therefore alignment. 
+
+Remember, money is an ancient language for communicating value. Alignment requires quantifying our values and figuring out how to ensure they are communicated securely. We’ve been figuring out how to do exactly that with blockchains for 15 years now, where “securely” means both “can't be made intelligible by anyone other than the intended recipient” *and *“are agreed upon and cannot be altered with less than x% of the total value of the network”.
+
+Instead of trying to enforce alignment via law and/or rhetoric, this double security is what both limits the information **and** ensures that any move made within those limits remains credibly aligned. Privacy is critical to this in a very direct and technical way: modern cryptography (like zero knowledge proofs) is all about writing constraints. Literally, [in order to write a circuit](https://learn.0xparc.org/), you have to be able to enumerate all the constraints required to verify a proof.
+
+For emphasis: constraints are required for agents in permissionless systems to prove that they have kept the commitments defined in the “architecture of participation”, but they do not make such proofs credible because we still lack the speed to interpret them fully. The way we introduce credibility is by attaching economic cost to the set of constrained commitments it is possible to make. Hence the claim that cryptoeconomic proofs are the only ones capable of enabling both blockchains and LLMs to remain aligned to the stated rules of the protocol they depend on for the creation and distribution of value.
+
+## Positive Sum
+
+We can make moral and human rights based arguments for privacy. We can even notice that, “saying privacy doesn't matter because you have nothing to hide is like saying free speech doesn't matter because you have nothing to say.” But it's something quite different to notice that **privacy is an existential need**, a critical tool in mitigating a combination of the so-called “x-risks” our generation faces. The cypherpunks were onto something.
+
+While blockchains and LLMs are both powerful tools, cryptography still subsumes both. Cryptography has always been the means by which we constrain the application of language and ensure it is transmitted only as intended. 
+
+The proper application of cryptographic constraints and shared, verifiable economic incentives does not make the world “trustless”. It makes our systems [trustworthy](https://collective.flashbots.net/t/stargazing-2-trustworthy/3851#p-8148-the-great-community-3).
+
+Most importantly, it is not about using cryptography to hide stuff: that will not align anyone, and it has always been at best a temporary form of control. It is about using cryptography to [constrain](/learn/module-3/freedom) the information available at any given time to those who have committed to using it in the most valuable ways, where that value is both credible and shared on public networks, even as the exact way it is communicated remains private.
+
+In MEV research, we measure our ability to do this by asking how much of the latent financial energy we are able to capture and use for [useful work](https://collective.flashbots.net/t/stargazing-1-check-your-harness/3766#layer-0-we-the-people-3). What is the equivalent for LLMs?
+
+The goal is clear: enable blockchains and LLMs to be allies of life by ensuring that the best move, irrespective of one’s position or sophistication, is to cooperate. Figuring out exactly how to do this is now up to you.
+
+## Further References
+
+<List>
+
+<Link to="https://econcs.seas.harvard.edu/files/econcs/files/ai_challenges.pdf">
+
+Five AI Challenges in Strategyproof Computing
+
+</Link>
+
+<Link to="https://www.youtube.com/watch?v=smtti-OiFEU">
+
+Vitalik and Audrey in Dialogue
+
+</Link>
+
+</List>
