@@ -20,6 +20,7 @@ import {
   StatusBanner,
   Table,
   Tout,
+  FlipCardContainer
 } from '@modules/ui/'
 import Card from '@modules/flashcard/card'
 import Flash from '@modules/flashcard/flash'
@@ -103,6 +104,7 @@ const Custom_Components = {
   Card,
   AudioPlayer,
   ConnectButton,
+  FlipCardContainer
 }
 
 const overridesAndComponents = {
