@@ -1,30 +1,32 @@
-import React from 'react';
+import React from 'react'
 
 const styles = {
   flipCard: {
     perspective: '1000px',
-    width: '100%'
+    width: '100%',
   },
   flipCardInner: {
     position: 'relative',
     transition: 'transform 0.6s',
-    transformStyle: 'preserve-3d'
+    transformStyle: 'preserve-3d',
   },
   flipCardInnerHover: {
-    transform: 'rotateY(180deg)'
+    transform: 'rotateY(180deg)',
   },
   flipCardFront: {
     backgroundColor: 'white',
     borderRadius: '0.375rem',
-    boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+    boxShadow:
+      '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
     border: '2px solid rgba(229, 231, 235, 0.5)',
     backfaceVisibility: 'hidden',
-    transformStyle: 'preserve-3d'
+    transformStyle: 'preserve-3d',
   },
   flipCardBack: {
     backgroundColor: 'rgb(243, 244, 246)',
     borderRadius: '0.375rem',
-    boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+    boxShadow:
+      '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
     border: '2px solid rgba(229, 231, 235, 0.5)',
     padding: '1rem 0.2rem ',
     backfaceVisibility: 'hidden',
@@ -34,7 +36,7 @@ const styles = {
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0
+    bottom: 0,
   },
   title: {
     textAlign: 'center',
@@ -42,49 +44,49 @@ const styles = {
     fontSize: '1.5rem',
     padding: '2rem',
     borderBottom: '2px solid rgb(229, 231, 235)',
-    height: '175px'
+    height: '175px',
   },
   gridContainer: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
     height: '170px',
-    borderRight: '1px solid rgb(229, 231, 235)'
+    borderRight: '1px solid rgb(229, 231, 235)',
   },
   inquirySection: {
     padding: '2rem 1rem',
     textAlign: 'center',
-    borderRight: '1px solid rgb(229, 231, 235)'
+    borderRight: '1px solid rgb(229, 231, 235)',
   },
   inquiryLabel: {
     fontSize: '0.875rem',
-    marginBottom: '1.5rem'
+    marginBottom: '1.5rem',
   },
   inquiryLink: {
     fontWeight: 600,
-    fontSize: '0.875rem'
+    fontSize: '0.875rem',
   },
   backTitle: {
     textAlign: 'center',
     fontWeight: 900,
     fontSize: '1.5rem',
-    marginBottom: '1rem'
+    marginBottom: '1rem',
   },
   linksList: {
     listStyleType: 'disc',
-    listStylePosition: 'inside'
+    listStylePosition: 'inside',
   },
   listItem: {
-    margin: '0.5rem 0'
+    margin: '0.5rem 0',
   },
   link: {
     textDecoration: 'none',
-    color: 'inherit'
+    color: 'inherit',
   },
   backLink: {
     color: 'rgb(59, 130, 246)',
-    textDecoration: 'underline'
-  }
-};
+    textDecoration: 'underline',
+  },
+}
 
 const FlipCard = ({
   link,
@@ -94,24 +96,22 @@ const FlipCard = ({
   personalInquiryLink = '',
   webInquiry = null,
   webInquiryLink = '',
-  backLinks = []
+  backLinks = [],
 }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false)
 
   return (
-    <div 
+    <div
       style={styles.flipCard}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}
-    >
-      <div 
+      onBlur={() => setIsHovered(false)}>
+      <div
         style={{
           ...styles.flipCardInner,
-          ...(isHovered ? styles.flipCardInnerHover : {})
-        }}
-      >
+          ...(isHovered ? styles.flipCardInnerHover : {}),
+        }}>
         <div style={styles.flipCardFront}>
           <div style={styles.title}>
             <a href={link} style={styles.link}>
@@ -151,7 +151,7 @@ const FlipCard = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FlipCard;
+export default FlipCard
