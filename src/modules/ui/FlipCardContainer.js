@@ -8,7 +8,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '0.75rem',
+    padding: '0.75rem 0.25rem',
   },
   gridMobile: {
     display: 'grid',
@@ -20,10 +20,9 @@ const styles = {
   },
   gridDesktop: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
     gap: '1rem',
     width: '100%',
-    maxWidth: '75%',
     margin: '0 auto',
   },
 }
