@@ -71,6 +71,10 @@ const PageMoneySpeech = () => {
         literally make money in ways which benefit the people we each care
         about.
       </p>
+      <p>
+        Please make sure that your browser wallet is connected to Optimism for this 
+        play to go on.
+      </p>
       <div sx={styles.connector}>
         {isConnected && <HonourConnector address={accountData?.address} />}
         {!isConnected && <ConnectButton />}
