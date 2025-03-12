@@ -4,9 +4,7 @@ import { providers } from 'ethers'
 
 const infuraId = process.env.INFURA_ID
 
-export const connectors = () => [
-  new InjectedConnector({ allChains }),
-]
+export const connectors = () => [new InjectedConnector({ allChains })]
 
 export const Connector = {
   INJECTED: 0,
