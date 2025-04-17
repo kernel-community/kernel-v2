@@ -230,7 +230,7 @@ const Content = ({ balance }) => {
           <Link to="https://observablehq.com/@andytudhope/embedded-discover">
             mechanisms
           </Link>{' '}
-          like that which runs <Link to="https://dap.ps">dap.ps</Link>. Anyone
+          like that which runs <Link to="/tokens/token-studies/dap-ps">dap.ps</Link>. Anyone
           can vote in a way which &quot;defames&quot; a product or service, but
           that vote is also an economic signal denoted in tokens, which are sent
           straight back to the product or service. So, your downvote causes
