@@ -230,14 +230,14 @@ const Content = ({ balance }) => {
           <Link to="https://observablehq.com/@andytudhope/embedded-discover">
             mechanisms
           </Link>{' '}
-          like that which runs <Link to="/tokens/token-studies/dap-ps">dap.ps</Link>. Anyone
-          can vote in a way which &quot;defames&quot; a product or service, but
-          that vote is also an economic signal denoted in tokens, which are sent
-          straight back to the product or service. So, your downvote causes
-          reputational damage while simultaneously repaying the people
-          you&apos;re damaging (programmed according to a curve which makes
-          votes cheaper the richer/higher the rank of whomever you&apos;re
-          voting on is).
+          like that which runs{' '}
+          <Link to="/tokens/token-studies/dap-ps">dap.ps</Link>. Anyone can vote
+          in a way which &quot;defames&quot; a product or service, but that vote
+          is also an economic signal denoted in tokens, which are sent straight
+          back to the product or service. So, your downvote causes reputational
+          damage while simultaneously repaying the people you&apos;re damaging
+          (programmed according to a curve which makes votes cheaper the
+          richer/higher the rank of whomever you&apos;re voting on is).
         </Box>
         <Box>
           <b>Per quod</b> defamation can be more elegantly handled either by
