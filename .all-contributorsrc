@@ -194,6 +194,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "maceagonvoyce",
+      "name": "MacEagon Voyce",
+      "avatar_url": "/images/fellows/Maceagon_Voyce.jpg",
+      "profile": "https://www.instagram.com/voyce.box/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 6,
