@@ -206,7 +206,9 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link hideExternalIcon to={'https://kernel.community/brandkit'}>
+                    <Link
+                      hideExternalIcon
+                      to={'https://kernel.community/brandkit'}>
                       {t('Brand Kit', 'Footer')}
                     </Link>
                   </li>
