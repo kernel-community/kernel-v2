@@ -205,6 +205,13 @@ const Footer = () => {
                       {t('Terms of Service', 'Footer')}
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      hideExternalIcon
+                      to={'https://kernel.community/brandkit'}>
+                      {t('Brand Kit', 'Footer')}
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
