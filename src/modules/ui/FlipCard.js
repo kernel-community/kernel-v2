@@ -1,42 +1,59 @@
 import React from 'react'
 
+const RotateIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" {...props}>
+    <path
+      d="M3 12a9 9 0 1 0 3-6.708V3a1 1 0 0 0-2 0v5h5a1 1 0 0 0 0-2H7.944A7 7 0 1 1 5 12"
+      fill="currentColor"
+    />
+  </svg>
+)
+
 const styles = {
   flipCard: {
     perspective: '1000px',
     width: '100%',
   },
+  cardHeight: {
+    height: 345, 
+  },
   flipCardInner: {
     position: 'relative',
+    width: '100%',
+    height: '100%',
     transition: 'transform 0.6s',
     transformStyle: 'preserve-3d',
   },
-  flipCardInnerHover: {
+  flipped: {
     transform: 'rotateY(180deg)',
+  },
+  faceBase: {
+    backfaceVisibility: 'hidden',
+    transformStyle: 'preserve-3d',
+    borderRadius: '0.375rem',
+    boxShadow:
+      '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+    border: '2px solid rgba(229, 231, 235, 0.5)',
+    position: 'absolute',
+    inset: 0,
   },
   flipCardFront: {
     backgroundColor: 'white',
-    borderRadius: '0.375rem',
-    boxShadow:
-      '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-    border: '2px solid rgba(229, 231, 235, 0.5)',
-    backfaceVisibility: 'hidden',
-    transformStyle: 'preserve-3d',
   },
   flipCardBack: {
     backgroundColor: 'rgb(243, 244, 246)',
-    borderRadius: '0.375rem',
-    boxShadow:
-      '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-    border: '2px solid rgba(229, 231, 235, 0.5)',
-    padding: '1rem 0.2rem ',
-    backfaceVisibility: 'hidden',
-    transformStyle: 'preserve-3d',
     transform: 'rotateY(180deg)',
+    padding: '1rem 0.2rem',
+  },
+  flipBtn: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    top: 8,
+    right: 8,
+    padding: 6,
+    borderRadius: '9999px',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
   },
   title: {
     textAlign: 'center',
@@ -44,12 +61,12 @@ const styles = {
     fontSize: '1.5rem',
     padding: '2rem',
     borderBottom: '2px solid rgb(229, 231, 235)',
-    height: '175px',
+    height: 175,
   },
   gridContainer: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
-    height: '170px',
+    height: 170,
     borderRight: '1px solid rgb(229, 231, 235)',
   },
   inquirySection: {
@@ -69,11 +86,13 @@ const styles = {
     textAlign: 'center',
     fontWeight: 900,
     fontSize: '1.5rem',
+    marginTop: 8,
     marginBottom: '1rem',
   },
   linksList: {
     listStyleType: 'disc',
     listStylePosition: 'inside',
+    paddingInline: 16,
   },
   listItem: {
     margin: '0.5rem 0',
@@ -98,26 +117,34 @@ const FlipCard = ({
   webInquiryLink = '',
   backLinks = [],
 }) => {
-  const [isHovered, setIsHovered] = React.useState(false)
+  const [isFlipped, setIsFlipped] = React.useState(false)
 
   return (
-    <div
-      style={styles.flipCard}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}>
+    <div style={{ ...styles.flipCard, ...styles.cardHeight }}>
       <div
         style={{
           ...styles.flipCardInner,
-          ...(isHovered ? styles.flipCardInnerHover : {}),
+          ...(isFlipped ? styles.flipped : {}),
         }}>
-        <div style={styles.flipCardFront}>
+        {/* FRONT */}
+        <div style={{ ...styles.faceBase, ...styles.flipCardFront }}>
+          <button
+            type="button"
+            aria-label="Flip card"
+            aria-pressed={isFlipped}
+            style={styles.flipBtn}
+            onClick={() => setIsFlipped(true)}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgb(229, 231, 235)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}>
+            <RotateIcon />
+          </button>
+
           <div style={styles.title}>
             <a href={link} style={styles.link}>
               {emoji} {title}
             </a>
           </div>
+
           <div style={styles.gridContainer}>
             {personalInquiry && (
               <div style={styles.inquirySection}>
@@ -137,7 +164,20 @@ const FlipCard = ({
             )}
           </div>
         </div>
-        <div style={styles.flipCardBack}>
+
+        {/* BACK */}
+        <div style={{ ...styles.faceBase, ...styles.flipCardBack }}>
+          <button
+            type="button"
+            aria-label="Flip card back to front"
+            aria-pressed={!isFlipped}
+            style={styles.flipBtn}
+            onClick={() => setIsFlipped(false)}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgb(209, 213, 219)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}>
+            <RotateIcon />
+          </button>
+
           <div style={styles.backTitle}>Extended Reading</div>
           <ul style={styles.linksList}>
             {backLinks.map((item, index) => (
