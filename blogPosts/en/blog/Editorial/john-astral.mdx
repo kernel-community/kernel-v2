@@ -1,0 +1,101 @@
+---
+title: "John Hoopes - Astral"
+authors: ["maceagonvoyce"]
+keywords: "kernel, fellows, features, astral, location"
+description: "To blockchain’s three existing fields – identity, time, and action – Astral introduces the fourth: location: a way to root digital records in physical reality."
+date: 2025-07-30
+image: "/images/blog_headers/fellow-features.png"
+recommend:
+  [
+    "blogPosts/en/blog/Editorial/akasha-concordance",
+    "blogPosts/en/blog/community/free-learn",
+    "blogPosts/en/blog/Editorial/constituting-consensus",
+  ]
+---
+
+<InfoBlock>
+
+“[In Kernel], you are the subject. When this knowing-being is stabilised in your heart, then the environments you find yourself in all serve as means to direct you home into the silent awareness which grounds all real learning.” _[Kernel Module 6, Learning How To Learn](/learn/module-6/learn/)_
+
+</InfoBlock>
+
+Part of Ethereum’s innovation is its decentralized, global accessibility. By design, blockchains are placeless. And yet for much of our reality, place is an essential character.
+
+“If I look at my phone and look back at the last 10 apps I've used, half of them are location-based,” John Hoopes (KB0) told Kernel. On-chain, location is largely unaccounted for, and neglecting it constitutes a fundamental limitation. 
+
+Consider how constrained relational databases were until the advent of spatial extensions. Coordinate systems, polygon data, and spatial queries unlocked everything from GPS navigation systems (e.g. Google Maps) to ride-sharing platforms (e.g. Uber). 
+
+“I've had to really dig deep into my patience because the Ethereum community has been sleeping. Nobody's talking about location! But it's time to stop complaining – just build the thing and give it to them and see what happens.”
+
+John’s project Astral – co-built with Adam Spiers (KBX), CTO of Toucan Protocol, another project John co-founded – is a spatial extension for the decentralized web. To blockchain’s three existing fields – identity, time, and action – Astral introduces the fourth: location: “a way to root digital records in physical reality,” reads [the Astral manifesto](https://paragraph.com/@astralprotocol/introducing-the-astral-protocol). “Because once we know where we are, we can decide where to go next.”
+
+## John Hoopes
+John grew up in Golden, Colorado, a suburb of Denver that sits where the Great Plains meet the Rocky Mountain Front Range. Directionality was an innate feature of his childhood. The mountains always loomed to the west – the rest of the world extended from there. 
+
+“I learned how to read maps very young,” he said. “The USGS Geological Survey Headquarters is [not far from my house], and we would go into these huge map rooms and pick out the 7.5 minute quadrangle topographic maps for the mountain basins we were gonna go hike up into.
+“[I was] looking at a symbolic representation of space while also standing in the space and quickly translat[ing] in my mind – a bunch of close together contour lines here and there's a cliff right there. I could start to see that relationship.”
+
+He developed that relationship at Tufts, taking classes on GIS (Geographic Information Systems) – hardware and software systems that process and visualize geographic data – and remote sensing, the use of satellite- or airborne-based sensor technologies to detect and classify objects and topographies.
+
+In 2016, after working for a few years as a cycling tour guide, he joined the research team at the international NGO, One Earth Future Foundation. He analyzed shipping patterns to ascertain the economic costs of maritime piracy; ships that had to reroute to avoid dangerous areas meant more fuel and more emissions. 
+
+One of his projects was an internal memo on how North Korea evaded maritime sanctions to fund their nuclear weapons program. He called it a “bureaucratic switcheroo,” marked by subterfuge: when they wanted to conceal their whereabouts, they simply switched off their AIS (Automatic Identification System) transceivers – the internationally mandated positioning system for commercial shipping. The ships would disappear from the map and then pop back up a couple days later.
+
+“I was really starting to get washed over with this verifiability narrative,” John told us. “This is crazy. There's got to be a better way to do this.”
+____
+A friend told him about Bitcoin in 2017. Soon after he discovered [FOAM](https://foam.space/publicAssets/FOAM_Whitepaper.pdf) – a project he described as “the OG web3 geospatial team.” FOAM built a network of physical radio beacons that used cryptoeconomic staking to verify location through time-based triangulation. “They did an ICO (initial coin offering) in 2017, which I was actually involved in,” John said. “That was an early point towards questions like: how do you tie smart contract behavior to where people are?” 
+
+In 2019 he moved to London, earning a masters in Spatial Data Science and Visualization from UCL (University College London) while continuing to investigate that question with his new project, Astral. 
+
+Astral first gained form in Kernel’s genesis block. “We created the web3 spatial working group and we ended up prototyping what we think was the first on-chain sustainability-linked bond,” John said. “We tied the interest rate of a bond – implemented in Solidity – to air quality metrics from satellite imagery of London.”
+
+Over the coming years, Astral received grants to explore various on-chain geospatial opportunities, building location-based Dapps for transport, local currencies, gaming, and dating services. But they kept encountering the same fundamental problems: geospatial data is messy, GPS can be spoofed, and spatial computations weren't viable on-chain. 
+
+In every instance, they spent more time building the location layer than the app itself. But today, with new Ethereum developments, they can finally build the stack they always wished they’d had.
+
+## Astral
+
+For the past year, John and Adam have been working with Dr. Taylor Oshan, an associate professor of Geographical Sciences at the University of Maryland. “I met him because he picked up some work that I had done with the Kernel crowd on storing satellite imagery on IPFS (InterPlanetary File System),” John told us.
+
+They’ve been exploring Proof of Location (PoL) systems via their [Location Protocol](https://docs.astral.global/location-protocol/introduction) – signed, structured claims that describe place, time, and identity. It’s built on the Ethereum Attestation Service (EAS) – an open-source protocol that enables anyone to create and verify cryptographically signed claims about anything.
+
+What makes Location Protocol scalable is the combination of EAS's attestation infrastructure and Ethereum's EigenLayer, a restaking protocol that empowers validators to verify applications and protocols beyond the Ethereum ecosystem – inheriting Ethereum's security without bootstrapping their own validator set from scratch.
+
+Astral built EigenLocation AVS (Actively Validated Service, a custom validation network), which verifies location proofs and runs geospatial computation – think geofencing (e.g. ride-sharing apps detecting airport arrivals) and proximity matching (e.g. dating apps showing matches within a certain radius). (Location Protocol is live on Celo, Base, Arbitrum, and Ethereum Sepolia.)
+
+But single attestations aren't enough. “It's really when you stack evidence from different location proof systems that we get into building really durable claims about where things are happening,” John said. In succinct terms: “It’s like multi-factor authentication, but for place.”
+
+By employing various location proof strategies – network-based systems like FOAM, nearfield approaches using NFC chips or Bluetooth, social strategies through peer attestation, and authority-based verification like event check-ins – location proofs gain durability.
+
+Astral’s location proof plugins library will help developers combine these different evidence types, abstracting away the complexity to answer practical questions like: “Where is this validator node located? Where is this data center? Is it GDPR compliant? Is it inside of this country? Is the Ethereum network geographically decentralized?” John explained.
+
+Imagine hyperlocal currencies or voting privileges that decay in value as you move away from their geographic origin. Imagine carbon credit verification tied to specific geographic areas – an extension of Toucan Protocol’s work.
+
+For the first time in web3, physical proximity becomes an economic and governance primitive. And it should be. As John put it: “When location is tied to money, compliance, or reputation, weak evidence creates real risk.” Case in point: North Korea’s shipping practices ([Russia employs similar tactics](https://www.geopoliticalmonitor.com/russias-shadow-fleet-a-masterclass-in-sanctions-evasion/) to avoid sanctions.)
+
+But even benevolent actors don’t want their location known all the time. “A very common, very legitimate response [to Astral] is: but what about privacy? Me sharing where I live on a public blockchain is a bad idea. So we're building with a privacy first mindset.” 
+
+Astral is exploring zero-knowledge location proofs, and addressing privacy through EAS's flexible architecture – location attestations can be signed and kept entirely off-chain, allowing encrypted verification on private servers. 
+
+Undoubtedly, more hybrid solutions will emerge as the community adopts Astral. “Once you set the creative energy of the Ethereum ecosystem on a problem and open up minds to what's possible with a new piece of technology, really cool things can happen.” 
+
+[Spatial.sol](https://docs.astral.global/spatial-sol/introduction) – a suite of smart contracts that bring geospatial logic to the EVM (Ethereum Virtual Machine) – and the Spatial Attestation Toolkit – which provides an [SDK](https://docs.astral.global/sdk/) for working with attestations, standards-compliant [API](https://docs.astral.global/getting-started), and flexible modules – are resources developers will be able to use to start building on Astral. 
+
+“I think we've done what we need to do to build this in the spirit that I want to build it,” John said. “And Kernel has been absolutely central to the actual story, and I think it will remain central to it…it’s a place to move thoughtfully and build things that are worth building – not just barrel forward without thinking it through.”
+
+Kernel is a home of sorts – an orienting force for the placeless as we move about the world, finding ourselves in different environments, online and off, new and well-trodden.
+
+“In Colorado you have this sense of geologic time,” John reflected, “but in London, I can wander down the road and end up down where there's a Roman wall next to a church built after the great fire – layers and layers of human history.”
+
+All around us, monuments help us figure out where we are – so we might choose where to go next.
+
+____
+For rabbit hole dwellers, we ask each featured fellow to share some deeper technical inspiration – e.g. research docs, whitepapers – that adds depth to their work. 
+
+These are John’s:
+
+[A Guide to Coordinate Systems in Great Britain](https://www.ordnancesurvey.co.uk/documents/resources/guide-coordinate-systems-great-britain.pdf)
+[How To Read Water](https://www.naturalnavigator.com/how-to-read-water/)
+[The FOAM Whitepaper](https://foam.space/publicAssets/FOAM_Whitepaper.pdf)
+
+Building something interesting? Come and join us. [Apply for KB11](https://apply.kernel.community/11).
