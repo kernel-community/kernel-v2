@@ -119,6 +119,7 @@ export default ({ children, pageContext }) => {
     title,
     description,
     keywords,
+    featuredImage: postImage,
   }
 
   return (
