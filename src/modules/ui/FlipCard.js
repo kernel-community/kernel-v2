@@ -15,7 +15,7 @@ const styles = {
     width: '100%',
   },
   cardHeight: {
-    height: 345, 
+    height: 345,
   },
   flipCardInner: {
     position: 'relative',
@@ -134,8 +134,12 @@ const FlipCard = ({
             aria-pressed={isFlipped}
             style={styles.flipBtn}
             onClick={() => setIsFlipped(true)}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgb(229, 231, 235)')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}>
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = 'rgb(229, 231, 235)')
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = 'transparent')
+            }>
             <RotateIcon />
           </button>
 
@@ -173,8 +177,12 @@ const FlipCard = ({
             aria-pressed={!isFlipped}
             style={styles.flipBtn}
             onClick={() => setIsFlipped(false)}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgb(209, 213, 219)')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}>
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = 'rgb(209, 213, 219)')
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = 'transparent')
+            }>
             <RotateIcon />
           </button>
 

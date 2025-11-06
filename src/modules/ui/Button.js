@@ -29,10 +29,10 @@ const Button = ({
     variant || secondary
       ? 'secondary'
       : outline
-      ? 'outline'
-      : text
-      ? 'text'
-      : 'primary'
+        ? 'outline'
+        : text
+          ? 'text'
+          : 'primary'
   }${small ? 'Small' : ''}`
 
   const internal = /^\/(?!\/)/.test(href) || /^\/(?!\/)/.test(to)

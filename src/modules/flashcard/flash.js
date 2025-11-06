@@ -123,8 +123,8 @@ const Flash = ({ children }) => {
             completed
               ? 'completed'
               : isCurrentlyRevealed
-              ? 'active'
-              : 'inactive'
+                ? 'active'
+                : 'inactive'
           }
           sx={{ position: completed ? 'absolute' : 'initial' }}>
           <Flex
