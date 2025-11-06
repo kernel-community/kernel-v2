@@ -39,13 +39,13 @@ const BlogHome = ({ data }) => {
           )
           .slice(0, 3)
       : types.length > 0
-      ? types.map((type) =>
-          data.allMdx.edges.find(
-            ({ node }) =>
-              getBlogPostTypeFromPath(node.fileAbsolutePath) === type
+        ? types.map((type) =>
+            data.allMdx.edges.find(
+              ({ node }) =>
+                getBlogPostTypeFromPath(node.fileAbsolutePath) === type
+            )
           )
-        )
-      : data.allMdx.edges.slice(0, 3)
+        : data.allMdx.edges.slice(0, 3)
 
   const [sectionData, setSectionData] = useState({
     type: initialSectionExists ? initialSection : null,

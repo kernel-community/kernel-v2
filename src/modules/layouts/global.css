@@ -60,8 +60,9 @@ pre[class*='language-'] {
 pre[class*='language-']::before {
   color: #232129;
   font-size: 0.75rem;
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
+  font-family:
+    SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
   letter-spacing: 0.085em;
   font-weight: 500;
   line-height: 1;

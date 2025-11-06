@@ -79,11 +79,15 @@ function SEO({ description, lang, meta, title, keywords, url, featuredImage }) {
         },
         {
           property: 'og:image',
-          content: featuredImage?.startsWith('http') ? featuredImage : `https://read.kernel.community${featuredImage}`,
+          content: featuredImage?.startsWith('http')
+            ? featuredImage
+            : `https://read.kernel.community${featuredImage}`,
         },
         {
           name: 'twitter:image',
-          content: featuredImage?.startsWith('http') ? featuredImage : `https://read.kernel.community${featuredImage}`,
+          content: featuredImage?.startsWith('http')
+            ? featuredImage
+            : `https://read.kernel.community${featuredImage}`,
         },
         {
           name: `twitter:description`,
