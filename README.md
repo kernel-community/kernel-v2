@@ -1,26 +1,8 @@
 # [Kernel Community](https://kernel.community)
 
-This repo hosts the code for a new type of online learning environment, which mixes personal thinking skills with technical practices via a focus on conversation and relationality. It is part of our ongoing efforts to make learning free, in both senses.
+This repo hosted the code for Kernel V2. 
 
-## Getting Started
-
-**Dependencies**
-
-1. Yarn
-2. Node v14 (we recommend [nvm](https://github.com/nvm-sh/nvm))
-
-```
-git clone https://github.com/kernel-community/kernel-v2.git
-cd kernel-v2
-yarn
-yarn start
-```
-
-**Codespace**
-
-We have also created a codespace for this repository, which you should be able to use by clicking the green `Code` button above and following the codespace tab to run this directly in your browser with everything automatically set up.
-
-Check out the `guiding` directory under `content/en` for everything you need to know about how to work with this site, from a cheatsheet and component palette, to detail about how translations, search, and navigation are handled.
+You can find the content, continually improved at https://kernel.community and in our new [book](https://github.com/kernel-community/book) repo. All remains part of our ongoing efforts to make learning free.
 
 ## Roadmap
 

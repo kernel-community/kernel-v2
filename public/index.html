@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Get the current path and query string immediately
+        (function() {
+            const path = window.location.pathname;
+            const search = window.location.search;
+            const hash = window.location.hash;
+            const redirectUrl = 'https://www.kernel.community' + path + search + hash;
+            window.location.replace(redirectUrl);
+        })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=https://www.kernel.community">
+</head>
+<body>
+    <p>Redirecting to <a href="https://www.kernel.community">www.kernel.community</a>...</p>
+</body>
+</html>
+
+
